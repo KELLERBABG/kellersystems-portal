@@ -16,13 +16,17 @@
   <header class="header">
     <div class="container nav-inner">
       <a href="/" class="brand">
-        <span class="brand-mark">KS</span>
+        <!-- Logo Option 4: The Precision Vector K -->
+        <svg class="brand-logo-icon" width="22" height="22" viewBox="0 0 32 32" fill="none">
+          <path d="M7 6V26" stroke="#f0f2f5" stroke-width="2.75" stroke-linecap="round"/>
+          <path d="M25 7L12 16L25 25" stroke="#60a5fa" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         <span class="brand-title">Keller Systems</span>
       </a>
       <nav class="nav-links">
         <a href="#overview">Overview</a>
-        <a href="#featured">Key Projects</a>
-        <a href="#all-work">Repository Index</a>
+        <a href="#featured">Featured Architectures</a>
+        <a href="#all-work">Repository Directory</a>
         <a href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer" class="nav-external">
           GitHub
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -34,200 +38,193 @@
   </header>
 
   <main>
-    <!-- Intro / Philosophy Section -->
+    <!-- Intro / Overview -->
     <section class="section intro-section" id="overview">
       <div class="container">
         <div class="intro-grid">
           <div>
-            <span class="eyebrow">Engineering Portfolio &amp; Index</span>
-            <h1 class="headline">Building systems where correctness, privacy, and physics intersect.</h1>
+            <span class="eyebrow">Engineering Systems &amp; R&amp;D</span>
+            <h1 class="headline">Deterministic systems, post-quantum networks, and physical computing.</h1>
           </div>
           <div class="intro-copy">
             <p>
-              I design and engineer systems with a focus on deterministic behavior and sovereign computation. The work here spans low-level systems programming in Rust, post-quantum network protocols, computational physics instrumentation, and formal methods.
-            </p>
-            <p class="intro-guide">
-              <strong>What to look out for:</strong> Most projects are organized as independent crates or standalone engines with self-contained mathematical models, automated tests, or hardware-in-the-loop simulations.
+              Independent research and systems engineering focused on cryptographic sovereignty, high-assurance embedded execution, and novel physical instrumentation. Most crates are built in memory-safe Rust with minimal external dependencies.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Projects (Curated deep dives with simple, honest explanations) -->
+    <!-- Featured Projects (Tight, informative, zero fluff) -->
     <section class="section" id="featured">
       <div class="container">
         <div class="section-label">
-          <span>Featured Systems</span>
-          <span class="label-desc">Core architectures &amp; ongoing research</span>
+          <span>Featured Architectures</span>
+          <span class="label-desc">Core systems and active research implementations</span>
         </div>
 
         <div class="featured-list">
 
-          <!-- Featured 1: Global Ghost Net -->
-          <article class="project-row">
-            <div class="project-col-main">
+          <!-- Global Ghost Net -->
+          <article class="project-card">
+            <div class="card-main">
               <div class="project-header">
-                <span class="project-tag">Distributed Systems</span>
+                <span class="project-tag">Distributed Networks</span>
                 <h2 class="project-name">
                   <a href="https://github.com/KELLERBABG/Global-Ghost-Net" target="_blank" rel="noopener noreferrer">
                     Global Ghost Net
-                    <svg class="arrow" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </a>
                 </h2>
               </div>
-              <p class="project-summary">
-                A serverless WAN mesh network daemon in pure Rust that eliminates centralized VPN relays and trusted Certificate Authorities.
+              <p class="project-desc">
+                Serverless peer-to-peer WAN mesh routing daemon written in pure Rust. Instead of relying on central VPN choke points or certificate authorities, nodes establish direct authenticated mesh tunnels with uniform packet padding and randomized timing jitter to neutralize deep packet inspection.
               </p>
-              <div class="callout">
-                <div class="callout-title">What to look out for in the code:</div>
-                <ul>
-                  <li><strong>Hybrid Post-Quantum Key Exchange:</strong> Combines NIST ML-KEM-512 (Kyber) with ephemeral X25519 for forward-secret resilience against future quantum decryption.</li>
-                  <li><strong>Reed-Solomon Sharding:</strong> Packets are split into mathematical shards (RS 2,1) and routed across divergent peer paths so no single relay sees the complete payload.</li>
-                  <li><strong>Uniform packet sizing &amp; jitter:</strong> Mitigates statistical timing and traffic-length fingerprinting.</li>
-                </ul>
+              <div class="tech-spec-row">
+                <div class="spec-item">
+                  <span class="spec-label">Key Primitives</span>
+                  <span class="spec-value">Hybrid ML-KEM-512 (Kyber) + X25519 ECDH for forward-secret post-quantum encryption.</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Fault Resilience</span>
+                  <span class="spec-value">Reed-Solomon RS(2,1) erasure coding splits payloads across disparate relay paths.</span>
+                </div>
               </div>
             </div>
-            <div class="project-col-meta">
-              <div class="meta-group">
-                <span class="meta-label">Primary Stack</span>
-                <span class="meta-val">Rust &bull; Tokio &bull; UDP</span>
+            <div class="card-aside">
+              <div class="aside-item">
+                <span class="aside-label">Stack</span>
+                <span class="aside-val">Rust &bull; Tokio &bull; UDP</span>
               </div>
-              <div class="meta-group">
-                <span class="meta-label">Architecture</span>
-                <span class="meta-val">P2P Mesh / Reed-Solomon</span>
-              </div>
-              <div class="meta-group">
-                <span class="meta-label">Companion Repos</span>
-                <span class="meta-val">
-                  <a href="https://github.com/KELLERBABG/FluidIP">FluidIP</a>, 
+              <div class="aside-item">
+                <span class="aside-label">Related Work</span>
+                <div class="aside-links">
+                  <a href="https://github.com/KELLERBABG/FluidIP">FluidIP</a>
                   <a href="https://github.com/KELLERBABG/Vantablack">Vantablack</a>
-                </span>
+                </div>
               </div>
             </div>
           </article>
 
-          <!-- Featured 2: MuonScope -->
-          <article class="project-row">
-            <div class="project-col-main">
+          <!-- MuonScope -->
+          <article class="project-card">
+            <div class="card-main">
               <div class="project-header">
                 <span class="project-tag">Applied Physics &amp; DSP</span>
                 <h2 class="project-name">
                   <a href="https://github.com/KELLERBABG/MuonScope-Tomography" target="_blank" rel="noopener noreferrer">
                     MuonScope Tomography
-                    <svg class="arrow" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </a>
                 </h2>
               </div>
-              <p class="project-summary">
-                A non-destructive 3D structural imaging system that uses naturally occurring, relativistic cosmic-ray muons to reconstruct interior density maps of shielded or dense objects.
+              <p class="project-desc">
+                Cosmic-ray muon scattering and absorption tomography pipeline. Harnesses natural relativistic cosmic-ray muons to non-destructively invert interior 3D density distributions inside opaque, heavily shielded structures without artificial radiation sources.
               </p>
-              <div class="callout">
-                <div class="callout-title">What to look out for in the code:</div>
-                <ul>
-                  <li><strong>Point of Closest Approach (PoCA) Inversion:</strong> 3D ray-tracing algorithm calculating deflection angles of muon trajectories passing through material volumes.</li>
-                  <li><strong>Hardware Digital Twin:</strong> Silicon strip detector geometry modeled alongside FPGA coincidence triggering logic.</li>
-                </ul>
+              <div class="tech-spec-row">
+                <div class="spec-item">
+                  <span class="spec-label">Reconstruction Core</span>
+                  <span class="spec-value">Point of Closest Approach (PoCA) 3D ray-tracing solver for angular trajectory deflection.</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Detector Modeling</span>
+                  <span class="spec-value">Multi-layer silicon strip digital twin with coincidence window timing and FPGA trigger logic.</span>
+                </div>
               </div>
             </div>
-            <div class="project-col-meta">
-              <div class="meta-group">
-                <span class="meta-label">Primary Stack</span>
-                <span class="meta-val">Python &bull; TypeScript &bull; NumPy</span>
+            <div class="card-aside">
+              <div class="aside-item">
+                <span class="aside-label">Stack</span>
+                <span class="aside-val">Python &bull; TypeScript &bull; NumPy</span>
               </div>
-              <div class="meta-group">
-                <span class="meta-label">Domain</span>
-                <span class="meta-val">Scattering Tomography / DSP</span>
-              </div>
-              <div class="meta-group">
-                <span class="meta-label">Companion Repos</span>
-                <span class="meta-val">
+              <div class="aside-item">
+                <span class="aside-label">Related Work</span>
+                <div class="aside-links">
                   <a href="https://github.com/KELLERBABG/MuonScope-Engine">MuonScope-Engine</a>
-                </span>
+                  <a href="https://github.com/KELLERBABG/HoloForge">HoloForge</a>
+                </div>
               </div>
             </div>
           </article>
 
-          <!-- Featured 3: PlaneOS -->
-          <article class="project-row">
-            <div class="project-col-main">
+          <!-- PlaneOS -->
+          <article class="project-card">
+            <div class="card-main">
               <div class="project-header">
-                <span class="project-tag">Avionics &amp; Safety Kernels</span>
+                <span class="project-tag">Embedded &amp; Avionics</span>
                 <h2 class="project-name">
                   <a href="https://github.com/KELLERBABG/PlaneOS" target="_blank" rel="noopener noreferrer">
                     PlaneOS
-                    <svg class="arrow" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </a>
                 </h2>
               </div>
-              <p class="project-summary">
-                Research prototype exploring deterministic flight control kernels, sensor fusion voters, and flight-envelope protection in memory-safe systems languages.
+              <p class="project-desc">
+                High-assurance flight control prototype exploring deterministic scheduling and envelope protection in Rust. Implements static memory guarantees to eliminate non-deterministic allocation jitter and GC pause times during critical control loops.
               </p>
-              <div class="callout">
-                <div class="callout-title">What to look out for in the code:</div>
-                <ul>
-                  <li><strong>Deterministic Control Loop:</strong> Static allocation (zero heap churn during active loops) to guarantee bounded execution times.</li>
-                  <li><strong>Triple Modular Redundancy (TMR):</strong> Voting algorithms for cross-checking accelerometer and gyroscopic telemetry.</li>
-                </ul>
+              <div class="tech-spec-row">
+                <div class="spec-item">
+                  <span class="spec-label">Safety Kernel</span>
+                  <span class="spec-value">Triple Modular Redundant (TMR) sensor voters and boundary assertion invariants.</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Design Standards</span>
+                  <span class="spec-value">DO-178C DAL A formal methods research guidelines with static verification.</span>
+                </div>
               </div>
             </div>
-            <div class="project-col-meta">
-              <div class="meta-group">
-                <span class="meta-label">Primary Stack</span>
-                <span class="meta-val">Rust (no_std friendly)</span>
+            <div class="card-aside">
+              <div class="aside-item">
+                <span class="aside-label">Stack</span>
+                <span class="aside-val">Rust (no_std compatible)</span>
               </div>
-              <div class="meta-group">
-                <span class="meta-label">Target Standards</span>
-                <span class="meta-val">DO-178C DAL A Research</span>
-              </div>
-              <div class="meta-group">
-                <span class="meta-label">Companion Repos</span>
-                <span class="meta-val">
-                  <a href="https://github.com/KELLERBABG/TransitOS">TransitOS</a>, 
+              <div class="aside-item">
+                <span class="aside-label">Related Work</span>
+                <div class="aside-links">
+                  <a href="https://github.com/KELLERBABG/KELLER-OS">KELLER-OS</a>
                   <a href="https://github.com/KELLERBABG/OP-Roboter">OP-Roboter</a>
-                </span>
+                </div>
               </div>
             </div>
           </article>
 
-          <!-- Featured 4: SybilGuard & Cryptographic Privacy -->
-          <article class="project-row">
-            <div class="project-col-main">
+          <!-- SybilGuard & Crypto Primitives -->
+          <article class="project-card">
+            <div class="card-main">
               <div class="project-header">
-                <span class="project-tag">Zero-Knowledge &amp; Verification</span>
+                <span class="project-tag">Cryptography &amp; Formal ZK</span>
                 <h2 class="project-name">
                   <a href="https://github.com/KELLERBABG/SybilGuard" target="_blank" rel="noopener noreferrer">
-                    SybilGuard &amp; ZK Protocols
-                    <svg class="arrow" width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    SybilGuard &amp; Sovereign Core
+                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </a>
                 </h2>
               </div>
-              <p class="project-summary">
-                A zero-knowledge proof-of-personhood protocol designed to resist Sybil attacks through graph topology metrics without exposing biometric identity data.
+              <p class="project-desc">
+                Cryptographic identity and proof-of-personhood protocol. Evaluates trust topology using zero-knowledge proofs to confirm network graph connectivity without disclosing the user's graph neighborhood, biometric secrets, or transactional footprint.
               </p>
-              <div class="callout">
-                <div class="callout-title">What to look out for in the code:</div>
-                <ul>
-                  <li><strong>Zero-Knowledge SNARK circuits:</strong> Proves graph connectivity score is above a threshold without revealing node neighbors or identity.</li>
-                  <li><strong>Homomorphic &amp; SMPC primitives:</strong> Complementary work in <a href="https://github.com/KELLERBABG/FHE-DB">FHE-DB</a> and <a href="https://github.com/KELLERBABG/SMPC-DP">SMPC-DP</a> for computing directly on encrypted records.</li>
-                </ul>
+              <div class="tech-spec-row">
+                <div class="spec-item">
+                  <span class="spec-label">Privacy Mechanics</span>
+                  <span class="spec-value">zk-SNARK circuits for non-interactive graph verification; homomorphic operations for private state scoring.</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">EVM Analysis</span>
+                  <span class="spec-value">Paired with <a href="https://github.com/KELLERBABG/SymEx-EVM">SymEx-EVM</a> for SMT-solver symbolic bytecode execution.</span>
+                </div>
               </div>
             </div>
-            <div class="project-col-meta">
-              <div class="meta-group">
-                <span class="meta-label">Primary Stack</span>
-                <span class="meta-val">Rust &bull; Bellman &bull; Arkworks</span>
+            <div class="card-aside">
+              <div class="aside-item">
+                <span class="aside-label">Stack</span>
+                <span class="aside-val">Rust &bull; Bellman / Arkworks</span>
               </div>
-              <div class="meta-group">
-                <span class="meta-label">Domain</span>
-                <span class="meta-val">ZK Proofs / Graph Theory</span>
-              </div>
-              <div class="meta-group">
-                <span class="meta-label">Companion Repos</span>
-                <span class="meta-val">
-                  <a href="https://github.com/KELLERBABG/SymEx-EVM">SymEx-EVM</a>, 
-                  <a href="https://github.com/KELLERBABG/ZKG">ZKG</a>
-                </span>
+              <div class="aside-item">
+                <span class="aside-label">Related Work</span>
+                <div class="aside-links">
+                  <a href="https://github.com/KELLERBABG/FHE-DB">FHE-DB</a>
+                  <a href="https://github.com/KELLERBABG/SMPC-DP">SMPC-DP</a>
+                </div>
               </div>
             </div>
           </article>
@@ -236,12 +233,12 @@
       </div>
     </section>
 
-    <!-- Complete Repository Index / Table (Linear / Oxide styled) -->
+    <!-- Complete Repository Index / Table -->
     <section class="section index-section" id="all-work">
       <div class="container">
         <div class="section-label">
-          <span>Complete Repository Directory</span>
-          <span class="label-desc">Direct access to all 41 public codebases</span>
+          <span>Repository Directory</span>
+          <span class="label-desc">Direct index of all 41 public codebases</span>
         </div>
 
         <!-- Filter Controls -->
@@ -251,7 +248,7 @@
               <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/>
               <path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
-            <input type="text" id="repoSearch" placeholder="Filter by name, topic, or language..." autocomplete="off">
+            <input type="text" id="repoSearch" placeholder="Filter by name, description, or stack..." autocomplete="off">
           </div>
           <div class="pills-list" id="filterPills">
             <button class="pill active" data-filter="all">All</button>
