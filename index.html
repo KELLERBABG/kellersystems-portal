@@ -3,179 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keller Systems | Research & Engineering</title>
-  <meta name="description" content="Keller Systems: High-assurance systems, zero-knowledge proofs, decentralized networks, avionics & robotics.">
+  <title>Keller Systems &bull; High-Assurance Systems & Applied Physics</title>
+  <meta name="description" content="Keller Systems: Deep tech, post-quantum WAN mesh routing, muon scattering tomography, avionics safety kernels, and formally verified systems.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg-glow bg-glow-1"></div>
-  <div class="bg-glow bg-glow-2"></div>
-  <div class="bg-grid-overlay"></div>
 
-  <header class="site-header">
-    <div class="container nav-container">
+  <!-- Top System Status Strip -->
+  <aside class="system-bar">
+    <div class="container system-bar-inner">
+      <div class="sys-left">
+        <span class="status-indicator"></span>
+        <span class="sys-mono">SYS_NET: ACTIVE // NODES: 41 CODEBASES</span>
+      </div>
+      <div class="sys-right">
+        <span class="sys-mono">SEC_LEVEL: QUANTUM-RESILIENT (ML-KEM-512)</span>
+        <span class="sys-sep">|</span>
+        <span class="sys-mono">DOMAIN: KELLERSYSTEMS.DEV</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation -->
+  <header class="terminal-nav">
+    <div class="container nav-row">
       <a href="#" class="brand">
-        <span class="brand-logo">KS</span>
-        <span class="brand-name">KELLER SYSTEMS</span>
+        <span class="brand-glyph">&#128420;</span>
+        <span class="brand-text">KELLER<strong>SYSTEMS</strong></span>
+        <span class="badge-tag">R&amp;D</span>
       </a>
-      <nav class="nav-links">
-        <a href="#repositories" class="nav-link">Repositories</a>
-        <a href="#domains" class="nav-link">Focus Areas</a>
-        <a href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-          GitHub
+      <div class="nav-actions">
+        <a href="#featured" class="nav-item">Pillars</a>
+        <a href="#catalog" class="nav-item">Index [41]</a>
+        <a href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer" class="btn-terminal">
+          <span>gh/KELLERBABG</span>
+          <span class="btn-arr">&rarr;</span>
         </a>
-      </nav>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="hero-section">
-      <div class="container hero-content">
-        <div class="hero-badge">
-          <span class="status-indicator"></span>
-          <span>Core Infrastructure & Engineering Portal</span>
-        </div>
-        <h1 class="hero-title">
-          High-Assurance <span class="gradient-text">Autonomous Systems</span> & Cryptography
-        </h1>
-        <p class="hero-subtitle">
-          Decentralized post-quantum mesh networks, zero-knowledge verification kernels, real-time aerospace operating systems, and cosmic-ray tomography pipelines.
-        </p>
-
-        <div class="hero-stats">
-          <div class="stat-card">
-            <div class="stat-number" id="repoCount">24+</div>
-            <div class="stat-label">Core Repositories</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">Rust & C++</div>
-            <div class="stat-label">Core Systems</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">Zero-Knowledge</div>
-            <div class="stat-label">ZK Proofs & Privacy</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">Deterministic</div>
-            <div class="stat-label">Safety Kernels</div>
-          </div>
-        </div>
-
-        <div class="hero-actions">
-          <a href="#repositories" class="btn btn-primary">
-            Explore Repositories
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-          </a>
-          <a href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            GitHub Profile
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="domains" class="focus-section">
+    <!-- Technical Hero -->
+    <section class="hero-tech">
       <div class="container">
-        <div class="section-header">
-          <div class="tag">Taxonomy</div>
-          <h2>Specialized Engineering Disciplines</h2>
-          <p>Architected for extreme fault tolerance, formal provability, and distributed sovereign computing.</p>
-        </div>
-
-        <div class="focus-grid">
-          <div class="focus-card">
-            <div class="focus-icon">🛡️</div>
-            <h3>Zero-Knowledge & Privacy</h3>
-            <p>Homomorphic encryption databases, Sybil-resistant zk-biometrics, and multi-party computation with differential privacy.</p>
-            <div class="focus-tags">
-              <span>SybilGuard</span><span>FHE-DB</span><span>SMPC-DP</span><span>ZKG</span>
-            </div>
+        <div class="spec-terminal">
+          <div class="spec-header">
+            <span class="circle-btn red"></span>
+            <span class="circle-btn yellow"></span>
+            <span class="circle-btn green"></span>
+            <span class="spec-title">keller-systems-manifest --v2.4.0 (x86_64-unknown-linux-musl)</span>
           </div>
+          <div class="spec-body">
+            <div class="code-line prompt"><span class="cmd-usr">operator@kellersystems</span>:<span class="cmd-path">~</span>$ ./inspect_infrastructure.sh --domain=all</div>
+            <div class="terminal-output">
+              <h1 class="main-heading">Applied Physics, Cryptographic Sovereignty &amp; Deterministic Kernels</h1>
+              <p class="manifesto">
+                Zero-trust systems engineered from first principles. From relativistic atmospheric muon tomography to post-quantum onion-routed WAN mesh networks and mathematically verified flight-envelope supervisor kernels.
+              </p>
 
-          <div class="focus-card">
-            <div class="focus-icon">🛰️</div>
-            <h3>Autonomous Kernels & Avionics</h3>
-            <p>High-assurance embedded OS kernels with deterministic safety monitors for avionics, surgical robotics, and transit routing.</p>
-            <div class="focus-tags">
-              <span>PlaneOS</span><span>TransitOS</span><span>OP-Roboter</span><span>KELLER-OS</span>
-            </div>
-          </div>
-
-          <div class="focus-card">
-            <div class="focus-icon">🌐</div>
-            <h3>Decentralized Mesh & Networks</h3>
-            <p>Post-quantum WAN mesh architecture with erasure-sharded onion routing and dynamic fluid packet topology.</p>
-            <div class="focus-tags">
-              <span>Global-Ghost-Net</span><span>FluidIP</span><span>Vantablack</span><span>GGN</span>
-            </div>
-          </div>
-
-          <div class="focus-card">
-            <div class="focus-icon">🔬</div>
-            <h3>Deep Physics & Sensorics</h3>
-            <p>Cosmic-ray muon scattering tomography (PoCA 3D reconstruction) and biological mycelium computational networks.</p>
-            <div class="focus-tags">
-              <span>MuonScope</span><span>MycoSwarm</span><span>HoloForge</span><span>TerraFlux</span>
+              <div class="badges-row">
+                <span class="badge-spec badge-blue">Rust (Pure / no_std)</span>
+                <span class="badge-spec badge-purple">ML-KEM-512 &bull; X25519</span>
+                <span class="badge-spec badge-emerald">Reed-Solomon RS(2,1)</span>
+                <span class="badge-spec badge-cyan">PoCA 3D Inversion</span>
+                <span class="badge-spec badge-amber">DO-178C DAL A Research</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="repositories" class="repos-section">
+    <!-- Key Deep Tech Pillars -->
+    <section id="featured" class="pillars-section">
       <div class="container">
-        <div class="section-header">
-          <div class="tag">Codebase Index</div>
-          <h2>Explore Repositories</h2>
-          <p>Filter or search through all Keller Systems open engineering projects.</p>
+        <div class="terminal-divider">
+          <span class="divider-label">// RESEARCH_PILLARS.CFG</span>
         </div>
 
-        <div class="repo-controls">
-          <div class="search-box">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input type="text" id="repoSearch" placeholder="Search by name, technology, or keywords...">
-          </div>
+        <div class="pillars-grid">
+          <!-- Pillar 1 -->
+          <article class="pillar-card">
+            <div class="pillar-meta">
+              <span class="pillar-id">SEC-01</span>
+              <span class="pillar-status">AUTONOMOUS</span>
+            </div>
+            <h3>Post-Quantum Mesh &amp; Sovereignty</h3>
+            <p>
+              Decentralized, zero-infrastructure peer-to-peer mesh networks eliminating trusted CAs and centralized VPN choke points. Traffic is sliced into Reed-Solomon erasure shards routed over divergent IP paths with ML-KEM-512 post-quantum key encapsulation.
+            </p>
+            <div class="pillar-repos">
+              <a href="https://github.com/KELLERBABG/Global-Ghost-Net" class="repo-link">Global-Ghost-Net</a>
+              <a href="https://github.com/KELLERBABG/FluidIP" class="repo-link">FluidIP</a>
+              <a href="https://github.com/KELLERBABG/Vantablack" class="repo-link">Vantablack</a>
+              <a href="https://github.com/KELLERBABG/Sovereign-Core" class="repo-link">Sovereign-Core</a>
+            </div>
+          </article>
 
-          <div class="filter-pills" id="filterPills">
-            <button class="pill active" data-filter="all">All Projects</button>
-            <button class="pill" data-filter="Rust">Rust</button>
-            <button class="pill" data-filter="TypeScript">TypeScript</button>
-            <button class="pill" data-filter="Python">Python</button>
-            <button class="pill" data-filter="Crypto">Cryptography / ZK</button>
-            <button class="pill" data-filter="OS">Real-Time / OS</button>
+          <!-- Pillar 2 -->
+          <article class="pillar-card">
+            <div class="pillar-meta">
+              <span class="pillar-id">PHYS-02</span>
+              <span class="pillar-status">HARDWARE / DSP</span>
+            </div>
+            <h3>Cosmic-Ray Muon Tomography</h3>
+            <p>
+              Passive, non-destructive 3D structural density inversion harnessing relativistic atmospheric cosmic-ray muons. Features real-time Point of Closest Approach (PoCA) ray-tracing kernels and FPGA-accelerated silicon detector architectures.
+            </p>
+            <div class="pillar-repos">
+              <a href="https://github.com/KELLERBABG/MuonScope-Tomography" class="repo-link">MuonScope-Tomography</a>
+              <a href="https://github.com/KELLERBABG/MuonScope-Engine" class="repo-link">MuonScope-Engine</a>
+              <a href="https://github.com/KELLERBABG/HoloForge" class="repo-link">HoloForge</a>
+              <a href="https://github.com/KELLERBABG/MycoSwarm" class="repo-link">MycoSwarm</a>
+            </div>
+          </article>
+
+          <!-- Pillar 3 -->
+          <article class="pillar-card">
+            <div class="pillar-meta">
+              <span class="pillar-id">RTOS-03</span>
+              <span class="pillar-status">FORMAL PROOF</span>
+            </div>
+            <h3>High-Assurance Real-Time Kernels</h3>
+            <p>
+              Deterministic flight control prototypes, medical telemetry watchdogs, and surgical kinematic safety barriers. Designed for static formal verification against memory safety violations, state overflow, and timing non-determinism.
+            </p>
+            <div class="pillar-repos">
+              <a href="https://github.com/KELLERBABG/PlaneOS" class="repo-link">PlaneOS</a>
+              <a href="https://github.com/KELLERBABG/KELLER-OS" class="repo-link">KELLER-OS</a>
+              <a href="https://github.com/KELLERBABG/OP-Roboter" class="repo-link">OP-Roboter</a>
+              <a href="https://github.com/KELLERBABG/TransitOS" class="repo-link">TransitOS</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Repositories Catalog -->
+    <section id="catalog" class="catalog-section">
+      <div class="container">
+        <div class="terminal-divider">
+          <span class="divider-label">// CODEBASE_INDEX (QUERY &amp; REGISTRY)</span>
+        </div>
+
+        <!-- Filter & Search Console -->
+        <div class="console-bar">
+          <div class="console-search">
+            <span class="prompt-sym">&gt;</span>
+            <input type="text" id="repoSearch" placeholder="grep --extended-regexp 'pattern'..." autocomplete="off" spellcheck="false">
+          </div>
+          <div class="filter-group" id="filterPills">
+            <button class="pill active" data-filter="all">ALL [41]</button>
+            <button class="pill" data-filter="Rust">RUST</button>
+            <button class="pill" data-filter="Crypto">PQC / CRYPTO</button>
+            <button class="pill" data-filter="OS">REAL-TIME / OS</button>
+            <button class="pill" data-filter="Python">PYTHON</button>
+            <button class="pill" data-filter="TypeScript">TYPESCRIPT</button>
           </div>
         </div>
 
-        <div class="repos-grid" id="reposGrid">
+        <!-- Catalog Grid -->
+        <div class="catalog-grid" id="reposGrid">
+          <!-- Populated by script.js -->
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <div class="footer-left">
-        <span class="brand-logo-mini">KS</span>
-        <div>
-          <div class="footer-brand">Keller Systems</div>
-          <div class="footer-desc">Advanced Research, Deterministic Computing & Sovereign Architecture.</div>
-        </div>
+  <footer class="tech-footer">
+    <div class="container footer-inner">
+      <div class="footer-block">
+        <div class="footer-title">&#128420; KELLER SYSTEMS</div>
+        <p class="footer-text">Deterministic engineering, zero-knowledge computation &amp; high-assurance distributed systems.</p>
       </div>
-      <div class="footer-right">
-        <a href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-        <a href="https://kellersystems.dev">kellersystems.dev</a>
-        <span>&copy; <span id="year">2026</span> Keller Systems</span>
+      <div class="footer-block sys-mono footer-info">
+        <div>HOST: Cloudflare Pages Edge Network</div>
+        <div>GATEWAY: kellersystems.dev</div>
+        <div>ORIGIN: github.com/KELLERBABG</div>
       </div>
     </div>
   </footer>
