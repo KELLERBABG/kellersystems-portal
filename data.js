@@ -80,7 +80,7 @@
         "updated":  "2026-09-06T17:58:57Z"
     },
     {
-        "name":  "Aureal Audio Watermark",
+        "name":  "Aureal Watermark",
         "raw_name":  "Aureal-Watermark",
         "description":  "Audio watermarking for anti-theft and AI detection",
         "url":  "https://aureal.kellersystems.dev",
@@ -100,7 +100,7 @@
         "updated":  "2026-08-25T08:13:41Z"
     },
     {
-        "name":  "BauLens Compliance Vision",
+        "name":  "BauLens",
         "raw_name":  "BauLens",
         "description":  "Deterministic German and EU building code compliance validation engine",
         "url":  "https://lens.kellersystems.dev",
@@ -140,7 +140,7 @@
         "updated":  "2026-09-06T17:59:01Z"
     },
     {
-        "name":  "Fluid IP \u0026 Patent Routing",
+        "name":  "FluidIP",
         "raw_name":  "FluidIP",
         "description":  "Decoupled Fluid IP routing protocol and packet mesh",
         "url":  "https://patent.kellersystems.dev",
@@ -152,7 +152,7 @@
     {
         "name":  "Formal Verification",
         "raw_name":  "Formal-Verification",
-        "description":  "High-assurance systems engineering and core research module.",
+        "description":  "High-assurance engineering codebase and research implementation.",
         "url":  "https://veritas.kellersystems.dev",
         "github_url":  "https://github.com/KELLERBABG/Formal-Verification",
         "language":  "Rust",
@@ -180,7 +180,7 @@
         "updated":  "2026-09-06T17:23:36Z"
     },
     {
-        "name":  "Homomorphic Database (FHE-DB)",
+        "name":  "Homomorphic Database",
         "raw_name":  "Homomorphic-Database",
         "description":  "Homomorphic Encrypted Database (FHE-DB): Relational queries on ciphertext",
         "url":  "https://fhe.kellersystems.dev",
@@ -190,9 +190,9 @@
         "updated":  "2026-09-06T17:59:04Z"
     },
     {
-        "name":  "KELLER-OS Microkernel",
+        "name":  "KELLER-OS",
         "raw_name":  "KELLER-OS",
-        "description":  "High-assurance systems engineering and core research module.",
+        "description":  "High-assurance engineering codebase and research implementation.",
         "url":  "https://kernel.kellersystems.dev",
         "github_url":  "https://github.com/KELLERBABG/KELLER-OS",
         "language":  "Rust",
@@ -230,7 +230,7 @@
         "updated":  "2026-09-06T17:23:51Z"
     },
     {
-        "name":  "Robotic Kinematics Safety Kernel",
+        "name":  "OP-Roboter",
         "raw_name":  "OP-Roboter",
         "description":  "Robotic surgical teleoperation and real-time kinematic safety kernel",
         "url":  "https://kinematics.kellersystems.dev",
@@ -250,7 +250,7 @@
         "updated":  "2026-08-25T08:14:23Z"
     },
     {
-        "name":  "PlaneOS Avionics Kernel",
+        "name":  "PlaneOS",
         "raw_name":  "PlaneOS",
         "description":  "Avionics real-time operating system and flight envelope safety supervisor",
         "url":  "https://plane.kellersystems.dev",
@@ -270,9 +270,9 @@
         "updated":  "2026-09-06T17:59:03Z"
     },
     {
-        "name":  "Smart-Matter",
+        "name":  "Smart Matter",
         "raw_name":  "Smart-Matter",
-        "description":  "High-assurance systems engineering and core research module.",
+        "description":  "High-assurance engineering codebase and research implementation.",
         "url":  "https://smart-matter.kellersystems.dev",
         "github_url":  "https://github.com/KELLERBABG/Smart-Matter",
         "language":  "Rust",
@@ -280,7 +280,7 @@
         "updated":  "2026-08-16T12:17:17Z"
     },
     {
-        "name":  "SMPC Dark Pool \u0026 Differential Privacy",
+        "name":  "SMPC Dark Pool",
         "raw_name":  "SMPC-Dark-Pool",
         "description":  "Secure Multi-Party Computation Dark Pool with differential privacy guarantees",
         "url":  "https://enclave.kellersystems.dev",
@@ -290,7 +290,7 @@
         "updated":  "2026-09-06T17:59:03Z"
     },
     {
-        "name":  "Sovereign-Core",
+        "name":  "Sovereign Core",
         "raw_name":  "Sovereign-Core",
         "description":  "Sovereign cryptographic identity and state verification core",
         "url":  "https://sovereign.kellersystems.dev",
@@ -300,7 +300,7 @@
         "updated":  "2026-08-25T08:18:24Z"
     },
     {
-        "name":  "SybilGuard Proof-of-Personhood",
+        "name":  "SybilGuard",
         "raw_name":  "SybilGuard",
         "description":  "Zero-knowledge Sybil-resistant Proof-of-Personhood biometric protocol",
         "url":  "https://citadel.kellersystems.dev",
@@ -310,7 +310,7 @@
         "updated":  "2026-09-06T17:23:50Z"
     },
     {
-        "name":  "SymEx EVM Symbolic Verifier",
+        "name":  "SymEx EVM",
         "raw_name":  "SymEx-EVM",
         "description":  "Symbolic execution engine for EVM bytecode vulnerability detection and SMT verification",
         "url":  "https://axiom.kellersystems.dev",
@@ -330,7 +330,7 @@
         "updated":  "2026-08-25T08:12:54Z"
     },
     {
-        "name":  "TradeShield DEX Integrity",
+        "name":  "TradeShield",
         "raw_name":  "TradeShield",
         "description":  "Zero-fraud DEX wash-trading detector and volume integrity ledger",
         "url":  "https://trade.kellersystems.dev",
@@ -340,7 +340,7 @@
         "updated":  "2026-08-25T08:13:17Z"
     },
     {
-        "name":  "TransitOS Fleet Kernel",
+        "name":  "TransitOS",
         "raw_name":  "TransitOS",
         "description":  "Autonomous public transit fleet scheduling and demand-responsive routing kernel",
         "url":  "https://transit.kellersystems.dev",
@@ -350,17 +350,7 @@
         "updated":  "2026-08-25T08:32:26Z"
     },
     {
-        "name":  "Vantablack Onion Mesh",
-        "raw_name":  "Vantablack",
-        "description":  "High-assurance systems engineering and core research module.",
-        "url":  "https://vantablack.kellersystems.dev",
-        "github_url":  "https://github.com/KELLERBABG/Vantablack",
-        "language":  "Rust",
-        "category":  "Rust",
-        "updated":  "2026-08-25T08:15:08Z"
-    },
-    {
-        "name":  "Zero-Knowledge Genome",
+        "name":  "Zero Knowledge Genome",
         "raw_name":  "Zero-Knowledge-Genome",
         "description":  "Zero-Knowledge Genome: Private biological sequence matching and genomic proofs",
         "url":  "https://zkg.kellersystems.dev",
