@@ -10,16 +10,6 @@
         "updated":  "2026-09-06T17:23:52Z"
     },
     {
-        "name":  "AeroResonance",
-        "raw_name":  "AeroResonance",
-        "description":  "Atmospheric electromagnetic and acoustic resonance energy harvester",
-        "url":  "https://resonance.kellersystems.dev",
-        "github_url":  "https://github.com/KELLERBABG/AeroResonance",
-        "language":  "Rust",
-        "category":  "Rust",
-        "updated":  "2026-08-25T08:30:43Z"
-    },
-    {
         "name":  "Algorithmic Supply Chain Arbitrage",
         "raw_name":  "Algorithmic-Supply-Chain-Arbitrage",
         "description":  "Algorithmic Supply Chain Arbitrage and multi-modal freight routing engine",
