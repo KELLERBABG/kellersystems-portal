@@ -30,6 +30,16 @@
         "updated":  "2026-10-05T00:00:00Z"
     },
     {
+        "name":  "Quantum Entanglement Link",
+        "raw_name":  "QEL",
+        "description":  "Quantum communication network simulation stack: density-matrix states and noise, QKD and error-correcting codes, and fidelity-constrained repeater routing over a mesh topology",
+        "url":  "https://kellerbabg.github.io/QEL/",
+        "github_url":  "https://github.com/KELLERBABG/QEL",
+        "language":  "Python",
+        "category":  "Crypto",
+        "updated":  "2026-10-05T00:00:00Z"
+    },
+    {
         "name":  "AeroDose",
         "raw_name":  "AeroDose",
         "description":  "Occupational wildfire PM2.5 shift dose and compliance ledger",
