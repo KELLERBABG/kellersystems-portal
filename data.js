@@ -1,5 +1,35 @@
 ﻿const REPOSITORIES = [
     {
+        "name":  "ABOS",
+        "raw_name":  "ABOS",
+        "description":  "Atmospheric Broadcast OS: an SDR and radio-level fallback for internet access, carried by Vantablack as an opt-in submodule",
+        "url":  "https://abos.kellersystems.dev",
+        "github_url":  "https://github.com/KELLERBABG/ABOS",
+        "language":  "Rust",
+        "category":  "OS",
+        "updated":  "2026-09-26T19:28:48Z"
+    },
+    {
+        "name":  "AeroResonance",
+        "raw_name":  "AeroResonance",
+        "description":  "Atmospheric electromagnetic and acoustic resonance energy harvester",
+        "url":  "https://github.com/KELLERBABG/AeroResonance",
+        "github_url":  "https://github.com/KELLERBABG/AeroResonance",
+        "language":  "Rust",
+        "category":  "Rust",
+        "updated":  "2026-09-06T00:00:00Z"
+    },
+    {
+        "name":  "Vantablack",
+        "raw_name":  "Vantablack",
+        "description":  "Post-quantum decentralized WAN mesh network with erasure-sharded onion routing",
+        "url":  "https://vantablack.kellersystems.dev",
+        "github_url":  "https://github.com/KELLERBABG/Vantablack",
+        "language":  "Rust",
+        "category":  "Crypto",
+        "updated":  "2026-10-05T00:00:00Z"
+    },
+    {
         "name":  "AeroDose",
         "raw_name":  "AeroDose",
         "description":  "Occupational wildfire PM2.5 shift dose and compliance ledger",
@@ -48,26 +78,6 @@
         "language":  "Rust",
         "category":  "Rust",
         "updated":  "2026-09-06T17:23:48Z"
-    },
-    {
-        "name":  "AtmoOS",
-        "raw_name":  "AtmoOS",
-        "description":  "Atmospheric Broadcast Operating System and resilient node mesh",
-        "url":  "https://atmo.kellersystems.dev",
-        "github_url":  "https://github.com/KELLERBABG/AtmoOS",
-        "language":  "Rust",
-        "category":  "OS",
-        "updated":  "2026-09-06T17:23:47Z"
-    },
-    {
-        "name":  "Atomic Mesh OS",
-        "raw_name":  "Atomic-Mesh-OS",
-        "description":  "Atomic Mesh Operating System and high-reliability embedded flight mesh kernel",
-        "url":  "https://amos.kellersystems.dev",
-        "github_url":  "https://github.com/KELLERBABG/Atomic-Mesh-OS",
-        "language":  "Python",
-        "category":  "OS",
-        "updated":  "2026-09-06T17:58:57Z"
     },
     {
         "name":  "Aureal Watermark",
@@ -150,20 +160,10 @@
         "updated":  "2026-08-25T08:17:23Z"
     },
     {
-        "name":  "Global Ghost Net",
-        "raw_name":  "Global-Ghost-Net",
-        "description":  ":black_heart: Post-quantum decentralized WAN mesh network with erasure-sharded onion routing (Vantablack)",
-        "url":  "https://ggn.kellersystems.dev",
-        "github_url":  "https://github.com/KELLERBABG/Global-Ghost-Net",
-        "language":  "Rust",
-        "category":  "Crypto",
-        "updated":  "2026-09-06T17:49:51Z"
-    },
-    {
         "name":  "HoloForge",
         "raw_name":  "HoloForge",
-        "description":  "Volumetric 3D light-field neural rendering pipeline",
-        "url":  "https://holoforge.kellersystems.dev",
+        "description":  "Holographic tomographic volumetric 3D printing suite (Tomo-H-VAM)",
+        "url":  "https://github.com/KELLERBABG/HoloForge",
         "github_url":  "https://github.com/KELLERBABG/HoloForge",
         "language":  "Python",
         "category":  "General",
@@ -252,7 +252,7 @@
     {
         "name":  "Planetary Entropy Mining",
         "raw_name":  "Planetary-Entropy-Mining",
-        "description":  "Planetary Entropy Mining: Physical noise harvesting, NIST SP 800-90B, and zk-SNARK certificates",
+        "description":  "Certificates grounded in a measured window of physical noise, with a zero-knowledge proof of honest capture that hides the node's location",
         "url":  "https://pem.kellersystems.dev",
         "github_url":  "https://github.com/KELLERBABG/Planetary-Entropy-Mining",
         "language":  "Python",
@@ -278,16 +278,6 @@
         "language":  "Rust",
         "category":  "Crypto",
         "updated":  "2026-09-06T17:59:03Z"
-    },
-    {
-        "name":  "Sovereign Core",
-        "raw_name":  "Sovereign-Core",
-        "description":  "Sovereign cryptographic identity and state verification core",
-        "url":  "https://sovereign.kellersystems.dev",
-        "github_url":  "https://github.com/KELLERBABG/Sovereign-Core",
-        "language":  "Rust",
-        "category":  "Rust",
-        "updated":  "2026-08-25T08:18:24Z"
     },
     {
         "name":  "SybilGuard",

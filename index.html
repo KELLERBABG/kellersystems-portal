@@ -1,460 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keller Systems &mdash; Deterministic Systems, Cryptography &amp; Hardware Engineering</title>
-  <meta name="description" content="Keller Systems: independent research and systems engineering across post-quantum mesh networks, particle-physics imaging, real-time kernels, and formal verification.">
-  <meta name="theme-color" content="#f2f0eb">
-  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Keller Systems &mdash; Engineering Registry">
-  <meta property="og:description" content="Deterministic systems, post-quantum networks, and physical computing. Every system ships with public source and a dedicated domain.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Scroll-reveal is opt-in: without this class nothing is ever hidden. -->
-  <script>
-    document.documentElement.classList.add('js');
-    /* Watchdog: if script.js never runs, drop the class so all content shows. */
-    setTimeout(function () {
-      if (!window.__ksInit) document.documentElement.classList.remove('js');
-    }, 1500);
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keller Systems &mdash; deterministic systems, post-quantum networks, physical computing</title>
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f6f1e6">
+<meta name="description" content="Independent research and systems engineering: post-quantum mesh routing, cosmic-ray tomography, deterministic flight control, zero-knowledge identity and passive water harvesting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-  <a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip" href="#work">Skip to the work</a>
 
-  <!-- ============================ Header ============================ -->
-  <header class="header">
-    <div class="shell header-inner">
-      <a class="brand" href="/">
-        <img class="brand-mark" src="assets/icon.svg" alt="" width="30" height="30">
-        <span class="brand-text">
-          <span class="brand-title">Keller Systems</span>
-          <span class="brand-sub">Engineering registry</span>
-        </span>
-      </a>
+<!-- progress rail: the fill is computed by the browser, not by script -->
+<div class="progress" aria-hidden="true">
+  <span class="progress-fill"></span>
+  <span class="progress-ticks" id="progressTicks"></span>
+</div>
 
-      <nav class="nav" aria-label="Primary">
-        <a class="nav-link" href="#overview">Overview</a>
-        <a class="nav-link" href="#featured">Featured</a>
-        <a class="nav-link" href="#all-work">Directory</a>
-        <a class="btn btn-ink nav-cta" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">
-          GitHub
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-            <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </nav>
-    </div>
-  </header>
+<!-- ============================== Header ============================== -->
+<header class="top">
+  <div class="wrap toprow">
+    <a class="brand" href="#top">
+      <span class="brandmark" aria-hidden="true"></span>
+      <span class="brandname">Keller Systems<em>Independent R&amp;D</em></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#shelf">All systems</a>
+      <a href="#principles">How we work</a>
+      <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="false" title="Turn the scroll motion on or off">Motion: off</button>
+      <a class="btn btn-primary btn-sm" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">Source &#8599;</a>
+    </nav>
+  </div>
+</header>
 
-  <main id="main">
+<main id="top">
 
-    <!-- ============================ Hero ============================ -->
-    <section class="hero" id="overview">
-      <div class="shell hero-grid">
-        <div class="hero-main">
-          <p class="tag"><span class="tag-dot" aria-hidden="true"></span>Engineering systems &amp; R&amp;D</p>
-
-          <h1 class="hero-title">Deterministic systems, post-quantum networks, and physical computing.</h1>
-
-          <p class="hero-lead">
-            Independent research and systems engineering focused on cryptographic sovereignty,
-            high-assurance embedded execution, and novel physical instrumentation. All systems
-            feature dedicated subdomains and verified source code distributions.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#all-work">
-              Repository directory
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <a class="btn btn-outline" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">
-              github.com/KELLERBABG
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <aside class="plate" aria-label="Registry summary">
-          <div class="plate-head">
-            <span class="plate-kicker">Registry</span>
-            <span class="plate-id">KS&#8209;01</span>
-          </div>
-          <dl class="plate-list">
-            <div class="plate-row">
-              <dt class="plate-key">Scope</dt>
-              <dd class="plate-val">Independent research &amp; systems engineering</dd>
-            </div>
-            <div class="plate-row">
-              <dt class="plate-key">Disciplines</dt>
-              <dd class="plate-val">Cryptography &amp; DSP &middot; Aerospace &amp; hardware &middot; Deep sensing</dd>
-            </div>
-            <div class="plate-row">
-              <dt class="plate-key">Distribution</dt>
-              <dd class="plate-val">Public source &middot; per-system subdomain routing</dd>
-            </div>
-            <div class="plate-row">
-              <dt class="plate-key">Assurance</dt>
-              <dd class="plate-val">Reproducible builds &middot; formal methods</dd>
-            </div>
-          </dl>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ==================== Ticker (signature move) ================== -->
-    <div class="ticker-wrap">
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker-track" id="tickerTrack">
-          <ul class="ticker-list">
-            <li class="ticker-item">Global Ghost Net</li>
-            <li class="ticker-item">MuonScope Tomography</li>
-            <li class="ticker-item">PlaneOS</li>
-            <li class="ticker-item">SybilGuard</li>
-          </ul>
-        </div>
-      </div>
-      <button class="ticker-toggle" id="tickerToggle" type="button" aria-pressed="false">Pause ticker</button>
-    </div>
-
-    <!-- ============================ Stats ============================ -->
-    <section class="stats" aria-label="Registry at a glance">
-      <div class="shell">
-        <div class="stats-grid" data-reveal>
-          <div class="stat">
-            <span class="stat-label">Systems indexed</span>
-            <span class="stat-num" data-stat="systems">&mdash;</span>
-            <span class="stat-note">Registry entries with live distribution</span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Real-time / OS systems</span>
-            <span class="stat-num" data-stat="kernels">&mdash;</span>
-            <span class="stat-note">Kernels, schedulers, and safety cores</span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Cryptography &amp; ZK</span>
-            <span class="stat-num" data-stat="crypto">&mdash;</span>
-            <span class="stat-note">Proof, privacy, and post-quantum systems</span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Runtime targets</span>
-            <span class="stat-num" data-stat="stacks">&mdash;</span>
-            <span class="stat-note" data-stat-note="stacks">Rust &middot; Python &middot; TypeScript &middot; JavaScript &middot; HTML</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== Featured architectures =================== -->
-    <section class="section" id="featured">
-      <div class="shell">
-        <div class="section-head" data-reveal>
-          <p class="section-kicker"><b>01</b> Featured architectures</p>
-          <h2 class="section-title">Core systems and active research implementations.</h2>
-          <p class="section-desc">Four systems that define the current engineering surface &mdash; each with its own domain, stack, and verification story.</p>
-        </div>
-
-        <div class="featured-grid">
-
-          <!-- Global Ghost Net -->
-          <article class="card" data-reveal data-delay="0">
-            <div class="card-body">
-              <div class="card-head">
-                <span class="card-index" aria-hidden="true">01</span>
-                <span class="chip">ggn.kellersystems.dev</span>
-                <h3 class="card-title">
-                  <a href="https://ggn.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-                    <img class="tile" data-mono="G" src="https://raw.githubusercontent.com/KELLERBABG/Global-Ghost-Net/main/assets/icon.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
-                    Global Ghost Net
-                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                      <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
-                </h3>
-              </div>
-              <p class="card-desc">
-                Serverless peer-to-peer WAN mesh routing daemon written in pure Rust. Nodes establish direct
-                authenticated mesh tunnels with uniform packet padding and randomized timing jitter to defeat
-                deep packet inspection.
-              </p>
-              <div class="spec-grid">
-                <div class="spec">
-                  <span class="spec-key">Key primitives</span>
-                  <span class="spec-val">Hybrid ML-KEM-512 (Kyber) + X25519 ECDH for forward-secret post-quantum encryption.</span>
-                </div>
-                <div class="spec">
-                  <span class="spec-key">Fault resilience</span>
-                  <span class="spec-val">Reed-Solomon RS(2,1) erasure coding splits payloads across disparate relay paths.</span>
-                </div>
-              </div>
-            </div>
-            <div class="card-aside">
-              <div class="aside-block">
-                <span class="aside-key">Stack</span>
-                <span class="aside-val">Rust &bull; Tokio &bull; UDP</span>
-              </div>
-              <div class="aside-block">
-                <span class="aside-key">Ecosystem links</span>
-                <div class="aside-links">
-                  <a class="link-chip" href="https://ggn.kellersystems.dev" target="_blank" rel="noopener noreferrer">Landing page</a>
-                  <a class="link-chip" href="https://patent.kellersystems.dev" target="_blank" rel="noopener noreferrer">FluidIP</a>
-                  <a class="link-chip" href="https://github.com/KELLERBABG/Global-Ghost-Net" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- MuonScope -->
-          <article class="card" data-reveal data-delay="70">
-            <div class="card-body">
-              <div class="card-head">
-                <span class="card-index" aria-hidden="true">02</span>
-                <span class="chip">muon.kellersystems.dev</span>
-                <h3 class="card-title">
-                  <a href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-                    <img class="tile" data-mono="M" src="https://raw.githubusercontent.com/KELLERBABG/MuonScope-Tomography/main/assets/icon.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
-                    MuonScope Tomography
-                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                      <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
-                </h3>
-              </div>
-              <p class="card-desc">
-                Cosmic-ray muon scattering and absorption tomography pipeline. Harnesses natural relativistic
-                cosmic-ray muons to non-destructively invert interior 3D density distributions inside opaque,
-                heavily shielded structures without artificial radiation sources.
-              </p>
-              <div class="spec-grid">
-                <div class="spec">
-                  <span class="spec-key">Reconstruction core</span>
-                  <span class="spec-val">Point of Closest Approach (PoCA) 3D ray-tracing solver for angular trajectory deflection.</span>
-                </div>
-                <div class="spec">
-                  <span class="spec-key">Detector modeling</span>
-                  <span class="spec-val">Multi-layer silicon strip digital twin with coincidence window timing and FPGA trigger logic.</span>
-                </div>
-              </div>
-            </div>
-            <div class="card-aside">
-              <div class="aside-block">
-                <span class="aside-key">Stack</span>
-                <span class="aside-val">Python &bull; TypeScript &bull; NumPy</span>
-              </div>
-              <div class="aside-block">
-                <span class="aside-key">Ecosystem links</span>
-                <div class="aside-links">
-                  <a class="link-chip" href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">Landing page</a>
-                  <a class="link-chip" href="https://holoforge.kellersystems.dev" target="_blank" rel="noopener noreferrer">HoloForge</a>
-                  <a class="link-chip" href="https://github.com/KELLERBABG/MuonScope-Tomography" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- PlaneOS -->
-          <article class="card" data-reveal data-delay="140">
-            <div class="card-body">
-              <div class="card-head">
-                <span class="card-index" aria-hidden="true">03</span>
-                <span class="chip">plane.kellersystems.dev</span>
-                <h3 class="card-title">
-                  <a href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-                    <img class="tile" data-mono="P" src="https://raw.githubusercontent.com/KELLERBABG/PlaneOS/main/assets/icon.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
-                    PlaneOS
-                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                      <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
-                </h3>
-              </div>
-              <p class="card-desc">
-                High-assurance flight control prototype exploring deterministic scheduling and envelope protection
-                in Rust. Implements static memory guarantees to eliminate non-deterministic allocation jitter and
-                GC pause times during critical control loops.
-              </p>
-              <div class="spec-grid">
-                <div class="spec">
-                  <span class="spec-key">Safety kernel</span>
-                  <span class="spec-val">Triple Modular Redundant (TMR) sensor voters and boundary assertion invariants.</span>
-                </div>
-                <div class="spec">
-                  <span class="spec-key">Design standards</span>
-                  <span class="spec-val">DO-178C DAL A formal methods research guidelines with static verification.</span>
-                </div>
-              </div>
-            </div>
-            <div class="card-aside">
-              <div class="aside-block">
-                <span class="aside-key">Stack</span>
-                <span class="aside-val">Rust (no_std compatible)</span>
-              </div>
-              <div class="aside-block">
-                <span class="aside-key">Ecosystem links</span>
-                <div class="aside-links">
-                  <a class="link-chip" href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">Landing page</a>
-                  <a class="link-chip" href="https://kernel.kellersystems.dev" target="_blank" rel="noopener noreferrer">KELLER-OS</a>
-                  <a class="link-chip" href="https://kinematics.kellersystems.dev" target="_blank" rel="noopener noreferrer">OP-Roboter</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- SybilGuard -->
-          <article class="card" data-reveal data-delay="210">
-            <div class="card-body">
-              <div class="card-head">
-                <span class="card-index" aria-hidden="true">04</span>
-                <span class="chip">citadel.kellersystems.dev</span>
-                <h3 class="card-title">
-                  <a href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-                    <img class="tile" data-mono="S" src="https://raw.githubusercontent.com/KELLERBABG/SybilGuard/main/assets/icon.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
-                    SybilGuard
-                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                      <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
-                </h3>
-              </div>
-              <p class="card-desc">
-                Cryptographic identity and proof-of-personhood protocol. Evaluates trust topology using zero-knowledge
-                proofs to confirm network graph connectivity without disclosing the user's graph neighborhood,
-                biometric secrets, or transactional footprint.
-              </p>
-              <div class="spec-grid">
-                <div class="spec">
-                  <span class="spec-key">Privacy mechanics</span>
-                  <span class="spec-val">zk-SNARK circuits for non-interactive graph verification; homomorphic operations for private state scoring.</span>
-                </div>
-                <div class="spec">
-                  <span class="spec-key">Formal solvers</span>
-                  <span class="spec-val">Paired with <a href="https://axiom.kellersystems.dev" target="_blank" rel="noopener noreferrer">SymEx EVM</a> for SMT-solver symbolic execution.</span>
-                </div>
-              </div>
-            </div>
-            <div class="card-aside">
-              <div class="aside-block">
-                <span class="aside-key">Stack</span>
-                <span class="aside-val">Rust &bull; Bellman / Arkworks</span>
-              </div>
-              <div class="aside-block">
-                <span class="aside-key">Ecosystem links</span>
-                <div class="aside-links">
-                  <a class="link-chip" href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">Landing page</a>
-                  <a class="link-chip" href="https://fhe.kellersystems.dev" target="_blank" rel="noopener noreferrer">Homomorphic DB</a>
-                  <a class="link-chip" href="https://enclave.kellersystems.dev" target="_blank" rel="noopener noreferrer">SMPC Dark Pool</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== Repository directory ===================== -->
-    <section class="section section-alt" id="all-work">
-      <div class="shell">
-        <div class="section-head" data-reveal>
-          <p class="section-kicker"><b>02</b> Registry</p>
-          <h2 class="section-title">Repository directory</h2>
-          <p class="section-desc">Direct index linking to each system's subdomain or source distribution.</p>
-        </div>
-
-        <div class="filter-bar" data-reveal>
-          <div class="search">
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <label class="sr-only" for="repoSearch">Filter repositories by name, description, or stack</label>
-            <input type="text" id="repoSearch" placeholder="Filter by name, description, or stack&hellip;" autocomplete="off">
-          </div>
-
-          <div class="pills" id="filterPills" role="group" aria-label="Filter repositories by domain">
-            <button class="pill active" type="button" data-filter="all" aria-pressed="true">All <span class="pill-count" data-count="all"></span></button>
-            <button class="pill" type="button" data-filter="Rust" aria-pressed="false">Rust <span class="pill-count" data-count="Rust"></span></button>
-            <button class="pill" type="button" data-filter="Crypto" aria-pressed="false">Cryptography / ZK <span class="pill-count" data-count="Crypto"></span></button>
-            <button class="pill" type="button" data-filter="OS" aria-pressed="false">Real-time / OS <span class="pill-count" data-count="OS"></span></button>
-            <button class="pill" type="button" data-filter="Python" aria-pressed="false">Python <span class="pill-count" data-count="Python"></span></button>
-            <button class="pill" type="button" data-filter="TypeScript" aria-pressed="false">TypeScript <span class="pill-count" data-count="TypeScript"></span></button>
-          </div>
-        </div>
-
-        <div class="results-line">
-          <span id="resultsCount" aria-live="polite">Loading registry&hellip;</span>
-          <span>Sorted A&ndash;Z</span>
-        </div>
-
-        <div class="table" data-reveal>
-          <div class="table-head" aria-hidden="true">
-            <span>System</span>
-            <span>Description</span>
-            <span>Runtime</span>
-            <span></span>
-          </div>
-          <div id="reposTable"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================= Closing CTA ========================= -->
-    <section class="cta">
-      <div class="shell">
-        <p class="cta-kicker">Source available</p>
-        <h2 class="cta-title">Read the source. Verify the build.</h2>
-        <p class="cta-text">
-          Every system in this registry ships with a public source distribution and its own domain.
-          One engineering standard, no black boxes.
-        </p>
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">
-            github.com/KELLERBABG
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a class="btn btn-outline" href="#all-work">Repository directory</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ============================ Footer ============================ -->
-  <footer class="footer">
-    <div class="shell">
-      <div class="footer-inner">
+  <!-- ==================== Hero: the pinned sheet ==================== -->
+  <div class="sheet">
+    <section class="hero">
+      <div class="wrap hero-inner">
         <div>
-          <p class="footer-wordmark">Keller Systems</p>
-          <p class="footer-meta">Independent R&amp;D &middot; kellersystems.dev</p>
+          <p class="tag"><i aria-hidden="true"></i>Engineering systems &amp; R&amp;D</p>
+          <h1 class="h-lines">
+            <span class="h-line">Machines that</span>
+            <span class="h-line">have to be</span>
+            <span class="h-line"><em>right.</em></span>
+          </h1>
+          <p class="lead">
+            Post-quantum mesh routing, volumetric light-field rendering, cosmic-ray
+            tomography, deterministic flight control, zero-knowledge identity. Independent research where the
+            timing has to be provable and the maths has to hold.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#work">See the work</a>
+            <a class="skipwork" href="#shelf">Skip to all systems &#8595;</a>
+          </div>
         </div>
-        <nav class="footer-links" aria-label="Footer">
-          <a class="link-chip" href="#overview">Overview</a>
-          <a class="link-chip" href="#featured">Featured</a>
-          <a class="link-chip" href="#all-work">Directory</a>
-          <a class="link-chip" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </nav>
+
+        <div>
+          <div class="objectplate drift">
+            <svg class="artlines" viewBox="0 0 320 240" aria-hidden="true">
+              <path class="dash" d="M160 10 V230 M10 120 H310"/>
+              <path class="ln draw" pathLength="1" d="M160 34 L220 69 L220 139 L160 174 L100 139 L100 69 Z"/>
+              <path class="thin" d="M160 72 L192 90 L192 118 L160 136 L128 118 L128 90 Z"/>
+              <circle class="acc" cx="160" cy="104" r="7"/>
+              <path class="accline draw" pathLength="1" d="M100 139 L40 172 M220 139 L280 172 M160 174 V230"/>
+              <circle class="acc" cx="40" cy="172" r="4"/>
+              <circle class="acc" cx="280" cy="172" r="4"/>
+            </svg>
+          </div>
+          <p class="caption"><span>Plate 01 &middot; <b>bounded lattice</b></span><span>kellersystems.dev</span></p>
+        </div>
       </div>
-      <div class="footer-base">
-        <span>&copy; <span id="year">2026</span> Keller Systems</span>
-        <span>Deterministic systems &middot; cryptography &middot; physical computing</span>
+    </section>
+  </div>
+
+  <!-- ================== Contents: what is coming ================== -->
+  <section class="contents" aria-label="Contents">
+    <div class="contents-pin">
+      <div class="wrap">
+        <ol class="contents-list" id="contentsList">
+          <li data-for="ch1"><span class="cnum">01</span><span class="cname"><a href="#ch1">Vantablack</a></span><span class="ctag">Cryptography &amp; ZK</span></li>
+          <li data-for="ch2"><span class="cnum">02</span><span class="cname"><a href="#ch2">HoloForge</a></span><span class="ctag">Volumetric 3D printing</span></li>
+          <li data-for="ch3"><span class="cnum">03</span><span class="cname"><a href="#ch3">MuonScope Tomography</a></span><span class="ctag">Deep sensing</span></li>
+          <li data-for="ch4"><span class="cnum">04</span><span class="cname"><a href="#ch4">PlaneOS</a></span><span class="ctag">Real-time / OS</span></li>
+          <li data-for="ch5"><span class="cnum">05</span><span class="cname"><a href="#ch5">SybilGuard</a></span><span class="ctag">Cryptography &amp; ZK</span></li>
+          <li data-for="ch6"><span class="cnum">06</span><span class="cname"><a href="#ch6">Planetary Entropy Mining</a></span><span class="ctag">Entropy provenance</span></li>
+        </ol>
+        <p class="contents-intro">Six of them, in order. Keep scrolling.</p>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+  <div id="work">
+
+    <!-- 01 VANTA BLACK — post-quantum mesh, drawn as a network inside a cloud -->
+    <section class="chapter" id="ch1" data-index="01" data-name="Vantablack" aria-labelledby="t1">
+      <div class="wrap chapter-grid">
+        <div class="chapter-art">
+          <span class="chapter-num" aria-hidden="true">01</span>
+          <div class="chapterplate drift">
+                        <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
+              <!-- the WAN itself: a cloud -->
+              <circle class="ln draw" pathLength="1" cx="104" cy="92" r="27"/>
+              <circle class="ln draw" pathLength="1" cx="150" cy="72" r="37"/>
+              <circle class="ln draw" pathLength="1" cx="198" cy="88" r="27"/>
+              <circle class="ln draw" pathLength="1" cx="226" cy="108" r="19"/>
+              <path class="ln" d="M74 114 H248"/>
+              <!-- mesh between the nodes -->
+              <path class="thin" d="M104 92 L150 72 L198 88 L226 108 M104 92 L198 88 M150 72 L226 108 M104 92 L150 72"/>
+              <!-- onion shards: nested rings on the relay node -->
+              <circle class="accline" cx="150" cy="72" r="11" fill="none"/>
+              <circle class="accline" cx="150" cy="72" r="17" fill="none" opacity="0.45"/>
+              <circle class="acc" cx="104" cy="92" r="4"/>
+              <circle class="acc" cx="150" cy="72" r="4"/>
+              <circle class="acc" cx="198" cy="88" r="4"/>
+              <circle class="acc" cx="226" cy="108" r="4"/>
+              <!-- zero-server: nothing to seize -->
+              <rect class="thin" x="36" y="158" width="30" height="24"/>
+              <path class="accline" d="M30 188 L74 152"/>
+              <path class="dash" d="M66 170 H92"/>
+              <!-- erasure shards leaving the cloud -->
+              <path class="ln" d="M92 186 H280"/>
+              <rect class="accfill" x="104" y="168" width="26" height="18"/>
+              <rect class="accfill" x="138" y="168" width="14" height="18"/>
+              <rect class="accfill" x="160" y="168" width="8" height="18"/>
+              <path class="dash" d="M280 186 H304"/>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="meta"><span class="chip">Cryptography &amp; ZK</span><span class="chip">Rust &middot; Tokio &middot; UDP</span></div>
+          <h2 id="t1"><a href="https://vantablack.kellersystems.dev" target="_blank" rel="noopener noreferrer">Vantablack</a></h2>
+          <p class="chapter-desc">
+            The first finished system, and the one everything else was built to make possible: a
+            serverless peer-to-peer WAN mesh in pure Rust. Nodes open direct authenticated tunnels,
+            pad every packet to one uniform size and randomise their timing, and split each payload
+            into erasure shards that leave by different routes. Traffic shape gives a deep packet
+            inspection appliance nothing to hold on to.
+          </p>
+          <dl class="prims">
+            <div class="prim"><dt>Key exchange</dt><dd>ML-KEM-512 (Kyber) + X25519 ECDH</dd></div>
+            <div class="prim"><dt>Routing</dt><dd>erasure-sharded onion routes</dd></div>
+            <div class="prim"><dt>Resilience</dt><dd>Reed&ndash;Solomon RS(2,1) across relays</dd></div>
+          </dl>
+          <div class="chapter-links">
+            <a class="btn btn-sm" href="https://vantablack.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a>
+            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/Vantablack" target="_blank" rel="noopener noreferrer">Source</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 HOLOFORGE — wavefronts converging inside a rotating resin vat -->
+    <section class="chapter chapter-dark" id="ch2" data-index="02" data-name="HoloForge" aria-labelledby="t2">
+      <div class="wrap chapter-grid">
+        <div class="chapter-art">
+          <span class="chapter-num" aria-hidden="true">02</span>
+          <div class="chapterplate drift">
+            <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
+              <!-- rotation axis -->
+              <path class="dash" d="M160 18 V198"/>
+              <!-- the cylindrical resin vat -->
+              <ellipse class="ln draw" pathLength="1" cx="160" cy="48" rx="72" ry="18"/>
+              <path class="ln" d="M88 48 V168"/>
+              <path class="ln" d="M232 48 V168"/>
+              <ellipse class="thin" cx="160" cy="168" rx="72" ry="18"/>
+              <ellipse class="dash" cx="160" cy="92" rx="72" ry="18"/>
+              <!-- coherent wavefronts arriving from several angles at once -->
+              <path class="thin" d="M18 52 L138 122 M18 74 L138 128 M18 96 L138 134"/>
+              <path class="thin" d="M302 52 L182 122 M302 74 L182 128 M302 96 L182 134"/>
+              <path class="thin" d="M134 12 L156 116 M186 12 L164 116"/>
+              <!-- the object curing at the intersection -->
+              <path class="accline draw" pathLength="1" d="M132 140 L160 126 L188 140 L188 162 L160 176 L132 162 Z"/>
+              <circle class="acc" cx="160" cy="151" r="5"/>
+              <!-- rotary sweep -->
+              <path class="accline" d="M104 190 A62 13 0 0 0 216 190" fill="none"/>
+              <path class="acc" d="M216 190 l-7 -5 l1 11 z"/>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="meta"><span class="chip">Volumetric 3D printing</span><span class="chip">Python &middot; wave optics</span></div>
+          <h2 id="t2"><a href="https://github.com/KELLERBABG/HoloForge" target="_blank" rel="noopener noreferrer">HoloForge</a></h2>
+          <p class="chapter-desc">
+            A holographic tomographic volumetric additive manufacturing suite. Instead of drawing an
+            object layer by layer, it shapes coherent 405&nbsp;nm wavefronts through a cylindrical
+            photopolymer vat from many rotary angles at once, curing the whole part in under fifteen
+            seconds and with no supports. The optics, the photochemistry and the machine are all
+            simulated, so it runs end to end with no hardware attached.
+          </p>
+          <dl class="prims">
+            <div class="prim"><dt>Optics</dt><dd>split-step angular spectrum, 4f telecentric filtering</dd></div>
+            <div class="prim"><dt>Holography</dt><dd>double-phase synthesis, multi-angle tomography</dd></div>
+            <div class="prim"><dt>Result</dt><dd>94.6&ndash;96.7% cure IoU, under 0.02% overcure</dd></div>
+          </dl>
+          <div class="chapter-links">
+            <a class="btn btn-sm" href="https://github.com/KELLERBABG/HoloForge" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/HoloForge" target="_blank" rel="noopener noreferrer">Read the README</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 MUONSCOPE — cosmic rays through a detector into a reconstructed density -->
+    <section class="chapter" id="ch3" data-index="03" data-name="MuonScope Tomography" aria-labelledby="t3">
+      <div class="wrap chapter-grid">
+        <div class="chapter-art">
+          <span class="chapter-num" aria-hidden="true">03</span>
+          <div class="chapterplate drift">
+            <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
+              <!-- cosmic muons arriving -->
+              <path class="thin" d="M36 10 L92 74 M112 10 L146 74 M196 10 L182 74 M268 10 L216 74"/>
+              <!-- detector plane -->
+              <path class="ln draw" pathLength="1" d="M30 80 H290"/>
+              <path class="thin" d="M30 92 H290"/>
+              <path class="dash" d="M30 86 H290"/>
+              <!-- the scanned structure -->
+              <rect class="slab" x="106" y="112" width="108" height="72"/>
+              <!-- a track that scatters inside -->
+              <path class="accline draw" pathLength="1" d="M92 74 L148 126 L214 186"/>
+              <path class="thin" d="M146 74 L182 126 L214 186"/>
+              <!-- reconstructed density, bottom right -->
+              <rect class="thin" x="234" y="112" width="56" height="50"/>
+              <circle class="acc" cx="262" cy="137" r="11"/>
+              <circle class="thin" cx="262" cy="137" r="18"/>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="meta"><span class="chip">Deep sensing</span><span class="chip">Python &middot; NumPy &middot; FPGA</span></div>
+          <h2 id="t3"><a href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">MuonScope Tomography</a></h2>
+          <p class="chapter-desc">
+            Cosmic-ray muon scattering and absorption tomography. Natural relativistic muons pass
+            through a structure and scatter; inverting those deflections recovers the interior
+            density distribution of an opaque, heavily shielded object without introducing a
+            radiation source.
+          </p>
+          <dl class="prims">
+            <div class="prim"><dt>Reconstruction</dt><dd>point of closest approach ray tracing</dd></div>
+            <div class="prim"><dt>Detector model</dt><dd>multi-layer silicon strip digital twin</dd></div>
+            <div class="prim"><dt>Trigger</dt><dd>FPGA coincidence window logic</dd></div>
+          </dl>
+          <div class="chapter-links">
+            <a class="btn btn-sm" href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a>
+            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/MuonScope-Tomography" target="_blank" rel="noopener noreferrer">Source</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PLANEOS — redundant voters in, a fixed schedule and an envelope out -->
+    <section class="chapter chapter-dark" id="ch4" data-index="04" data-name="PlaneOS" aria-labelledby="t4">
+      <div class="wrap chapter-grid">
+        <div class="chapter-art">
+          <span class="chapter-num" aria-hidden="true">04</span>
+          <div class="chapterplate drift">
+            <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
+              <!-- three redundant sensor inputs -->
+              <path class="thin" d="M20 34 H84 M20 62 H84 M20 90 H84"/>
+              <!-- the voter -->
+              <rect class="ln draw" pathLength="1" x="84" y="24" width="58" height="76"/>
+              <path class="thin" d="M96 40 h34 M96 62 h34 M96 84 h34"/>
+              <!-- actuator -->
+              <path class="thin" d="M142 62 H192"/>
+              <circle class="acc" cx="200" cy="62" r="5"/>
+              <!-- deterministic schedule: equal slots, no jitter -->
+              <path class="ln" d="M20 132 H300"/>
+              <rect class="accfill" x="34" y="120" width="24" height="12"/>
+              <rect class="accfill" x="98" y="120" width="24" height="12"/>
+              <rect class="accfill" x="162" y="120" width="24" height="12"/>
+              <rect class="accfill" x="226" y="120" width="24" height="12"/>
+              <!-- envelope protection -->
+              <path class="dash" d="M20 186 Q160 100 300 186"/>
+              <path class="accline draw" pathLength="1" d="M20 200 Q160 118 300 200"/>
+              <circle class="acc" cx="202" cy="163" r="5"/>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="meta"><span class="chip">Real-time / OS</span><span class="chip">Rust &middot; no_std</span></div>
+          <h2 id="t4"><a href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">PlaneOS</a></h2>
+          <p class="chapter-desc">
+            A high-assurance flight control prototype exploring deterministic scheduling and
+            envelope protection. Static memory guarantees remove allocation jitter and collection
+            pauses from critical control loops, so worst-case timing is a property of the design
+            rather than a hope.
+          </p>
+          <dl class="prims">
+            <div class="prim"><dt>Safety kernel</dt><dd>triple modular redundant sensor voters</dd></div>
+            <div class="prim"><dt>Invariants</dt><dd>boundary assertions on every control path</dd></div>
+            <div class="prim"><dt>Standard</dt><dd>DO-178C DAL A formal methods guidelines</dd></div>
+          </dl>
+          <div class="chapter-links">
+            <a class="btn btn-sm" href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a>
+            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/PlaneOS" target="_blank" rel="noopener noreferrer">Source</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 SYBILGUARD — a trust graph, a proven path, a proof circuit -->
+    <section class="chapter" id="ch5" data-index="05" data-name="SybilGuard" aria-labelledby="t5">
+      <div class="wrap chapter-grid">
+        <div class="chapter-art">
+          <span class="chapter-num" aria-hidden="true">05</span>
+          <div class="chapterplate drift">
+            <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
+              <!-- trust topology -->
+              <path class="thin" d="M40 56 L98 34 M98 34 L152 62 M152 62 L98 106 M98 106 L40 56 M152 62 L208 40 M208 40 L252 74 M152 62 L206 108 M206 108 L252 74 M98 106 L152 62"/>
+              <circle class="acc" cx="40" cy="56" r="4"/>
+              <circle class="acc" cx="98" cy="34" r="4"/>
+              <circle class="acc" cx="152" cy="62" r="5"/>
+              <circle class="acc" cx="98" cy="106" r="4"/>
+              <circle class="acc" cx="208" cy="40" r="4"/>
+              <circle class="acc" cx="252" cy="74" r="4"/>
+              <circle class="acc" cx="206" cy="108" r="4"/>
+              <!-- the path that gets proven, and only that -->
+              <path class="accline draw" pathLength="1" d="M40 56 L98 34 L152 62 L208 40 L252 74"/>
+              <!-- proof circuit -->
+              <rect class="ln draw" pathLength="1" x="40" y="146" width="240" height="52"/>
+              <path class="thin" d="M40 172 H82 M98 172 H148 M164 172 H235"/>
+              <circle class="accline" cx="90" cy="172" r="8" fill="none"/>
+              <circle class="accline" cx="156" cy="172" r="8" fill="none"/>
+              <circle class="acc" cx="240" cy="172" r="5"/>
+              <path class="thin" d="M90 150 V164 M90 180 V194 M156 150 V164 M156 180 V194"/>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="meta"><span class="chip">Cryptography &amp; ZK</span><span class="chip">Rust &middot; Bellman / Arkworks</span></div>
+          <h2 id="t5"><a href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">SybilGuard</a></h2>
+          <p class="chapter-desc">
+            Cryptographic identity and proof-of-personhood. Trust topology is evaluated with
+            zero-knowledge proofs, confirming that a graph is well connected without disclosing
+            your neighbourhood, your biometrics or your transaction footprint.
+          </p>
+          <dl class="prims">
+            <div class="prim"><dt>Proofs</dt><dd>zk-SNARK circuits, non-interactive graph checks</dd></div>
+            <div class="prim"><dt>Private scoring</dt><dd>homomorphic operations over state</dd></div>
+            <div class="prim"><dt>Verification</dt><dd>paired with SymEx EVM's SMT solver</dd></div>
+          </dl>
+          <div class="chapter-links">
+            <a class="btn btn-sm" href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a>
+            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/SybilGuard" target="_blank" rel="noopener noreferrer">Source</a>
+          </div>
+                  </div>
+      </div>
+    </section>
+    <!-- 06 PLANETARY ENTROPY MINING — noise window, min-entropy gate, certificate, hidden node -->
+    <section class="chapter chapter-dark" id="ch6" data-index="06" data-name="Planetary Entropy Mining" aria-labelledby="t6">
+      <div class="wrap chapter-grid">
+        <div class="chapter-art">
+          <span class="chapter-num" aria-hidden="true">06</span>
+          <div class="chapterplate drift">
+            <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
+              <!-- the captured window: raw environmental noise -->
+              <path class="ln draw" pathLength="1" d="M20 60 L32 42 L44 76 L56 36 L68 80 L80 44 L92 72 L104 38 L116 78 L128 48 L140 70 L152 40 L164 76 L176 46 L188 72 L200 38 L212 78 L224 50 L236 68 L248 42 L260 76 L272 54 L284 66 L296 48"/>
+              <!-- reduced to a histogram -->
+              <g class="bars">
+                <rect x="24" y="150" width="10" height="34"/><rect x="40" y="138" width="10" height="46"/>
+                <rect x="56" y="158" width="10" height="26"/><rect x="72" y="130" width="10" height="54"/>
+                <rect x="88" y="146" width="10" height="38"/><rect x="104" y="160" width="10" height="24"/>
+              </g>
+              <path class="ln" d="M20 184 H136"/>
+              <!-- the max-count gate that fixes the min-entropy bound -->
+              <path class="accline draw" pathLength="1" d="M72 120 H142"/>
+              <!-- the certificate it produces -->
+              <rect class="thin" x="160" y="126" width="80" height="58"/>
+              <path class="thin" d="M172 142 H228 M172 154 H228 M172 166 H204"/>
+              <circle class="acc" cx="228" cy="170" r="5"/>
+              <!-- the measuring node, with its location withheld -->
+              <circle class="ln" cx="264" cy="58" r="22"/>
+              <path class="accline" d="M248 42 L280 74"/>
+              <circle class="acc" cx="264" cy="58" r="5"/>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="meta"><span class="chip">Cryptography &amp; ZK</span><span class="chip">Python &middot; circom &middot; Solidity</span></div>
+          <h2 id="t6"><a href="https://pem.kellersystems.dev" target="_blank" rel="noopener noreferrer">Planetary Entropy Mining</a></h2>
+          <p class="chapter-desc">
+            Emission certificates grounded in physical measurement instead of an issuer's ledger. A
+            node captures a window of environmental noise, reduces it to a histogram, and proves in
+            zero knowledge that the window really carries the min-entropy it claims &mdash; and was
+            measured when it says it was &mdash; without revealing where the node sits. The
+            cryptographic core is real; the sources and the ledger are simulated, so the whole chain
+            runs on a laptop.
+          </p>
+          <dl class="prims">
+            <div class="prim"><dt>Entropy</dt><dd>NIST SP 800-90B estimators, validated against truth</dd></div>
+            <div class="prim"><dt>Proof</dt><dd>256-bin histogram, max-count gate for min-entropy</dd></div>
+            <div class="prim"><dt>Commitment</dt><dd>GF(256) hardening polynomial, Poseidon nullifier</dd></div>
+          </dl>
+          <div class="chapter-links">
+            <a class="btn btn-sm" href="https://pem.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a>
+            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/Planetary-Entropy-Mining" target="_blank" rel="noopener noreferrer">Source</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================ Shelf ============================ -->
+  <section class="shelf" id="shelf">
+    <div class="wrap">
+      <div class="shelfhead">
+        <h2>The rest of the shelf</h2>
+        <p>Kernels, protocols, solvers and instruments. Each one lives on its own subdomain with its source in the open.</p>
+      </div>
+      <div class="grid" id="moreGrid"></div>
+    </div>
+  </section>
+
+  <!-- ========================== Principles ========================== -->
+  <section class="principles" id="principles">
+    <div class="wrap">
+      <div class="shelfhead"><h2>How the work gets made</h2></div>
+      <div class="pgrid">
+        <article class="principle">
+          <b>Deterministic by default</b>
+          <p>Static memory, fixed schedules, no hidden allocation on a control path. If the timing cannot be reasoned about, it does not ship.</p>
+        </article>
+        <article class="principle">
+          <b>Verified, not asserted</b>
+          <p>Formal methods, SMT solvers, symbolic execution and reproducible builds. A claim without a check is a marketing line.</p>
+        </article>
+        <article class="principle">
+          <b>Own the whole stack</b>
+          <p>From the kernel to the domain surface, one engineering standard and no black boxes left in between.</p>
+        </article>
+        <article class="principle">
+          <b>Public source</b>
+          <p>Every system ships its source and its own domain. Read it, build it, check the claim yourself.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== Closing =========================== -->
+  <section class="cta">
+    <div class="wrap">
+      <h2>Read the source.</h2>
+      <p>Nothing here is a demo reel. Every system in this portfolio is a repository you can clone, build and verify.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">github.com/KELLERBABG &#8599;</a>
+        <a class="btn btn-onink" href="#top">Back to the top</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap footrow">
+    <div>
+      <p class="footword">Keller Systems</p>
+      <p class="footmeta">Independent R&amp;D &middot; kellersystems.dev &middot; <span id="totalLine">systems published</span></p>
+    </div>
+    <div class="footlinks">
+      <a class="btn btn-quiet btn-sm" href="#work">Work</a>
+      <a class="btn btn-quiet btn-sm" href="#shelf">All systems</a>
+    </div>
+  </div>
+</footer>
+
+<div class="chapterlabel" id="chapterLabel" aria-hidden="true"><b>01</b> <span>Global Ghost Net</span></div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

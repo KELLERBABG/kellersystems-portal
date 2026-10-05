@@ -1,252 +1,255 @@
 /* ==========================================================================
-   KELLER SYSTEMS — PORTAL BEHAVIOUR
-   Progressive enhancement only: the page is fully readable without this file.
+   KELLER SYSTEMS — SCROLL STORY
+   The scroll effects are driven by a computed scroll progress, published as
+   CSS custom properties (--p, --herop, --scrollp). Why not CSS
+   animation-timeline: it attaches correctly but resolves no progress value in
+   the environment this was built and verified in, and shipping an experience
+   that cannot be checked is guesswork. Position drives value, so the motion is
+   continuous and reversible either way.
+
+   Per frame this does ~12 custom-property writes, zero layout reads and no
+   per-frame layout thrash. Native scrolling is never intercepted.
    ========================================================================== */
-
-window.__ksInit = true;
-
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
   'use strict';
 
-  /* data.js declares a top-level `const`, so read the binding, not window. */
-  const SOURCE = typeof REPOSITORIES !== 'undefined' && Array.isArray(REPOSITORIES) ? REPOSITORIES : [];
-  const REPOS = SOURCE.slice();
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* --- helpers ---------------------------------------------------------- */
+  var DATA = (typeof REPOSITORIES !== 'undefined' && Array.isArray(REPOSITORIES))
+    ? REPOSITORIES.slice() : [];
+  var FEATURED = ['Vantablack', 'HoloForge', 'MuonScope Tomography', 'PlaneOS', 'SybilGuard', 'Planetary Entropy Mining'];
+  var DOMAIN_LABEL = { Crypto: 'Cryptography & ZK', OS: 'Real-time / OS', Rust: 'Systems & Rust', General: 'Applied systems' };
 
-  const escapeHtml = (value) =>
-    String(value == null ? '' : value)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+  function esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function initial(name) {
+    var m = String(name || '').match(/[A-Za-z0-9]/);
+    return m ? m[0].toUpperCase() : '?';
+  }
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
 
-  /* GitHub descriptions sometimes lead with an emoji shortcode (":black_heart:")
-     which reads as noise in a technical index — strip it, keep the meaning. */
-  const cleanDesc = (value) => String(value || '').replace(/^\s*:[a-z0-9_+-]+:\s*/i, '').trim();
-
-  const monogram = (name) => {
-    const match = String(name || '').match(/[A-Za-z0-9]/);
-    return match ? match[0].toUpperCase() : '?';
-  };
-
-  /* One predicate drives both the filters and the pill counts, so a count can
-     never disagree with the number of rows the filter actually produces. */
-
-  /* Domains come straight from the curated `category` field. The previous
-     substring heuristic (/OS/ matched "AeroDose", "Ghost", "Planetary")
-     inflated the count above the number of real domain members. */
-  function matches(repo, filter) {
-    if (!filter || filter === 'all') return true;
-    if (filter === 'Crypto') return repo.category === 'Crypto';
-    if (filter === 'OS') return repo.category === 'OS';
-    return String(repo.language || '').toLowerCase() === filter.toLowerCase();
+  /* --- 1. Shelf + the single total, from the registry ------------------- */
+  function renderShelf() {
+    var host = document.getElementById('moreGrid');
+    if (!host || !DATA.length) return;
+    var rest = DATA
+      .filter(function (r) { return FEATURED.indexOf(r.name) === -1; })
+      .sort(function (a, b) { return a.name.localeCompare(b.name, 'en'); });
+    host.innerHTML = rest.map(function (r) {
+      return '<a class="tile" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">' +
+        '<span class="tile-mark" aria-hidden="true">' + esc(initial(r.name)) + '</span>' +
+        '<h3>' + esc(r.name) + '</h3>' +
+        '<span class="tilemeta">' + esc(DOMAIN_LABEL[r.category] || r.category || '') +
+          ' &middot; ' + esc(r.language || '') + '</span>' +
+        '</a>';
+    }).join('');
+  }
+  function renderTotal() {
+    var el = document.getElementById('totalLine');
+    if (el && DATA.length) el.textContent = DATA.length + ' systems published to date';
   }
 
-  function matchesSearch(repo, term) {
-    if (!term) return true;
-    const haystack = [repo.name, cleanDesc(repo.description), repo.language]
-      .join(' ')
-      .toLowerCase();
-    return haystack.includes(term);
+  /* --- 2. Scrub layer --------------------------------------------------- */
+  var heroInner = document.querySelector('.hero-inner');
+  var heroDraws = Array.prototype.slice.call(document.querySelectorAll('.sheet .draw'));
+  var railFill = document.querySelector('.progress-fill');
+  var scrubbed = Array.prototype.slice.call(document.querySelectorAll('.draw, .drift'))
+    .filter(function (el) { return !el.closest('.sheet'); });
+  var cache = [];
+
+  /* Layout position, deliberately not getBoundingClientRect: a transform must
+     never feed back into the progress value that produced it. */
+  function docTop(el) {
+    var t = 0;
+    var node = el;
+    while (node) { t += node.offsetTop || 0; node = node.offsetParent; }
+    return t;
   }
 
-  /* --- icon fallback: a monogram tile instead of a broken image ---------- */
-
-  function handleTileError(event) {
-    const img = event.currentTarget;
-    const span = document.createElement('span');
-    span.className = img.className + ' is-mono';
-    span.setAttribute('aria-hidden', 'true');
-    span.textContent = monogram(img.dataset.mono || img.alt);
-    if (img.parentNode) img.parentNode.replaceChild(span, img);
+  /* SVG elements have no offsetTop/offsetHeight, so a scrubbed <path> is
+     measured through its nearest HTML ancestor (the plate it is drawn in). */
+  function hostOf(el) {
+    var node = el;
+    while (node && typeof node.offsetTop !== 'number') { node = node.parentNode; }
+    return node || el;
   }
 
-  function wireTiles(scope) {
-    (scope || document).querySelectorAll('img.tile').forEach((img) => {
-      img.addEventListener('error', handleTileError, { once: true });
-      if (img.complete && img.naturalWidth === 0) img.dispatchEvent(new Event('error'));
+  function measure() {
+    cache = scrubbed.map(function (el) {
+      var host = hostOf(el);
+      return {
+        el: el,
+        kind: el.classList.contains('draw') ? 'draw' : 'drift',
+        top: docTop(host),
+        h: host.offsetHeight || 1
+      };
     });
+    frame();
   }
 
-  /* --- registry data ---------------------------------------------------- */
+  function frame() {
+    if (!root.classList.contains('motion-on')) return;
+    var vh = window.innerHeight;
+    var y = window.scrollY;
 
-  const repos = REPOS
-    .slice()
-    .sort((a, b) => String(a.name).localeCompare(String(b.name), 'en'));
+    /* The pinned sheet eases over one full viewport of scroll, and only to
+       half opacity: dimming harder or faster turns the hero copy grey while
+       it is still the thing being read. The values published are finished
+       ones — no calc() in the stylesheet — because stroke-dashoffset would
+       not resolve a calc() here. */
+    var hp = clamp(y / (vh || 1));
+    if (heroInner) {
+      heroInner.style.setProperty('--hero-op', (1 - hp * 0.5).toFixed(3));
+      heroInner.style.setProperty('--hero-scale', (1 - hp * 0.03).toFixed(4));
+    }
+    for (var h = 0; h < heroDraws.length; h++) {
+      heroDraws[h].style.setProperty('--dash', (1 - clamp((hp - 0.06) / 0.7)).toFixed(4));
+    }
 
-  /* --- stats band ------------------------------------------------------- */
+    /* everything below: 0 when the element's top reaches the viewport bottom,
+       1 when its bottom reaches the viewport top */
+    for (var i = 0; i < cache.length; i++) {
+      var t = cache[i];
+      var p = clamp((y + vh - t.top) / (vh + t.h));
+      if (t.kind === 'draw') {
+        t.el.style.setProperty('--dash', (1 - clamp((p - 0.12) / 0.6)).toFixed(4));
+      } else {
+        t.el.style.setProperty('--drift-y', ((p - 0.5) * 4.4).toFixed(3) + '%');
+      }
+    }
 
-  function renderStats() {
-    const values = {
-      systems: repos.length,
-      kernels: repos.filter((r) => matches(r, 'OS')).length,
-      crypto: repos.filter((r) => matches(r, 'Crypto')).length,
-      stacks: new Set(repos.map((r) => r.language).filter(Boolean)).size
-    };
+    if (railFill) {
+      var max = root.scrollHeight - vh;
+      railFill.style.setProperty('--rail', (max > 0 ? clamp(y / max) : 0).toFixed(4));
+    }
 
-    document.querySelectorAll('[data-stat]').forEach((el) => {
-      const key = el.dataset.stat;
-      if (key in values) el.textContent = String(values[key]);
+    updateTicks();
+  }
+
+  function resetScrub() {
+    /* `scrubbed` holds elements; `cache` holds the measurement records. */
+    scrubbed.forEach(function (el) {
+      el.style.removeProperty('--dash');
+      el.style.removeProperty('--drift-y');
     });
-
-    const counts = repos.reduce((acc, r) => {
-      if (r.language) acc[r.language] = (acc[r.language] || 0) + 1;
-      return acc;
-    }, {});
-    const note = document.querySelector('[data-stat-note="stacks"]');
-    if (note) note.textContent = Object.keys(counts).join(' \u00b7 ');
+    heroDraws.forEach(function (el) { el.style.removeProperty('--dash'); });
+    if (heroInner) {
+      heroInner.style.removeProperty('--hero-op');
+      heroInner.style.removeProperty('--hero-scale');
+    }
+    if (railFill) railFill.style.removeProperty('--rail');
   }
 
-  /* --- ticker ----------------------------------------------------------- */
+  /* --- 3. Motion gate --------------------------------------------------- */
+  var toggle = document.getElementById('motionToggle');
+  var note = document.getElementById('motionNote');
 
-  function renderTicker() {
-    const track = document.getElementById('tickerTrack');
-    if (!track || !repos.length) return;
+  function setMotion(on) {
+    root.classList.toggle('motion-on', on);
+    root.setAttribute('data-motion', on ? 'on' : 'off');
+    if (toggle) {
+      toggle.setAttribute('aria-pressed', String(on));
+      toggle.textContent = on ? 'Motion: on' : 'Motion: off';
+    }
+    if (note) {
+      note.textContent = on
+        ? (reduce
+            ? 'scroll story on, overriding your system motion setting'
+            : 'scroll-driven, following your system motion setting')
+        : (reduce
+            ? 'your system asks for reduced motion \u2014 switch Motion on for the full story'
+            : 'motion is off');
+    }
+    if (on) { measure(); } else { resetScrub(); }
+  }
 
-    const items = repos
-      .map((r) => `<li class="ticker-item">${escapeHtml(r.name)}</li>`)
-      .join('');
+  /* --- 4. Progress-rail ticks ------------------------------------------- */
+  var ticksEl = document.getElementById('progressTicks');
+  var markers = ['ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'shelf'].map(function (id) {
+    return { id: id, el: document.getElementById(id) };
+  }).filter(function (m) { return m.el; });
+  var tickList = [];
 
-    /* Two identical lists make the -50% translate a seamless loop. The band
-       is aria-hidden, and every name here also appears in the directory. */
-    track.innerHTML = `<ul class="ticker-list">${items}</ul><ul class="ticker-list">${items}</ul>`;
+  function layoutTicks() {
+    if (!ticksEl) return;
+    var top = document.querySelector('.top');
+    var headerH = top ? top.offsetHeight : 0;
+    var max = root.scrollHeight - window.innerHeight;
+    ticksEl.innerHTML = '';
+    tickList = markers.map(function (m) {
+      var y = docTop(m.el) - headerH;
+      var tick = document.createElement('i');
+      tick.style.top = (max > 0 ? Math.min(Math.max((y / max) * 100, 0), 100) : 0) + '%';
+      ticksEl.appendChild(tick);
+      return { y: y, tick: tick };
+    });
+    updateTicks();
+  }
 
-    const toggle = document.getElementById('tickerToggle');
-    const band = document.querySelector('.ticker');
-    if (toggle && band) {
-      toggle.addEventListener('click', () => {
-        const paused = band.classList.toggle('is-paused');
-        toggle.setAttribute('aria-pressed', String(paused));
-        toggle.textContent = paused ? 'Play ticker' : 'Pause ticker';
+  function updateTicks() {
+    for (var i = 0; i < tickList.length; i++) {
+      tickList[i].tick.classList.toggle('is-on', window.scrollY >= tickList[i].y - 4);
+    }
+  }
+
+  /* --- 5. Scrollspy: contents list + sticky chapter label --------------- */
+  function initSpy() {
+    var chapters = Array.prototype.slice.call(document.querySelectorAll('.chapter'));
+    var items = Array.prototype.slice.call(document.querySelectorAll('#contentsList li'));
+    var label = document.getElementById('chapterLabel');
+    var indexEl = label ? label.querySelector('b') : null;
+    var nameEl = label ? label.querySelector('span') : null;
+    if (!chapters.length || !('IntersectionObserver' in window)) return;
+
+    var active = null;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          active = entry.target;
+          var id = entry.target.id;
+          items.forEach(function (li) { li.classList.toggle('is-on', li.dataset.for === id); });
+          if (label && indexEl && nameEl) {
+            indexEl.textContent = entry.target.dataset.index;
+            nameEl.textContent = entry.target.dataset.name;
+            label.classList.add('is-on');
+          }
+        } else if (entry.target === active) {
+          active = null;
+          if (label) label.classList.remove('is-on');
+        }
       });
-    }
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    chapters.forEach(function (c) { io.observe(c); });
   }
 
-  /* --- directory -------------------------------------------------------- */
+  /* --- 6. One passive listener, called directly --------------------------
+     Not rAF-throttled on purpose: if animation frames are starved (a
+     backgrounded or occluded frame), an rAF gate can latch shut and stop
+     responding for good. The work here is a dozen custom-property writes and
+     zero layout reads, and browsers already coalesce scroll events to about
+     one per frame, so calling straight through is both cheaper to reason
+     about and safe. Native scrolling is never intercepted. */
+  window.addEventListener('scroll', frame, { passive: true });
 
-  const table = document.getElementById('reposTable');
-  const searchInput = document.getElementById('repoSearch');
-  const resultsCount = document.getElementById('resultsCount');
-  const pills = Array.from(document.querySelectorAll('.pill'));
-
-  let activeFilter = 'all';
-  let searchTerm = '';
-
-  function renderPillCounts() {
-    document.querySelectorAll('[data-count]').forEach((el) => {
-      const key = el.dataset.count;
-      el.textContent = String(repos.filter((r) => matches(r, key)).length);
-    });
-  }
-
-  function renderTable() {
-    if (!table) return;
-
-    const term = searchTerm.trim().toLowerCase();
-    const filtered = repos.filter((r) => matches(r, activeFilter) && matchesSearch(r, term));
-
-    if (resultsCount) {
-      resultsCount.textContent = filtered.length
-        ? `${filtered.length} of ${repos.length} systems`
-        : 'No matching systems';
-    }
-
-    if (!filtered.length) {
-      table.innerHTML = '<p class="table-empty">No systems match this filter. Clear the search or pick another domain.</p>';
-      return;
-    }
-
-    table.innerHTML = filtered
-      .map((repo) => {
-        const name = escapeHtml(repo.name);
-        const desc = escapeHtml(cleanDesc(repo.description));
-        const site = escapeHtml(repo.url);
-        const lang = escapeHtml(repo.language || 'System');
-        const icon = escapeHtml(
-          `https://raw.githubusercontent.com/KELLERBABG/${repo.raw_name}/main/assets/icon.svg`
-        );
-
-        return `<a class="row" href="${site}" target="_blank" rel="noopener noreferrer">
-          <span class="row-name">
-            <img class="tile tile-sm" data-mono="${escapeHtml(monogram(repo.name))}" src="${icon}" alt="" width="22" height="22" loading="lazy" decoding="async">
-            <span>${name}</span>
-          </span>
-          <span class="row-desc" title="${desc}">${desc}</span>
-          <span class="row-lang">${lang}</span>
-          <span class="row-arrow" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>`;
-      })
-      .join('');
-
-    wireTiles(table);
-  }
-
-  pills.forEach((pill) => {
-    pill.addEventListener('click', () => {
-      pills.forEach((p) => {
-        p.classList.remove('active');
-        p.setAttribute('aria-pressed', 'false');
-      });
-      pill.classList.add('active');
-      pill.setAttribute('aria-pressed', 'true');
-      activeFilter = pill.dataset.filter || 'all';
-      renderTable();
-    });
-  });
-
-  if (searchInput) {
-    searchInput.addEventListener('input', (event) => {
-      searchTerm = event.target.value;
-      renderTable();
-    });
-  }
-
-  /* --- scroll reveal ---------------------------------------------------- */
-
-  function initReveal() {
-    const targets = Array.from(document.querySelectorAll('[data-reveal]'));
-    if (!targets.length) return;
-
-    targets.forEach((el) => {
-      if (el.dataset.delay) el.style.setProperty('--reveal-delay', `${el.dataset.delay}ms`);
-    });
-
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduced || !('IntersectionObserver' in window)) {
-      targets.forEach((el) => el.classList.add('is-in'));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-in');
-          observer.unobserve(entry.target);
-        });
-      },
-      { rootMargin: '0px 0px -6% 0px', threshold: 0.06 }
-    );
-
-    targets.forEach((el) => observer.observe(el));
-  }
+  function remeasure() { layoutTicks(); measure(); }
+  window.addEventListener('resize', remeasure);
+  window.addEventListener('load', remeasure);
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(remeasure); }
 
   /* --- boot ------------------------------------------------------------- */
-
-  renderStats();
-  renderTicker();
-  renderPillCounts();
-  renderTable();
-  wireTiles(document);
-  initReveal();
-
-  const year = document.getElementById('year');
-  if (year) year.textContent = String(new Date().getFullYear());
-});
+  renderShelf();
+  renderTotal();
+  layoutTicks();
+  initSpy();
+  setMotion(!reduce);
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      setMotion(!root.classList.contains('motion-on'));
+    });
+  }
+})();
