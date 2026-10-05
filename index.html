@@ -94,316 +94,192 @@
           <li data-for="ch5"><span class="cnum">05</span><span class="cname"><a href="#ch5">SybilGuard</a></span><span class="ctag">Cryptography &amp; ZK</span></li>
           <li data-for="ch6"><span class="cnum">06</span><span class="cname"><a href="#ch6">Planetary Entropy Mining</a></span><span class="ctag">Entropy provenance</span></li>
         </ol>
-        <p class="contents-intro">Six of them, in order. Keep scrolling.</p>
+        <p class="contents-intro">The six systems below, in the order they were finished.</p>
       </div>
     </div>
   </section>
 
   <div id="work">
 
-    <!-- 01 VANTA BLACK — post-quantum mesh, drawn as a network inside a cloud -->
-    <section class="chapter" id="ch1" data-index="01" data-name="Vantablack" aria-labelledby="t1">
+
+
+
+    <!-- 01 VANTABLACK -->
+    <section class="chapter" id="ch1" data-index="01" data-name="Vantablack" aria-labelledby="t01">
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">01</span>
-          <div class="chapterplate drift">
-                        <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
-              <!-- the WAN itself: a cloud -->
-              <circle class="ln draw" pathLength="1" cx="104" cy="92" r="27"/>
-              <circle class="ln draw" pathLength="1" cx="150" cy="72" r="37"/>
-              <circle class="ln draw" pathLength="1" cx="198" cy="88" r="27"/>
-              <circle class="ln draw" pathLength="1" cx="226" cy="108" r="19"/>
-              <path class="ln" d="M74 114 H248"/>
-              <!-- mesh between the nodes -->
-              <path class="thin" d="M104 92 L150 72 L198 88 L226 108 M104 92 L198 88 M150 72 L226 108 M104 92 L150 72"/>
-              <!-- onion shards: nested rings on the relay node -->
-              <circle class="accline" cx="150" cy="72" r="11" fill="none"/>
-              <circle class="accline" cx="150" cy="72" r="17" fill="none" opacity="0.45"/>
-              <circle class="acc" cx="104" cy="92" r="4"/>
-              <circle class="acc" cx="150" cy="72" r="4"/>
-              <circle class="acc" cx="198" cy="88" r="4"/>
-              <circle class="acc" cx="226" cy="108" r="4"/>
-              <!-- zero-server: nothing to seize -->
-              <rect class="thin" x="36" y="158" width="30" height="24"/>
-              <path class="accline" d="M30 188 L74 152"/>
-              <path class="dash" d="M66 170 H92"/>
-              <!-- erasure shards leaving the cloud -->
-              <path class="ln" d="M92 186 H280"/>
-              <rect class="accfill" x="104" y="168" width="26" height="18"/>
-              <rect class="accfill" x="138" y="168" width="14" height="18"/>
-              <rect class="accfill" x="160" y="168" width="8" height="18"/>
-              <path class="dash" d="M280 186 H304"/>
-            </svg>
+          <div class="measured">
+            <div class="m-head"><b>Vantablack</b><span>4,634 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the Vantablack repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="209" height="165"/><text class="tl" x="6" y="14">src</text><text class="tv" x="6" y="26">2,232 KB</text></g><g><rect class="tm mid" x="0" y="165" width="209" height="45"/><text class="tl onmid" x="6" y="179">Quantum Entangl…</text><text class="tv onmid" x="6" y="191">615 KB</text></g><g><rect class="tm cool" x="209" y="0" width="71" height="108"/></g><g><rect class="tm cool" x="280" y="0" width="60" height="108"/></g><g><rect class="tm cool" x="209" y="108" width="106" height="52"/><text class="tl" x="215" y="122">abos</text><text class="tv" x="215" y="134">362 KB</text></g><g><rect class="tm cool" x="209" y="161" width="106" height="49"/><text class="tl" x="215" y="175">docs</text><text class="tv" x="215" y="187">339 KB</text></g><g><rect class="tm cool" x="315" y="108" width="14" height="76"/></g><g><rect class="tm cool" x="329" y="108" width="11" height="76"/></g><g><rect class="tm cool" x="315" y="184" width="25" height="26"/></g></svg>
+            <div class="m-foot">src 2,232 KB &middot; Quantum Entanglement Link 615 KB &middot; assets 501 KB &middot; tests 422 KB &middot; abos 362 KB &middot; docs 339 KB</div>
+          </div>
+          <div class="docket">
+            <h4>Figures</h4>
+            <div class="fr"><span>Source files</span><span>74 in src/</span></div><div class="fr"><span>Test files</span><span>32</span></div><div class="fr"><span>Runtime</span><span>Tokio async</span></div><div class="fr"><span>Crypto</span><span>ML-KEM-768 / X25519</span></div><div class="fr"><span>Sharding</span><span>Reed-Solomon RS(2,1)</span></div><div class="fr"><span>Live at</span><span>vantablack.kellersystems.dev</span></div>
+            <div class="fr"><span>Lines of code</span><span>Rust 69,197 &middot; Python 4,362 &middot; Notebook 420</span></div>
           </div>
         </div>
-        <div>
-          <div class="meta"><span class="chip">Cryptography &amp; ZK</span><span class="chip">Rust &middot; Tokio &middot; UDP</span></div>
-          <h2 id="t1"><a href="https://vantablack.kellersystems.dev" target="_blank" rel="noopener noreferrer">Vantablack</a></h2>
-          <p class="chapter-desc">
-            The first finished system, and the one everything else was built to make possible: a
-            serverless peer-to-peer WAN mesh in pure Rust. Nodes open direct authenticated tunnels,
-            pad every packet to one uniform size and randomise their timing, and split each payload
-            into erasure shards that leave by different routes. Traffic shape gives a deep packet
-            inspection appliance nothing to hold on to.
-          </p>
-          <dl class="prims">
-            <div class="prim"><dt>Key exchange</dt><dd>ML-KEM-512 (Kyber) + X25519 ECDH</dd></div>
-            <div class="prim"><dt>Routing</dt><dd>erasure-sharded onion routes</dd></div>
-            <div class="prim"><dt>Resilience</dt><dd>Reed&ndash;Solomon RS(2,1) across relays</dd></div>
-          </dl>
-          <div class="chapter-links">
-            <a class="btn btn-sm" href="https://vantablack.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a>
-            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/Vantablack" target="_blank" rel="noopener noreferrer">Source</a>
-          </div>
+        <div class="chapter-body">
+          <div class="meta"><span class="chip">Cryptography &amp; privacy</span><span class="chip">Rust</span><span class="chip">Tokio async</span></div>
+          <h2 id="t01">Vantablack</h2>
+          <p class="lede">Every message leaves by three roads at once, and no machine on any of them holds the whole thing.</p>
+          <div class="blk"><h4>The problem</h4><p>A VPN provider sees every site you visit, keeps logs, and can be ordered to hand them over. Separately, traffic recorded today can be decrypted later if quantum computers get strong enough.</p></div>
+          <div class="blk"><h4>How it works</h4><p>Vantablack connects your machine to other machines and uses them to carry your traffic. Each message is encrypted with hybrid ML-KEM-768 and X25519, split into three Reed&#8211;Solomon shards, and sent along divergent routes. A shard that arrives modified fails its own authentication tag and is discarded before reassembly.</p></div>
+          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>No provider.</b> There is nobody holding your traffic to log it.</li><li><b>Post-quantum encryption.</b> ML-KEM-768 with X25519, so a recording made today has to be broken against a cipher built for later.</li><li><b>Tamper detection.</b> Every shard carries its own HKDF-derived key and Poly1305 tag.</li><li><b>Packet-loss tolerance.</b> Any two of the three shards rebuild the message.</li></ul></div>
+          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span>Install the Windows installer, or build with <code>cargo</code></span></div><div class="step"><span class="sn">2</span><span>Point it at a peer, or let it discover one over Cloudflare</span></div><div class="step"><span class="sn">3</span><span>Route traffic through the mesh SOCKS5 proxy</span></div></div>
+            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>One binary. You run a node.</div></div>
+          <div class="blk limits"><h4>Limits</h4><p>Running it means running a node. There is no support and no company responsible for your uptime. The seven-node Level 2 carrier mesh is a simulation, and the physical-anchor modules ship disabled by default.</p></div>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://vantablack.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/Vantablack" target="_blank" rel="noopener noreferrer">Source</a></div>
         </div>
       </div>
     </section>
 
-    <!-- 02 HOLOFORGE — wavefronts converging inside a rotating resin vat -->
-    <section class="chapter chapter-dark" id="ch2" data-index="02" data-name="HoloForge" aria-labelledby="t2">
+    <!-- 02 HOLOFORGE -->
+    <section class="chapter chapter-dark" id="ch2" data-index="02" data-name="HoloForge" aria-labelledby="t02">
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">02</span>
-          <div class="chapterplate drift">
-            <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
-              <!-- rotation axis -->
-              <path class="dash" d="M160 18 V198"/>
-              <!-- the cylindrical resin vat -->
-              <ellipse class="ln draw" pathLength="1" cx="160" cy="48" rx="72" ry="18"/>
-              <path class="ln" d="M88 48 V168"/>
-              <path class="ln" d="M232 48 V168"/>
-              <ellipse class="thin" cx="160" cy="168" rx="72" ry="18"/>
-              <ellipse class="dash" cx="160" cy="92" rx="72" ry="18"/>
-              <!-- coherent wavefronts arriving from several angles at once -->
-              <path class="thin" d="M18 52 L138 122 M18 74 L138 128 M18 96 L138 134"/>
-              <path class="thin" d="M302 52 L182 122 M302 74 L182 128 M302 96 L182 134"/>
-              <path class="thin" d="M134 12 L156 116 M186 12 L164 116"/>
-              <!-- the object curing at the intersection -->
-              <path class="accline draw" pathLength="1" d="M132 140 L160 126 L188 140 L188 162 L160 176 L132 162 Z"/>
-              <circle class="acc" cx="160" cy="151" r="5"/>
-              <!-- rotary sweep -->
-              <path class="accline" d="M104 190 A62 13 0 0 0 216 190" fill="none"/>
-              <path class="acc" d="M216 190 l-7 -5 l1 11 z"/>
-            </svg>
+          <div class="measured">
+            <div class="m-head"><b>HoloForge</b><span>3,711 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the HoloForge repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="248" height="210"/><text class="tl" x="6" y="14">output</text><text class="tv" x="6" y="26">2,703 KB</text></g><g><rect class="tm mid" x="248" y="0" width="64" height="141"/></g><g><rect class="tm cool" x="312" y="0" width="28" height="141"/></g><g><rect class="tm cool" x="248" y="141" width="57" height="69"/></g><g><rect class="tm cool" x="305" y="141" width="35" height="40"/></g><g><rect class="tm cool" x="305" y="181" width="29" height="29"/></g><g><rect class="tm cool" x="334" y="181" width="6" height="29"/></g></svg>
+            <div class="m-foot">output 2,703 KB &middot; dist 471 KB &middot; build 206 KB &middot; holoforge 206 KB &middot; docs 73 KB &middot; tests 43 KB</div>
+          </div>
+          <div class="docket">
+            <h4>Figures</h4>
+            <div class="fr"><span>Files</span><span>113</span></div><div class="fr"><span>Python</span><span>4,842 lines</span></div><div class="fr"><span>Whole part cured</span><span>under 15 s</span></div><div class="fr"><span>Cure accuracy</span><span>94.6&#8211;96.7% IoU</span></div><div class="fr"><span>Overcure</span><span>under 0.02%</span></div><div class="fr"><span>Hardware needed</span><span>none</span></div>
+            <div class="fr"><span>Lines of code</span><span>Python 4,842</span></div>
           </div>
         </div>
-        <div>
-          <div class="meta"><span class="chip">Volumetric 3D printing</span><span class="chip">Python &middot; wave optics</span></div>
-          <h2 id="t2"><a href="https://github.com/KELLERBABG/HoloForge" target="_blank" rel="noopener noreferrer">HoloForge</a></h2>
-          <p class="chapter-desc">
-            A holographic tomographic volumetric additive manufacturing suite. Instead of drawing an
-            object layer by layer, it shapes coherent 405&nbsp;nm wavefronts through a cylindrical
-            photopolymer vat from many rotary angles at once, curing the whole part in under fifteen
-            seconds and with no supports. The optics, the photochemistry and the machine are all
-            simulated, so it runs end to end with no hardware attached.
-          </p>
-          <dl class="prims">
-            <div class="prim"><dt>Optics</dt><dd>split-step angular spectrum, 4f telecentric filtering</dd></div>
-            <div class="prim"><dt>Holography</dt><dd>double-phase synthesis, multi-angle tomography</dd></div>
-            <div class="prim"><dt>Result</dt><dd>94.6&ndash;96.7% cure IoU, under 0.02% overcure</dd></div>
-          </dl>
-          <div class="chapter-links">
-            <a class="btn btn-sm" href="https://github.com/KELLERBABG/HoloForge" target="_blank" rel="noopener noreferrer">Repository</a>
-            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/HoloForge" target="_blank" rel="noopener noreferrer">Read the README</a>
-          </div>
+        <div class="chapter-body">
+          <div class="meta"><span class="chip">Volumetric 3D printing</span><span class="chip">Python</span><span class="chip">wave optics</span></div>
+          <h2 id="t02">HoloForge</h2>
+          <p class="lede">It prints the whole object at once, in the time a normal printer spends on its first hundred layers.</p>
+          <div class="blk"><h4>The problem</h4><p>Layer-by-layer resin printers run for hours, leave stair-stepping striations where one layer meets the next, and print supports that have to be cut off afterwards.</p></div>
+          <div class="blk"><h4>How it works</h4><p>HoloForge computes holograms that make 405&nbsp;nm light from several rotary angles intersect only where the part should cure, then models what follows: radical polymerisation, dissolved-oxygen inhibition, and the surface the finished part measures.</p></div>
+          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>Under fifteen seconds per part,</b> with no support structures to remove.</li><li><b>Cure accuracy of 94.6&#8211;96.7% IoU</b> in simulation, with under 0.02% overcure.</li><li><b>Parametric generators</b> for dental crowns, microfluidic chips and aspheric lenses, plus arbitrary .stl voxelisation.</li><li><b>A vat aberration conjugate mask</b> that cancels cylindrical vial astigmatism on the SLM, without an index-matching bath.</li></ul></div>
+          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span><code>py -m pip install -e .</code></span></div><div class="step"><span class="sn">2</span><span>Load an <code>.stl</code> and synthesise the holograms</span></div><div class="step"><span class="sn">3</span><span>Run a simulated rotary print against the digital twin</span></div></div>
+            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>Python only. No hardware.</div></div>
+          <div class="blk limits"><h4>Limits</h4><p>A simulated print is not a physical print. The optical and photochemical models are physical; the machine is emulated, and real output depends on your laser, your resin and your vat.</p></div>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://github.com/KELLERBABG/HoloForge" target="_blank" rel="noopener noreferrer">Repository</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/HoloForge#readme" target="_blank" rel="noopener noreferrer">Read the README</a></div>
         </div>
       </div>
     </section>
 
-    <!-- 03 MUONSCOPE — cosmic rays through a detector into a reconstructed density -->
-    <section class="chapter" id="ch3" data-index="03" data-name="MuonScope Tomography" aria-labelledby="t3">
+    <!-- 03 MUONSCOPE TOMOGRAPHY -->
+    <section class="chapter" id="ch3" data-index="03" data-name="MuonScope Tomography" aria-labelledby="t03">
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">03</span>
-          <div class="chapterplate drift">
-            <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
-              <!-- cosmic muons arriving -->
-              <path class="thin" d="M36 10 L92 74 M112 10 L146 74 M196 10 L182 74 M268 10 L216 74"/>
-              <!-- detector plane -->
-              <path class="ln draw" pathLength="1" d="M30 80 H290"/>
-              <path class="thin" d="M30 92 H290"/>
-              <path class="dash" d="M30 86 H290"/>
-              <!-- the scanned structure -->
-              <rect class="slab" x="106" y="112" width="108" height="72"/>
-              <!-- a track that scatters inside -->
-              <path class="accline draw" pathLength="1" d="M92 74 L148 126 L214 186"/>
-              <path class="thin" d="M146 74 L182 126 L214 186"/>
-              <!-- reconstructed density, bottom right -->
-              <rect class="thin" x="234" y="112" width="56" height="50"/>
-              <circle class="acc" cx="262" cy="137" r="11"/>
-              <circle class="thin" cx="262" cy="137" r="18"/>
-            </svg>
+          <div class="measured">
+            <div class="m-head"><b>MuonScope Tomography</b><span>902 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the MuonScope Tomography repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="185" height="210"/><text class="tl" x="6" y="14">output_reconstr…</text><text class="tv" x="6" y="26">490 KB</text></g><g><rect class="tm mid" x="185" y="0" width="155" height="127"/><text class="tl onmid" x="191" y="14">src</text><text class="tv onmid" x="191" y="26">249 KB</text></g><g><rect class="tm mid" x="185" y="127" width="109" height="83"/><text class="tl onmid" x="191" y="141">docs</text><text class="tv onmid" x="191" y="153">114 KB</text></g><g><rect class="tm cool" x="293" y="127" width="31" height="51"/></g><g><rect class="tm cool" x="324" y="127" width="16" height="51"/></g><g><rect class="tm cool" x="293" y="178" width="25" height="32"/></g><g><rect class="tm cool" x="318" y="178" width="22" height="32"/></g></svg>
+            <div class="m-foot">output_reconstruction 490 KB &middot; src 249 KB &middot; docs 114 KB &middot; firmware 20 KB &middot; hardware 10 KB &middot; tests 10 KB</div>
+          </div>
+          <div class="docket">
+            <h4>Figures</h4>
+            <div class="fr"><span>Files</span><span>168</span></div><div class="fr"><span>Python / TS / Rust</span><span>1,914 / 1,049 / 828 lines</span></div><div class="fr"><span>Station mass</span><span>under 9.5 kg</span></div><div class="fr"><span>Power</span><span>under 15 W</span></div><div class="fr"><span>Muon energy</span><span>3&#8211;4 GeV</span></div><div class="fr"><span>Trigger</span><span>FPGA coincidence</span></div>
+            <div class="fr"><span>Lines of code</span><span>Python 1,914 &middot; TypeScript 1,049 &middot; Rust 828</span></div>
           </div>
         </div>
-        <div>
-          <div class="meta"><span class="chip">Deep sensing</span><span class="chip">Python &middot; NumPy &middot; FPGA</span></div>
-          <h2 id="t3"><a href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">MuonScope Tomography</a></h2>
-          <p class="chapter-desc">
-            Cosmic-ray muon scattering and absorption tomography. Natural relativistic muons pass
-            through a structure and scatter; inverting those deflections recovers the interior
-            density distribution of an opaque, heavily shielded object without introducing a
-            radiation source.
-          </p>
-          <dl class="prims">
-            <div class="prim"><dt>Reconstruction</dt><dd>point of closest approach ray tracing</dd></div>
-            <div class="prim"><dt>Detector model</dt><dd>multi-layer silicon strip digital twin</dd></div>
-            <div class="prim"><dt>Trigger</dt><dd>FPGA coincidence window logic</dd></div>
-          </dl>
-          <div class="chapter-links">
-            <a class="btn btn-sm" href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a>
-            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/MuonScope-Tomography" target="_blank" rel="noopener noreferrer">Source</a>
-          </div>
+        <div class="chapter-body">
+          <div class="meta"><span class="chip">Deep sensing</span><span class="chip">Python</span><span class="chip">FPGA</span><span class="chip">SiPM</span></div>
+          <h2 id="t03">MuonScope Tomography</h2>
+          <p class="lede">Particles falling through your roof right now can map the inside of a concrete wall.</p>
+          <div class="blk"><h4>The problem</h4><p>Industrial X-ray and gamma radiography cannot penetrate more than a few centimetres of dense matter and brings its own radiation hazard. Ground-penetrating radar attenuates in wet or conductive soil beyond two to five metres. Core drilling is destructive and runs to tens of thousands of euros per borehole.</p></div>
+          <div class="blk"><h4>How it works</h4><p>Cosmic-ray muons arrive with a mean energy near 3&#8211;4&nbsp;GeV and cross tens to hundreds of metres of rock, concrete and steel. MuonScope measures their scattering angles and flux attenuation across a multi-layer silicon-photomultiplier hodoscope with FPGA time-stamping, then inverts the deflections into a 3D density map.</p></div>
+          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>No radiation source.</b> The muons are already there.</li><li><b>Voids, density anomalies, reinforcement and heavy-element shielding</b> resolved in three dimensions.</li><li><b>A backpack-portable station:</b> under 9.5&nbsp;kg per panel, drawing under 15&nbsp;W.</li><li><b>Dual-band RTK-GNSS positioning</b> with Bayesian inversion over the measured tracks.</li></ul></div>
+          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span>Build the two detector panels from the bill of materials</span></div><div class="step"><span class="sn">2</span><span>Flash the FPGA coincidence and time-stamping firmware</span></div><div class="step"><span class="sn">3</span><span>Run the Python inversion over the captured tracks</span></div></div>
+            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>A hardware build, not a software install.</div></div>
+          <div class="blk limits"><h4>Limits</h4><p>Positioning is the hard part: indoors, underground or under canopy there is no GNSS, so the station falls back on ultra-wideband, fiducial mounts or dead reckoning. Detector timing bin widths drift with temperature and the dark-count rate climbs in heat, both of which the risk register tracks as open engineering work.</p></div>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/MuonScope-Tomography" target="_blank" rel="noopener noreferrer">Source</a></div>
         </div>
       </div>
     </section>
 
-    <!-- 04 PLANEOS — redundant voters in, a fixed schedule and an envelope out -->
-    <section class="chapter chapter-dark" id="ch4" data-index="04" data-name="PlaneOS" aria-labelledby="t4">
+    <!-- 04 PLANEOS -->
+    <section class="chapter chapter-dark" id="ch4" data-index="04" data-name="PlaneOS" aria-labelledby="t04">
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">04</span>
-          <div class="chapterplate drift">
-            <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
-              <!-- three redundant sensor inputs -->
-              <path class="thin" d="M20 34 H84 M20 62 H84 M20 90 H84"/>
-              <!-- the voter -->
-              <rect class="ln draw" pathLength="1" x="84" y="24" width="58" height="76"/>
-              <path class="thin" d="M96 40 h34 M96 62 h34 M96 84 h34"/>
-              <!-- actuator -->
-              <path class="thin" d="M142 62 H192"/>
-              <circle class="acc" cx="200" cy="62" r="5"/>
-              <!-- deterministic schedule: equal slots, no jitter -->
-              <path class="ln" d="M20 132 H300"/>
-              <rect class="accfill" x="34" y="120" width="24" height="12"/>
-              <rect class="accfill" x="98" y="120" width="24" height="12"/>
-              <rect class="accfill" x="162" y="120" width="24" height="12"/>
-              <rect class="accfill" x="226" y="120" width="24" height="12"/>
-              <!-- envelope protection -->
-              <path class="dash" d="M20 186 Q160 100 300 186"/>
-              <path class="accline draw" pathLength="1" d="M20 200 Q160 118 300 200"/>
-              <circle class="acc" cx="202" cy="163" r="5"/>
-            </svg>
+          <div class="measured">
+            <div class="m-head"><b>PlaneOS</b><span>178 KB on disk</span></div><div class="m-bars"><div class="mr"><span class="mn">src</span><span class="mb"><i style="width:100.00%"></i></span><span class="mk">149 KB</span></div><div class="mr"><span class="mn">docs</span><span class="mb"><i style="width:19.46%"></i></span><span class="mk">29 KB</span></div></div>
+            <div class="m-foot">src 149 KB &middot; docs 29 KB</div>
+          </div>
+          <div class="docket">
+            <h4>Figures</h4>
+            <div class="fr"><span>Files</span><span>28</span></div><div class="fr"><span>Rust</span><span>4,248 lines</span></div><div class="fr"><span>Tests</span><span>63 passing</span></div><div class="fr"><span>Solver</span><span>stub, or Z3 via feature</span></div><div class="fr"><span>Envelope</span><span>V-N, Mach, altitude, terrain</span></div><div class="fr"><span>Recorder</span><span>hash-chained</span></div>
+            <div class="fr"><span>Lines of code</span><span>Rust 4,248</span></div>
           </div>
         </div>
-        <div>
-          <div class="meta"><span class="chip">Real-time / OS</span><span class="chip">Rust &middot; no_std</span></div>
-          <h2 id="t4"><a href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">PlaneOS</a></h2>
-          <p class="chapter-desc">
-            A high-assurance flight control prototype exploring deterministic scheduling and
-            envelope protection. Static memory guarantees remove allocation jitter and collection
-            pauses from critical control loops, so worst-case timing is a property of the design
-            rather than a hope.
-          </p>
-          <dl class="prims">
-            <div class="prim"><dt>Safety kernel</dt><dd>triple modular redundant sensor voters</dd></div>
-            <div class="prim"><dt>Invariants</dt><dd>boundary assertions on every control path</dd></div>
-            <div class="prim"><dt>Standard</dt><dd>DO-178C DAL A formal methods guidelines</dd></div>
-          </dl>
-          <div class="chapter-links">
-            <a class="btn btn-sm" href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a>
-            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/PlaneOS" target="_blank" rel="noopener noreferrer">Source</a>
-          </div>
+        <div class="chapter-body">
+          <div class="meta"><span class="chip">Real-time / safety</span><span class="chip">Rust</span><span class="chip">no_std</span><span class="chip">SMT</span></div>
+          <h2 id="t04">PlaneOS</h2>
+          <p class="lede">Before a command moves a control surface, the software has to prove it cannot put the aircraft into a lethal state.</p>
+          <div class="blk"><h4>The problem</h4><p>Flight-envelope protection is normally enforced by test coverage and review. Neither can enumerate the states an aircraft can reach, so the assurance rests on the cases someone thought to try.</p></div>
+          <div class="blk"><h4>How it works</h4><p>Every command is translated into a formula over the control-cycle state. Envelope, Mach, altitude and terrain hazards are expanded over a prediction horizon and checked symbolically on the current and predicted state. A command reaches the dynamics integrator only when every hazard formula is proven unsatisfiable; otherwise the aircraft freezes. Each verdict is written to a hash-chained flight-recorder specification.</p></div>
+          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>A trustless execution gate.</b> The control law is an untrusted candidate generator, so a software fault cannot bypass the proof.</li><li><b>Taint-coded sensor audit.</b> Pitot, IMU, GPS, ADS-B and radar data are tracked to the channels they feed.</li><li><b>Fail-safe by construction.</b> An unproven hazard stops the command. It is not recorded as a warning.</li><li><b>A machine-readable record.</b> Every verdict lands in a hash-chained specification.</li></ul></div>
+          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span><code>cargo test</code> &mdash; 63 passing</span></div><div class="step"><span class="sn">2</span><span>Run the demo against the stub solver</span></div><div class="step"><span class="sn">3</span><span>Enable the <code>z3</code> feature for real non-linear arithmetic proofs</span></div></div>
+            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>A Rust crate. No hardware.</div></div>
+          <div class="blk limits"><h4>Limits</h4><p>The flight dynamics are a mock model, the recorder hashes with FNV-1a, and there is no real-time scheduling, hardware-in-the-loop testing or actuator-attack modelling in the prototype. It is a research prototype, not deployable, and not certified to DO-178C, CS-25 or ARP4754A.</p></div>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/PlaneOS" target="_blank" rel="noopener noreferrer">Source</a></div>
         </div>
       </div>
     </section>
 
-    <!-- 05 SYBILGUARD — a trust graph, a proven path, a proof circuit -->
-    <section class="chapter" id="ch5" data-index="05" data-name="SybilGuard" aria-labelledby="t5">
+    <!-- 05 SYBILGUARD -->
+    <section class="chapter chapter-dark" id="ch5" data-index="05" data-name="SybilGuard" aria-labelledby="t05">
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">05</span>
-          <div class="chapterplate drift">
-            <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
-              <!-- trust topology -->
-              <path class="thin" d="M40 56 L98 34 M98 34 L152 62 M152 62 L98 106 M98 106 L40 56 M152 62 L208 40 M208 40 L252 74 M152 62 L206 108 M206 108 L252 74 M98 106 L152 62"/>
-              <circle class="acc" cx="40" cy="56" r="4"/>
-              <circle class="acc" cx="98" cy="34" r="4"/>
-              <circle class="acc" cx="152" cy="62" r="5"/>
-              <circle class="acc" cx="98" cy="106" r="4"/>
-              <circle class="acc" cx="208" cy="40" r="4"/>
-              <circle class="acc" cx="252" cy="74" r="4"/>
-              <circle class="acc" cx="206" cy="108" r="4"/>
-              <!-- the path that gets proven, and only that -->
-              <path class="accline draw" pathLength="1" d="M40 56 L98 34 L152 62 L208 40 L252 74"/>
-              <!-- proof circuit -->
-              <rect class="ln draw" pathLength="1" x="40" y="146" width="240" height="52"/>
-              <path class="thin" d="M40 172 H82 M98 172 H148 M164 172 H235"/>
-              <circle class="accline" cx="90" cy="172" r="8" fill="none"/>
-              <circle class="accline" cx="156" cy="172" r="8" fill="none"/>
-              <circle class="acc" cx="240" cy="172" r="5"/>
-              <path class="thin" d="M90 150 V164 M90 180 V194 M156 150 V164 M156 180 V194"/>
-            </svg>
+          <div class="measured">
+            <div class="m-head"><b>SybilGuard</b><span>337 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the SybilGuard repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="204" height="210"/><text class="tl" x="6" y="14">crates</text><text class="tv" x="6" y="26">202 KB</text></g><g><rect class="tm mid" x="204" y="0" width="136" height="152"/><text class="tl onmid" x="210" y="14">dashboard</text><text class="tv onmid" x="210" y="26">98 KB</text></g><g><rect class="tm cool" x="204" y="152" width="103" height="58"/><text class="tl" x="210" y="166">docs</text><text class="tv" x="210" y="178">28 KB</text></g><g><rect class="tm cool" x="307" y="152" width="33" height="58"/></g></svg>
+            <div class="m-foot">crates 202 KB &middot; dashboard 98 KB &middot; docs 28 KB &middot; circuits 9 KB</div>
+          </div>
+          <div class="docket">
+            <h4>Figures</h4>
+            <div class="fr"><span>Files</span><span>100</span></div><div class="fr"><span>Rust / Circom</span><span>5,053 / 149 lines</span></div><div class="fr"><span>Prover</span><span>Groth16 over BN254</span></div><div class="fr"><span>Nullifier</span><span>H(identity secret, scope)</span></div><div class="fr"><span>Verification</span><span>sub-second</span></div><div class="fr"><span>Live at</span><span>citadel.kellersystems.dev</span></div>
+            <div class="fr"><span>Lines of code</span><span>Rust 5,053 &middot; TypeScript 320 &middot; Circom 149</span></div>
           </div>
         </div>
-        <div>
-          <div class="meta"><span class="chip">Cryptography &amp; ZK</span><span class="chip">Rust &middot; Bellman / Arkworks</span></div>
-          <h2 id="t5"><a href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">SybilGuard</a></h2>
-          <p class="chapter-desc">
-            Cryptographic identity and proof-of-personhood. Trust topology is evaluated with
-            zero-knowledge proofs, confirming that a graph is well connected without disclosing
-            your neighbourhood, your biometrics or your transaction footprint.
-          </p>
-          <dl class="prims">
-            <div class="prim"><dt>Proofs</dt><dd>zk-SNARK circuits, non-interactive graph checks</dd></div>
-            <div class="prim"><dt>Private scoring</dt><dd>homomorphic operations over state</dd></div>
-            <div class="prim"><dt>Verification</dt><dd>paired with SymEx EVM's SMT solver</dd></div>
-          </dl>
-          <div class="chapter-links">
-            <a class="btn btn-sm" href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a>
-            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/SybilGuard" target="_blank" rel="noopener noreferrer">Source</a>
-          </div>
-                  </div>
+        <div class="chapter-body">
+          <div class="meta"><span class="chip">Identity</span><span class="chip">Rust</span><span class="chip">Circom</span><span class="chip">Groth16</span></div>
+          <h2 id="t05">SybilGuard</h2>
+          <p class="lede">Prove you are one real person without saying which person.</p>
+          <div class="blk"><h4>The problem</h4><p>One person can hold ten thousand accounts, which breaks anything that counts people: votes, reputation, giveaways, benefits. The usual repair is to demand identity documents, and then every service ends up holding a copy of your passport.</p></div>
+          <div class="blk"><h4>How it works</h4><p>The proof is produced inside the security chip your device already carries, a Secure Enclave or a TPM, and is bound to a key that cannot be extracted. You publish a proof that a unique human holds that key, together with a nullifier derived from the service identifier, so a service can see that a person has not claimed yet without being able to match that claim to your activity anywhere else.</p></div>
+          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>One claim per person per service,</b> enforced by a nullifier derived from the identity secret and the scope.</li><li><b>Biometrics stay on the device.</b> Nothing identifying is transmitted, so there is nothing to leak.</li><li><b>No persistent pseudonym.</b> A proof in one service cannot be matched to a proof in another.</li><li><b>Sub-second verification,</b> on-chain through a contract or off-chain through a Rust batch verifier.</li></ul></div>
+          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span>Add the Rust verification crate, or build the Circom circuits</span></div><div class="step"><span class="sn">2</span><span>Bind an identity key inside a Secure Enclave or TPM</span></div><div class="step"><span class="sn">3</span><span>Verify on-chain, or in an off-chain batch</span></div></div>
+            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>Circuit tooling and hardware binding. Aimed at integrators.</div></div>
+          <div class="blk limits"><h4>Limits</h4><p>The proof binds to a key held inside a Secure Enclave or TPM. The circuit cannot establish that the enclave is genuine, and it cannot tell whether one person has enrolled two devices.</p></div>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/SybilGuard" target="_blank" rel="noopener noreferrer">Source</a></div>
+        </div>
       </div>
     </section>
-    <!-- 06 PLANETARY ENTROPY MINING — noise window, min-entropy gate, certificate, hidden node -->
-    <section class="chapter chapter-dark" id="ch6" data-index="06" data-name="Planetary Entropy Mining" aria-labelledby="t6">
+
+    <!-- 06 PLANETARY ENTROPY MINING -->
+    <section class="chapter" id="ch6" data-index="06" data-name="Planetary Entropy Mining" aria-labelledby="t06">
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">06</span>
-          <div class="chapterplate drift">
-            <svg class="artlines" viewBox="0 0 320 220" aria-hidden="true">
-              <!-- the captured window: raw environmental noise -->
-              <path class="ln draw" pathLength="1" d="M20 60 L32 42 L44 76 L56 36 L68 80 L80 44 L92 72 L104 38 L116 78 L128 48 L140 70 L152 40 L164 76 L176 46 L188 72 L200 38 L212 78 L224 50 L236 68 L248 42 L260 76 L272 54 L284 66 L296 48"/>
-              <!-- reduced to a histogram -->
-              <g class="bars">
-                <rect x="24" y="150" width="10" height="34"/><rect x="40" y="138" width="10" height="46"/>
-                <rect x="56" y="158" width="10" height="26"/><rect x="72" y="130" width="10" height="54"/>
-                <rect x="88" y="146" width="10" height="38"/><rect x="104" y="160" width="10" height="24"/>
-              </g>
-              <path class="ln" d="M20 184 H136"/>
-              <!-- the max-count gate that fixes the min-entropy bound -->
-              <path class="accline draw" pathLength="1" d="M72 120 H142"/>
-              <!-- the certificate it produces -->
-              <rect class="thin" x="160" y="126" width="80" height="58"/>
-              <path class="thin" d="M172 142 H228 M172 154 H228 M172 166 H204"/>
-              <circle class="acc" cx="228" cy="170" r="5"/>
-              <!-- the measuring node, with its location withheld -->
-              <circle class="ln" cx="264" cy="58" r="22"/>
-              <path class="accline" d="M248 42 L280 74"/>
-              <circle class="acc" cx="264" cy="58" r="5"/>
-            </svg>
+          <div class="measured">
+            <div class="m-head"><b>Planetary Entropy Mining</b><span>4,574 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the Planetary Entropy Mining repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="321" height="210"/><text class="tl" x="6" y="14">circuits</text><text class="tv" x="6" y="26">4,319 KB</text></g><g><rect class="tm cool" x="321" y="0" width="14" height="60"/></g><g><rect class="tm cool" x="321" y="60" width="14" height="52"/></g><g><rect class="tm cool" x="335" y="0" width="5" height="113"/></g><g><rect class="tm cool" x="321" y="113" width="11" height="53"/></g><g><rect class="tm cool" x="321" y="166" width="11" height="44"/></g><g><rect class="tm cool" x="332" y="113" width="5" height="76"/></g><g><rect class="tm cool" x="336" y="113" width="4" height="76"/></g><g><rect class="tm cool" x="332" y="189" width="8" height="21"/></g></svg>
+            <div class="m-foot">circuits 4,319 KB &middot; tests 53 KB &middot; dsp 46 KB &middot; docs 38 KB &middot; net 37 KB &middot; dashboard 31 KB</div>
+          </div>
+          <div class="docket">
+            <h4>Figures</h4>
+            <div class="fr"><span>Files</span><span>87</span></div><div class="fr"><span>Python / Solidity</span><span>4,002 / 278 lines</span></div><div class="fr"><span>Stages</span><span>13</span></div><div class="fr"><span>Estimators</span><span>NIST SP 800-90B</span></div><div class="fr"><span>Circuit</span><span>256-bin histogram gate</span></div><div class="fr"><span>Tests</span><span>13 modules</span></div>
+            <div class="fr"><span>Lines of code</span><span>Python 4,002 &middot; JavaScript 480 &middot; Solidity 278</span></div>
           </div>
         </div>
-        <div>
-          <div class="meta"><span class="chip">Cryptography &amp; ZK</span><span class="chip">Python &middot; circom &middot; Solidity</span></div>
-          <h2 id="t6"><a href="https://pem.kellersystems.dev" target="_blank" rel="noopener noreferrer">Planetary Entropy Mining</a></h2>
-          <p class="chapter-desc">
-            Emission certificates grounded in physical measurement instead of an issuer's ledger. A
-            node captures a window of environmental noise, reduces it to a histogram, and proves in
-            zero knowledge that the window really carries the min-entropy it claims &mdash; and was
-            measured when it says it was &mdash; without revealing where the node sits. The
-            cryptographic core is real; the sources and the ledger are simulated, so the whole chain
-            runs on a laptop.
-          </p>
-          <dl class="prims">
-            <div class="prim"><dt>Entropy</dt><dd>NIST SP 800-90B estimators, validated against truth</dd></div>
-            <div class="prim"><dt>Proof</dt><dd>256-bin histogram, max-count gate for min-entropy</dd></div>
-            <div class="prim"><dt>Commitment</dt><dd>GF(256) hardening polynomial, Poseidon nullifier</dd></div>
-          </dl>
-          <div class="chapter-links">
-            <a class="btn btn-sm" href="https://pem.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a>
-            <a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/Planetary-Entropy-Mining" target="_blank" rel="noopener noreferrer">Source</a>
-          </div>
+        <div class="chapter-body">
+          <div class="meta"><span class="chip">Entropy provenance</span><span class="chip">Python</span><span class="chip">Circom</span><span class="chip">Solidity</span></div>
+          <h2 id="t06">Planetary Entropy Mining</h2>
+          <p class="lede">The certificate is grounded in a window of noise nobody could have predicted.</p>
+          <div class="blk"><h4>The problem</h4><p>Emission and offset certificates are issued by registries, so their audit trail is paperwork held by the issuer. A buyer has to trust the registry. The measurement cannot be checked.</p></div>
+          <div class="blk"><h4>How it works</h4><p>A node captures a window of environmental noise, reduces it to a histogram and estimates its min-entropy with the NIST SP 800-90B estimators. A zero-knowledge circuit proves that the histogram meets a min-entropy threshold and that the node holds a matching hardening polynomial and nullifier &mdash; without revealing where the measuring node is. The certificate is then sharded, carried over an intermittent mesh, matched in a blind dark pool and settled once per nullifier.</p></div>
+          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>Provenance from a measurement,</b> not from an issuer's ledger.</li><li><b>Location-blind proofs.</b> A verifier learns that the measurement was honest, and nothing about where it was taken.</li><li><b>A real min-entropy gate.</b> The compiled circuit bounds the most common histogram bin. The earlier circuit checked a placeholder value.</li><li><b>Thirteen stages under test,</b> from capture through Reed&#8211;Solomon sharding, DTN delivery and settlement.</li></ul></div>
+          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span><code>py -m pip install -e ".[dev]"</code></span></div><div class="step"><span class="sn">2</span><span>Run <code>py -m pytest</code> for the fast suite, or <code>-m ""</code> for the slow NIST tier</span></div><div class="step"><span class="sn">3</span><span>Run <code>py -m cli.demo --quick</code> for the end-to-end chain</span></div></div>
+            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>Python and pip. No hardware.</div></div>
+          <div class="blk limits"><h4>Limits</h4><p>The physical sources are seeded simulators and the settlement ledger runs in memory. The Groth16 circuit proves the histogram gate and the commitment structure; the Solidity verifier checks the public layout. The pairing maths is not verified, and the whitepaper lists both as the next engineering item.</p></div>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://pem.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/Planetary-Entropy-Mining" target="_blank" rel="noopener noreferrer">Source</a></div>
         </div>
       </div>
     </section>
@@ -439,7 +315,7 @@
         </article>
         <article class="principle">
           <b>Public source</b>
-          <p>Every system ships its source and its own domain. Read it, build it, check the claim yourself.</p>
+          <p>Every system ships its source and its own domain.</p>
         </article>
       </div>
     </div>
