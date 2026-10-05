@@ -1,234 +1,360 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keller Systems &mdash; Systems, Cryptography & Hardware Engineering</title>
-  <meta name="description" content="Keller Systems: Research and systems engineering across post-quantum mesh networks, particle physics imaging, real-time kernels, and formal verification.">
+  <title>Keller Systems &mdash; Deterministic Systems, Cryptography &amp; Hardware Engineering</title>
+  <meta name="description" content="Keller Systems: independent research and systems engineering across post-quantum mesh networks, particle-physics imaging, real-time kernels, and formal verification.">
+  <meta name="theme-color" content="#f2f0eb">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Keller Systems &mdash; Engineering Registry">
+  <meta property="og:description" content="Deterministic systems, post-quantum networks, and physical computing. Every system ships with public source and a dedicated domain.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Scroll-reveal is opt-in: without this class nothing is ever hidden. -->
+  <script>
+    document.documentElement.classList.add('js');
+    /* Watchdog: if script.js never runs, drop the class so all content shows. */
+    setTimeout(function () {
+      if (!window.__ksInit) document.documentElement.classList.remove('js');
+    }, 1500);
+  </script>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================ Header ============================ -->
   <header class="header">
-    <div class="container nav-inner">
-      <a href="/" class="brand">
-        <!-- Keller Systems Vector Icon -->
-        <img src="assets/icon.svg" alt="Keller Systems Icon" width="24" height="24" style="border-radius:6px; vertical-align:middle; margin-right:8px; box-shadow:0 0 10px rgba(56,189,248,0.3); border:1px solid rgba(56,189,248,0.4);">
-        <span class="brand-title">Keller Systems</span>
+    <div class="shell header-inner">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="assets/icon.svg" alt="" width="30" height="30">
+        <span class="brand-text">
+          <span class="brand-title">Keller Systems</span>
+          <span class="brand-sub">Engineering registry</span>
+        </span>
       </a>
-      <nav class="nav-links">
-        <a href="#overview">Overview</a>
-        <a href="#featured">Featured Architectures</a>
-        <a href="#all-work">Repository Directory</a>
-        <a href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer" class="nav-external">
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#featured">Featured</a>
+        <a class="nav-link" href="#all-work">Directory</a>
+        <a class="btn btn-ink nav-cta" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">
           GitHub
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- Intro / Overview -->
-    <section class="section intro-section" id="overview">
-      <div class="container">
-        <div class="intro-grid">
-          <div>
-            <span class="eyebrow">Engineering Systems &amp; R&amp;D</span>
-            <h1 class="headline">Deterministic systems, post-quantum networks, and physical computing.</h1>
+  <main id="main">
+
+    <!-- ============================ Hero ============================ -->
+    <section class="hero" id="overview">
+      <div class="shell hero-grid">
+        <div class="hero-main">
+          <p class="tag"><span class="tag-dot" aria-hidden="true"></span>Engineering systems &amp; R&amp;D</p>
+
+          <h1 class="hero-title">Deterministic systems, post-quantum networks, and physical computing.</h1>
+
+          <p class="hero-lead">
+            Independent research and systems engineering focused on cryptographic sovereignty,
+            high-assurance embedded execution, and novel physical instrumentation. All systems
+            feature dedicated subdomains and verified source code distributions.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#all-work">
+              Repository directory
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="btn btn-outline" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">
+              github.com/KELLERBABG
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
-          <div class="intro-copy">
-            <p>
-              Independent research and systems engineering focused on cryptographic sovereignty, high-assurance embedded execution, and novel physical instrumentation. All systems feature dedicated subdomains and verified source code distributions.
-            </p>
+        </div>
+
+        <aside class="plate" aria-label="Registry summary">
+          <div class="plate-head">
+            <span class="plate-kicker">Registry</span>
+            <span class="plate-id">KS&#8209;01</span>
+          </div>
+          <dl class="plate-list">
+            <div class="plate-row">
+              <dt class="plate-key">Scope</dt>
+              <dd class="plate-val">Independent research &amp; systems engineering</dd>
+            </div>
+            <div class="plate-row">
+              <dt class="plate-key">Disciplines</dt>
+              <dd class="plate-val">Cryptography &amp; DSP &middot; Aerospace &amp; hardware &middot; Deep sensing</dd>
+            </div>
+            <div class="plate-row">
+              <dt class="plate-key">Distribution</dt>
+              <dd class="plate-val">Public source &middot; per-system subdomain routing</dd>
+            </div>
+            <div class="plate-row">
+              <dt class="plate-key">Assurance</dt>
+              <dd class="plate-val">Reproducible builds &middot; formal methods</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==================== Ticker (signature move) ================== -->
+    <div class="ticker-wrap">
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track" id="tickerTrack">
+          <ul class="ticker-list">
+            <li class="ticker-item">Global Ghost Net</li>
+            <li class="ticker-item">MuonScope Tomography</li>
+            <li class="ticker-item">PlaneOS</li>
+            <li class="ticker-item">SybilGuard</li>
+          </ul>
+        </div>
+      </div>
+      <button class="ticker-toggle" id="tickerToggle" type="button" aria-pressed="false">Pause ticker</button>
+    </div>
+
+    <!-- ============================ Stats ============================ -->
+    <section class="stats" aria-label="Registry at a glance">
+      <div class="shell">
+        <div class="stats-grid" data-reveal>
+          <div class="stat">
+            <span class="stat-label">Systems indexed</span>
+            <span class="stat-num" data-stat="systems">&mdash;</span>
+            <span class="stat-note">Registry entries with live distribution</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Real-time / OS systems</span>
+            <span class="stat-num" data-stat="kernels">&mdash;</span>
+            <span class="stat-note">Kernels, schedulers, and safety cores</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Cryptography &amp; ZK</span>
+            <span class="stat-num" data-stat="crypto">&mdash;</span>
+            <span class="stat-note">Proof, privacy, and post-quantum systems</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Runtime targets</span>
+            <span class="stat-num" data-stat="stacks">&mdash;</span>
+            <span class="stat-note" data-stat-note="stacks">Rust &middot; Python &middot; TypeScript &middot; JavaScript &middot; HTML</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Projects (Links directly to subdomain landing pages) -->
+    <!-- ==================== Featured architectures =================== -->
     <section class="section" id="featured">
-      <div class="container">
-        <div class="section-label">
-          <span>Featured Architectures</span>
-          <span class="label-desc">Core systems and active research implementations</span>
+      <div class="shell">
+        <div class="section-head" data-reveal>
+          <p class="section-kicker"><b>01</b> Featured architectures</p>
+          <h2 class="section-title">Core systems and active research implementations.</h2>
+          <p class="section-desc">Four systems that define the current engineering surface &mdash; each with its own domain, stack, and verification story.</p>
         </div>
 
-        <div class="featured-list">
+        <div class="featured-grid">
 
           <!-- Global Ghost Net -->
-          <article class="project-card">
-            <div class="card-main">
-              <div class="project-header">
-                <span class="project-tag">ggn.kellersystems.dev</span>
-                <h2 class="project-name">
-                  <a href="https://ggn.kellersystems.dev" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:0.75rem;">
-                    <img src="https://raw.githubusercontent.com/KELLERBABG/Global-Ghost-Net/main/assets/icon.svg" alt="Global Ghost Net Icon" width="28" height="28" style="border-radius:6px; vertical-align:middle; border:1px solid rgba(56,189,248,0.3); background:rgba(0,0,0,0.5);">
+          <article class="card" data-reveal data-delay="0">
+            <div class="card-body">
+              <div class="card-head">
+                <span class="card-index" aria-hidden="true">01</span>
+                <span class="chip">ggn.kellersystems.dev</span>
+                <h3 class="card-title">
+                  <a href="https://ggn.kellersystems.dev" target="_blank" rel="noopener noreferrer">
+                    <img class="tile" data-mono="G" src="https://raw.githubusercontent.com/KELLERBABG/Global-Ghost-Net/main/assets/icon.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
                     Global Ghost Net
-                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                   </a>
-                </h2>
+                </h3>
               </div>
-              <p class="project-desc">
-                Serverless peer-to-peer WAN mesh routing daemon written in pure Rust. Nodes establish direct authenticated mesh tunnels with uniform packet padding and randomized timing jitter to defeat deep packet inspection.
+              <p class="card-desc">
+                Serverless peer-to-peer WAN mesh routing daemon written in pure Rust. Nodes establish direct
+                authenticated mesh tunnels with uniform packet padding and randomized timing jitter to defeat
+                deep packet inspection.
               </p>
-              <div class="tech-spec-row">
-                <div class="spec-item">
-                  <span class="spec-label">Key Primitives</span>
-                  <span class="spec-value">Hybrid ML-KEM-512 (Kyber) + X25519 ECDH for forward-secret post-quantum encryption.</span>
+              <div class="spec-grid">
+                <div class="spec">
+                  <span class="spec-key">Key primitives</span>
+                  <span class="spec-val">Hybrid ML-KEM-512 (Kyber) + X25519 ECDH for forward-secret post-quantum encryption.</span>
                 </div>
-                <div class="spec-item">
-                  <span class="spec-label">Fault Resilience</span>
-                  <span class="spec-value">Reed-Solomon RS(2,1) erasure coding splits payloads across disparate relay paths.</span>
+                <div class="spec">
+                  <span class="spec-key">Fault resilience</span>
+                  <span class="spec-val">Reed-Solomon RS(2,1) erasure coding splits payloads across disparate relay paths.</span>
                 </div>
               </div>
             </div>
             <div class="card-aside">
-              <div class="aside-item">
-                <span class="aside-label">Stack</span>
+              <div class="aside-block">
+                <span class="aside-key">Stack</span>
                 <span class="aside-val">Rust &bull; Tokio &bull; UDP</span>
               </div>
-              <div class="aside-item">
-                <span class="aside-label">Ecosystem Links</span>
+              <div class="aside-block">
+                <span class="aside-key">Ecosystem links</span>
                 <div class="aside-links">
-                  <a href="https://ggn.kellersystems.dev">Landing Page</a>
-                  <a href="https://patent.kellersystems.dev">FluidIP</a>
-                  <a href="https://github.com/KELLERBABG/Global-Ghost-Net">GitHub</a>
+                  <a class="link-chip" href="https://ggn.kellersystems.dev" target="_blank" rel="noopener noreferrer">Landing page</a>
+                  <a class="link-chip" href="https://patent.kellersystems.dev" target="_blank" rel="noopener noreferrer">FluidIP</a>
+                  <a class="link-chip" href="https://github.com/KELLERBABG/Global-Ghost-Net" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
               </div>
             </div>
           </article>
 
           <!-- MuonScope -->
-          <article class="project-card">
-            <div class="card-main">
-              <div class="project-header">
-                <span class="project-tag">muon.kellersystems.dev</span>
-                <h2 class="project-name">
-                  <a href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:0.75rem;">
-                    <img src="https://raw.githubusercontent.com/KELLERBABG/MuonScope-Tomography/main/assets/icon.svg" alt="MuonScope Icon" width="28" height="28" style="border-radius:6px; vertical-align:middle; border:1px solid rgba(59,130,246,0.3); background:rgba(0,0,0,0.5);">
+          <article class="card" data-reveal data-delay="70">
+            <div class="card-body">
+              <div class="card-head">
+                <span class="card-index" aria-hidden="true">02</span>
+                <span class="chip">muon.kellersystems.dev</span>
+                <h3 class="card-title">
+                  <a href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">
+                    <img class="tile" data-mono="M" src="https://raw.githubusercontent.com/KELLERBABG/MuonScope-Tomography/main/assets/icon.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
                     MuonScope Tomography
-                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                   </a>
-                </h2>
+                </h3>
               </div>
-              <p class="project-desc">
-                Cosmic-ray muon scattering and absorption tomography pipeline. Harnesses natural relativistic cosmic-ray muons to non-destructively invert interior 3D density distributions inside opaque, heavily shielded structures without artificial radiation sources.
+              <p class="card-desc">
+                Cosmic-ray muon scattering and absorption tomography pipeline. Harnesses natural relativistic
+                cosmic-ray muons to non-destructively invert interior 3D density distributions inside opaque,
+                heavily shielded structures without artificial radiation sources.
               </p>
-              <div class="tech-spec-row">
-                <div class="spec-item">
-                  <span class="spec-label">Reconstruction Core</span>
-                  <span class="spec-value">Point of Closest Approach (PoCA) 3D ray-tracing solver for angular trajectory deflection.</span>
+              <div class="spec-grid">
+                <div class="spec">
+                  <span class="spec-key">Reconstruction core</span>
+                  <span class="spec-val">Point of Closest Approach (PoCA) 3D ray-tracing solver for angular trajectory deflection.</span>
                 </div>
-                <div class="spec-item">
-                  <span class="spec-label">Detector Modeling</span>
-                  <span class="spec-value">Multi-layer silicon strip digital twin with coincidence window timing and FPGA trigger logic.</span>
+                <div class="spec">
+                  <span class="spec-key">Detector modeling</span>
+                  <span class="spec-val">Multi-layer silicon strip digital twin with coincidence window timing and FPGA trigger logic.</span>
                 </div>
               </div>
             </div>
             <div class="card-aside">
-              <div class="aside-item">
-                <span class="aside-label">Stack</span>
+              <div class="aside-block">
+                <span class="aside-key">Stack</span>
                 <span class="aside-val">Python &bull; TypeScript &bull; NumPy</span>
               </div>
-              <div class="aside-item">
-                <span class="aside-label">Ecosystem Links</span>
+              <div class="aside-block">
+                <span class="aside-key">Ecosystem links</span>
                 <div class="aside-links">
-                  <a href="https://muon.kellersystems.dev">Landing Page</a>
-                  <a href="https://holoforge.kellersystems.dev">HoloForge</a>
-                  <a href="https://github.com/KELLERBABG/MuonScope-Tomography">GitHub</a>
+                  <a class="link-chip" href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">Landing page</a>
+                  <a class="link-chip" href="https://holoforge.kellersystems.dev" target="_blank" rel="noopener noreferrer">HoloForge</a>
+                  <a class="link-chip" href="https://github.com/KELLERBABG/MuonScope-Tomography" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
               </div>
             </div>
           </article>
 
           <!-- PlaneOS -->
-          <article class="project-card">
-            <div class="card-main">
-              <div class="project-header">
-                <span class="project-tag">plane.kellersystems.dev</span>
-                <h2 class="project-name">
-                  <a href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:0.75rem;">
-                    <img src="https://raw.githubusercontent.com/KELLERBABG/PlaneOS/main/assets/icon.svg" alt="PlaneOS Icon" width="28" height="28" style="border-radius:6px; vertical-align:middle; border:1px solid rgba(56,189,248,0.3); background:rgba(0,0,0,0.5);">
+          <article class="card" data-reveal data-delay="140">
+            <div class="card-body">
+              <div class="card-head">
+                <span class="card-index" aria-hidden="true">03</span>
+                <span class="chip">plane.kellersystems.dev</span>
+                <h3 class="card-title">
+                  <a href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">
+                    <img class="tile" data-mono="P" src="https://raw.githubusercontent.com/KELLERBABG/PlaneOS/main/assets/icon.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
                     PlaneOS
-                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                   </a>
-                </h2>
+                </h3>
               </div>
-              <p class="project-desc">
-                High-assurance flight control prototype exploring deterministic scheduling and envelope protection in Rust. Implements static memory guarantees to eliminate non-deterministic allocation jitter and GC pause times during critical control loops.
+              <p class="card-desc">
+                High-assurance flight control prototype exploring deterministic scheduling and envelope protection
+                in Rust. Implements static memory guarantees to eliminate non-deterministic allocation jitter and
+                GC pause times during critical control loops.
               </p>
-              <div class="tech-spec-row">
-                <div class="spec-item">
-                  <span class="spec-label">Safety Kernel</span>
-                  <span class="spec-value">Triple Modular Redundant (TMR) sensor voters and boundary assertion invariants.</span>
+              <div class="spec-grid">
+                <div class="spec">
+                  <span class="spec-key">Safety kernel</span>
+                  <span class="spec-val">Triple Modular Redundant (TMR) sensor voters and boundary assertion invariants.</span>
                 </div>
-                <div class="spec-item">
-                  <span class="spec-label">Design Standards</span>
-                  <span class="spec-value">DO-178C DAL A formal methods research guidelines with static verification.</span>
+                <div class="spec">
+                  <span class="spec-key">Design standards</span>
+                  <span class="spec-val">DO-178C DAL A formal methods research guidelines with static verification.</span>
                 </div>
               </div>
             </div>
             <div class="card-aside">
-              <div class="aside-item">
-                <span class="aside-label">Stack</span>
+              <div class="aside-block">
+                <span class="aside-key">Stack</span>
                 <span class="aside-val">Rust (no_std compatible)</span>
               </div>
-              <div class="aside-item">
-                <span class="aside-label">Ecosystem Links</span>
+              <div class="aside-block">
+                <span class="aside-key">Ecosystem links</span>
                 <div class="aside-links">
-                  <a href="https://plane.kellersystems.dev">Landing Page</a>
-                  <a href="https://kernel.kellersystems.dev">KELLER-OS</a>
-                  <a href="https://kinematics.kellersystems.dev">OP-Roboter</a>
+                  <a class="link-chip" href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">Landing page</a>
+                  <a class="link-chip" href="https://kernel.kellersystems.dev" target="_blank" rel="noopener noreferrer">KELLER-OS</a>
+                  <a class="link-chip" href="https://kinematics.kellersystems.dev" target="_blank" rel="noopener noreferrer">OP-Roboter</a>
                 </div>
               </div>
             </div>
           </article>
 
-          <!-- SybilGuard & Sovereign Core -->
-          <article class="project-card">
-            <div class="card-main">
-              <div class="project-header">
-                <span class="project-tag">citadel.kellersystems.dev</span>
-                <h2 class="project-name">
-                  <a href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:0.75rem;">
-                    <img src="https://raw.githubusercontent.com/KELLERBABG/SybilGuard/main/assets/icon.svg" alt="SybilGuard Icon" width="28" height="28" style="border-radius:6px; vertical-align:middle; border:1px solid rgba(139,92,246,0.3); background:rgba(0,0,0,0.5);">
+          <!-- SybilGuard -->
+          <article class="card" data-reveal data-delay="210">
+            <div class="card-body">
+              <div class="card-head">
+                <span class="card-index" aria-hidden="true">04</span>
+                <span class="chip">citadel.kellersystems.dev</span>
+                <h3 class="card-title">
+                  <a href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">
+                    <img class="tile" data-mono="S" src="https://raw.githubusercontent.com/KELLERBABG/SybilGuard/main/assets/icon.svg" alt="" width="28" height="28" loading="lazy" decoding="async">
                     SybilGuard
-                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="arrow" width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                   </a>
-                </h2>
+                </h3>
               </div>
-              <p class="project-desc">
-                Cryptographic identity and proof-of-personhood protocol. Evaluates trust topology using zero-knowledge proofs to confirm network graph connectivity without disclosing the user's graph neighborhood, biometric secrets, or transactional footprint.
+              <p class="card-desc">
+                Cryptographic identity and proof-of-personhood protocol. Evaluates trust topology using zero-knowledge
+                proofs to confirm network graph connectivity without disclosing the user's graph neighborhood,
+                biometric secrets, or transactional footprint.
               </p>
-              <div class="tech-spec-row">
-                <div class="spec-item">
-                  <span class="spec-label">Privacy Mechanics</span>
-                  <span class="spec-value">zk-SNARK circuits for non-interactive graph verification; homomorphic operations for private state scoring.</span>
+              <div class="spec-grid">
+                <div class="spec">
+                  <span class="spec-key">Privacy mechanics</span>
+                  <span class="spec-val">zk-SNARK circuits for non-interactive graph verification; homomorphic operations for private state scoring.</span>
                 </div>
-                <div class="spec-item">
-                  <span class="spec-label">Formal Solvers</span>
-                  <span class="spec-value">Paired with <a href="https://axiom.kellersystems.dev">SymEx EVM</a> for SMT-solver symbolic execution.</span>
+                <div class="spec">
+                  <span class="spec-key">Formal solvers</span>
+                  <span class="spec-val">Paired with <a href="https://axiom.kellersystems.dev" target="_blank" rel="noopener noreferrer">SymEx EVM</a> for SMT-solver symbolic execution.</span>
                 </div>
               </div>
             </div>
             <div class="card-aside">
-              <div class="aside-item">
-                <span class="aside-label">Stack</span>
+              <div class="aside-block">
+                <span class="aside-key">Stack</span>
                 <span class="aside-val">Rust &bull; Bellman / Arkworks</span>
               </div>
-              <div class="aside-item">
-                <span class="aside-label">Ecosystem Links</span>
+              <div class="aside-block">
+                <span class="aside-key">Ecosystem links</span>
                 <div class="aside-links">
-                  <a href="https://citadel.kellersystems.dev">Landing Page</a>
-                  <a href="https://fhe.kellersystems.dev">Homomorphic Database</a>
-                  <a href="https://enclave.kellersystems.dev">SMPC Dark Pool</a>
+                  <a class="link-chip" href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">Landing page</a>
+                  <a class="link-chip" href="https://fhe.kellersystems.dev" target="_blank" rel="noopener noreferrer">Homomorphic DB</a>
+                  <a class="link-chip" href="https://enclave.kellersystems.dev" target="_blank" rel="noopener noreferrer">SMPC Dark Pool</a>
                 </div>
               </div>
             </div>
@@ -238,52 +364,92 @@
       </div>
     </section>
 
-    <!-- Complete Repository Index / Table -->
-    <section class="section index-section" id="all-work">
-      <div class="container">
-        <div class="section-label">
-          <span>Repository Directory</span>
-          <span class="label-desc">Direct index linking to each system's subdomain or source distribution</span>
+    <!-- ==================== Repository directory ===================== -->
+    <section class="section section-alt" id="all-work">
+      <div class="shell">
+        <div class="section-head" data-reveal>
+          <p class="section-kicker"><b>02</b> Registry</p>
+          <h2 class="section-title">Repository directory</h2>
+          <p class="section-desc">Direct index linking to each system's subdomain or source distribution.</p>
         </div>
 
-        <!-- Filter Controls -->
-        <div class="filter-bar">
-          <div class="search-wrap">
-            <svg class="search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <div class="filter-bar" data-reveal>
+          <div class="search">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/>
               <path d="M11 11L14.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
-            <input type="text" id="repoSearch" placeholder="Filter by name, description, or stack..." autocomplete="off">
+            <label class="sr-only" for="repoSearch">Filter repositories by name, description, or stack</label>
+            <input type="text" id="repoSearch" placeholder="Filter by name, description, or stack&hellip;" autocomplete="off">
           </div>
-          <div class="pills-list" id="filterPills">
-            <button class="pill active" data-filter="all">All</button>
-            <button class="pill" data-filter="Rust">Rust</button>
-            <button class="pill" data-filter="Crypto">Cryptography / ZK</button>
-            <button class="pill" data-filter="OS">Real-Time / OS</button>
-            <button class="pill" data-filter="Python">Python</button>
-            <button class="pill" data-filter="TypeScript">TypeScript</button>
+
+          <div class="pills" id="filterPills" role="group" aria-label="Filter repositories by domain">
+            <button class="pill active" type="button" data-filter="all" aria-pressed="true">All <span class="pill-count" data-count="all"></span></button>
+            <button class="pill" type="button" data-filter="Rust" aria-pressed="false">Rust <span class="pill-count" data-count="Rust"></span></button>
+            <button class="pill" type="button" data-filter="Crypto" aria-pressed="false">Cryptography / ZK <span class="pill-count" data-count="Crypto"></span></button>
+            <button class="pill" type="button" data-filter="OS" aria-pressed="false">Real-time / OS <span class="pill-count" data-count="OS"></span></button>
+            <button class="pill" type="button" data-filter="Python" aria-pressed="false">Python <span class="pill-count" data-count="Python"></span></button>
+            <button class="pill" type="button" data-filter="TypeScript" aria-pressed="false">TypeScript <span class="pill-count" data-count="TypeScript"></span></button>
           </div>
         </div>
 
-        <!-- Table Listing -->
-        <div class="table-container">
-          <div class="repo-table" id="reposTable">
-            <!-- Populated via script.js -->
+        <div class="results-line">
+          <span id="resultsCount" aria-live="polite">Loading registry&hellip;</span>
+          <span>Sorted A&ndash;Z</span>
+        </div>
+
+        <div class="table" data-reveal>
+          <div class="table-head" aria-hidden="true">
+            <span>System</span>
+            <span>Description</span>
+            <span>Runtime</span>
+            <span></span>
           </div>
+          <div id="reposTable"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= Closing CTA ========================= -->
+    <section class="cta">
+      <div class="shell">
+        <p class="cta-kicker">Source available</p>
+        <h2 class="cta-title">Read the source. Verify the build.</h2>
+        <p class="cta-text">
+          Every system in this registry ships with a public source distribution and its own domain.
+          One engineering standard, no black boxes.
+        </p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">
+            github.com/KELLERBABG
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="btn btn-outline" href="#all-work">Repository directory</a>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- ============================ Footer ============================ -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <span class="footer-brand">Keller Systems</span>
-        <span class="footer-dot">&bull;</span>
-        <span class="footer-sub">kellersystems.dev</span>
+    <div class="shell">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-wordmark">Keller Systems</p>
+          <p class="footer-meta">Independent R&amp;D &middot; kellersystems.dev</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a class="link-chip" href="#overview">Overview</a>
+          <a class="link-chip" href="#featured">Featured</a>
+          <a class="link-chip" href="#all-work">Directory</a>
+          <a class="link-chip" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
       </div>
-      <div class="footer-right">
-        <a href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">github.com/KELLERBABG</a>
+      <div class="footer-base">
+        <span>&copy; <span id="year">2026</span> Keller Systems</span>
+        <span>Deterministic systems &middot; cryptography &middot; physical computing</span>
       </div>
     </div>
   </footer>
@@ -292,5 +458,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
