@@ -484,3 +484,13 @@ text.tv.onmid { fill: #b3ab98; }
 .mb i { display: block; height: 12px; background: var(--ink); }
 .mr:first-child .mb i { background: var(--signal); }
 .mk { font-family: var(--font-mono); font-size: .66rem; color: #5c5749; text-align: right; }
+
+/* ---- scrollbars, in the site's own colours --------------------------- */
+html{scrollbar-color:#c2b9a4 #efe9dc;scrollbar-width:thin}
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-track{background:#efe9dc}
+::-webkit-scrollbar-thumb{background:#c2b9a4;border:3px solid #efe9dc}
+::-webkit-scrollbar-thumb:hover{background:#141310}
+::-webkit-scrollbar-corner{background:#efe9dc}
+/* ---- code wraps rather than scrolling sideways ---------------------- */
+pre{white-space:pre-wrap;overflow-wrap:anywhere;overflow-x:hidden}
