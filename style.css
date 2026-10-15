@@ -487,7 +487,7 @@ html[data-motion="off"] .chapter-pulse {
   .ts .pk2{animation:ts-pk2 4.4s linear 1.1s infinite}
   .ts .blink{animation:ts-blink 1.2s ease-in-out infinite}
   .ts .pulse{animation:ts-blink 2.4s ease-in-out infinite}
-  .ts .cl-scan{animation:ts-scan 4.8s linear infinite}
+  .ts .cl-scan{animation:ts-scan 6s steps(4,jump-none) infinite}
   .ts .am-sweep{animation:ts-sweep 12s linear infinite}
   .ts .hf-cure{animation:ts-cure 6s ease-in infinite}
   .ts .hf-spin{animation:ts-spin 2s linear infinite}
@@ -497,10 +497,10 @@ html[data-motion="off"] .chapter-pulse {
 @keyframes ts-pk1{0%{transform:translate(168px,160px);opacity:0;fill:var(--signal,#ffb000)}2%{opacity:1}47%{fill:var(--signal,#ffb000)}52%{fill:#f85149}97%{opacity:1}100%{transform:translate(400px,160px);opacity:0;fill:#f85149}}
 @keyframes ts-pk2{0%{transform:translate(168px,184px);opacity:0}2%{opacity:1}3.2%{transform:translate(182px,184px)}16.2%{transform:translate(182px,240px)}18.1%{transform:translate(190px,240px)}28.2%{transform:translate(190px,284px)}63.4%{transform:translate(342px,284px)}73.6%{transform:translate(342px,240px)}85.2%{transform:translate(392px,240px)}98.1%{transform:translate(392px,184px)}99%{opacity:1}100%{transform:translate(400px,184px);opacity:0}}
 @keyframes ts-blink{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes ts-scan{0%{transform:translateY(0);opacity:0}6%{opacity:1}94%{opacity:1}100%{transform:translateY(180px);opacity:0}}
+@keyframes ts-scan{from{transform:translateY(0)}to{transform:translateY(180px)}}
 @keyframes ts-sweep{from{transform:translateX(0)}to{transform:translateX(430px)}}
 @keyframes ts-cure{0%{opacity:.12}75%{opacity:1}92%{opacity:1}100%{opacity:.12}}
-@keyframes ts-spin{0%{transform:translateX(0);opacity:0}20%{opacity:1}80%{opacity:1}100%{transform:translateX(56px);opacity:0}}
+@keyframes ts-spin{0%{transform:translateX(0);opacity:0}20%{opacity:1}80%{opacity:1}100%{transform:translateX(86px);opacity:0}}
 @keyframes ts-sino{from{transform:translateX(0)}to{transform:translateX(200px)}}
 
 html.motion-off .ts *,
