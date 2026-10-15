@@ -404,10 +404,57 @@ html[data-motion="off"] .hero-inner { transform: none; opacity: 1; }
 html[data-motion="off"] .progress-fill { transform: scaleY(0); }
 html[data-motion="off"] .h-line { animation: none; opacity: 1; transform: none; }
 
+/* High-precision instrument & astrolabe animations */
+@keyframes ks-spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes ks-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes ks-pulse-slow {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+html.motion-on .spin-slow {
+  transform-origin: 160px 120px;
+  animation: ks-spin-slow 50s linear infinite;
+}
+html.motion-on .spin-reverse {
+  transform-origin: 160px 120px;
+  animation: ks-spin-reverse 35s linear infinite;
+}
+html.motion-on .pulse-slow {
+  transform-origin: 160px 120px;
+  animation: ks-pulse-slow 3.6s ease-in-out infinite;
+}
+html.motion-on .chapter-spin {
+  transform-origin: 170px 105px;
+  animation: ks-spin-slow 60s linear infinite;
+}
+html.motion-on .chapter-spin-reverse {
+  transform-origin: 170px 105px;
+  animation: ks-spin-reverse 42s linear infinite;
+}
+html.motion-on .chapter-pulse {
+  transform-origin: 170px 105px;
+  animation: ks-pulse-slow 3.2s ease-in-out infinite;
+}
+html[data-motion="off"] .spin-slow,
+html[data-motion="off"] .spin-reverse,
+html[data-motion="off"] .pulse-slow,
+html[data-motion="off"] .chapter-spin,
+html[data-motion="off"] .chapter-spin-reverse,
+html[data-motion="off"] .chapter-pulse {
+  animation: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn, .tile, .contents-list li { transition: none; }
   .btn:hover { transform: none; }
+  .spin-slow, .spin-reverse, .pulse-slow, .chapter-spin, .chapter-spin-reverse, .chapter-pulse { animation: none !important; }
 }
 
 /* --- Small screens: re-author the sequence rather than letterbox it ----- */

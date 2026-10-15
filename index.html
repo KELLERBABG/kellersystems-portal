@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2.1">
+<link rel="stylesheet" href="style.css?v=3.0">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body><!-- noscript-fallback --><noscript><style>html *{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}[data-a],[data-b],.d,.o,.fade,.draw,.chapter,.step,.panel,.hlab{opacity:1!important}</style></noscript>
@@ -54,9 +54,9 @@
             <span class="h-line"><em>right.</em></span>
           </h1>
           <p class="lead">
-            Six systems: a post-quantum mesh, a volumetric 3D printer, a cosmic-ray imager, a
-          flight-control prototype, a proof-of-personhood protocol and an entropy certificate chain.
-          Independent research where the timing has to be provable and the maths has to hold.
+            Five systems: a post-quantum WAN mesh, a deterministic building-code solver, an
+            SMT contract risk engine, a thermodynamic virtual battery, and a volumetric 3D printer.
+            Independent research where the timing has to be provable and the maths has to hold.
           </p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="#work">See the work</a>
@@ -67,16 +67,58 @@
         <div>
           <div class="objectplate drift">
             <svg class="artlines" viewBox="0 0 320 240" aria-hidden="true">
-              <path class="dash" d="M160 10 V230 M10 120 H310"/>
-              <path class="ln draw" pathLength="1" d="M160 34 L220 69 L220 139 L160 174 L100 139 L100 69 Z"/>
-              <path class="thin" d="M160 72 L192 90 L192 118 L160 136 L128 118 L128 90 Z"/>
-              <circle class="acc" cx="160" cy="104" r="7"/>
-              <path class="accline draw" pathLength="1" d="M100 139 L40 172 M220 139 L280 172 M160 174 V230"/>
-              <circle class="acc" cx="40" cy="172" r="4"/>
-              <circle class="acc" cx="280" cy="172" r="4"/>
+              <!-- Coordinate Reticle & Precision Baseline -->
+              <line x1="20" y1="120" x2="300" y2="120" stroke="var(--ink)" stroke-width="0.8" opacity="0.25"/>
+              <line x1="160" y1="15" x2="160" y2="225" stroke="var(--ink)" stroke-width="0.8" opacity="0.25"/>
+              <circle cx="160" cy="120" r="102" fill="none" stroke="var(--ink)" stroke-width="0.8" opacity="0.18" stroke-dasharray="2 3"/>
+              
+              <!-- Outer Astrolabe Scale with Precision Radial Ticks -->
+              <circle cx="160" cy="120" r="92" fill="none" stroke="var(--ink)" stroke-width="1.8"/>
+              <g stroke="var(--ink)" stroke-width="1.2">
+                <line x1="160" y1="28" x2="160" y2="35"/>
+                <line x1="160" y1="205" x2="160" y2="212"/>
+                <line x1="68" y1="120" x2="75" y2="120"/>
+                <line x1="245" y1="120" x2="252" y2="120"/>
+                <line x1="95" y1="55" x2="100" y2="60"/>
+                <line x1="225" y1="55" x2="220" y2="60"/>
+                <line x1="95" y1="185" x2="100" y2="180"/>
+                <line x1="225" y1="185" x2="220" y2="180"/>
+              </g>
+
+              <!-- Counter-rotating Gimbal Ring (Outer Orbit) -->
+              <g class="spin-slow">
+                <circle cx="160" cy="120" r="76" fill="none" stroke="var(--ink)" stroke-width="1" stroke-dasharray="8 6"/>
+                <circle cx="160" cy="44" r="3.5" fill="var(--signal)"/>
+                <circle cx="160" cy="196" r="3.5" fill="var(--signal)"/>
+                <circle cx="84" cy="120" r="2.5" fill="var(--ink)"/>
+                <circle cx="236" cy="120" r="2.5" fill="var(--ink)"/>
+              </g>
+
+              <!-- Counter-rotating Astrolabe Ellipse (Inner Precession) -->
+              <g class="spin-reverse">
+                <ellipse cx="160" cy="120" rx="72" ry="28" fill="none" stroke="var(--signal)" stroke-width="2"/>
+                <ellipse cx="160" cy="120" rx="72" ry="28" fill="none" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 3" transform="rotate(60 160 120)"/>
+              </g>
+
+              <!-- Harmonic Lissajous Lemniscate Wave -->
+              <path class="ln draw" pathLength="1" d="M 115 120 C 115 82, 205 158, 205 120 C 205 82, 115 158, 115 120 Z"/>
+              
+              <!-- Inner Core Resonance Focus -->
+              <circle cx="160" cy="120" r="32" fill="none" stroke="var(--ink)" stroke-width="1.2" opacity="0.6"/>
+              <circle cx="160" cy="120" r="18" fill="none" stroke="var(--signal)" stroke-width="1.5" stroke-dasharray="4 2"/>
+              <g class="pulse-slow">
+                <circle cx="160" cy="120" r="6.5" fill="var(--signal)"/>
+                <circle cx="160" cy="120" r="2.5" fill="var(--ink)"/>
+              </g>
+
+              <!-- Precise Corner Metadata -->
+              <text x="14" y="24" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)" opacity="0.6">COORD // 1420.405 MHz</text>
+              <text x="306" y="24" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)" opacity="0.6" text-anchor="end">RESONANCE: 2&pi;</text>
+              <text x="14" y="228" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)" opacity="0.6">3-AXIS GIMBAL</text>
+              <text x="306" y="228" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)" opacity="0.6" text-anchor="end">PRECISION: 10&minus;12 s</text>
             </svg>
           </div>
-          <p class="caption"><span>Plate 01 &middot; <b>bounded lattice</b></span><span>kellersystems.dev</span></p>
+          <p class="caption"><span>Plate 01 &middot; <b>resonance manifold</b></span><span>kellersystems.dev</span></p>
         </div>
       </div>
     </section>
@@ -108,53 +150,71 @@
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">01</span>
-          <div class="measured">
-            <div class="m-head"><b>Vantablack</b><span>PQ-Mesh // ML-KEM-768</span></div>
-            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Post-quantum WAN onion mesh network topology with 3 Reed-Solomon divergent shards">
+                    <div class="measured">
+            <div class="m-head"><b>Vantablack</b><span>Geodesic Routing // ML-KEM-768</span></div>
+            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Topological geodesic onion routing manifold with 3 divergent Reed-Solomon shards">
               <defs>
                 <pattern id="vantaGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.07)" stroke-width="1"/>
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.05)" stroke-width="0.8"/>
                 </pattern>
-                <marker id="vantaArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                <marker id="vantaArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
                   <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--ink)"/>
                 </marker>
-                <marker id="vantaSignalArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                <marker id="vantaSignalArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
                   <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--signal)"/>
                 </marker>
               </defs>
               <rect width="340" height="210" fill="url(#vantaGrid)"/>
-              <circle cx="170" cy="105" r="95" fill="none" stroke="rgba(20,19,16,0.12)" stroke-dasharray="3,3"/>
-              <circle cx="170" cy="105" r="55" fill="none" stroke="rgba(20,19,16,0.14)" stroke-dasharray="2,2"/>
-              <line x1="170" y1="5" x2="170" y2="205" stroke="rgba(20,19,16,0.1)" stroke-dasharray="2,4"/>
-              <line x1="5" y1="105" x2="335" y2="105" stroke="rgba(20,19,16,0.1)" stroke-dasharray="2,4"/>
-              <path class="draw" d="M 55 105 C 100 35, 170 30, 285 105" fill="none" stroke="var(--ink)" stroke-width="2" marker-end="url(#vantaArrow)"/>
-              <path class="draw" d="M 55 105 L 285 105" fill="none" stroke="var(--signal)" stroke-width="2.5" marker-end="url(#vantaSignalArrow)"/>
-              <path class="draw" d="M 55 105 C 100 175, 170 180, 285 105" fill="none" stroke="var(--ink)" stroke-width="2" marker-end="url(#vantaArrow)"/>
-              <rect x="25" y="93" width="56" height="24" fill="var(--ink)"/>
-              <text x="53" y="108" font-family="var(--font-mono)" font-size="8.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">CLIENT</text>
-              <circle cx="145" cy="48" r="8" fill="var(--plate)" stroke="var(--ink)" stroke-width="2"/>
-              <circle cx="145" cy="48" r="3" fill="var(--signal)"/>
-              <text x="145" y="36" font-family="var(--font-mono)" font-size="7.5px" fill="var(--ink)" text-anchor="middle">RELAY_01 [FRA]</text>
-              <circle cx="170" cy="105" r="10" fill="var(--plate)" stroke="var(--signal)" stroke-width="2"/>
-              <circle cx="170" cy="105" r="4" fill="var(--ink)"/>
-              <text x="170" y="125" font-family="var(--font-mono)" font-size="7.5px" fill="var(--ink)" text-anchor="middle">RELAY_02 [ONION]</text>
-              <circle cx="145" cy="162" r="8" fill="var(--plate)" stroke="var(--ink)" stroke-width="2"/>
-              <circle cx="145" cy="162" r="3" fill="var(--signal)"/>
-              <text x="145" y="180" font-family="var(--font-mono)" font-size="7.5px" fill="var(--ink)" text-anchor="middle">RELAY_03 [TYO]</text>
-              <rect x="255" y="93" width="65" height="24" fill="var(--signal)" stroke="var(--ink)" stroke-width="1.5"/>
-              <text x="287" y="108" font-family="var(--font-mono)" font-size="8.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">EXIT MESH</text>
-              <rect x="75" y="16" width="108" height="15" fill="var(--plate)" stroke="var(--ink)" stroke-width="1"/>
-              <text x="129" y="27" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">SHARD 1: RS(2,1) [TOP]</text>
-              <rect x="85" y="88" width="58" height="14" fill="var(--plate)" stroke="var(--signal)" stroke-width="1"/>
-              <text x="114" y="98" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" text-anchor="middle">SHARD 2 [DIR]</text>
-              <rect x="75" y="186" width="112" height="15" fill="var(--plate)" stroke="var(--ink)" stroke-width="1"/>
-              <text x="131" y="197" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">SHARD 3: PARITY [BOT]</text>
-              <rect x="215" y="16" width="115" height="16" fill="var(--ink)"/>
-              <text x="272" y="27" font-family="var(--font-mono)" font-size="7.5px" fill="var(--signal)" text-anchor="middle">ML-KEM-768 / X25519</text>
+              
+              <!-- Subtle Celestial Latitudes & Coordinates -->
+              <line x1="25" y1="105" x2="315" y2="105" stroke="var(--ink)" stroke-width="0.7" opacity="0.2"/>
+              <line x1="170" y1="15" x2="170" y2="195" stroke="var(--ink)" stroke-width="0.7" opacity="0.2"/>
+              
+              <!-- Wireframe Geodesic Sphere -->
+              <circle cx="170" cy="105" r="76" fill="none" stroke="var(--ink)" stroke-width="1.8"/>
+              <g class="chapter-spin">
+                <circle cx="170" cy="105" r="88" fill="none" stroke="var(--ink)" stroke-width="0.9" stroke-dasharray="6 6" opacity="0.4"/>
+                <circle cx="170" cy="17" r="3" fill="var(--signal)"/>
+                <circle cx="170" cy="193" r="3" fill="var(--signal)"/>
+              </g>
+              <g class="chapter-spin-reverse">
+                <ellipse cx="170" cy="105" rx="34" ry="76" fill="none" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+              </g>
+
+              <!-- 3 Divergent Geodesic Waves (Reed-Solomon Shards) -->
+              <!-- North Shard (RS 1) -->
+              <path class="draw" d="M 68 105 C 105 32, 235 32, 272 105" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round" marker-end="url(#vantaArrow)"/>
+              <!-- Equatorial Direct Shard (RS 2) -->
+              <path class="draw" d="M 68 105 L 272 105" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" marker-end="url(#vantaSignalArrow)"/>
+              <!-- South Parity Shard (RS 3) -->
+              <path class="draw" d="M 68 105 C 105 178, 235 178, 272 105" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round" marker-end="url(#vantaArrow)"/>
+
+              <!-- Source Reticle (Client Node) -->
+              <circle cx="68" cy="105" r="10" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
+              <circle cx="68" cy="105" r="4" fill="var(--signal)"/>
+              <text x="68" y="125" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" text-anchor="middle">CLIENT</text>
+
+              <!-- Destination Horizon (Exit Mesh) -->
+              <circle cx="272" cy="105" r="10" fill="var(--plate)" stroke="var(--signal)" stroke-width="2"/>
+              <circle cx="272" cy="105" r="4" fill="var(--ink)"/>
+              <text x="272" y="125" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" text-anchor="middle">EXIT MESH</text>
+
+              <!-- Focal Transit Reticle -->
+              <g class="chapter-pulse">
+                <circle cx="170" cy="105" r="6" fill="var(--signal)"/>
+                <circle cx="170" cy="105" r="2" fill="var(--ink)"/>
+              </g>
+
+              <!-- Clean Telemetry Metadata -->
+              <text x="25" y="24" font-family="var(--font-mono)" font-size="7px" fill="#6a6155">TOPOLOGY // 7-NODE L2 MESH</text>
+              <text x="315" y="24" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal-ink)" text-anchor="end">ML-KEM-768 / X25519</text>
+              <text x="170" y="44" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155" text-anchor="middle">SHARD 1: RS(2,1) [NORTH]</text>
+              <text x="170" y="98" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">DIRECT TRANSIT [EQUATORIAL]</text>
+              <text x="170" y="168" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155" text-anchor="middle">SHARD 3: PARITY [SOUTH]</text>
             </svg>
-            <div class="m-foot">Topology: 7-Node L2 Mesh &middot; Sharding: Reed-Solomon RS(2,1) &middot; ML-KEM-768 &middot; Poly1305</div>
+            <div class="m-foot">Topology: 7-Node L2 Mesh &middot; Sharding: Reed-Solomon RS(2,1) &middot; Hybrid ML-KEM-768 / X25519</div>
           </div>
-          <div class="docket">
+<div class="docket">
             <h4>Figures</h4>
             <div class="fr"><span>Source files</span><span>74 in src/</span></div><div class="fr"><span>Test files</span><span>32</span></div><div class="fr"><span>Runtime</span><span>Tokio async</span></div><div class="fr"><span>Crypto</span><span>ML-KEM-768 / X25519</span></div><div class="fr"><span>Sharding</span><span>Reed-Solomon RS(2,1)</span></div><div class="fr"><span>Live at</span><span>vantablack.kellersystems.dev</span></div>
             <div class="fr"><span>Lines of code</span><span>Rust 69,197 &middot; Python 4,362 &middot; Notebook 420</span></div>
@@ -179,45 +239,63 @@
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">02</span>
-          <div class="measured">
-            <div class="m-head"><b>BauLens</b><span>BIM CAD // DIN 18040 & LBO</span></div>
-            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="BIM architectural CAD compliance verification with dimensional tolerances">
+                    <div class="measured">
+            <div class="m-head"><b>BauLens</b><span>Spatial CAD // Deterministic Clearance</span></div>
+            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="BIM architectural spatial raycasting and clearance validation">
               <defs>
                 <pattern id="bauGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.06)" stroke-width="1"/>
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.05)" stroke-width="0.8"/>
                 </pattern>
-                <marker id="dimTick" viewBox="0 0 2 10" refX="1" refY="5" markerWidth="2" markerHeight="8" orient="auto">
-                  <line x1="1" y1="0" x2="1" y2="10" stroke="var(--signal)" stroke-width="2"/>
-                </marker>
-                <marker id="egressArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
-                  <path d="M 0 1 L 7 4 L 0 7 z" fill="var(--signal)"/>
+                <marker id="egressArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
+                  <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--signal)"/>
                 </marker>
               </defs>
               <rect width="340" height="210" fill="url(#bauGrid)"/>
-              <rect x="25" y="30" width="290" height="12" fill="var(--ink)" stroke="rgba(20,19,16,0.3)" stroke-width="1"/>
-              <rect x="135" y="42" width="14" height="65" fill="var(--signal)" stroke="var(--ink)" stroke-width="1.5"/>
-              <text x="142" y="80" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" transform="rotate(-90 142 80)" text-anchor="middle">F90-A BARRIER</text>
-              <rect x="25" y="165" width="290" height="12" fill="var(--ink)" stroke="rgba(20,19,16,0.3)" stroke-width="1"/>
-              <path d="M 135 107 A 48 48 0 0 1 183 155" fill="none" stroke="var(--signal)" stroke-width="1.5" stroke-dasharray="3,3"/>
-              <line x1="135" y1="107" x2="135" y2="155" stroke="var(--signal)" stroke-width="2.5"/>
-              <line x1="135" y1="125" x2="195" y2="125" stroke="var(--signal)" stroke-width="1.5" marker-start="url(#dimTick)" marker-end="url(#dimTick)"/>
-              <rect x="140" y="115" width="50" height="12" fill="var(--plate)"/>
-              <text x="165" y="124" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">920 mm</text>
-              <line x1="80" y1="42" x2="80" y2="165" stroke="rgba(20,19,16,0.5)" stroke-width="1" marker-start="url(#dimTick)" marker-end="url(#dimTick)"/>
-              <rect x="62" y="98" width="36" height="12" fill="var(--plate)"/>
-              <text x="80" y="107" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">1.80 m</text>
-              <path class="draw" d="M 50 145 L 290 145" fill="none" stroke="var(--signal)" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#egressArrow)"/>
-              <text x="205" y="140" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="var(--signal)">EGRESS VECTOR →</text>
-              <rect x="25" y="185" width="138" height="18" fill="var(--signal)"/>
-              <text x="94" y="197" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">DIN 18040-1: PASS (≥900mm)</text>
-              <rect x="175" y="185" width="140" height="18" fill="var(--ink)" stroke="rgba(20,19,16,0.3)" stroke-width="1"/>
-              <text x="245" y="197" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">LBO §33 CLEAR: VERIFIED</text>
-              <text x="25" y="20" font-family="var(--font-mono)" font-size="7.5px" fill="#6a6155">REF: GRID B-4 // LEVEL +0.00m</text>
-              <text x="260" y="20" font-family="var(--font-mono)" font-size="7.5px" fill="var(--signal-ink)">IFC4 DETECTED</text>
+
+              <!-- Structural Slabs (Corridor Walls) -->
+              <rect x="25" y="32" width="290" height="14" fill="var(--ink)" stroke="rgba(20,19,16,0.3)" stroke-width="1"/>
+              <rect x="25" y="164" width="290" height="14" fill="var(--ink)" stroke="rgba(20,19,16,0.3)" stroke-width="1"/>
+              <!-- Structural Fire Barrier Jamb -->
+              <rect x="125" y="46" width="14" height="54" fill="var(--signal)" stroke="var(--ink)" stroke-width="1.5"/>
+              <text x="132" y="76" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--ink)" transform="rotate(-90 132 76)" text-anchor="middle">F90-A BARRIER</text>
+
+              <!-- Door Swing Clearance (90-deg Arc) -->
+              <path d="M 125 100 A 58 58 0 0 1 183 158 L 125 158 Z" fill="rgba(255,176,0,0.12)"/>
+              <path d="M 125 100 A 58 58 0 0 1 183 158" fill="none" stroke="var(--signal)" stroke-width="1.8" stroke-dasharray="4 3"/>
+              <line x1="125" y1="100" x2="125" y2="158" stroke="var(--signal)" stroke-width="2.5"/>
+
+              <!-- Spatial LiDAR Radial Sweeps -->
+              <g stroke="rgba(20,19,16,0.2)" stroke-width="0.8" stroke-dasharray="2 3">
+                <line x1="125" y1="100" x2="220" y2="100"/>
+                <line x1="125" y1="100" x2="215" y2="125"/>
+                <line x1="125" y1="100" x2="200" y2="148"/>
+              </g>
+
+              <!-- Razor-Sharp Architectural Dimension Lines -->
+              <line x1="125" y1="118" x2="183" y2="118" stroke="var(--ink)" stroke-width="1.2"/>
+              <line x1="125" y1="113" x2="125" y2="123" stroke="var(--ink)" stroke-width="1.2"/>
+              <line x1="183" y1="113" x2="183" y2="123" stroke="var(--ink)" stroke-width="1.2"/>
+              <text x="154" y="114" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" text-anchor="middle">920 mm</text>
+
+              <!-- Corridor Clearance Width -->
+              <line x1="65" y1="46" x2="65" y2="164" stroke="rgba(20,19,16,0.4)" stroke-width="1"/>
+              <line x1="60" y1="46" x2="70" y2="46" stroke="rgba(20,19,16,0.4)" stroke-width="1"/>
+              <line x1="60" y1="164" x2="70" y2="164" stroke="rgba(20,19,16,0.4)" stroke-width="1"/>
+              <text x="65" y="108" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" text-anchor="middle">1.80 m</text>
+
+              <!-- Egress Flow Vector -->
+              <path class="draw" d="M 40 142 L 295 142" fill="none" stroke="var(--signal)" stroke-width="3" stroke-dasharray="8 4" marker-end="url(#egressArrow)"/>
+              <text x="215" y="137" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal)">EGRESS VECTOR &rarr;</text>
+
+              <!-- Clean Telemetry Metadata -->
+              <text x="25" y="24" font-family="var(--font-mono)" font-size="7px" fill="#6a6155">IFC4 MODEL // LEVEL +0.00m</text>
+              <text x="315" y="24" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal-ink)" text-anchor="end">DIN 18040-1: PASS</text>
+              <text x="25" y="194" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">ACCESSIBILITY &ge; 900mm: VERIFIED</text>
+              <text x="315" y="194" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal-ink)" text-anchor="end">LBO &sect;33 CLEAR</text>
             </svg>
-            <div class="m-foot">BIM IFC AST &middot; DIN 18040-1/2 Accessibility &middot; DIN 4102-4 Fire &middot; LBO &sect;33 Egress</div>
+            <div class="m-foot">BIM IFC4 Geometry &middot; DIN 18040-1/2 Accessibility &middot; DIN 4102-4 Fire &middot; LBO &sect;33 Egress</div>
           </div>
-          <div class="docket">
+<div class="docket">
             <h4>Figures</h4>
             <div class="fr"><span>Rule modules</span><span>42 DIN / LBO engines</span></div><div class="fr"><span>Parsing speed</span><span>sub-50ms per floor</span></div><div class="fr"><span>Data policy</span><span>100% on-device / air-gapped</span></div><div class="fr"><span>Standards</span><span>DIN 18040, DIN 4102, Eurocode</span></div><div class="fr"><span>Formats</span><span>IFC, BIM, JSON schemas</span></div><div class="fr"><span>Live at</span><span>lens.kellersystems.dev</span></div>
             <div class="fr"><span>Tech stack</span><span>JavaScript &middot; TypeScript &middot; WebAssembly</span></div>
@@ -243,53 +321,58 @@
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">03</span>
-          <div class="measured">
-            <div class="m-head"><b>ClauseLens</b><span>Deontic Logic &middot; SMT Risk Graph</span></div>
-            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Formal deontic modal logic contradiction and bounded risk scoring graph">
+                    <div class="measured">
+            <div class="m-head"><b>ClauseLens</b><span>Modal Polytope // SMT Singularity</span></div>
+            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Formal deontic modal logic constraint polytope and contradiction boundary">
               <defs>
                 <pattern id="clauseGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.06)" stroke-width="1"/>
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.05)" stroke-width="0.8"/>
                 </pattern>
-                <marker id="clauseArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
-                  <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--ink)"/>
-                </marker>
-                <marker id="clauseSignalArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
-                  <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--signal)"/>
-                </marker>
               </defs>
               <rect width="340" height="210" fill="url(#clauseGrid)"/>
-              <text x="25" y="22" font-family="var(--font-mono)" font-size="7.5px" fill="#6a6155">FORMAL MODAL SPEC // AST GRAPH</text>
-              <text x="250" y="22" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal-ink)">SMT-LIB2 Z3</text>
-              <rect x="25" y="38" width="125" height="44" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
-              <rect x="25" y="38" width="125" height="13" fill="var(--ink)"/>
-              <text x="32" y="48" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal)">§ 4.2 OBLIGATION [O]</text>
-              <text x="32" y="64" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)">MUST MAINTAIN SLA</text>
-              <text x="32" y="74" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">UPTIME ≥ 99.9% (TOL 0h)</text>
-              <rect x="190" y="38" width="125" height="44" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
-              <rect x="190" y="38" width="125" height="13" fill="var(--ink)"/>
-              <text x="197" y="48" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal)">§ 11.3 REMEDY CAP [P]</text>
-              <text x="197" y="64" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)">SOLE REMEDY: CREDIT</text>
-              <text x="197" y="74" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">WAIVER OF DAMAGES</text>
-              <rect x="105" y="118" width="130" height="44" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
-              <rect x="105" y="118" width="130" height="13" fill="var(--ink)"/>
-              <text x="112" y="128" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal)">§ 14.1 INDEMNITY [¬P]</text>
-              <text x="112" y="144" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)">UNLIMITED EXPOSURE</text>
-              <text x="112" y="154" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">SURVIVES TERMINATION</text>
-              <path class="draw" d="M 150 60 L 188 60" fill="none" stroke="var(--ink)" stroke-width="1.5" marker-end="url(#clauseArrow)"/>
-              <path class="draw" d="M 220 82 L 195 116" fill="none" stroke="var(--signal)" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#clauseSignalArrow)"/>
-              <path class="draw" d="M 115 82 L 140 116" fill="none" stroke="var(--signal)" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#clauseSignalArrow)"/>
-              <rect x="117" y="86" width="106" height="20" fill="var(--signal)" stroke="var(--ink)" stroke-width="1.5"/>
-              <text x="170" y="100" font-family="var(--font-mono)" font-size="7.5px" font-weight="800" fill="var(--ink)" text-anchor="middle">⚔ CONFLICT: UNSAT</text>
-              <rect x="25" y="174" width="140" height="22" fill="var(--ink)"/>
-              <text x="32" y="184" font-family="var(--font-mono)" font-size="6.8px" fill="#b3ab98">RISK INDEX // DEONTIC</text>
-              <text x="32" y="193" font-family="var(--font-mono)" font-size="7.8px" font-weight="700" fill="var(--signal)">HIGH RISK (SCORE: 89/100)</text>
-              <rect x="175" y="174" width="140" height="22" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
-              <text x="182" y="184" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">CLAUSE INTERLOCK</text>
-              <text x="182" y="193" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)">MUTUAL BREACH DETECTED</text>
+
+              <!-- Coordinate Axes Radiating From Origin -->
+              <line x1="170" y1="20" x2="170" y2="190" stroke="var(--ink)" stroke-width="0.7" opacity="0.2"/>
+              <line x1="30" y1="105" x2="310" y2="105" stroke="var(--ink)" stroke-width="0.7" opacity="0.2"/>
+
+              <!-- Outer Isometric Polytope Silhouette -->
+              <polygon points="170,38 245,78 245,148 170,188 95,148 95,78" fill="none" stroke="var(--ink)" stroke-width="1.8"/>
+              
+              <!-- Inner Translucent Modal Hyperplanes -->
+              <!-- Obligation Facet -->
+              <polygon points="170,38 245,78 170,105 95,78" fill="rgba(20,19,16,0.05)" stroke="var(--ink)" stroke-width="1"/>
+              <!-- Remedy / Indemnity Colliding Facets -->
+              <polygon points="95,78 170,105 170,188 95,148" fill="rgba(255,176,0,0.12)" stroke="var(--signal)" stroke-width="1.5"/>
+              <polygon points="245,78 170,105 170,188 245,148" fill="rgba(20,19,16,0.03)" stroke="var(--ink)" stroke-width="1"/>
+
+              <!-- Singular Contradiction Node (UNSAT Collision) -->
+              <g class="chapter-pulse">
+                <circle cx="170" cy="105" r="32" fill="none" stroke="var(--signal)" stroke-width="1" stroke-dasharray="3 3"/>
+                <circle cx="170" cy="105" r="18" fill="none" stroke="var(--signal)" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <polygon points="170,96 179,105 170,114 161,105" fill="var(--signal)" stroke="var(--ink)" stroke-width="2"/>
+                <circle cx="170" cy="105" r="2.5" fill="var(--ink)"/>
+              </g>
+
+              <!-- Node Callout Connectors -->
+              <line x1="95" y1="78" x2="50" y2="60" stroke="var(--ink)" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="45" y="56" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" text-anchor="end">&sect; 4.2 OBLIGATION [O]</text>
+
+              <line x1="245" y1="78" x2="290" y2="60" stroke="var(--ink)" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="295" y="56" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)">SOLE REMEDY [P]</text>
+
+              <line x1="170" y1="188" x2="170" y2="198" stroke="var(--signal)" stroke-width="1"/>
+              <text x="170" y="202" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal)" text-anchor="middle">&sect; 14.1 INDEMNITY PARADOX [&not;P]</text>
+
+              <!-- Singularity Label -->
+              <text x="170" y="132" font-family="var(--font-mono)" font-size="7.5px" font-weight="800" fill="var(--ink)" text-anchor="middle">&#9876; CONFLICT: SMT UNSAT</text>
+
+              <!-- Telemetry Metadata -->
+              <text x="25" y="24" font-family="var(--font-mono)" font-size="7px" fill="#6a6155">DEONTIC MODAL SPEC</text>
+              <text x="315" y="24" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal-ink)" text-anchor="end">SMT-LIB2 Z3 CORE</text>
             </svg>
-            <div class="m-foot">Deontic Modal AST &middot; SMT-LIB2 Z3 Solver &middot; Bounded Exposure Analyzer &middot; Zero Exfiltration</div>
+            <div class="m-foot">Deontic Modal AST &middot; SMT-LIB2 Z3 Solvers &middot; Bounded Risk Scoring &middot; Zero Exfiltration</div>
           </div>
-          <div class="docket">
+<div class="docket">
             <h4>Figures</h4>
             <div class="fr"><span>Logic framework</span><span>Deontic modal logic &amp; SMT</span></div><div class="fr"><span>Evaluation time</span><span>sub-100ms per agreement</span></div><div class="fr"><span>Contradiction scope</span><span>Bilateral covenants &amp; indemnities</span></div><div class="fr"><span>Exfiltration risk</span><span>Zero &mdash; in-memory client evaluation</span></div><div class="fr"><span>Format support</span><span>DIN 5008, Markdown, Plain Text</span></div><div class="fr"><span>Live at</span><span>clause.kellersystems.dev</span></div>
             <div class="fr"><span>Lines of code</span><span>JavaScript &middot; TypeScript</span></div>
@@ -315,58 +398,55 @@
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">04</span>
-          <div class="measured">
-            <div class="m-head"><b>Thermal Arbitrage</b><span>48h Rolling MPC // EPEX Spot</span></div>
-            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Thermodynamic virtual battery 48-hour model predictive control and EPEX Spot price arbitrage dispatch">
+                    <div class="measured">
+            <div class="m-head"><b>Thermal Arbitrage</b><span>Thermodynamic Phase Space // Limit Cycle</span></div>
+            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Thermodynamic phase-space closed limit cycle showing thermal mass energy storage and spot dispatch">
               <defs>
                 <pattern id="ambientGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.06)" stroke-width="1"/>
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.05)" stroke-width="0.8"/>
                 </pattern>
-                <marker id="ambientArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
+                <marker id="ambOrbitArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
                   <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--signal)"/>
                 </marker>
               </defs>
               <rect width="340" height="210" fill="url(#ambientGrid)"/>
-              <text x="25" y="22" font-family="var(--font-mono)" font-size="7.5px" fill="#6a6155">48H PREDICTIVE DISPATCH // EPEX SPOT AUCTION</text>
-              <text x="252" y="22" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal-ink)">SOLVER: RUST</text>
-              <rect x="35" y="62" width="270" height="52" fill="rgba(255,176,0,0.08)" stroke="rgba(20,19,16,0.2)" stroke-dasharray="2,2"/>
-              <line x1="35" y1="62" x2="305" y2="62" stroke="rgba(20,19,16,0.35)" stroke-width="1" stroke-dasharray="3,3"/>
-              <text x="40" y="58" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">DEADBAND MAX: 21.5 °C</text>
-              <line x1="35" y1="114" x2="305" y2="114" stroke="rgba(20,19,16,0.35)" stroke-width="1" stroke-dasharray="3,3"/>
-              <text x="40" y="123" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">DEADBAND MIN: 20.5 °C</text>
-              <rect x="105" y="36" width="65" height="120" fill="rgba(255,176,0,0.12)"/>
-              <line x1="105" y1="36" x2="105" y2="156" stroke="rgba(20,19,16,0.2)" stroke-dasharray="2,2"/>
-              <line x1="170" y1="36" x2="170" y2="156" stroke="rgba(20,19,16,0.2)" stroke-dasharray="2,2"/>
-              <rect x="108" y="40" width="58" height="12" fill="var(--signal)"/>
-              <text x="137" y="49" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">NEG SPOT -28€</text>
-              <rect x="205" y="36" width="55" height="120" fill="rgba(20,19,16,0.05)"/>
-              <line x1="205" y1="36" x2="205" y2="156" stroke="rgba(20,19,16,0.2)" stroke-dasharray="2,2"/>
-              <line x1="260" y1="36" x2="260" y2="156" stroke="rgba(20,19,16,0.2)" stroke-dasharray="2,2"/>
-              <rect x="208" y="40" width="48" height="12" fill="var(--ink)"/>
-              <text x="232" y="49" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">PEAK +165€</text>
-              <path d="M 35 142 L 75 140 L 105 135 L 115 152 L 140 154 L 165 148 L 180 132 L 210 76 L 235 72 L 255 102 L 305 138" fill="none" stroke="#8a8170" stroke-width="1.2" stroke-dasharray="3,2"/>
-              <text x="245" y="86" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155">EPEX SPOT TARIFF</text>
-              <path class="draw" d="M 35 94 C 70 94, 98 90, 118 76 C 135 65, 155 67, 175 73 C 195 80, 225 94, 250 100 C 275 104, 305 98, 305 98" fill="none" stroke="var(--signal)" stroke-width="3"/>
-              <circle cx="140" cy="67" r="4.5" fill="var(--ink)" stroke="var(--signal)" stroke-width="2"/>
-              <rect x="108" y="24" width="68" height="13" fill="var(--plate)" stroke="var(--ink)" stroke-width="1"/>
-              <text x="142" y="33" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">CHARGE: +0.6°C</text>
-              <circle cx="232" cy="95" r="4.5" fill="var(--signal)" stroke="var(--ink)" stroke-width="2"/>
-              <rect x="216" y="128" width="84" height="13" fill="var(--plate)" stroke="var(--ink)" stroke-width="1"/>
-              <text x="258" y="137" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">FLOAT: 0 kW DRAW</text>
-              <line x1="35" y1="156" x2="305" y2="156" stroke="var(--ink)" stroke-width="1.5"/>
-              <text x="35" y="166" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">00:00</text>
-              <text x="95" y="166" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">08:00</text>
-              <text x="160" y="166" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">14:00 (SOLAR)</text>
-              <text x="225" y="166" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">20:00 (PEAK)</text>
-              <text x="285" y="166" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">24:00</text>
-              <rect x="25" y="176" width="140" height="20" fill="var(--signal)"/>
-              <text x="95" y="189" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">CYCLE DEGRADATION: 0.00%</text>
-              <rect x="175" y="176" width="140" height="20" fill="var(--ink)"/>
-              <text x="245" y="189" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">COP: 4.22 // ARBITRAGE +34%</text>
+
+              <!-- Phase-Space Axes: Horizontal = Temp (T), Vertical = Thermal Flux (dQ/dt) -->
+              <line x1="30" y1="105" x2="310" y2="105" stroke="var(--ink)" stroke-width="1.2"/>
+              <line x1="170" y1="20" x2="170" y2="190" stroke="var(--ink)" stroke-width="1.2"/>
+              <text x="310" y="117" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)" text-anchor="end">T_in (&deg;C)</text>
+              <text x="175" y="28" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">FLUX dQ/dt (kW)</text>
+
+              <!-- Comfort Deadband Zone (20.5 C to 21.5 C) -->
+              <rect x="115" y="30" width="110" height="150" fill="rgba(255,176,0,0.06)"/>
+              <line x1="115" y1="30" x2="115" y2="180" stroke="rgba(20,19,16,0.3)" stroke-width="1" stroke-dasharray="3 3"/>
+              <text x="112" y="188" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155" text-anchor="end">20.5 &deg;C</text>
+              <line x1="225" y1="30" x2="225" y2="180" stroke="rgba(20,19,16,0.3)" stroke-width="1" stroke-dasharray="3 3"/>
+              <text x="228" y="188" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155">21.5 &deg;C</text>
+
+              <!-- Thermodynamic Closed Limit Cycle Orbit -->
+              <!-- Upper Arc: Pre-Charge In Negative Tariff Window (-28 EUR/MWh) -->
+              <path class="draw" d="M 120 105 C 120 50, 220 50, 220 105" fill="none" stroke="var(--signal)" stroke-width="3" stroke-linecap="round" marker-end="url(#ambOrbitArrow)"/>
+              <!-- Lower Arc: Passive Float During Peak Hours (+165 EUR/MWh) -->
+              <path class="draw" d="M 220 105 C 220 160, 120 160, 120 105" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/>
+
+              <!-- Dynamic Limit Cycle Phase Markers -->
+              <circle cx="170" cy="58" r="4.5" fill="var(--signal)" stroke="var(--ink)" stroke-width="1.5"/>
+              <text x="170" y="48" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" text-anchor="middle">PRE-CHARGE [COP 4.2]</text>
+
+              <circle cx="170" cy="152" r="4.5" fill="var(--ink)" stroke="var(--signal)" stroke-width="1.5"/>
+              <text x="170" y="170" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" text-anchor="middle">THERMAL FLOAT [0 kW]</text>
+
+              <!-- Equilibrium Center Focus -->
+              <circle cx="170" cy="105" r="3" fill="var(--signal)"/>
+
+              <!-- Telemetry Metadata -->
+              <text x="25" y="24" font-family="var(--font-mono)" font-size="7px" fill="#6a6155">HORIZON: 48h ROLLING MPC</text>
+              <text x="315" y="24" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal-ink)" text-anchor="end">DEGRADATION: 0.00%</text>
             </svg>
-            <div class="m-foot">Sensible Heat Capacity C_th = 48.2 MJ/K &middot; 48h Horizon &middot; EPEX Spot API &middot; Rust Solver</div>
+            <div class="m-foot">Sensible Thermal Mass C_th = 48.2 MJ/K &middot; 48h Rolling MPC &middot; EPEX Spot API &middot; 0% Chemical Degradation</div>
           </div>
-          <div class="docket">
+<div class="docket">
             <h4>Figures</h4>
             <div class="fr"><span>Storage mechanism</span><span>Sensible building thermal mass</span></div><div class="fr"><span>Battery degradation</span><span>0% cycle degradation</span></div><div class="fr"><span>Prediction horizon</span><span>48-hour rolling MPC</span></div><div class="fr"><span>Comfort tolerance</span><span>&plusmn;0.5 &deg;C bounded deadband</span></div><div class="fr"><span>Arbitrage market</span><span>EPEX Spot day-ahead &amp; intraday</span></div><div class="fr"><span>Live at</span><span>ambient.kellersystems.dev</span></div>
             <div class="fr"><span>Lines of code</span><span>Rust 3,840</span></div>
@@ -392,12 +472,12 @@
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">05</span>
-          <div class="measured">
-            <div class="m-head"><b>HoloForge</b><span>Volumetric Optics // 405nm Field</span></div>
-            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Rotary tomographic volumetric 3D photopolymerization and wavefront interference curing field">
+                    <div class="measured">
+            <div class="m-head"><b>HoloForge</b><span>Volumetric Wavefront // 405nm Caustic</span></div>
+            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Bessel-Gaussian optical wavefront interference and tomographic 3D curing field">
               <defs>
                 <pattern id="holoGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.06)" stroke-width="1"/>
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.05)" stroke-width="0.8"/>
                 </pattern>
                 <marker id="holoBeam" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
                   <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--signal)"/>
@@ -407,36 +487,42 @@
                 </marker>
               </defs>
               <rect width="340" height="210" fill="url(#holoGrid)"/>
-              <text x="25" y="22" font-family="var(--font-mono)" font-size="7.5px" fill="#6a6155">VOLUMETRIC TOMOGRAPHY // λ = 405nm</text>
-              <text x="245" y="22" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal-ink)">ACCURACY: 96.7% IoU</text>
-              <circle cx="170" cy="105" r="82" fill="none" stroke="rgba(20,19,16,0.12)" stroke-dasharray="2,4"/>
-              <path class="draw" d="M 170 23 A 82 82 0 0 1 252 105" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#rotArrow)"/>
+
+              <!-- Cylindrical Borosilicate Vat Boundary -->
+              <circle cx="170" cy="105" r="82" fill="none" stroke="var(--ink)" stroke-width="2"/>
+              <!-- O2 Inhibition Dead-Zone Boundary (12 um) -->
+              <circle cx="170" cy="105" r="74" fill="none" stroke="rgba(20,19,16,0.25)" stroke-dasharray="3 3"/>
+              
+              <!-- Rotary Motion Arc (1.2 RPM) -->
+              <path class="draw" d="M 170 23 A 82 82 0 0 1 252 105" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#rotArrow)"/>
               <text x="258" y="98" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--ink)">1.2 RPM</text>
-              <circle cx="170" cy="105" r="70" fill="var(--plate)" stroke="var(--ink)" stroke-width="2"/>
-              <circle cx="170" cy="105" r="62" fill="none" stroke="rgba(20,19,16,0.25)" stroke-dasharray="3,3"/>
-              <text x="170" y="49" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155" text-anchor="middle">O2 DEAD-ZONE (12 µm)</text>
-              <circle cx="170" cy="105" r="45" fill="none" stroke="rgba(255,176,0,0.25)" stroke-dasharray="2,2"/>
-              <circle cx="170" cy="105" r="30" fill="none" stroke="rgba(255,176,0,0.4)" stroke-dasharray="3,2"/>
-              <path class="draw" d="M 22 105 L 138 105" stroke="var(--signal)" stroke-width="2.5" stroke-dasharray="5,2" marker-end="url(#holoBeam)"/>
-              <path class="draw" d="M 285 45 L 202 87" stroke="var(--signal)" stroke-width="2.5" stroke-dasharray="5,2" marker-end="url(#holoBeam)"/>
-              <path class="draw" d="M 285 165 L 202 123" stroke="var(--signal)" stroke-width="2.5" stroke-dasharray="5,2" marker-end="url(#holoBeam)"/>
-              <polygon points="170,82 177,93 190,87 188,100 202,105 188,110 190,123 177,117 170,128 163,117 150,123 152,110 138,105 152,100 150,87 163,93" fill="var(--ink)" stroke="var(--signal)" stroke-width="2"/>
-              <circle cx="170" cy="105" r="9" fill="var(--signal)"/>
-              <circle cx="170" cy="105" r="3.5" fill="var(--ink)"/>
-              <rect x="18" y="42" width="88" height="28" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
-              <text x="24" y="53" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155">RADICAL DOSE</text>
-              <text x="24" y="64" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)">I_th ≥ 22 mJ/cm²</text>
-              <rect x="238" y="42" width="88" height="28" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
-              <text x="244" y="53" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155">PRINT DURATION</text>
-              <text x="244" y="64" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal-ink)">11.4s (1-SHOT)</text>
-              <rect x="25" y="176" width="140" height="20" fill="var(--signal)"/>
-              <text x="95" y="189" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">OVERCURE: &lt; 0.02%</text>
-              <rect x="175" y="176" width="140" height="20" fill="var(--ink)"/>
-              <text x="245" y="189" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">ZERO SUPPORTS // MONOLITHIC</text>
+
+              <!-- Concentric Bessel Wavefront Interference Fringes -->
+              <circle cx="170" cy="105" r="60" fill="none" stroke="var(--ink)" stroke-width="0.8" stroke-dasharray="2 4"/>
+              <circle cx="170" cy="105" r="46" fill="none" stroke="var(--signal)" stroke-width="1.2" stroke-dasharray="4 2"/>
+              <circle cx="170" cy="105" r="32" fill="none" stroke="var(--signal)" stroke-width="1.8" stroke-dasharray="6 3"/>
+
+              <!-- Tangential 405nm Laser Projections -->
+              <path class="draw" d="M 25 105 L 140 105" stroke="var(--signal)" stroke-width="2.5" stroke-linecap="round" marker-end="url(#holoBeam)"/>
+              <path class="draw" d="M 285 45 L 195 87" stroke="var(--signal)" stroke-width="2.5" stroke-linecap="round" marker-end="url(#holoBeam)"/>
+              <path class="draw" d="M 285 165 L 195 123" stroke="var(--signal)" stroke-width="2.5" stroke-linecap="round" marker-end="url(#holoBeam)"/>
+
+              <!-- Suspended 3D Cured Caustic Silhouette -->
+              <polygon points="170,84 176,93 186,88 185,99 196,105 185,111 186,122 176,117 170,126 164,117 154,122 155,111 144,105 155,99 154,88 164,93" fill="var(--ink)" stroke="var(--signal)" stroke-width="2"/>
+              <g class="chapter-pulse">
+                <circle cx="170" cy="105" r="7" fill="var(--signal)"/>
+                <circle cx="170" cy="105" r="2.5" fill="var(--ink)"/>
+              </g>
+
+              <!-- Telemetry Metadata -->
+              <text x="25" y="24" font-family="var(--font-mono)" font-size="7px" fill="#6a6155">WAVEFRONT // &lambda; = 405 nm</text>
+              <text x="315" y="24" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal-ink)" text-anchor="end">ACCURACY: 96.7% IoU</text>
+              <text x="25" y="196" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">DOSE THRESHOLD: I_th &ge; 22 mJ/cm&sup2;</text>
+              <text x="315" y="196" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal-ink)" text-anchor="end">1-SHOT CURE: 11.4s</text>
             </svg>
-            <div class="m-foot">Tomographic Radon Transform &middot; Radical Photopolymerization &middot; Vat Aberration Mask &middot; Python Optics</div>
+            <div class="m-foot">Tomographic Radon Synthesis &middot; Bessel Wavefront &middot; Radical Photopolymerization &middot; Zero Supports</div>
           </div>
-          <div class="docket">
+<div class="docket">
             <h4>Figures</h4>
             <div class="fr"><span>Files</span><span>113</span></div><div class="fr"><span>Python</span><span>4,842 lines</span></div><div class="fr"><span>Whole part cured</span><span>under 15 s</span></div><div class="fr"><span>Cure accuracy</span><span>94.6&#8211;96.7% IoU</span></div><div class="fr"><span>Overcure</span><span>under 0.02%</span></div><div class="fr"><span>Hardware needed</span><span>none</span></div>
             <div class="fr"><span>Lines of code</span><span>Python 4,842</span></div>
@@ -715,7 +801,7 @@
 
 <div class="chapterlabel" id="chapterLabel" aria-hidden="true"><b>01</b> <span>Global Ghost Net</span></div>
 
-<script src="data.js?v=2.1"></script>
-<script src="script.js?v=2.1"></script>
+<script src="data.js?v=3.0"></script>
+<script src="script.js?v=3.0"></script>
 </body>
 </html>
