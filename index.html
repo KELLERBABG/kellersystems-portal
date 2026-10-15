@@ -109,8 +109,50 @@
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">01</span>
           <div class="measured">
-            <div class="m-head"><b>Vantablack</b><span>4,634 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the Vantablack repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="209" height="165"/><text class="tl" x="6" y="14">src</text><text class="tv" x="6" y="26">2,232 KB</text></g><g><rect class="tm mid" x="0" y="165" width="209" height="45"/><text class="tl onmid" x="6" y="179">Quantum Entangl…</text><text class="tv onmid" x="6" y="191">615 KB</text></g><g><rect class="tm cool" x="209" y="0" width="71" height="108"/></g><g><rect class="tm cool" x="280" y="0" width="60" height="108"/></g><g><rect class="tm cool" x="209" y="108" width="106" height="52"/><text class="tl" x="215" y="122">abos</text><text class="tv" x="215" y="134">362 KB</text></g><g><rect class="tm cool" x="209" y="161" width="106" height="49"/><text class="tl" x="215" y="175">docs</text><text class="tv" x="215" y="187">339 KB</text></g><g><rect class="tm cool" x="315" y="108" width="14" height="76"/></g><g><rect class="tm cool" x="329" y="108" width="11" height="76"/></g><g><rect class="tm cool" x="315" y="184" width="25" height="26"/></g></svg>
-            <div class="m-foot">src 2,232 KB &middot; Quantum Entanglement Link 615 KB &middot; assets 501 KB &middot; tests 422 KB &middot; abos 362 KB &middot; docs 339 KB</div>
+            <div class="m-head"><b>Vantablack</b><span>PQ-Mesh // ML-KEM-768</span></div>
+            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Post-quantum WAN onion mesh network topology with 3 Reed-Solomon divergent shards">
+              <defs>
+                <pattern id="vantaGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.07)" stroke-width="1"/>
+                </pattern>
+                <marker id="vantaArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                  <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--ink)"/>
+                </marker>
+                <marker id="vantaSignalArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                  <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--signal)"/>
+                </marker>
+              </defs>
+              <rect width="340" height="210" fill="url(#vantaGrid)"/>
+              <circle cx="170" cy="105" r="95" fill="none" stroke="rgba(20,19,16,0.12)" stroke-dasharray="3,3"/>
+              <circle cx="170" cy="105" r="55" fill="none" stroke="rgba(20,19,16,0.14)" stroke-dasharray="2,2"/>
+              <line x1="170" y1="5" x2="170" y2="205" stroke="rgba(20,19,16,0.1)" stroke-dasharray="2,4"/>
+              <line x1="5" y1="105" x2="335" y2="105" stroke="rgba(20,19,16,0.1)" stroke-dasharray="2,4"/>
+              <path class="draw" d="M 55 105 C 100 35, 170 30, 285 105" fill="none" stroke="var(--ink)" stroke-width="2" marker-end="url(#vantaArrow)"/>
+              <path class="draw" d="M 55 105 L 285 105" fill="none" stroke="var(--signal)" stroke-width="2.5" marker-end="url(#vantaSignalArrow)"/>
+              <path class="draw" d="M 55 105 C 100 175, 170 180, 285 105" fill="none" stroke="var(--ink)" stroke-width="2" marker-end="url(#vantaArrow)"/>
+              <rect x="25" y="93" width="56" height="24" fill="var(--ink)"/>
+              <text x="53" y="108" font-family="var(--font-mono)" font-size="8.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">CLIENT</text>
+              <circle cx="145" cy="48" r="8" fill="var(--plate)" stroke="var(--ink)" stroke-width="2"/>
+              <circle cx="145" cy="48" r="3" fill="var(--signal)"/>
+              <text x="145" y="36" font-family="var(--font-mono)" font-size="7.5px" fill="var(--ink)" text-anchor="middle">RELAY_01 [FRA]</text>
+              <circle cx="170" cy="105" r="10" fill="var(--plate)" stroke="var(--signal)" stroke-width="2"/>
+              <circle cx="170" cy="105" r="4" fill="var(--ink)"/>
+              <text x="170" y="125" font-family="var(--font-mono)" font-size="7.5px" fill="var(--ink)" text-anchor="middle">RELAY_02 [ONION]</text>
+              <circle cx="145" cy="162" r="8" fill="var(--plate)" stroke="var(--ink)" stroke-width="2"/>
+              <circle cx="145" cy="162" r="3" fill="var(--signal)"/>
+              <text x="145" y="180" font-family="var(--font-mono)" font-size="7.5px" fill="var(--ink)" text-anchor="middle">RELAY_03 [TYO]</text>
+              <rect x="255" y="93" width="65" height="24" fill="var(--signal)" stroke="var(--ink)" stroke-width="1.5"/>
+              <text x="287" y="108" font-family="var(--font-mono)" font-size="8.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">EXIT MESH</text>
+              <rect x="75" y="16" width="108" height="15" fill="var(--plate)" stroke="var(--ink)" stroke-width="1"/>
+              <text x="129" y="27" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">SHARD 1: RS(2,1) [TOP]</text>
+              <rect x="85" y="88" width="58" height="14" fill="var(--plate)" stroke="var(--signal)" stroke-width="1"/>
+              <text x="114" y="98" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" text-anchor="middle">SHARD 2 [DIR]</text>
+              <rect x="75" y="186" width="112" height="15" fill="var(--plate)" stroke="var(--ink)" stroke-width="1"/>
+              <text x="131" y="197" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">SHARD 3: PARITY [BOT]</text>
+              <rect x="215" y="16" width="115" height="16" fill="var(--ink)"/>
+              <text x="272" y="27" font-family="var(--font-mono)" font-size="7.5px" fill="var(--signal)" text-anchor="middle">ML-KEM-768 / X25519</text>
+            </svg>
+            <div class="m-foot">Topology: 7-Node L2 Mesh &middot; Sharding: Reed-Solomon RS(2,1) &middot; ML-KEM-768 &middot; Poly1305</div>
           </div>
           <div class="docket">
             <h4>Figures</h4>
@@ -138,8 +180,42 @@
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">02</span>
           <div class="measured">
-            <div class="m-head"><b>BauLens</b><span>IFC AST &middot; DIN &middot; Eurocode</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Architecture compliance modules in BauLens, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="190" height="210"/><text class="tl" x="6" y="14">din_18040_rules</text><text class="tv" x="6" y="26">340 KB</text></g><g><rect class="tm mid" x="190" y="0" width="150" height="110"/><text class="tl onmid" x="196" y="14">ifc_parser</text><text class="tv onmid" x="196" y="26">185 KB</text></g><g><rect class="tm mid" x="190" y="110" width="105" height="100"/><text class="tl onmid" x="196" y="124">egress_eval</text><text class="tv onmid" x="196" y="136">98 KB</text></g><g><rect class="tm cool" x="295" y="110" width="45" height="100"/><text class="tl" x="300" y="124">lbo</text><text class="tv" x="300" y="136">38 KB</text></g></svg>
-            <div class="m-foot">rules 340 KB &middot; parser 185 KB &middot; egress 98 KB &middot; lbo 38 KB &middot; audit 24 KB</div>
+            <div class="m-head"><b>BauLens</b><span>BIM CAD // DIN 18040 & LBO</span></div>
+            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="BIM architectural CAD compliance verification with dimensional tolerances">
+              <defs>
+                <pattern id="bauGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.06)" stroke-width="1"/>
+                </pattern>
+                <marker id="dimTick" viewBox="0 0 2 10" refX="1" refY="5" markerWidth="2" markerHeight="8" orient="auto">
+                  <line x1="1" y1="0" x2="1" y2="10" stroke="var(--signal)" stroke-width="2"/>
+                </marker>
+                <marker id="egressArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M 0 1 L 7 4 L 0 7 z" fill="var(--signal)"/>
+                </marker>
+              </defs>
+              <rect width="340" height="210" fill="url(#bauGrid)"/>
+              <rect x="25" y="30" width="290" height="12" fill="var(--ink)" stroke="rgba(20,19,16,0.3)" stroke-width="1"/>
+              <rect x="135" y="42" width="14" height="65" fill="var(--signal)" stroke="var(--ink)" stroke-width="1.5"/>
+              <text x="142" y="80" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--ink)" transform="rotate(-90 142 80)" text-anchor="middle">F90-A BARRIER</text>
+              <rect x="25" y="165" width="290" height="12" fill="var(--ink)" stroke="rgba(20,19,16,0.3)" stroke-width="1"/>
+              <path d="M 135 107 A 48 48 0 0 1 183 155" fill="none" stroke="var(--signal)" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <line x1="135" y1="107" x2="135" y2="155" stroke="var(--signal)" stroke-width="2.5"/>
+              <line x1="135" y1="125" x2="195" y2="125" stroke="var(--signal)" stroke-width="1.5" marker-start="url(#dimTick)" marker-end="url(#dimTick)"/>
+              <rect x="140" y="115" width="50" height="12" fill="var(--plate)"/>
+              <text x="165" y="124" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">920 mm</text>
+              <line x1="80" y1="42" x2="80" y2="165" stroke="rgba(20,19,16,0.5)" stroke-width="1" marker-start="url(#dimTick)" marker-end="url(#dimTick)"/>
+              <rect x="62" y="98" width="36" height="12" fill="var(--plate)"/>
+              <text x="80" y="107" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">1.80 m</text>
+              <path class="draw" d="M 50 145 L 290 145" fill="none" stroke="var(--signal)" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#egressArrow)"/>
+              <text x="205" y="140" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="var(--signal)">EGRESS VECTOR →</text>
+              <rect x="25" y="185" width="138" height="18" fill="var(--signal)"/>
+              <text x="94" y="197" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">DIN 18040-1: PASS (≥900mm)</text>
+              <rect x="175" y="185" width="140" height="18" fill="var(--ink)" stroke="rgba(20,19,16,0.3)" stroke-width="1"/>
+              <text x="245" y="197" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">LBO §33 CLEAR: VERIFIED</text>
+              <text x="25" y="20" font-family="var(--font-mono)" font-size="7.5px" fill="#6a6155">REF: GRID B-4 // LEVEL +0.00m</text>
+              <text x="260" y="20" font-family="var(--font-mono)" font-size="7.5px" fill="var(--signal-ink)">IFC4 DETECTED</text>
+            </svg>
+            <div class="m-foot">BIM IFC AST &middot; DIN 18040-1/2 Accessibility &middot; DIN 4102-4 Fire &middot; LBO &sect;33 Egress</div>
           </div>
           <div class="docket">
             <h4>Figures</h4>
@@ -168,8 +244,50 @@
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">03</span>
           <div class="measured">
-            <div class="m-head"><b>ClauseLens</b><span>Deontic Logic &middot; SMT Risk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Logic engine sizes in the ClauseLens repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="200" height="210"/><text class="tl" x="6" y="14">deontic_solver</text><text class="tv" x="6" y="26">412 KB</text></g><g><rect class="tm mid" x="200" y="0" width="140" height="120"/><text class="tl onmid" x="206" y="14">clause_ast</text><text class="tv onmid" x="206" y="26">176 KB</text></g><g><rect class="tm mid" x="200" y="120" width="85" height="90"/><text class="tl onmid" x="206" y="134">risk_matrix</text><text class="tv onmid" x="206" y="146">74 KB</text></g><g><rect class="tm cool" x="285" y="120" width="55" height="90"/><text class="tl" x="290" y="134">rules</text><text class="tv" x="290" y="146">32 KB</text></g></svg>
-            <div class="m-foot">solver 412 KB &middot; clause_ast 176 KB &middot; risk_matrix 74 KB &middot; rules 32 KB &middot; exporter 18 KB</div>
+            <div class="m-head"><b>ClauseLens</b><span>Deontic Logic &middot; SMT Risk Graph</span></div>
+            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Formal deontic modal logic contradiction and bounded risk scoring graph">
+              <defs>
+                <pattern id="clauseGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.06)" stroke-width="1"/>
+                </pattern>
+                <marker id="clauseArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
+                  <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--ink)"/>
+                </marker>
+                <marker id="clauseSignalArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
+                  <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--signal)"/>
+                </marker>
+              </defs>
+              <rect width="340" height="210" fill="url(#clauseGrid)"/>
+              <text x="25" y="22" font-family="var(--font-mono)" font-size="7.5px" fill="#6a6155">FORMAL MODAL SPEC // AST GRAPH</text>
+              <text x="250" y="22" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal-ink)">SMT-LIB2 Z3</text>
+              <rect x="25" y="38" width="125" height="44" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
+              <rect x="25" y="38" width="125" height="13" fill="var(--ink)"/>
+              <text x="32" y="48" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal)">§ 4.2 OBLIGATION [O]</text>
+              <text x="32" y="64" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)">MUST MAINTAIN SLA</text>
+              <text x="32" y="74" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">UPTIME ≥ 99.9% (TOL 0h)</text>
+              <rect x="190" y="38" width="125" height="44" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
+              <rect x="190" y="38" width="125" height="13" fill="var(--ink)"/>
+              <text x="197" y="48" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal)">§ 11.3 REMEDY CAP [P]</text>
+              <text x="197" y="64" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)">SOLE REMEDY: CREDIT</text>
+              <text x="197" y="74" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">WAIVER OF DAMAGES</text>
+              <rect x="105" y="118" width="130" height="44" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
+              <rect x="105" y="118" width="130" height="13" fill="var(--ink)"/>
+              <text x="112" y="128" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal)">§ 14.1 INDEMNITY [¬P]</text>
+              <text x="112" y="144" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)">UNLIMITED EXPOSURE</text>
+              <text x="112" y="154" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">SURVIVES TERMINATION</text>
+              <path class="draw" d="M 150 60 L 188 60" fill="none" stroke="var(--ink)" stroke-width="1.5" marker-end="url(#clauseArrow)"/>
+              <path class="draw" d="M 220 82 L 195 116" fill="none" stroke="var(--signal)" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#clauseSignalArrow)"/>
+              <path class="draw" d="M 115 82 L 140 116" fill="none" stroke="var(--signal)" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#clauseSignalArrow)"/>
+              <rect x="117" y="86" width="106" height="20" fill="var(--signal)" stroke="var(--ink)" stroke-width="1.5"/>
+              <text x="170" y="100" font-family="var(--font-mono)" font-size="7.5px" font-weight="800" fill="var(--ink)" text-anchor="middle">⚔ CONFLICT: UNSAT</text>
+              <rect x="25" y="174" width="140" height="22" fill="var(--ink)"/>
+              <text x="32" y="184" font-family="var(--font-mono)" font-size="6.8px" fill="#b3ab98">RISK INDEX // DEONTIC</text>
+              <text x="32" y="193" font-family="var(--font-mono)" font-size="7.8px" font-weight="700" fill="var(--signal)">HIGH RISK (SCORE: 89/100)</text>
+              <rect x="175" y="174" width="140" height="22" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
+              <text x="182" y="184" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">CLAUSE INTERLOCK</text>
+              <text x="182" y="193" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)">MUTUAL BREACH DETECTED</text>
+            </svg>
+            <div class="m-foot">Deontic Modal AST &middot; SMT-LIB2 Z3 Solver &middot; Bounded Exposure Analyzer &middot; Zero Exfiltration</div>
           </div>
           <div class="docket">
             <h4>Figures</h4>
@@ -198,8 +316,55 @@
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">04</span>
           <div class="measured">
-            <div class="m-head"><b>Ambient Thermal Arbitrage</b><span>Thermodynamics &middot; Spot Arbitrage</span></div><div class="m-bars"><div class="mr"><span class="mn">thermo_core</span><span class="mb"><i style="width:100.00%"></i></span><span class="mk">186 KB</span></div><div class="mr"><span class="mn">spot_dispatch</span><span class="mb"><i style="width:68.42%"></i></span><span class="mk">127 KB</span></div><div class="mr"><span class="mn">drift_model</span><span class="mb"><i style="width:41.15%"></i></span><span class="mk">76 KB</span></div></div>
-            <div class="m-foot">thermo_core 186 KB &middot; spot_dispatch 127 KB &middot; drift_model 76 KB &middot; telemetry 32 KB</div>
+            <div class="m-head"><b>Thermal Arbitrage</b><span>48h Rolling MPC // EPEX Spot</span></div>
+            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Thermodynamic virtual battery 48-hour model predictive control and EPEX Spot price arbitrage dispatch">
+              <defs>
+                <pattern id="ambientGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.06)" stroke-width="1"/>
+                </pattern>
+                <marker id="ambientArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
+                  <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--signal)"/>
+                </marker>
+              </defs>
+              <rect width="340" height="210" fill="url(#ambientGrid)"/>
+              <text x="25" y="22" font-family="var(--font-mono)" font-size="7.5px" fill="#6a6155">48H PREDICTIVE DISPATCH // EPEX SPOT AUCTION</text>
+              <text x="252" y="22" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal-ink)">SOLVER: RUST</text>
+              <rect x="35" y="62" width="270" height="52" fill="rgba(255,176,0,0.08)" stroke="rgba(20,19,16,0.2)" stroke-dasharray="2,2"/>
+              <line x1="35" y1="62" x2="305" y2="62" stroke="rgba(20,19,16,0.35)" stroke-width="1" stroke-dasharray="3,3"/>
+              <text x="40" y="58" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">DEADBAND MAX: 21.5 °C</text>
+              <line x1="35" y1="114" x2="305" y2="114" stroke="rgba(20,19,16,0.35)" stroke-width="1" stroke-dasharray="3,3"/>
+              <text x="40" y="123" font-family="var(--font-mono)" font-size="6.8px" fill="#6a6155">DEADBAND MIN: 20.5 °C</text>
+              <rect x="105" y="36" width="65" height="120" fill="rgba(255,176,0,0.12)"/>
+              <line x1="105" y1="36" x2="105" y2="156" stroke="rgba(20,19,16,0.2)" stroke-dasharray="2,2"/>
+              <line x1="170" y1="36" x2="170" y2="156" stroke="rgba(20,19,16,0.2)" stroke-dasharray="2,2"/>
+              <rect x="108" y="40" width="58" height="12" fill="var(--signal)"/>
+              <text x="137" y="49" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">NEG SPOT -28€</text>
+              <rect x="205" y="36" width="55" height="120" fill="rgba(20,19,16,0.05)"/>
+              <line x1="205" y1="36" x2="205" y2="156" stroke="rgba(20,19,16,0.2)" stroke-dasharray="2,2"/>
+              <line x1="260" y1="36" x2="260" y2="156" stroke="rgba(20,19,16,0.2)" stroke-dasharray="2,2"/>
+              <rect x="208" y="40" width="48" height="12" fill="var(--ink)"/>
+              <text x="232" y="49" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">PEAK +165€</text>
+              <path d="M 35 142 L 75 140 L 105 135 L 115 152 L 140 154 L 165 148 L 180 132 L 210 76 L 235 72 L 255 102 L 305 138" fill="none" stroke="#8a8170" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <text x="245" y="86" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155">EPEX SPOT TARIFF</text>
+              <path class="draw" d="M 35 94 C 70 94, 98 90, 118 76 C 135 65, 155 67, 175 73 C 195 80, 225 94, 250 100 C 275 104, 305 98, 305 98" fill="none" stroke="var(--signal)" stroke-width="3"/>
+              <circle cx="140" cy="67" r="4.5" fill="var(--ink)" stroke="var(--signal)" stroke-width="2"/>
+              <rect x="108" y="24" width="68" height="13" fill="var(--plate)" stroke="var(--ink)" stroke-width="1"/>
+              <text x="142" y="33" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">CHARGE: +0.6°C</text>
+              <circle cx="232" cy="95" r="4.5" fill="var(--signal)" stroke="var(--ink)" stroke-width="2"/>
+              <rect x="216" y="128" width="84" height="13" fill="var(--plate)" stroke="var(--ink)" stroke-width="1"/>
+              <text x="258" y="137" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">FLOAT: 0 kW DRAW</text>
+              <line x1="35" y1="156" x2="305" y2="156" stroke="var(--ink)" stroke-width="1.5"/>
+              <text x="35" y="166" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">00:00</text>
+              <text x="95" y="166" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">08:00</text>
+              <text x="160" y="166" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">14:00 (SOLAR)</text>
+              <text x="225" y="166" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">20:00 (PEAK)</text>
+              <text x="285" y="166" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)">24:00</text>
+              <rect x="25" y="176" width="140" height="20" fill="var(--signal)"/>
+              <text x="95" y="189" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">CYCLE DEGRADATION: 0.00%</text>
+              <rect x="175" y="176" width="140" height="20" fill="var(--ink)"/>
+              <text x="245" y="189" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">COP: 4.22 // ARBITRAGE +34%</text>
+            </svg>
+            <div class="m-foot">Sensible Heat Capacity C_th = 48.2 MJ/K &middot; 48h Horizon &middot; EPEX Spot API &middot; Rust Solver</div>
           </div>
           <div class="docket">
             <h4>Figures</h4>
@@ -228,8 +393,48 @@
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">05</span>
           <div class="measured">
-            <div class="m-head"><b>HoloForge</b><span>3,711 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the HoloForge repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="248" height="210"/><text class="tl" x="6" y="14">output</text><text class="tv" x="6" y="26">2,703 KB</text></g><g><rect class="tm mid" x="248" y="0" width="64" height="141"/></g><g><rect class="tm cool" x="312" y="0" width="28" height="141"/></g><g><rect class="tm cool" x="248" y="141" width="57" height="69"/></g><g><rect class="tm cool" x="305" y="141" width="35" height="40"/></g><g><rect class="tm cool" x="305" y="181" width="29" height="29"/></g><g><rect class="tm cool" x="334" y="181" width="6" height="29"/></g></svg>
-            <div class="m-foot">output 2,703 KB &middot; dist 471 KB &middot; build 206 KB &middot; holoforge 206 KB &middot; docs 73 KB &middot; tests 43 KB</div>
+            <div class="m-head"><b>HoloForge</b><span>Volumetric Optics // 405nm Field</span></div>
+            <svg class="tech-schematic" viewBox="0 0 340 210" role="img" aria-label="Rotary tomographic volumetric 3D photopolymerization and wavefront interference curing field">
+              <defs>
+                <pattern id="holoGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(20,19,16,0.06)" stroke-width="1"/>
+                </pattern>
+                <marker id="holoBeam" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
+                  <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--signal)"/>
+                </marker>
+                <marker id="rotArrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto">
+                  <path d="M 0 0 L 6 3 L 0 6 z" fill="var(--ink)"/>
+                </marker>
+              </defs>
+              <rect width="340" height="210" fill="url(#holoGrid)"/>
+              <text x="25" y="22" font-family="var(--font-mono)" font-size="7.5px" fill="#6a6155">VOLUMETRIC TOMOGRAPHY // λ = 405nm</text>
+              <text x="245" y="22" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal-ink)">ACCURACY: 96.7% IoU</text>
+              <circle cx="170" cy="105" r="82" fill="none" stroke="rgba(20,19,16,0.12)" stroke-dasharray="2,4"/>
+              <path class="draw" d="M 170 23 A 82 82 0 0 1 252 105" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#rotArrow)"/>
+              <text x="258" y="98" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="var(--ink)">1.2 RPM</text>
+              <circle cx="170" cy="105" r="70" fill="var(--plate)" stroke="var(--ink)" stroke-width="2"/>
+              <circle cx="170" cy="105" r="62" fill="none" stroke="rgba(20,19,16,0.25)" stroke-dasharray="3,3"/>
+              <text x="170" y="49" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155" text-anchor="middle">O2 DEAD-ZONE (12 µm)</text>
+              <circle cx="170" cy="105" r="45" fill="none" stroke="rgba(255,176,0,0.25)" stroke-dasharray="2,2"/>
+              <circle cx="170" cy="105" r="30" fill="none" stroke="rgba(255,176,0,0.4)" stroke-dasharray="3,2"/>
+              <path class="draw" d="M 22 105 L 138 105" stroke="var(--signal)" stroke-width="2.5" stroke-dasharray="5,2" marker-end="url(#holoBeam)"/>
+              <path class="draw" d="M 285 45 L 202 87" stroke="var(--signal)" stroke-width="2.5" stroke-dasharray="5,2" marker-end="url(#holoBeam)"/>
+              <path class="draw" d="M 285 165 L 202 123" stroke="var(--signal)" stroke-width="2.5" stroke-dasharray="5,2" marker-end="url(#holoBeam)"/>
+              <polygon points="170,82 177,93 190,87 188,100 202,105 188,110 190,123 177,117 170,128 163,117 150,123 152,110 138,105 152,100 150,87 163,93" fill="var(--ink)" stroke="var(--signal)" stroke-width="2"/>
+              <circle cx="170" cy="105" r="9" fill="var(--signal)"/>
+              <circle cx="170" cy="105" r="3.5" fill="var(--ink)"/>
+              <rect x="18" y="42" width="88" height="28" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
+              <text x="24" y="53" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155">RADICAL DOSE</text>
+              <text x="24" y="64" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)">I_th ≥ 22 mJ/cm²</text>
+              <rect x="238" y="42" width="88" height="28" fill="var(--plate)" stroke="var(--ink)" stroke-width="1.5"/>
+              <text x="244" y="53" font-family="var(--font-mono)" font-size="6.5px" fill="#6a6155">PRINT DURATION</text>
+              <text x="244" y="64" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal-ink)">11.4s (1-SHOT)</text>
+              <rect x="25" y="176" width="140" height="20" fill="var(--signal)"/>
+              <text x="95" y="189" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--ink)" text-anchor="middle">OVERCURE: &lt; 0.02%</text>
+              <rect x="175" y="176" width="140" height="20" fill="var(--ink)"/>
+              <text x="245" y="189" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">ZERO SUPPORTS // MONOLITHIC</text>
+            </svg>
+            <div class="m-foot">Tomographic Radon Transform &middot; Radical Photopolymerization &middot; Vat Aberration Mask &middot; Python Optics</div>
           </div>
           <div class="docket">
             <h4>Figures</h4>
