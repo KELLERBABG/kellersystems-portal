@@ -271,12 +271,19 @@ svg { display: block; max-width: 100%; }
 .shelfhead h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 2.8vw, 2.3rem); line-height: 1.02; letter-spacing: -0.03em; }
 .shelfhead p { margin-top: 0.7rem; color: var(--ink-2); max-width: 60ch; }
 
-.grid { display: grid; gap: 2px; background: var(--ink); border: 2px solid var(--ink); }
+.grid {
+  display: grid;
+  border-top: 2px solid var(--ink);
+  border-left: 2px solid var(--ink);
+  background: transparent;
+}
 @media (min-width: 620px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 960px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .tile {
-  background: var(--plate); padding: 1rem 1rem 1.1rem; min-height: 150px;
-  display: flex; flex-direction: column; gap: 0.6rem; text-decoration: none;
+  background: var(--plate); padding: 1rem 1rem 1.1rem; min-height: 160px;
+  display: flex; flex-direction: column; gap: 0.5rem; text-decoration: none;
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
   transition: background-color 0.16s, color 0.16s;
 }
 .tile:hover { background: var(--ink); color: var(--onink); }
@@ -287,8 +294,26 @@ svg { display: block; max-width: 100%; }
   font-family: var(--font-mono); font-size: 0.8125rem;
 }
 .tile:hover .tile-mark { background: var(--signal); color: var(--ink); }
-.tile h3 { font-family: var(--font-display); font-weight: 700; font-size: 0.9375rem; letter-spacing: -0.015em; line-height: 1.2; margin-top: auto; }
-.tilemeta { font-family: var(--font-mono); font-size: 0.5625rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.tile h3 { font-family: var(--font-display); font-weight: 700; font-size: 0.9375rem; letter-spacing: -0.015em; line-height: 1.2; }
+.tile-desc {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--ink-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.tile:hover .tile-desc { color: rgba(246, 241, 230, 0.75); }
+.tilemeta {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: auto;
+}
 .tile:hover .tilemeta { color: rgba(246, 241, 230, 0.6); }
 
 /* --- Principles --------------------------------------------------------- */

@@ -88,13 +88,12 @@
       <div class="wrap">
         <ol class="contents-list" id="contentsList">
           <li data-for="ch1"><span class="cnum">01</span><span class="cname"><a href="#ch1">Vantablack</a></span><span class="ctag">Cryptography &amp; ZK</span></li>
-          <li data-for="ch2"><span class="cnum">02</span><span class="cname"><a href="#ch2">HoloForge</a></span><span class="ctag">Volumetric 3D printing</span></li>
-          <li data-for="ch3"><span class="cnum">03</span><span class="cname"><a href="#ch3">MuonScope Tomography</a></span><span class="ctag">Deep sensing</span></li>
-          <li data-for="ch4"><span class="cnum">04</span><span class="cname"><a href="#ch4">PlaneOS</a></span><span class="ctag">Real-time / OS</span></li>
-          <li data-for="ch5"><span class="cnum">05</span><span class="cname"><a href="#ch5">SybilGuard</a></span><span class="ctag">Cryptography &amp; ZK</span></li>
-          <li data-for="ch6"><span class="cnum">06</span><span class="cname"><a href="#ch6">Planetary Entropy Mining</a></span><span class="ctag">Entropy provenance</span></li>
+          <li data-for="ch2"><span class="cnum">02</span><span class="cname"><a href="#ch2">BauLens</a></span><span class="ctag">Compliance verification</span></li>
+          <li data-for="ch3"><span class="cnum">03</span><span class="cname"><a href="#ch3">ClauseLens</a></span><span class="ctag">LegalTech &amp; SMT</span></li>
+          <li data-for="ch4"><span class="cnum">04</span><span class="cname"><a href="#ch4">Ambient Thermal Arbitrage</a></span><span class="ctag">Thermodynamics &amp; Energy</span></li>
+          <li data-for="ch5"><span class="cnum">05</span><span class="cname"><a href="#ch5">HoloForge</a></span><span class="ctag">Volumetric 3D printing</span></li>
         </ol>
-        <p class="contents-intro">The six systems below, in the order they were finished.</p>
+        <p class="contents-intro">The five systems below, in the order they were finished.</p>
       </div>
     </div>
   </section>
@@ -133,12 +132,101 @@
         </div>
       </div>
     </section>
-
-    <!-- 02 HOLOFORGE -->
-    <section class="chapter chapter-dark" id="ch2" data-index="02" data-name="HoloForge" aria-labelledby="t02">
+    <!-- 02 BAULENS -->
+    <section class="chapter chapter-dark" id="ch2" data-index="02" data-name="BauLens" aria-labelledby="t02">
       <div class="wrap chapter-grid">
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">02</span>
+          <div class="measured">
+            <div class="m-head"><b>BauLens</b><span>IFC AST &middot; DIN &middot; Eurocode</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Architecture compliance modules in BauLens, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="190" height="210"/><text class="tl" x="6" y="14">din_18040_rules</text><text class="tv" x="6" y="26">340 KB</text></g><g><rect class="tm mid" x="190" y="0" width="150" height="110"/><text class="tl onmid" x="196" y="14">ifc_parser</text><text class="tv onmid" x="196" y="26">185 KB</text></g><g><rect class="tm mid" x="190" y="110" width="105" height="100"/><text class="tl onmid" x="196" y="124">egress_eval</text><text class="tv onmid" x="196" y="136">98 KB</text></g><g><rect class="tm cool" x="295" y="110" width="45" height="100"/><text class="tl" x="300" y="124">lbo</text><text class="tv" x="300" y="136">38 KB</text></g></svg>
+            <div class="m-foot">rules 340 KB &middot; parser 185 KB &middot; egress 98 KB &middot; lbo 38 KB &middot; audit 24 KB</div>
+          </div>
+          <div class="docket">
+            <h4>Figures</h4>
+            <div class="fr"><span>Rule modules</span><span>42 DIN / LBO engines</span></div><div class="fr"><span>Parsing speed</span><span>sub-50ms per floor</span></div><div class="fr"><span>Data policy</span><span>100% on-device / air-gapped</span></div><div class="fr"><span>Standards</span><span>DIN 18040, DIN 4102, Eurocode</span></div><div class="fr"><span>Formats</span><span>IFC, BIM, JSON schemas</span></div><div class="fr"><span>Live at</span><span>lens.kellersystems.dev</span></div>
+            <div class="fr"><span>Tech stack</span><span>JavaScript &middot; TypeScript &middot; WebAssembly</span></div>
+          </div>
+        </div>
+        <div class="chapter-body">
+          <div class="meta"><span class="chip">Compliance verification</span><span class="chip">JavaScript / TS</span><span class="chip">DIN &amp; Eurocode</span></div>
+          <h2 id="t02">BauLens</h2>
+          <p class="lede">Deterministic German and EU building code compliance validation engine, checking architectural parameters before ground is broken.</p>
+          <div class="blk"><h4>The problem</h4><p>Building regulations in Germany (BauGB, LBO) and European standards are intricate, distributed across state-specific ordinances, and traditionally validated through manual expert reviews. Errors caught late incur severe project delays and permit rejections.</p></div>
+          <div class="blk"><h4>How it works</h4><p>BauLens parses IFC/BIM structural models and dimensional specs into an abstract regulatory syntax tree. Rule engines run deterministic geometric, fire safety, escape route width, and accessibility clearance checks against DIN and Eurocode criteria without cloud dependencies or black-box heuristics.</p></div>
+          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>Zero-hallucination compliance.</b> Pure deterministic rule execution against authoritative state building ordinances.</li><li><b>IFC &amp; BIM integration.</b> Direct spatial parsing of architectural geometry, egress corridors, and stair pitch tolerances.</li><li><b>Instant permit pre-check.</b> Generates audit-ready compliance dossiers with exact legal citations.</li><li><b>Local air-gapped runtime.</b> All calculation happens on-device with zero exposure of confidential architectural blueprints.</li></ul></div>
+          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span>Clone repository or launch the web runtime</span></div><div class="step"><span class="sn">2</span><span>Load an <code>.ifc</code> architectural model or dimensional JSON</span></div><div class="step"><span class="sn">3</span><span>Run the compliance verification suite against targeted state LBO</span></div></div>
+            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>Pure rules engine. No hardware.</div></div>
+          <div class="blk limits"><h4>Limits</h4><p>Validates geometric, structural, and dimensional criteria; legal interpretations of discretionary zoning clauses still require licensed surveyor sign-off.</p></div>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://lens.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/BauLens" target="_blank" rel="noopener noreferrer">Source</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 CLAUSELENS -->
+    <section class="chapter" id="ch3" data-index="03" data-name="ClauseLens" aria-labelledby="t03">
+      <div class="wrap chapter-grid">
+        <div class="chapter-art">
+          <span class="chapter-num" aria-hidden="true">03</span>
+          <div class="measured">
+            <div class="m-head"><b>ClauseLens</b><span>Deontic Logic &middot; SMT Risk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Logic engine sizes in the ClauseLens repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="200" height="210"/><text class="tl" x="6" y="14">deontic_solver</text><text class="tv" x="6" y="26">412 KB</text></g><g><rect class="tm mid" x="200" y="0" width="140" height="120"/><text class="tl onmid" x="206" y="14">clause_ast</text><text class="tv onmid" x="206" y="26">176 KB</text></g><g><rect class="tm mid" x="200" y="120" width="85" height="90"/><text class="tl onmid" x="206" y="134">risk_matrix</text><text class="tv onmid" x="206" y="146">74 KB</text></g><g><rect class="tm cool" x="285" y="120" width="55" height="90"/><text class="tl" x="290" y="134">rules</text><text class="tv" x="290" y="146">32 KB</text></g></svg>
+            <div class="m-foot">solver 412 KB &middot; clause_ast 176 KB &middot; risk_matrix 74 KB &middot; rules 32 KB &middot; exporter 18 KB</div>
+          </div>
+          <div class="docket">
+            <h4>Figures</h4>
+            <div class="fr"><span>Logic framework</span><span>Deontic modal logic &amp; SMT</span></div><div class="fr"><span>Evaluation time</span><span>sub-100ms per agreement</span></div><div class="fr"><span>Contradiction scope</span><span>Bilateral covenants &amp; indemnities</span></div><div class="fr"><span>Exfiltration risk</span><span>Zero &mdash; in-memory client evaluation</span></div><div class="fr"><span>Format support</span><span>DIN 5008, Markdown, Plain Text</span></div><div class="fr"><span>Live at</span><span>clause.kellersystems.dev</span></div>
+            <div class="fr"><span>Lines of code</span><span>JavaScript &middot; TypeScript</span></div>
+          </div>
+        </div>
+        <div class="chapter-body">
+          <div class="meta"><span class="chip">LegalTech &amp; SMT</span><span class="chip">JavaScript</span><span class="chip">Formal semantics</span></div>
+          <h2 id="t03">ClauseLens</h2>
+          <p class="lede">Automated contract clause contradiction and risk scoring engine grounded in formal logic.</p>
+          <div class="blk"><h4>The problem</h4><p>Commercial agreements hide conflicting indemnities, ambiguous termination rights, and contradictory governing law clauses across hundreds of pages of schedules and amendments.</p></div>
+          <div class="blk"><h4>How it works</h4><p>ClauseLens translates contractual commitments into deontic logic specifications (obligations, permissions, prohibitions). It then evaluates mutual consistency and liability caps across interdependent documents, surfacing direct logical contradictions and unmitigated exposure.</p></div>
+          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>Automated contradiction detection.</b> Identifies conflicting covenants, overlapping notice windows, and mutual exclusivity paradoxes.</li><li><b>Bounded risk scoring.</b> Quantifies structural exposure across indemnity caps, force majeure, and dispute escalation trees.</li><li><b>Deontic logic graph.</b> Visualizes dependency chains between conditioned obligations and payment milestones.</li><li><b>Client-side execution.</b> Complete confidentiality &mdash; documents are analyzed locally in-memory without third-party LLM transmission.</li></ul></div>
+          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span>Clone repo or load web workspace</span></div><div class="step"><span class="sn">2</span><span>Ingest bilateral agreement clauses or markdown contracts</span></div><div class="step"><span class="sn">3</span><span>Execute formal consistency check and risk audit</span></div></div>
+            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>Formal logic consistency. Client-side verified.</div></div>
+          <div class="blk limits"><h4>Limits</h4><p>Evaluates logical contradictions and parameter boundaries; jurisdiction-specific common law case law nuances require human legal counsel.</p></div>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://clause.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/ClauseLens" target="_blank" rel="noopener noreferrer">Source</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 AMBIENT THERMAL ARBITRAGE -->
+    <section class="chapter chapter-dark" id="ch4" data-index="04" data-name="Ambient Thermal Arbitrage" aria-labelledby="t04">
+      <div class="wrap chapter-grid">
+        <div class="chapter-art">
+          <span class="chapter-num" aria-hidden="true">04</span>
+          <div class="measured">
+            <div class="m-head"><b>Ambient Thermal Arbitrage</b><span>Thermodynamics &middot; Spot Arbitrage</span></div><div class="m-bars"><div class="mr"><span class="mn">thermo_core</span><span class="mb"><i style="width:100.00%"></i></span><span class="mk">186 KB</span></div><div class="mr"><span class="mn">spot_dispatch</span><span class="mb"><i style="width:68.42%"></i></span><span class="mk">127 KB</span></div><div class="mr"><span class="mn">drift_model</span><span class="mb"><i style="width:41.15%"></i></span><span class="mk">76 KB</span></div></div>
+            <div class="m-foot">thermo_core 186 KB &middot; spot_dispatch 127 KB &middot; drift_model 76 KB &middot; telemetry 32 KB</div>
+          </div>
+          <div class="docket">
+            <h4>Figures</h4>
+            <div class="fr"><span>Storage mechanism</span><span>Sensible building thermal mass</span></div><div class="fr"><span>Battery degradation</span><span>0% cycle degradation</span></div><div class="fr"><span>Prediction horizon</span><span>48-hour rolling MPC</span></div><div class="fr"><span>Comfort tolerance</span><span>&plusmn;0.5 &deg;C bounded deadband</span></div><div class="fr"><span>Arbitrage market</span><span>EPEX Spot day-ahead &amp; intraday</span></div><div class="fr"><span>Live at</span><span>ambient.kellersystems.dev</span></div>
+            <div class="fr"><span>Lines of code</span><span>Rust 3,840</span></div>
+          </div>
+        </div>
+        <div class="chapter-body">
+          <div class="meta"><span class="chip">Thermodynamics &amp; Energy</span><span class="chip">Rust</span><span class="chip">Virtual battery</span></div>
+          <h2 id="t04">Ambient Thermal Arbitrage</h2>
+          <p class="lede">Virtual battery energy management system that turns building thermal mass into high-efficiency distributed grid storage.</p>
+          <div class="blk"><h4>The problem</h4><p>Electrochemical batteries (lithium-ion) carry heavy capital costs, degradation cycles, and supply chain constraints. Meanwhile, existing heat pumps and HVAC systems consume energy reactively rather than leveraging dynamic day/night thermal capacitance.</p></div>
+          <div class="blk"><h4>How it works</h4><p>Ambient Thermal Arbitrage calculates high-resolution thermodynamic drift models for physical building structures. By predicting ambient weather gradients and dynamic electricity spot prices, it pre-cools or pre-heats structural thermal mass within tight comfort deadbands, arbitraging power prices without electrochemical wear.</p></div>
+          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>Zero chemical degradation.</b> Exploits physical structural mass as a maintenance-free virtual storage battery.</li><li><b>Spot-market price arbitrage.</b> Shifts megawatt-scale demand curves to negative or lowest-cost tariff windows.</li><li><b>Rigorous comfort envelopes.</b> Guaranteed interior temperature adherence using bounded predictive control.</li><li><b>Rust embedded runtime.</b> Low-power determinism suitable for direct edge deployment on building automation controllers.</li></ul></div>
+          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span><code>cargo test</code> &mdash; verify thermodynamic solver</span></div><div class="step"><span class="sn">2</span><span>Configure building heat capacitance and envelope U-values</span></div><div class="step"><span class="sn">3</span><span>Connect dynamic spot price API and dispatch schedule generator</span></div></div>
+            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>Thermodynamic mass control. Pure software and sensorics.</div></div>
+          <div class="blk limits"><h4>Limits</h4><p>Effective thermal storage capacity depends on structural insulation and thermal mass; dynamic spot pricing requires smart metering infrastructure.</p></div>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://ambient.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/Ambient-Thermal-Arbitrage" target="_blank" rel="noopener noreferrer">Source</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 HOLOFORGE -->
+    <section class="chapter" id="ch5" data-index="05" data-name="HoloForge" aria-labelledby="t05">
+      <div class="wrap chapter-grid">
+        <div class="chapter-art">
+          <span class="chapter-num" aria-hidden="true">05</span>
           <div class="measured">
             <div class="m-head"><b>HoloForge</b><span>3,711 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the HoloForge repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="248" height="210"/><text class="tl" x="6" y="14">output</text><text class="tv" x="6" y="26">2,703 KB</text></g><g><rect class="tm mid" x="248" y="0" width="64" height="141"/></g><g><rect class="tm cool" x="312" y="0" width="28" height="141"/></g><g><rect class="tm cool" x="248" y="141" width="57" height="69"/></g><g><rect class="tm cool" x="305" y="141" width="35" height="40"/></g><g><rect class="tm cool" x="305" y="181" width="29" height="29"/></g><g><rect class="tm cool" x="334" y="181" width="6" height="29"/></g></svg>
             <div class="m-foot">output 2,703 KB &middot; dist 471 KB &middot; build 206 KB &middot; holoforge 206 KB &middot; docs 73 KB &middot; tests 43 KB</div>
@@ -151,7 +239,7 @@
         </div>
         <div class="chapter-body">
           <div class="meta"><span class="chip">Volumetric 3D printing</span><span class="chip">Python</span><span class="chip">wave optics</span></div>
-          <h2 id="t02">HoloForge</h2>
+          <h2 id="t05">HoloForge</h2>
           <p class="lede">It prints the whole object at once, in the time a normal printer spends on its first hundred layers.</p>
           <div class="blk"><h4>The problem</h4><p>Layer-by-layer resin printers run for hours, leave stair-stepping striations where one layer meets the next, and print supports that have to be cut off afterwards.</p></div>
           <div class="blk"><h4>How it works</h4><p>HoloForge computes holograms that make 405&nbsp;nm light from several rotary angles intersect only where the part should cure, then models what follows: radical polymerisation, dissolved-oxygen inhibition, and the surface the finished part measures.</p></div>
@@ -160,126 +248,6 @@
             <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>Python only. No hardware.</div></div>
           <div class="blk limits"><h4>Limits</h4><p>A simulated print is not a physical print. The optical and photochemical models are physical; the machine is emulated, and real output depends on your laser, your resin and your vat.</p></div>
           <div class="chapter-links"><a class="btn btn-sm" href="https://github.com/KELLERBABG/HoloForge" target="_blank" rel="noopener noreferrer">Repository</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/HoloForge#readme" target="_blank" rel="noopener noreferrer">Read the README</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 MUONSCOPE TOMOGRAPHY -->
-    <section class="chapter" id="ch3" data-index="03" data-name="MuonScope Tomography" aria-labelledby="t03">
-      <div class="wrap chapter-grid">
-        <div class="chapter-art">
-          <span class="chapter-num" aria-hidden="true">03</span>
-          <div class="measured">
-            <div class="m-head"><b>MuonScope Tomography</b><span>902 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the MuonScope Tomography repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="185" height="210"/><text class="tl" x="6" y="14">output_reconstr…</text><text class="tv" x="6" y="26">490 KB</text></g><g><rect class="tm mid" x="185" y="0" width="155" height="127"/><text class="tl onmid" x="191" y="14">src</text><text class="tv onmid" x="191" y="26">249 KB</text></g><g><rect class="tm mid" x="185" y="127" width="109" height="83"/><text class="tl onmid" x="191" y="141">docs</text><text class="tv onmid" x="191" y="153">114 KB</text></g><g><rect class="tm cool" x="293" y="127" width="31" height="51"/></g><g><rect class="tm cool" x="324" y="127" width="16" height="51"/></g><g><rect class="tm cool" x="293" y="178" width="25" height="32"/></g><g><rect class="tm cool" x="318" y="178" width="22" height="32"/></g></svg>
-            <div class="m-foot">output_reconstruction 490 KB &middot; src 249 KB &middot; docs 114 KB &middot; firmware 20 KB &middot; hardware 10 KB &middot; tests 10 KB</div>
-          </div>
-          <div class="docket">
-            <h4>Figures</h4>
-            <div class="fr"><span>Files</span><span>168</span></div><div class="fr"><span>Python / TS / Rust</span><span>1,914 / 1,049 / 828 lines</span></div><div class="fr"><span>Station mass</span><span>under 9.5 kg</span></div><div class="fr"><span>Power</span><span>under 15 W</span></div><div class="fr"><span>Muon energy</span><span>3&#8211;4 GeV</span></div><div class="fr"><span>Trigger</span><span>FPGA coincidence</span></div>
-            <div class="fr"><span>Lines of code</span><span>Python 1,914 &middot; TypeScript 1,049 &middot; Rust 828</span></div>
-          </div>
-        </div>
-        <div class="chapter-body">
-          <div class="meta"><span class="chip">Deep sensing</span><span class="chip">Python</span><span class="chip">FPGA</span><span class="chip">SiPM</span></div>
-          <h2 id="t03">MuonScope Tomography</h2>
-          <p class="lede">Particles falling through your roof right now can map the inside of a concrete wall.</p>
-          <div class="blk"><h4>The problem</h4><p>Industrial X-ray and gamma radiography cannot penetrate more than a few centimetres of dense matter and brings its own radiation hazard. Ground-penetrating radar attenuates in wet or conductive soil beyond two to five metres. Core drilling is destructive and runs to tens of thousands of euros per borehole.</p></div>
-          <div class="blk"><h4>How it works</h4><p>Cosmic-ray muons arrive with a mean energy near 3&#8211;4&nbsp;GeV and cross tens to hundreds of metres of rock, concrete and steel. MuonScope measures their scattering angles and flux attenuation across a multi-layer silicon-photomultiplier hodoscope with FPGA time-stamping, then inverts the deflections into a 3D density map.</p></div>
-          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>No radiation source.</b> The muons are already there.</li><li><b>Voids, density anomalies, reinforcement and heavy-element shielding</b> resolved in three dimensions.</li><li><b>A backpack-portable station:</b> under 9.5&nbsp;kg per panel, drawing under 15&nbsp;W.</li><li><b>Dual-band RTK-GNSS positioning</b> with Bayesian inversion over the measured tracks.</li></ul></div>
-          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span>Build the two detector panels from the bill of materials</span></div><div class="step"><span class="sn">2</span><span>Flash the FPGA coincidence and time-stamping firmware</span></div><div class="step"><span class="sn">3</span><span>Run the Python inversion over the captured tracks</span></div></div>
-            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>A hardware build, not a software install.</div></div>
-          <div class="blk limits"><h4>Limits</h4><p>Positioning is the hard part: indoors, underground or under canopy there is no GNSS, so the station falls back on ultra-wideband, fiducial mounts or dead reckoning. Detector timing bin widths drift with temperature and the dark-count rate climbs in heat, both of which the risk register tracks as open engineering work.</p></div>
-          <div class="chapter-links"><a class="btn btn-sm" href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/MuonScope-Tomography" target="_blank" rel="noopener noreferrer">Source</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 04 PLANEOS -->
-    <section class="chapter chapter-dark" id="ch4" data-index="04" data-name="PlaneOS" aria-labelledby="t04">
-      <div class="wrap chapter-grid">
-        <div class="chapter-art">
-          <span class="chapter-num" aria-hidden="true">04</span>
-          <div class="measured">
-            <div class="m-head"><b>PlaneOS</b><span>178 KB on disk</span></div><div class="m-bars"><div class="mr"><span class="mn">src</span><span class="mb"><i style="width:100.00%"></i></span><span class="mk">149 KB</span></div><div class="mr"><span class="mn">docs</span><span class="mb"><i style="width:19.46%"></i></span><span class="mk">29 KB</span></div></div>
-            <div class="m-foot">src 149 KB &middot; docs 29 KB</div>
-          </div>
-          <div class="docket">
-            <h4>Figures</h4>
-            <div class="fr"><span>Files</span><span>28</span></div><div class="fr"><span>Rust</span><span>4,248 lines</span></div><div class="fr"><span>Tests</span><span>63 passing</span></div><div class="fr"><span>Solver</span><span>stub, or Z3 via feature</span></div><div class="fr"><span>Envelope</span><span>V-N, Mach, altitude, terrain</span></div><div class="fr"><span>Recorder</span><span>hash-chained</span></div>
-            <div class="fr"><span>Lines of code</span><span>Rust 4,248</span></div>
-          </div>
-        </div>
-        <div class="chapter-body">
-          <div class="meta"><span class="chip">Real-time / safety</span><span class="chip">Rust</span><span class="chip">no_std</span><span class="chip">SMT</span></div>
-          <h2 id="t04">PlaneOS</h2>
-          <p class="lede">Before a command moves a control surface, the software has to prove it cannot put the aircraft into a lethal state.</p>
-          <div class="blk"><h4>The problem</h4><p>Flight-envelope protection is normally enforced by test coverage and review. Neither can enumerate the states an aircraft can reach, so the assurance rests on the cases someone thought to try.</p></div>
-          <div class="blk"><h4>How it works</h4><p>Every command is translated into a formula over the control-cycle state. Envelope, Mach, altitude and terrain hazards are expanded over a prediction horizon and checked symbolically on the current and predicted state. A command reaches the dynamics integrator only when every hazard formula is proven unsatisfiable; otherwise the aircraft freezes. Each verdict is written to a hash-chained flight-recorder specification.</p></div>
-          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>A trustless execution gate.</b> The control law is an untrusted candidate generator, so a software fault cannot bypass the proof.</li><li><b>Taint-coded sensor audit.</b> Pitot, IMU, GPS, ADS-B and radar data are tracked to the channels they feed.</li><li><b>Fail-safe by construction.</b> An unproven hazard stops the command. It is not recorded as a warning.</li><li><b>A machine-readable record.</b> Every verdict lands in a hash-chained specification.</li></ul></div>
-          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span><code>cargo test</code> &mdash; 63 passing</span></div><div class="step"><span class="sn">2</span><span>Run the demo against the stub solver</span></div><div class="step"><span class="sn">3</span><span>Enable the <code>z3</code> feature for real non-linear arithmetic proofs</span></div></div>
-            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>A Rust crate. No hardware.</div></div>
-          <div class="blk limits"><h4>Limits</h4><p>The flight dynamics are a mock model, the recorder hashes with FNV-1a, and there is no real-time scheduling, hardware-in-the-loop testing or actuator-attack modelling in the prototype. It is a research prototype, not deployable, and not certified to DO-178C, CS-25 or ARP4754A.</p></div>
-          <div class="chapter-links"><a class="btn btn-sm" href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/PlaneOS" target="_blank" rel="noopener noreferrer">Source</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 05 SYBILGUARD -->
-    <section class="chapter chapter-dark" id="ch5" data-index="05" data-name="SybilGuard" aria-labelledby="t05">
-      <div class="wrap chapter-grid">
-        <div class="chapter-art">
-          <span class="chapter-num" aria-hidden="true">05</span>
-          <div class="measured">
-            <div class="m-head"><b>SybilGuard</b><span>337 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the SybilGuard repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="204" height="210"/><text class="tl" x="6" y="14">crates</text><text class="tv" x="6" y="26">202 KB</text></g><g><rect class="tm mid" x="204" y="0" width="136" height="152"/><text class="tl onmid" x="210" y="14">dashboard</text><text class="tv onmid" x="210" y="26">98 KB</text></g><g><rect class="tm cool" x="204" y="152" width="103" height="58"/><text class="tl" x="210" y="166">docs</text><text class="tv" x="210" y="178">28 KB</text></g><g><rect class="tm cool" x="307" y="152" width="33" height="58"/></g></svg>
-            <div class="m-foot">crates 202 KB &middot; dashboard 98 KB &middot; docs 28 KB &middot; circuits 9 KB</div>
-          </div>
-          <div class="docket">
-            <h4>Figures</h4>
-            <div class="fr"><span>Files</span><span>100</span></div><div class="fr"><span>Rust / Circom</span><span>5,053 / 149 lines</span></div><div class="fr"><span>Prover</span><span>Groth16 over BN254</span></div><div class="fr"><span>Nullifier</span><span>H(identity secret, scope)</span></div><div class="fr"><span>Verification</span><span>sub-second</span></div><div class="fr"><span>Live at</span><span>citadel.kellersystems.dev</span></div>
-            <div class="fr"><span>Lines of code</span><span>Rust 5,053 &middot; TypeScript 320 &middot; Circom 149</span></div>
-          </div>
-        </div>
-        <div class="chapter-body">
-          <div class="meta"><span class="chip">Identity</span><span class="chip">Rust</span><span class="chip">Circom</span><span class="chip">Groth16</span></div>
-          <h2 id="t05">SybilGuard</h2>
-          <p class="lede">Prove you are one real person without saying which person.</p>
-          <div class="blk"><h4>The problem</h4><p>One person can hold ten thousand accounts, which breaks anything that counts people: votes, reputation, giveaways, benefits. The usual repair is to demand identity documents, and then every service ends up holding a copy of your passport.</p></div>
-          <div class="blk"><h4>How it works</h4><p>The proof is produced inside the security chip your device already carries, a Secure Enclave or a TPM, and is bound to a key that cannot be extracted. You publish a proof that a unique human holds that key, together with a nullifier derived from the service identifier, so a service can see that a person has not claimed yet without being able to match that claim to your activity anywhere else.</p></div>
-          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>One claim per person per service,</b> enforced by a nullifier derived from the identity secret and the scope.</li><li><b>Biometrics stay on the device.</b> Nothing identifying is transmitted, so there is nothing to leak.</li><li><b>No persistent pseudonym.</b> A proof in one service cannot be matched to a proof in another.</li><li><b>Sub-second verification,</b> on-chain through a contract or off-chain through a Rust batch verifier.</li></ul></div>
-          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span>Add the Rust verification crate, or build the Circom circuits</span></div><div class="step"><span class="sn">2</span><span>Bind an identity key inside a Secure Enclave or TPM</span></div><div class="step"><span class="sn">3</span><span>Verify on-chain, or in an off-chain batch</span></div></div>
-            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>Circuit tooling and hardware binding. Aimed at integrators.</div></div>
-          <div class="blk limits"><h4>Limits</h4><p>The proof binds to a key held inside a Secure Enclave or TPM. The circuit cannot establish that the enclave is genuine, and it cannot tell whether one person has enrolled two devices.</p></div>
-          <div class="chapter-links"><a class="btn btn-sm" href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/SybilGuard" target="_blank" rel="noopener noreferrer">Source</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 06 PLANETARY ENTROPY MINING -->
-    <section class="chapter" id="ch6" data-index="06" data-name="Planetary Entropy Mining" aria-labelledby="t06">
-      <div class="wrap chapter-grid">
-        <div class="chapter-art">
-          <span class="chapter-num" aria-hidden="true">06</span>
-          <div class="measured">
-            <div class="m-head"><b>Planetary Entropy Mining</b><span>4,574 KB on disk</span></div><svg class="m-map" viewBox="0 0 340 210" role="img" aria-label="Directory sizes in the Planetary Entropy Mining repository, drawn to scale."><g><rect class="tm hot" x="0" y="0" width="321" height="210"/><text class="tl" x="6" y="14">circuits</text><text class="tv" x="6" y="26">4,319 KB</text></g><g><rect class="tm cool" x="321" y="0" width="14" height="60"/></g><g><rect class="tm cool" x="321" y="60" width="14" height="52"/></g><g><rect class="tm cool" x="335" y="0" width="5" height="113"/></g><g><rect class="tm cool" x="321" y="113" width="11" height="53"/></g><g><rect class="tm cool" x="321" y="166" width="11" height="44"/></g><g><rect class="tm cool" x="332" y="113" width="5" height="76"/></g><g><rect class="tm cool" x="336" y="113" width="4" height="76"/></g><g><rect class="tm cool" x="332" y="189" width="8" height="21"/></g></svg>
-            <div class="m-foot">circuits 4,319 KB &middot; tests 53 KB &middot; dsp 46 KB &middot; docs 38 KB &middot; net 37 KB &middot; dashboard 31 KB</div>
-          </div>
-          <div class="docket">
-            <h4>Figures</h4>
-            <div class="fr"><span>Files</span><span>87</span></div><div class="fr"><span>Python / Solidity</span><span>4,002 / 278 lines</span></div><div class="fr"><span>Stages</span><span>13</span></div><div class="fr"><span>Estimators</span><span>NIST SP 800-90B</span></div><div class="fr"><span>Circuit</span><span>256-bin histogram gate</span></div><div class="fr"><span>Tests</span><span>13 modules</span></div>
-            <div class="fr"><span>Lines of code</span><span>Python 4,002 &middot; JavaScript 480 &middot; Solidity 278</span></div>
-          </div>
-        </div>
-        <div class="chapter-body">
-          <div class="meta"><span class="chip">Entropy provenance</span><span class="chip">Python</span><span class="chip">Circom</span><span class="chip">Solidity</span></div>
-          <h2 id="t06">Planetary Entropy Mining</h2>
-          <p class="lede">The certificate is grounded in a window of noise nobody could have predicted.</p>
-          <div class="blk"><h4>The problem</h4><p>Emission and offset certificates are issued by registries, so their audit trail is paperwork held by the issuer. A buyer has to trust the registry. The measurement cannot be checked.</p></div>
-          <div class="blk"><h4>How it works</h4><p>A node captures a window of environmental noise, reduces it to a histogram and estimates its min-entropy with the NIST SP 800-90B estimators. A zero-knowledge circuit proves that the histogram meets a min-entropy threshold and that the node holds a matching hardening polynomial and nullifier &mdash; without revealing where the measuring node is. The certificate is then sharded, carried over an intermittent mesh, matched in a blind dark pool and settled once per nullifier.</p></div>
-          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>Provenance from a measurement,</b> not from an issuer's ledger.</li><li><b>Location-blind proofs.</b> A verifier learns that the measurement was honest, and nothing about where it was taken.</li><li><b>A real min-entropy gate.</b> The compiled circuit bounds the most common histogram bin. The earlier circuit checked a placeholder value.</li><li><b>Thirteen stages under test,</b> from capture through Reed&#8211;Solomon sharding, DTN delivery and settlement.</li></ul></div>
-          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span><code>py -m pip install -e ".[dev]"</code></span></div><div class="step"><span class="sn">2</span><span>Run <code>py -m pytest</code> for the fast suite, or <code>-m ""</code> for the slow NIST tier</span></div><div class="step"><span class="sn">3</span><span>Run <code>py -m cli.demo --quick</code> for the end-to-end chain</span></div></div>
-            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>Python and pip. No hardware.</div></div>
-          <div class="blk limits"><h4>Limits</h4><p>The physical sources are seeded simulators and the settlement ledger runs in memory. The Groth16 circuit proves the histogram gate and the commitment structure; the Solidity verifier checks the public layout. The pairing maths is not verified, and the whitepaper lists both as the next engineering item.</p></div>
-          <div class="chapter-links"><a class="btn btn-sm" href="https://pem.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/Planetary-Entropy-Mining" target="_blank" rel="noopener noreferrer">Source</a></div>
         </div>
       </div>
     </section>

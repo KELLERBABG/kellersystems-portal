@@ -1,4 +1,4 @@
-﻿const REPOSITORIES = [
+const REPOSITORIES = [
     {
         "name":  "ABOS",
         "raw_name":  "ABOS",
@@ -200,11 +200,11 @@
         "updated":  "2026-09-06T17:23:39Z"
     },
     {
-        "name":  "LexiClear",
-        "raw_name":  "LexiClear",
+        "name":  "ClauseLens",
+        "raw_name":  "ClauseLens",
         "description":  "Automated contract clause contradiction and risk scoring engine",
         "url":  "https://clause.kellersystems.dev",
-        "github_url":  "https://github.com/KELLERBABG/LexiClear",
+        "github_url":  "https://github.com/KELLERBABG/ClauseLens",
         "language":  "JavaScript",
         "category":  "General",
         "updated":  "2026-09-06T17:23:42Z"

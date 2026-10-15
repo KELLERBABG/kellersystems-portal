@@ -18,7 +18,7 @@
 
   var DATA = (typeof REPOSITORIES !== 'undefined' && Array.isArray(REPOSITORIES))
     ? REPOSITORIES.slice() : [];
-  var FEATURED = ['Vantablack', 'HoloForge', 'MuonScope Tomography', 'PlaneOS', 'SybilGuard', 'Planetary Entropy Mining'];
+  var FEATURED = ['Vantablack', 'BauLens', 'ClauseLens', 'Ambient Thermal Arbitrage', 'HoloForge'];
   var DOMAIN_LABEL = { Crypto: 'Cryptography & ZK', OS: 'Real-time / OS', Rust: 'Systems & Rust', General: 'Applied systems' };
 
   function esc(v) {
@@ -37,12 +37,17 @@
     var host = document.getElementById('moreGrid');
     if (!host || !DATA.length) return;
     var rest = DATA
-      .filter(function (r) { return FEATURED.indexOf(r.name) === -1; })
+      .filter(function (r) {
+        return FEATURED.indexOf(r.name) === -1 &&
+               FEATURED.indexOf(r.raw_name) === -1 &&
+               r.name !== 'LexiClear';
+      })
       .sort(function (a, b) { return a.name.localeCompare(b.name, 'en'); });
     host.innerHTML = rest.map(function (r) {
       return '<a class="tile" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">' +
         '<span class="tile-mark" aria-hidden="true">' + esc(initial(r.name)) + '</span>' +
         '<h3>' + esc(r.name) + '</h3>' +
+        (r.description ? '<p class="tile-desc">' + esc(r.description) + '</p>' : '') +
         '<span class="tilemeta">' + esc(DOMAIN_LABEL[r.category] || r.category || '') +
           ' &middot; ' + esc(r.language || '') + '</span>' +
         '</a>';
