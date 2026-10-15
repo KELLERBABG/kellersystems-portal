@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7.0">
+<link rel="stylesheet" href="style.css?v=8.0">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body><!-- noscript-fallback --><noscript><style>html *{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}[data-a],[data-b],.d,.o,.fade,.draw,.chapter,.step,.panel,.hlab{opacity:1!important}</style></noscript>
@@ -472,10 +472,23 @@
       <rect x="21.5" y="59.5" width="273" height="57" rx="3.5" fill="rgba(255,176,0,.05)" stroke="var(--signal,#ffb000)" stroke-width="1.2"/>
     </g>
 
-    <!-- contradiction wiring -->
-    <path d="M294 88 H307 V145 H320 M294 148 H307" fill="none" stroke="#f85149" stroke-width="1"/>
+    <!-- contradiction & finding wiring (connects all clauses to verdicts/findings) -->
+    <!-- Konflikt: § 4.2 & § 6.1 -> Z3 UNSAT & § 309 Nr. 9 -->
+    <path d="M294 88 H307 V197 H320 M294 148 H307 M307 145 H320" fill="none" stroke="#f85149" stroke-width="1"/>
     <circle cx="294" cy="88" r="1.8" fill="#f85149"/>
     <circle cx="294" cy="148" r="1.8" fill="#f85149"/>
+    <circle cx="320" cy="145" r="1.8" fill="#f85149"/>
+    <circle cx="320" cy="197" r="1.8" fill="#f85149"/>
+
+    <!-- Befund: § 8.1 -> § 309 Nr. 7b Haftung -->
+    <path d="M294 208 H307 V219 H320" fill="none" stroke="#f85149" stroke-width="1"/>
+    <circle cx="294" cy="208" r="1.8" fill="#f85149"/>
+    <circle cx="320" cy="219" r="1.8" fill="#f85149"/>
+
+    <!-- Befund: § 12 -> § 307 Preisklausel -->
+    <path d="M294 268 H307 V241 H320" fill="none" stroke="#d29922" stroke-width="1"/>
+    <circle cx="294" cy="268" r="1.8" fill="#d29922"/>
+    <circle cx="320" cy="241" r="1.8" fill="#d29922"/>
 
     <!-- verdict -->
     <rect x="312" y="38" width="174" height="264" rx="4" class="pn"/>
@@ -1055,7 +1068,7 @@
 
 <div class="chapterlabel" id="chapterLabel" aria-hidden="true"><b>01</b> <span>Global Ghost Net</span></div>
 
-<script src="data.js?v=7.0"></script>
-<script src="script.js?v=7.0"></script>
+<script src="data.js?v=8.0"></script>
+<script src="script.js?v=8.0"></script>
 </body>
 </html>
