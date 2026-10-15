@@ -453,32 +453,33 @@ html[data-motion="off"] .chapter-pulse {
 /* --- Flagship Showcase Interactive Simulations --- */
 @keyframes ks-vanta-packet {
   0% { transform: translateY(0); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(55px); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(72px); opacity: 0; }
 }
 @keyframes ks-baulens-scan {
-  0%, 100% { transform: translateY(0); opacity: 0.8; }
-  50% { transform: translateY(32px); opacity: 0.3; }
+  0%, 100% { transform: translateY(0); opacity: 0.85; }
+  50% { transform: translateY(50px); opacity: 0.25; }
 }
 @keyframes ks-clause-cursor {
-  0%, 15% { transform: translate(50px, 80px); }
-  35%, 45% { transform: translate(125px, 190px); }
-  48% { transform: translate(125px, 192px) scale(0.92); }
-  55%, 100% { transform: translate(125px, 190px); }
+  0%, 12% { transform: translate(75px, 115px); }
+  30%, 46% { transform: translate(180px, 277px); }
+  49% { transform: translate(180px, 277px) scale(0.9); }
+  55%, 85% { transform: translate(180px, 277px); }
+  95%, 100% { transform: translate(75px, 115px); }
 }
 @keyframes ks-clause-btn {
-  0%, 46% { transform: scale(1); }
-  48% { transform: scale(0.92); filter: brightness(1.2); }
-  52%, 100% { transform: scale(1); }
+  0%, 47% { transform: scale(1); }
+  49% { transform: scale(0.93); filter: brightness(1.35) drop-shadow(0 0 6px var(--signal)); }
+  53%, 100% { transform: scale(1); }
 }
 @keyframes ks-clause-findings {
-  0%, 47% { opacity: 0.25; filter: blur(1px); }
-  54%, 100% { opacity: 1; filter: none; }
+  0%, 48% { opacity: 0.2; filter: blur(1.5px); }
+  53%, 100% { opacity: 1; filter: none; }
 }
 @keyframes ks-ambient-sweep {
   0% { transform: translateX(0); }
-  100% { transform: translateX(290px); }
+  100% { transform: translateX(420px); }
 }
 @keyframes ks-holoforge-solidify {
   0% { opacity: 0.2; transform: scale(0.94); }
@@ -490,11 +491,11 @@ html.motion-on .vanta-pkt-1 { animation: ks-vanta-packet 2.2s infinite ease-in; 
 html.motion-on .vanta-pkt-2 { animation: ks-vanta-packet 2.8s infinite 0.6s ease-in; }
 html.motion-on .vanta-pkt-3 { animation: ks-vanta-packet 3.2s infinite 1.1s ease-in; }
 html.motion-on .baulens-scanner { animation: ks-baulens-scan 3.5s ease-in-out infinite; }
-html.motion-on .clause-mouse { animation: ks-clause-cursor 6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite; }
-html.motion-on .clause-btn-active { transform-origin: 125px 190px; animation: ks-clause-btn 6s ease-in-out infinite; }
-html.motion-on .clause-results-feed { animation: ks-clause-findings 6s ease-in-out infinite; }
-html.motion-on .ambient-time-line { animation: ks-ambient-sweep 10s linear infinite; }
-html.motion-on .holoforge-part { transform-origin: 105px 115px; animation: ks-holoforge-solidify 8s ease-in-out infinite; }
+html.motion-on .clause-mouse { animation: ks-clause-cursor 6.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite; }
+html.motion-on .clause-btn-active { transform-origin: 152px 15px; animation: ks-clause-btn 6.5s ease-in-out infinite; }
+html.motion-on .clause-results-feed { animation: ks-clause-findings 6.5s ease-in-out infinite; }
+html.motion-on .ambient-time-line { animation: ks-ambient-sweep 12s linear infinite; }
+html.motion-on .holoforge-part { transform-origin: 110px 120px; animation: ks-holoforge-solidify 8s ease-in-out infinite; }
 
 html[data-motion="off"] .vanta-pkt-1,
 html[data-motion="off"] .vanta-pkt-2,
