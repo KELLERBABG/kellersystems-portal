@@ -43,7 +43,7 @@
                r.name !== 'LexiClear';
       })
       .sort(function (a, b) { return a.name.localeCompare(b.name, 'en'); });
-    host.innerHTML = rest.map(function (r) {
+    var tilesHtml = rest.map(function (r) {
       return '<a class="tile" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">' +
         '<span class="tile-mark" aria-hidden="true">' + esc(initial(r.name)) + '</span>' +
         '<h3>' + esc(r.name) + '</h3>' +
@@ -52,6 +52,28 @@
           ' &middot; ' + esc(r.language || '') + '</span>' +
         '</a>';
     }).join('');
+
+    var remainder = rest.length % 4;
+    if (remainder !== 0) {
+      var needed = 4 - remainder;
+      if (needed >= 1) {
+        tilesHtml += '<a class="tile tile-meta-card" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">' +
+          '<span class="tile-mark" aria-hidden="true">&sect;</span>' +
+          '<h3>Keller Systems Registry</h3>' +
+          '<p class="tile-desc">Formal specifications, reproducible builds, and source code across the entire 35-system fleet.</p>' +
+          '<span class="tilemeta">Full Archive &middot; 35 Systems</span>' +
+          '</a>';
+      }
+      if (needed >= 2) {
+        tilesHtml += '<a class="tile tile-meta-card" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">' +
+          '<span class="tile-mark" aria-hidden="true">&uarr;</span>' +
+          '<h3>Open Verification</h3>' +
+          '<p class="tile-desc">Deterministic by default. Clone, build, run local test suites and verify benchmarks on GitHub.</p>' +
+          '<span class="tilemeta">Open Source &middot; GitHub</span>' +
+          '</a>';
+      }
+    }
+    host.innerHTML = tilesHtml;
   }
   function renderTotal() {
     var el = document.getElementById('totalLine');

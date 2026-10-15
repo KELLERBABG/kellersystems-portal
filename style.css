@@ -275,7 +275,7 @@ svg { display: block; max-width: 100%; }
   display: grid;
   border-top: 2px solid var(--ink);
   border-left: 2px solid var(--ink);
-  background: transparent;
+  background: var(--paper) !important;
 }
 @media (min-width: 620px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 960px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
@@ -315,6 +315,11 @@ svg { display: block; max-width: 100%; }
   margin-top: auto;
 }
 .tile:hover .tilemeta { color: rgba(246, 241, 230, 0.6); }
+
+.tile-meta-card { background: var(--paper); }
+.tile-meta-card .tile-mark { background: var(--signal); color: var(--ink); }
+.tile-meta-card:hover { background: var(--ink); color: var(--onink); }
+.tile-meta-card:hover .tile-mark { background: var(--ink); color: var(--signal); }
 
 /* --- Principles --------------------------------------------------------- */
 .principles { background: var(--paper); padding-block: clamp(52px, 6vw, 100px); border-bottom: 2px solid var(--ink); }
