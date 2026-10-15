@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5.0">
+<link rel="stylesheet" href="style.css?v=6.0">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body><!-- noscript-fallback --><noscript><style>html *{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}[data-a],[data-b],.d,.o,.fade,.draw,.chapter,.step,.panel,.hlab{opacity:1!important}</style></noscript>
@@ -151,110 +151,114 @@
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">01</span>
                                         <div class="measured">
-            <div class="m-head"><b>Vantablack</b><span>Network Topology // Chaos Failover</span></div>
-            <svg class="tech-schematic" viewBox="0 0 500 320" role="img" aria-label="Vantablack post-quantum WAN onion mesh network topology with 3 erasure shards and chaos failover">
-              <rect width="500" height="320" fill="#0d1117"/>
+  <div class="m-head"><b>Vantablack</b><span>Three shards &middot; three roads &middot; chaos failover</span></div>
+  <svg class="tech-schematic ts" viewBox="0 0 500 320" role="img" aria-label="A message is sealed with ML-KEM-768 and X25519, split into three Reed-Solomon shards and sent over three carrier routes. One shard is altered and dropped on a failed authentication tag, the satellite route is severed and rerouted to a hot reserve, and the exit node rebuilds the message from two of three shards.">
+    <rect class="bg" width="500" height="320"/>
+    <text x="16" y="22" class="m sm cap">SESSION 7F3A · HYBRID ML-KEM-768 + X25519</text>
+    <text x="484" y="22" class="m sm cap end">RS(2,1) · ANY 2 OF 3 REBUILD</text>
+    <line x1="16" y1="30" x2="484" y2="30" class="grid"/>
 
-              <!-- Connection lines from Client to Shards -->
-              <path d="M 250 42 L 85 70" stroke="#30363d" stroke-width="1.5"/>
-              <path d="M 250 42 L 250 94" stroke="#30363d" stroke-width="1.5"/>
-              <path d="M 250 42 L 415 70" stroke="#30363d" stroke-width="1.5"/>
+    <!-- wires -->
+    <path class="w" d="M88 160 H104"/>
+    <path class="w" d="M168 136 H182 V80 H206"/>
+    <path class="w" d="M282 80 H304"/>
+    <path class="w" d="M380 80 H392 V136 H400"/>
+    <path class="w" d="M168 160 H206"/>
+    <path class="w-bad" d="M282 160 H400"/>
+    <path class="w" d="M168 184 H182 V240 H206"/>
+    <path fill="none" stroke="#f85149" stroke-width="1.2" d="M282 240 H288"/>
+    <path fill="none" stroke="#2a3544" stroke-width="1.2" d="M298 240 H304"/>
+    <path class="w-sig" d="M190 240 V284 H342 V258"/>
+    <path class="w" d="M380 240 H392 V184 H400"/>
+    <path class="w" d="M439 208 V228"/>
 
-              <!-- Column 1: Carrier 1 to Carrier 4 to Exit -->
-              <line x1="85" y1="108" x2="85" y2="140" stroke="#30363d" stroke-width="1.5"/>
-              <path d="M 85 180 C 85 208, 190 220, 220 228" stroke="#30363d" stroke-width="1.5"/>
+    <!-- packets travel under the boxes -->
+    <circle class="pk pk0" r="3"/>
+    <circle class="pk pk1" r="3"/>
+    <circle class="pk pk2" r="3"/>
 
-              <!-- Column 2: Carrier 2 to Exit -->
-              <line x1="250" y1="142" x2="250" y2="216" stroke="#30363d" stroke-width="1.5"/>
+    <text x="186" y="74" class="m xs">S0</text>
+    <text x="186" y="155" class="m xs">S1</text>
+    <text x="194" y="236" class="m xs">S2</text>
 
-              <!-- Column 3: Carrier 3, Chaos Failover to Carrier 5, to Exit -->
-              <path d="M 415 108 L 415 118" stroke="#f85149" stroke-width="1.5"/>
-              <path d="M 415 136 L 415 142" stroke="var(--signal)" stroke-width="1.5" stroke-dasharray="3 3"/>
-              <path d="M 415 180 C 415 208, 310 220, 280 228" stroke="#30363d" stroke-width="1.5"/>
+    <!-- client -->
+    <rect x="16" y="128" width="72" height="64" rx="3" class="pn2"/>
+    <text x="52" y="146" class="t b md mid">CLIENT</text>
+    <text x="52" y="158" class="m xs mid">SOCKS5 :1080</text>
+    <text x="52" y="168" class="m xs mid">172.28.1.10</text>
+    <text x="52" y="182" class="sig xs mid">msg 1.4 kB</text>
 
-              <!-- Exit Node to Public Internet -->
-              <line x1="250" y1="248" x2="250" y2="268" stroke="var(--signal)" stroke-width="2"/>
+    <!-- seal + split -->
+    <rect x="104" y="112" width="64" height="96" rx="3" class="pn2"/>
+    <text x="136" y="126" class="t b sm mid">SEAL</text>
+    <text x="136" y="137" class="m xs mid">ML-KEM-768</text>
+    <text x="136" y="146" class="m xs mid">+ X25519</text>
+    <g fill="rgba(255,176,0,.18)" stroke="var(--signal,#ffb000)" stroke-width=".8">
+      <rect x="110" y="155" width="14" height="11" rx="1.5"/>
+      <rect x="129" y="155" width="14" height="11" rx="1.5"/>
+      <rect x="148" y="155" width="14" height="11" rx="1.5"/>
+    </g>
+    <text x="117" y="163" class="sig xs mid">S0</text>
+    <text x="136" y="163" class="sig xs mid">S1</text>
+    <text x="155" y="163" class="sig xs mid">S2</text>
+    <text x="136" y="184" class="m xs mid">HKDF key ×3</text>
+    <text x="136" y="195" class="m xs mid">RS 2 + 1</text>
 
-              <!-- Animated Data Packets -->
-              <circle cx="85" cy="124" r="3.5" fill="var(--signal)" class="vanta-pkt-1"/>
-              <circle cx="250" cy="178" r="3.5" fill="#f85149" class="vanta-pkt-2"/>
-              <circle cx="415" cy="124" r="3.5" fill="var(--signal)" class="vanta-pkt-3"/>
+    <!-- lane 0 -->
+    <rect x="206" y="62" width="76" height="36" rx="3" class="pn2"/>
+    <text x="212" y="76" class="t b sm">C1 TRANSATLANTIC</text>
+    <text x="212" y="88" class="m xs">45 ms · 1% loss</text>
+    <rect x="304" y="62" width="76" height="36" rx="3" class="pn2"/>
+    <text x="310" y="76" class="t b sm">C4 BACKBONE</text>
+    <text x="310" y="88" class="m xs">25 ms · 0.5% loss</text>
 
-              <!-- TOP NODE: Client -->
-              <g transform="translate(170, 12)">
-                <rect width="160" height="30" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1.2"/>
-                <text x="80" y="14" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#f0f6fc" text-anchor="middle">Client Node</text>
-                <text x="80" y="24" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" text-anchor="middle">(172.28.1.10:8000)</text>
-              </g>
+    <!-- lane 1 -->
+    <rect x="206" y="142" width="76" height="36" rx="3" class="pn-bad"/>
+    <text x="212" y="156" class="t b sm">C2 TRANSPACIFIC</text>
+    <text x="212" y="168" class="bad xs">85 ms · BYZANTINE</text>
+    <text x="342" y="154" class="bad xs mid">PAYLOAD ALTERED</text>
+    <text x="342" y="172" class="bad xs mid">Poly1305 tag ✗</text>
 
-              <!-- LABELS: Shards -->
-              <text x="85" y="63" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" text-anchor="middle">Shard 0 (Hop 1)</text>
-              <text x="250" y="86" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" text-anchor="middle">Shard 1 (Direct)</text>
-              <text x="415" y="63" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" text-anchor="middle">Shard 2 (Erasure)</text>
+    <!-- lane 2 -->
+    <rect x="206" y="222" width="76" height="36" rx="3" class="pn-bad"/>
+    <text x="212" y="236" class="t b sm">C3 SATELLITE</text>
+    <text x="212" y="248" class="bad xs">160 ms · SEVERED</text>
+    <g class="blink" stroke="#f85149" stroke-width="1.6" stroke-linecap="round">
+      <line x1="289" y1="236" x2="297" y2="244"/><line x1="289" y1="244" x2="297" y2="236"/>
+    </g>
+    <rect x="304" y="222" width="76" height="36" rx="3" class="pn-sig"/>
+    <text x="310" y="236" class="sig b sm">C5 HOT RESERVE</text>
+    <text x="310" y="248" class="ok xs">55 ms · PROMOTED</text>
+    <text x="266" y="279" class="sig xs mid b">FAILOVER REROUTE ≤ 55 ms</text>
 
-              <!-- COLUMN 1: Carrier 1 (Transatlantic) -->
-              <g transform="translate(20, 70)">
-                <rect width="130" height="38" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-                <text x="65" y="12" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#f0f6fc" text-anchor="middle">Carrier 1 (Transatlantic)</text>
-                <text x="65" y="23" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" text-anchor="middle">172.28.1.11 &middot; 45ms</text>
-                <text x="65" y="32" font-family="var(--font-mono)" font-size="6.5px" fill="#3fb950" text-anchor="middle">1% loss &middot; Verified</text>
-              </g>
+    <!-- exit -->
+    <rect x="400" y="112" width="78" height="96" rx="3" class="pn2"/>
+    <text x="439" y="125" class="t b sm mid">EXIT · REBUILD</text>
+    <circle cx="400" cy="136" r="2" fill="#3fb950"/>
+    <circle cx="400" cy="160" r="2" fill="#f85149"/>
+    <circle cx="400" cy="184" r="2" fill="#3fb950"/>
+    <text x="408" y="139" class="m xs">S0 <tspan class="ok">✓ verified</tspan></text>
+    <text x="408" y="163" class="m xs">S1 <tspan class="bad">✗ dropped</tspan></text>
+    <text x="408" y="187" class="m xs">S2 <tspan class="ok">✓ verified</tspan></text>
+    <text x="439" y="202" class="ok b xs mid">2 / 3 → REBUILT</text>
 
-              <!-- COLUMN 1: Carrier 4 (Core Backbone) -->
-              <g transform="translate(20, 142)">
-                <rect width="130" height="38" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-                <text x="65" y="12" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#f0f6fc" text-anchor="middle">Carrier 4 (Core Backbone)</text>
-                <text x="65" y="23" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" text-anchor="middle">172.28.1.14 &middot; 25ms</text>
-                <text x="65" y="32" font-family="var(--font-mono)" font-size="6.5px" fill="#3fb950" text-anchor="middle">0.5% loss &middot; Low Jitter</text>
-              </g>
+    <!-- egress -->
+    <rect x="400" y="228" width="78" height="40" rx="3" class="pn2"/>
+    <text x="439" y="241" class="t b xs mid">INTERNET</text>
+    <text x="439" y="252" class="m xs mid">198.51.100.x</text>
+    <text x="439" y="262" class="m xs mid">egress rotates</text>
 
-              <!-- COLUMN 2: Carrier 2 (Transpacific) -->
-              <g transform="translate(185, 94)">
-                <rect width="130" height="48" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-                <text x="65" y="12" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#f0f6fc" text-anchor="middle">Carrier 2 (Transpacific)</text>
-                <text x="65" y="23" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" text-anchor="middle">172.28.1.12 &middot; 85ms</text>
-                <rect x="10" y="29" width="110" height="13" rx="2" fill="rgba(248,81,73,0.18)" stroke="rgba(248,81,73,0.4)" stroke-width="0.8"/>
-                <text x="65" y="39" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="#f85149" text-anchor="middle">Byzantine Tamper (Discarded)</text>
-              </g>
-
-              <!-- COLUMN 3: Carrier 3 (Satellite) -->
-              <g transform="translate(350, 70)">
-                <rect width="130" height="38" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-                <text x="65" y="12" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#f0f6fc" text-anchor="middle">Carrier 3 (Satellite)</text>
-                <text x="65" y="23" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" text-anchor="middle">172.28.1.13 &middot; 160ms</text>
-                <text x="65" y="32" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="#f85149" text-anchor="middle">Chaos Target: Severed</text>
-              </g>
-
-              <!-- FAILOVER TAG -->
-              <g transform="translate(355, 118)">
-                <rect width="120" height="18" rx="3" fill="#21262d" stroke="var(--signal)" stroke-width="1"/>
-                <text x="60" y="12" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="var(--signal)" text-anchor="middle">Failover Reroute (&le;55ms)</text>
-              </g>
-
-              <!-- COLUMN 3: Carrier 5 (Hot Reserve) -->
-              <g transform="translate(350, 142)">
-                <rect width="130" height="38" rx="4" fill="#161b22" stroke="var(--signal)" stroke-width="1.4"/>
-                <text x="65" y="12" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal)" text-anchor="middle">Carrier 5 (Hot Reserve)</text>
-                <text x="65" y="23" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" text-anchor="middle">172.28.1.15 &middot; 55ms</text>
-                <text x="65" y="32" font-family="var(--font-mono)" font-size="6.5px" fill="#3fb950" text-anchor="middle">1% loss &middot; Active Primary</text>
-              </g>
-
-              <!-- EXIT NODE (Reassembly) -->
-              <g transform="translate(170, 216)">
-                <rect width="160" height="32" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1.2"/>
-                <text x="80" y="13" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#f0f6fc" text-anchor="middle">Exit Node (Reassembly)</text>
-                <text x="80" y="25" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#3fb950" text-anchor="middle">172.28.1.20:8000</text>
-              </g>
-
-              <!-- PUBLIC WAN EGRESS -->
-              <g transform="translate(140, 268)">
-                <rect width="220" height="34" rx="4" fill="#21262d" stroke="var(--signal)" stroke-width="1.2"/>
-                <text x="110" y="14" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#f0f6fc" text-anchor="middle">Public Internet &middot; Egress IP Rotation</text>
-                <text x="110" y="26" font-family="var(--font-mono)" font-size="7.5px" fill="var(--signal)" text-anchor="middle">Anonymized WAN: 198.51.100.x</text>
-              </g>
-            </svg>
-            <div class="m-foot">Topology: 7-Node L2 Mesh &middot; Sharding: Reed-Solomon RS(2,1) &middot; Hybrid ML-KEM-768 / X25519 &middot; &le;55ms Failover</div>
-          </div>
+    <!-- legend -->
+    <line x1="16" y1="307" x2="30" y2="307" class="w"/>
+    <text x="34" y="310" class="m xs">shard path</text>
+    <line x1="92" y1="307" x2="106" y2="307" class="w-sig"/>
+    <text x="110" y="310" class="m xs">reroute</text>
+    <g stroke="#f85149" stroke-width="1.2"><line x1="158" y1="304" x2="164" y2="310"/><line x1="158" y1="310" x2="164" y2="304"/></g>
+    <text x="170" y="310" class="m xs">severed / dropped</text>
+    <text x="484" y="310" class="m xs end">no hop holds more than one shard</text>
+  </svg>
+  <div class="m-foot">7-node L2 carrier mesh (simulated) &middot; Reed&ndash;Solomon RS(2,1) &middot; Hybrid ML-KEM-768 / X25519 &middot; per-shard HKDF + Poly1305 &middot; &le;55&nbsp;ms failover</div>
+</div>
 <div class="docket">
             <h4>Figures</h4>
             <div class="fr"><span>Source files</span><span>74 in src/</span></div><div class="fr"><span>Test files</span><span>32</span></div><div class="fr"><span>Runtime</span><span>Tokio async</span></div><div class="fr"><span>Crypto</span><span>ML-KEM-768 / X25519</span></div><div class="fr"><span>Sharding</span><span>Reed-Solomon RS(2,1)</span></div><div class="fr"><span>Live at</span><span>vantablack.kellersystems.dev</span></div>
@@ -281,107 +285,102 @@
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">02</span>
                                         <div class="measured">
-            <div class="m-head"><b>BauLens</b><span>Regelprofil NRW // Abstandsflächen</span></div>
-            <svg class="tech-schematic" viewBox="0 0 500 320" role="img" aria-label="BauLens simulated regulatory pre-check showing 3D building massing and clearance verification">
-              <rect width="500" height="320" fill="#090e14"/>
+  <div class="m-head"><b>BauLens</b><span>Regelprofil NRW // Abstandsfl&auml;chen</span></div>
+  <svg class="tech-schematic ts" viewBox="0 0 500 320" role="img" aria-label="Isometric LOD200 massing, 7.50 m high, with setback areas on all four sides. The north setback crosses the plot boundary by 0.40 m: 3.35 m present, 3.75 m required, flagged as a defect. East, south and west pass.">
+    <rect class="bg" width="500" height="320"/>
+    <circle cx="20" cy="19" r="3" class="cy"/>
+    <text x="28" y="22" class="t b sm cap">BAULENS · DETERMINISTISCHE VORPRÜFUNG</text>
+    <text x="484" y="22" class="m xs end">MASSING LOD200 · H 7,50 m · NRW</text>
+    <line x1="16" y1="30" x2="484" y2="30" class="grid"/>
 
-              <!-- Top Bar -->
-              <g transform="translate(20, 20)">
-                <circle cx="5" cy="0" r="4" fill="#00d2d3"/>
-                <text x="16" y="4" font-family="var(--font-mono)" font-size="8.5px" font-weight="700" fill="#c8d6e5" letter-spacing="0.08em">SHOWCASE &middot; DETERMINISTISCHE VORPR&Uuml;FUNG</text>
-              </g>
-              
-              <!-- Subtitle Bar (No overlap, perfectly spaced) -->
-              <text x="20" y="42" font-family="var(--font-mono)" font-size="8px" fill="#8395a7">MASSING LOD200 &middot; H = 7,50 m</text>
-              <g transform="translate(195, 30)">
-                <rect width="90" height="15" rx="3" fill="rgba(0,210,211,0.18)" stroke="#00d2d3" stroke-width="0.8"/>
-                <text x="45" y="11" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#00d2d3" text-anchor="middle">HEILUNG +0,45 m</text>
-              </g>
-              <text x="480" y="42" font-family="var(--font-mono)" font-size="7.5px" fill="#8395a7" text-anchor="end">REGELPROFIL NRW: 0,5 H &ge; 3,0 m [pr&uuml;fen]</text>
+    <!-- plot boundary -->
+    <polygon points="133.8,85.6 262.6,160 149.4,225.4 20.5,151" fill="rgba(57,197,207,.025)" stroke="#3d4a5a" stroke-width="1" stroke-dasharray="4 3"/>
 
-              <!-- 3D Isometric Viewport -->
-              <g transform="translate(0, -10)">
-                <!-- Ground grid lines -->
-                <path d="M 150 145 L 250 90 L 350 145 L 250 200 Z" fill="none" stroke="rgba(87,101,116,0.3)" stroke-dasharray="4 4"/>
-                <path d="M 80 145 L 250 50 L 420 145 L 250 240 Z" fill="none" stroke="rgba(87,101,116,0.15)" stroke-dasharray="3 4"/>
+    <!-- setback areas (Abstandsflächen) -->
+    <g fill="rgba(57,197,207,.13)" stroke="rgba(57,197,207,.65)" stroke-width=".8">
+      <polygon points="131,124 200.3,164 226.3,149 157,109"/>
+      <polygon points="131,124 75.6,156 49.6,141 105,109"/>
+      <polygon points="200.3,164 226.3,179 170.8,211 144.9,196"/>
+    </g>
+    <polygon points="75.6,156 144.9,196 118.9,211 49.6,171" fill="rgba(248,81,73,.18)" stroke="#f85149" stroke-width=".9"/>
+    <polygon class="pulse" points="52.4,169.4 121.6,209.4 118.9,211 49.6,171" fill="#f85149" stroke="#f85149" stroke-width="1"/>
 
-                <!-- Abstandsflächen Projection Ribbons on Ground (Cyan Tint) -->
-                <polygon points="200,118 250,90 220,73 170,101" fill="rgba(0,210,211,0.18)" stroke="#00d2d3" stroke-width="1" stroke-dasharray="3 2"/>
-                <polygon points="250,90 300,118 330,101 280,73" fill="rgba(0,210,211,0.14)" stroke="#00d2d3" stroke-width="1" stroke-dasharray="3 2"/>
-                <polygon points="150,145 200,172 170,189 120,162" fill="rgba(0,210,211,0.22)" stroke="#00d2d3" stroke-width="1.2"/>
-                <polygon points="200,172 250,145 280,162 230,189" fill="rgba(0,210,211,0.18)" stroke="#00d2d3" stroke-width="1.2"/>
+    <!-- hidden edges -->
+    <g stroke="#4b5a6d" stroke-width=".7" stroke-dasharray="2 2">
+      <line x1="131" y1="124" x2="200.3" y2="164"/>
+      <line x1="131" y1="124" x2="75.6" y2="156"/>
+      <line x1="131" y1="124" x2="131" y2="64"/>
+    </g>
+    <!-- massing -->
+    <polygon points="75.6,156 144.9,196 144.9,136 75.6,96" fill="rgba(90,108,130,.30)" stroke="#8da0b5" stroke-width=".8"/>
+    <polygon points="200.3,164 144.9,196 144.9,136 200.3,104" fill="rgba(120,140,165,.24)" stroke="#8da0b5" stroke-width=".8"/>
+    <polygon points="131,64 200.3,104 144.9,136 75.6,96" fill="rgba(200,214,229,.16)" stroke="#c8d6e5" stroke-width=".9"/>
+    <g stroke="#8da0b5" stroke-width=".5" opacity=".6">
+      <line x1="200.3" y1="144" x2="144.9" y2="176"/><line x1="75.6" y1="136" x2="144.9" y2="176"/>
+      <line x1="200.3" y1="124" x2="144.9" y2="156"/><line x1="75.6" y1="116" x2="144.9" y2="156"/>
+    </g>
 
-                <!-- 3D LOD200 Architectural Massing Cube -->
-                <polygon points="250,65 300,92 250,120 200,92" fill="#2d3748" stroke="#00d2d3" stroke-width="1.4"/>
-                <polygon points="200,92 250,120 250,172 200,145" fill="#1a202c" stroke="#4a5568" stroke-width="1.2"/>
-                <polygon points="250,120 300,92 300,145 250,172" fill="#283141" stroke="#4a5568" stroke-width="1.2"/>
+    <!-- height dimension -->
+    <g stroke="#7d8b9c" stroke-width=".8">
+      <line x1="44" y1="96" x2="44" y2="156"/>
+      <line x1="40" y1="96" x2="48" y2="96"/><line x1="40" y1="156" x2="48" y2="156"/>
+    </g>
+    <g stroke="#4b5a6d" stroke-width=".6" stroke-dasharray="2 2">
+      <line x1="48" y1="96" x2="75" y2="96"/><line x1="48" y1="156" x2="75" y2="156"/>
+    </g>
+    <text x="40" y="129" class="m xs end">H 7,50</text>
 
-                <!-- Floor Level Lines (LOD200 Grid) -->
-                <line x1="200" y1="118" x2="250" y2="146" stroke="#4a5568" stroke-width="0.8" stroke-dasharray="2 2"/>
-                <line x1="250" y1="146" x2="300" y2="118" stroke="#4a5568" stroke-width="0.8" stroke-dasharray="2 2"/>
+    <!-- side labels -->
+    <polyline points="86,189 72,202 16,202" fill="none" stroke="#f85149" stroke-width=".8"/>
+    <text x="16" y="211" class="bad b xs">NORD 3,35 m</text>
+    <text x="16" y="220" class="bad xs">fehlt 0,40 m</text>
+    <text x="214" y="207" class="cy xs">OST 4,00</text>
+    <text x="232" y="134" class="cy xs">SÜD 5,00</text>
+    <text x="52" y="108" class="cy xs">WEST 4,60</text>
 
-                <!-- Height Dimension Line -->
-                <line x1="190" y1="92" x2="190" y2="145" stroke="#718096" stroke-width="1"/>
-                <line x1="186" y1="92" x2="194" y2="92" stroke="#718096" stroke-width="1"/>
-                <line x1="186" y1="145" x2="194" y2="145" stroke="#718096" stroke-width="1"/>
-                <text x="182" y="122" font-family="var(--font-mono)" font-size="7px" fill="#a0aec0" text-anchor="end">H = 7,50 m</text>
+    <!-- compass -->
+    <line x1="244" y1="213" x2="235" y2="218" stroke="#e6edf3" stroke-width="1"/>
+    <polygon points="230,221 236.7,220.6 233.7,215.4" fill="#e6edf3"/>
+    <text x="224" y="229" class="t b xs">N</text>
 
-                <!-- Ground Clearance Dimension Callouts -->
-                <line x1="200" y1="172" x2="230" y2="189" stroke="#00d2d3" stroke-width="1"/>
-                <text x="215" y="187" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#00d2d3" transform="rotate(28 215 187)">3,80 m</text>
+    <!-- legend -->
+    <rect x="16" y="294" width="10" height="6" fill="rgba(57,197,207,.3)" stroke="#39c5cf" stroke-width=".6"/>
+    <text x="30" y="300" class="m xs">Abstandsfläche</text>
+    <rect x="98" y="294" width="10" height="6" fill="rgba(248,81,73,.35)" stroke="#f85149" stroke-width=".6"/>
+    <text x="112" y="300" class="m xs">Mangel</text>
+    <line x1="150" y1="297" x2="164" y2="297" stroke="#3d4a5a" stroke-dasharray="3 2"/>
+    <text x="168" y="300" class="m xs">Grundstück</text>
 
-                <!-- Laser Scanner Animation Bar -->
-                <line x1="180" y1="110" x2="320" y2="110" stroke="#00d2d3" stroke-width="1.8" opacity="0.8" class="baulens-scanner"/>
-              </g>
+    <!-- results panel -->
+    <rect x="284" y="40" width="200" height="258" rx="4" class="pn"/>
+    <text x="294" y="56" class="m xs cap">§ 6 BAUO NRW · ABSTANDSFLÄCHEN</text>
+    <rect x="294" y="64" width="180" height="30" rx="2" fill="#0b0f14"/>
+    <text x="300" y="76" class="t sm">T = max(0,5·H ; 3,00 m)</text>
+    <text x="300" y="88" class="m sm">  = max(3,75 ; 3,00) = <tspan class="cy b">3,75 m</tspan></text>
 
-              <!-- Verification Results Table -->
-              <rect x="20" y="195" width="460" height="110" rx="4" fill="#0c141c" stroke="#1e272e" stroke-width="1.2"/>
-              
-              <!-- Table Column Headers -->
-              <g transform="translate(35, 212)">
-                <text x="0" y="0" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#718096">GRENZE</text>
-                <text x="80" y="0" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#718096">ABSTAND IST</text>
-                <text x="180" y="0" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#718096">ERFORDERLICH (0,5 H)</text>
-                <text x="320" y="0" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#718096">PR&Uuml;FUNG LBO NRW</text>
-                <text x="430" y="0" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#718096" text-anchor="end">STATUS</text>
-                <line x1="-5" y1="6" x2="435" y2="6" stroke="#1e272e" stroke-width="1"/>
-              </g>
+    <text x="294" y="108" class="m xs cap">SEITE</text>
+    <text x="346" y="108" class="m xs cap">IST</text>
+    <text x="392" y="108" class="m xs cap">SOLL</text>
+    <text x="474" y="108" class="m xs cap end">STATUS</text>
+    <line x1="290" y1="113" x2="478" y2="113" class="grid"/>
 
-              <!-- Table Rows -->
-              <g transform="translate(35, 234)">
-                <text x="0" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#f0f6fc">NORD</text>
-                <text x="80" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#00d2d3">3,80 m</text>
-                <text x="180" y="0" font-family="var(--font-mono)" font-size="7.5px" fill="#a0aec0">3,75 m (0,5 &times; 7,50 m)</text>
-                <text x="320" y="0" font-family="var(--font-mono)" font-size="7.5px" fill="#718096">Vollst&auml;ndig auf Flurst&uuml;ck</text>
-                <text x="430" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#00d2d3" text-anchor="end">OK</text>
-                <line x1="-5" y1="6" x2="435" y2="6" stroke="#17222c" stroke-width="0.8"/>
-              </g>
-              <g transform="translate(35, 254)">
-                <text x="0" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#f0f6fc">OST</text>
-                <text x="80" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#00d2d3">4,00 m</text>
-                <text x="180" y="0" font-family="var(--font-mono)" font-size="7.5px" fill="#a0aec0">3,75 m (0,5 &times; 7,50 m)</text>
-                <text x="320" y="0" font-family="var(--font-mono)" font-size="7.5px" fill="#718096">Vollst&auml;ndig auf Flurst&uuml;ck</text>
-                <text x="430" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#00d2d3" text-anchor="end">OK</text>
-                <line x1="-5" y1="6" x2="435" y2="6" stroke="#17222c" stroke-width="0.8"/>
-              </g>
-              <g transform="translate(35, 274)">
-                <text x="0" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#f0f6fc">S&Uuml;D</text>
-                <text x="80" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#00d2d3">5,00 m</text>
-                <text x="180" y="0" font-family="var(--font-mono)" font-size="7.5px" fill="#a0aec0">3,75 m (0,5 &times; 7,50 m)</text>
-                <text x="320" y="0" font-family="var(--font-mono)" font-size="7.5px" fill="#718096">Vollst&auml;ndig auf Flurst&uuml;ck</text>
-                <text x="430" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#00d2d3" text-anchor="end">OK</text>
-                <line x1="-5" y1="6" x2="435" y2="6" stroke="#17222c" stroke-width="0.8"/>
-              </g>
-              <g transform="translate(35, 294)">
-                <text x="0" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#f0f6fc">WEST</text>
-                <text x="80" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#00d2d3">4,60 m</text>
-                <text x="180" y="0" font-family="var(--font-mono)" font-size="7.5px" fill="#a0aec0">3,75 m (0,5 &times; 7,50 m)</text>
-                <text x="320" y="0" font-family="var(--font-mono)" font-size="7.5px" fill="#718096">Vollst&auml;ndig auf Flurst&uuml;ck</text>
-                <text x="430" y="0" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#00d2d3" text-anchor="end">OK</text>
-              </g>
-            </svg>
-            <div class="m-foot">BIM IFC4 Parser &middot; DIN 18040 &middot; BauGB &sect;34 &middot; LBO Abstandsfl&auml;chen NRW &middot; 100% On-Device</div>
-          </div>
+    <rect x="290" y="118" width="188" height="22" rx="2" fill="rgba(248,81,73,.14)" stroke="rgba(248,81,73,.45)"/>
+    <text x="296" y="132" class="t b sm">NORD</text><text x="346" y="132" class="bad b sm">3,35 m</text><text x="392" y="132" class="m sm">3,75 m</text><text x="472" y="132" class="bad b xs end">MANGEL</text>
+    <rect x="290" y="144" width="188" height="22" rx="2" fill="#161e29"/>
+    <text x="296" y="158" class="t b sm">OST</text><text x="346" y="158" class="cy b sm">4,00 m</text><text x="392" y="158" class="m sm">3,75 m</text><text x="472" y="158" class="ok b xs end">OK</text>
+    <rect x="290" y="170" width="188" height="22" rx="2" fill="#161e29"/>
+    <text x="296" y="184" class="t b sm">SÜD</text><text x="346" y="184" class="cy b sm">5,00 m</text><text x="392" y="184" class="m sm">3,75 m</text><text x="472" y="184" class="ok b xs end">OK</text>
+    <rect x="290" y="196" width="188" height="22" rx="2" fill="#161e29"/>
+    <text x="296" y="210" class="t b sm">WEST</text><text x="346" y="210" class="cy b sm">4,60 m</text><text x="392" y="210" class="m sm">3,75 m</text><text x="472" y="210" class="ok b xs end">OK</text>
+
+    <text x="294" y="236" class="m xs cap">HEILUNGSVORSCHLAG</text>
+    <text x="294" y="249" class="t sm">Baukörper 0,45 m nach Süden</text>
+    <text x="294" y="260" class="m xs">→ NORD 3,80 ✓ · SÜD 4,55 ✓</text>
+    <rect x="290" y="270" width="188" height="20" rx="2" fill="rgba(57,197,207,.08)" stroke="rgba(57,197,207,.4)"/>
+    <text x="384" y="283" class="cy b xs mid">1 MANGEL · 3 OK · REPRODUZIERBAR</text>
+  </svg>
+  <div class="m-foot">IFC4 / BIM &middot; &sect; 6 BauO NRW Abstandsfl&auml;chen &middot; DIN 18040 &middot; BauGB &sect;34 &middot; 100% on-device</div>
+</div>
 <div class="docket">
             <h4>Figures</h4>
             <div class="fr"><span>Rule modules</span><span>42 DIN / LBO engines</span></div><div class="fr"><span>Parsing speed</span><span>sub-50ms per floor</span></div><div class="fr"><span>Data policy</span><span>100% on-device / air-gapped</span></div><div class="fr"><span>Standards</span><span>DIN 18040, DIN 4102, Eurocode</span></div><div class="fr"><span>Formats</span><span>IFC, BIM, JSON schemas</span></div><div class="fr"><span>Live at</span><span>lens.kellersystems.dev</span></div>
@@ -409,122 +408,115 @@
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">03</span>
                                         <div class="measured">
-            <div class="m-head"><b>ClauseLens</b><span>Automatisierte AGB/BGB Prüfung // SMT-Solver</span></div>
-            <svg class="tech-schematic" viewBox="0 0 500 320" role="img" aria-label="ClauseLens contract analysis animation with automated clause verification and BGB risk report">
-              <rect width="500" height="320" fill="#0d1117"/>
+  <div class="m-head"><b>ClauseLens</b><span>AGB-Pr&uuml;fung // Deontische Logik + SMT</span></div>
+  <svg class="tech-schematic ts" viewBox="0 0 500 320" role="img" aria-label="Contract clauses translated into deontic formulas of obligation, permission and prohibition. The Z3 solver returns UNSAT for clauses 4.2 and 6.1, which contradict each other. Risk score 72 of 100 with three findings under BGB sections 307 and 309.">
+    <rect class="bg" width="500" height="320"/>
+    <circle cx="20" cy="19" r="3" fill="#f85149" opacity=".8"/>
+    <circle cx="30" cy="19" r="3" fill="#d29922" opacity=".8"/>
+    <circle cx="40" cy="19" r="3" fill="#3fb950" opacity=".8"/>
+    <text x="52" y="22" class="t b sm">SaaS-Nutzungsbedingungen.docx<tspan class="m"> · 14 Klauseln</tspan></text>
+    <text x="484" y="22" class="m xs end">Z3 · BGB §§ 305–310</text>
+    <line x1="16" y1="30" x2="484" y2="30" class="grid"/>
 
-              <!-- Window Controls & File Tab Header -->
-              <g transform="translate(18, 16)">
-                <circle cx="5" cy="5" r="3.5" fill="#f85149"/>
-                <circle cx="16" cy="5" r="3.5" fill="#d29922"/>
-                <circle cx="27" cy="5" r="3.5" fill="#3fb950"/>
-                <text x="46" y="8" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#c9d1d9">B2B-SaaS-Rahmenvertrag.docx &middot; Audit Workspace</text>
-                <text x="464" y="8" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" text-anchor="end">SMT-Z3 // BGB &sect;&sect; 305–310</text>
-              </g>
+    <!-- clause → formula -->
+    <rect x="14" y="38" width="288" height="264" rx="4" class="pn"/>
+    <text x="24" y="52" class="m xs cap">KLAUSEL → DEONTISCHE FORMEL</text>
+    <text x="292" y="52" class="d xs end">O Pflicht · P Erlaubnis · F Verbot</text>
 
-              <!-- LEFT PANE: Contract Input (X: 18 to 242, Width: 224, Height: 275) -->
-              <g transform="translate(18, 32)">
-                <rect width="224" height="272" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1.2"/>
-                
-                <!-- Dropzone Header -->
-                <rect x="10" y="10" width="204" height="22" rx="3" fill="#21262d" stroke="#30363d" stroke-width="0.8" stroke-dasharray="3 2"/>
-                <text x="112" y="24" font-family="var(--font-mono)" font-size="6.5px" fill="#8b949e" text-anchor="middle">&uarr; PDF, DOCX oder TXT hier ablegen</text>
+    <g>
+      <rect x="22" y="60" width="272" height="56" rx="3" fill="#1a1417" stroke="rgba(248,81,73,.35)"/>
+      <rect x="22" y="60" width="2" height="56" fill="#f85149"/>
+      <text x="32" y="74" class="bad b sm">§ 4.2</text>
+      <text x="62" y="74" class="t b sm">Automatische Verlängerung</text>
+      <rect x="226" y="65" width="62" height="12" rx="2" fill="rgba(248,81,73,.2)"/>
+      <text x="257" y="73.5" class="bad b xs mid">§ 309 Nr. 9</text>
+      <text x="32" y="87" class="m xs">„… verlängert sich automatisch um je 24 Monate.“</text>
+      <rect x="30" y="94" width="256" height="15" rx="2" fill="#0b0f14"/>
+      <text x="36" y="104.5" class="t sm"><tspan class="sig b">O</tspan>(verlängern, 24M) ∧ <tspan class="sig b">F</tspan>(kündigen, t &lt; 24M)</text>
+    </g>
+    <g>
+      <rect x="22" y="120" width="272" height="56" rx="3" fill="#1a1417" stroke="rgba(248,81,73,.35)"/>
+      <rect x="22" y="120" width="2" height="56" fill="#f85149"/>
+      <text x="32" y="134" class="bad b sm">§ 6.1</text>
+      <text x="62" y="134" class="t b sm">Kündigungsrecht</text>
+      <rect x="226" y="125" width="62" height="12" rx="2" fill="rgba(248,81,73,.2)"/>
+      <text x="257" y="133.5" class="bad b xs mid">KONFLIKT</text>
+      <text x="32" y="147" class="m xs">„Der Kunde kann jederzeit mit 30 Tagen kündigen.“</text>
+      <rect x="30" y="154" width="256" height="15" rx="2" fill="#0b0f14"/>
+      <text x="36" y="164.5" class="t sm"><tspan class="sig b">P</tspan>(kündigen, t = 30T)</text>
+    </g>
+    <g>
+      <rect x="22" y="180" width="272" height="56" rx="3" fill="#1a1417" stroke="rgba(248,81,73,.35)"/>
+      <rect x="22" y="180" width="2" height="56" fill="#f85149"/>
+      <text x="32" y="194" class="bad b sm">§ 8.1</text>
+      <text x="62" y="194" class="t b sm">Haftungsausschluss</text>
+      <rect x="226" y="185" width="62" height="12" rx="2" fill="rgba(248,81,73,.2)"/>
+      <text x="257" y="193.5" class="bad b xs mid">§ 309 Nr. 7b</text>
+      <text x="32" y="207" class="m xs">„Haftung auch für grobe Fahrlässigkeit ausgeschlossen.“</text>
+      <rect x="30" y="214" width="256" height="15" rx="2" fill="#0b0f14"/>
+      <text x="36" y="224.5" class="t sm"><tspan class="sig b">F</tspan>(Anspruch | grobe Fahrlässigkeit)</text>
+    </g>
+    <g>
+      <rect x="22" y="240" width="272" height="56" rx="3" fill="#1b1810" stroke="rgba(210,153,34,.35)"/>
+      <rect x="22" y="240" width="2" height="56" fill="#d29922"/>
+      <text x="32" y="254" class="warn b sm">§ 12</text>
+      <text x="62" y="254" class="t b sm">Preisanpassung</text>
+      <rect x="226" y="245" width="62" height="12" rx="2" fill="rgba(210,153,34,.2)"/>
+      <text x="257" y="253.5" class="warn b xs mid">§ 307</text>
+      <text x="32" y="267" class="m xs">„Der Anbieter kann Preise einseitig anpassen.“</text>
+      <rect x="30" y="274" width="256" height="15" rx="2" fill="#0b0f14"/>
+      <text x="36" y="284.5" class="t sm"><tspan class="sig b">P</tspan>(Anbieter, Preis↑) ∧ ¬<tspan class="sig b">P</tspan>(Kunde, Sonderkündigung)</text>
+    </g>
 
-                <!-- Contract Clauses Editor Lines -->
-                <g transform="translate(12, 42)">
-                  <!-- Clause 1 -->
-                  <rect x="0" y="2" width="200" height="48" rx="3" fill="rgba(248,81,73,0.08)" stroke="rgba(248,81,73,0.3)" stroke-width="0.8"/>
-                  <text x="8" y="14" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#f85149">&sect; 4 Vertragslaufzeit &amp; K&uuml;ndigung</text>
-                  <text x="8" y="26" font-family="var(--font-mono)" font-size="6.5px" fill="#e6edf3">Der Vertrag verl&auml;ngert sich nach Ablauf</text>
-                  <text x="8" y="36" font-family="var(--font-mono)" font-size="6.5px" fill="#e6edf3">automatisch um 24 Monate.</text>
-                  <rect x="125" y="6" width="67" height="11" rx="2" fill="rgba(248,81,73,0.25)"/>
-                  <text x="158" y="14" font-family="var(--font-mono)" font-size="5.5px" font-weight="700" fill="#ff7b72" text-anchor="middle">&sect; 309 Nr. 9 BGB</text>
+    <g class="cl-scan" pointer-events="none">
+      <rect x="22" y="60" width="272" height="56" rx="3" fill="var(--signal,#ffb000)" opacity=".06"/>
+      <line x1="22" y1="60" x2="294" y2="60" stroke="var(--signal,#ffb000)" stroke-width="1" opacity=".7"/>
+    </g>
 
-                  <!-- Clause 2 -->
-                  <g transform="translate(0, 56)">
-                    <rect x="0" y="2" width="200" height="48" rx="3" fill="rgba(248,81,73,0.08)" stroke="rgba(248,81,73,0.3)" stroke-width="0.8"/>
-                    <text x="8" y="14" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#f85149">&sect; 8 Haftungsbeschr&auml;nkung</text>
-                    <text x="8" y="26" font-family="var(--font-mono)" font-size="6.5px" fill="#e6edf3">Haftung f&uuml;r leichte &amp; grobe Fahrl&auml;ssigkeit</text>
-                    <text x="8" y="36" font-family="var(--font-mono)" font-size="6.5px" fill="#e6edf3">ist vollumf&auml;nglich ausgeschlossen.</text>
-                    <rect x="125" y="6" width="67" height="11" rx="2" fill="rgba(248,81,73,0.25)"/>
-                    <text x="158" y="14" font-family="var(--font-mono)" font-size="5.5px" font-weight="700" fill="#ff7b72" text-anchor="middle">&sect; 309 Nr. 7 BGB</text>
-                  </g>
+    <!-- contradiction wiring -->
+    <path d="M294 88 H307 V145 H320 M294 148 H307" fill="none" stroke="#f85149" stroke-width="1"/>
+    <circle cx="294" cy="88" r="1.8" fill="#f85149"/>
+    <circle cx="294" cy="148" r="1.8" fill="#f85149"/>
 
-                  <!-- Clause 3 -->
-                  <g transform="translate(0, 112)">
-                    <rect x="0" y="2" width="200" height="42" rx="3" fill="rgba(210,153,34,0.08)" stroke="rgba(210,153,34,0.3)" stroke-width="0.8"/>
-                    <text x="8" y="14" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#d29922">&sect; 12 Einseitige Leistungs&auml;nderung</text>
-                    <text x="8" y="26" font-family="var(--font-mono)" font-size="6.5px" fill="#e6edf3">Anbieter beh&auml;lt sich Preisanpassung vor.</text>
-                    <rect x="125" y="6" width="67" height="11" rx="2" fill="rgba(210,153,34,0.25)"/>
-                    <text x="158" y="14" font-family="var(--font-mono)" font-size="5.5px" font-weight="700" fill="#e3b341" text-anchor="middle">&sect; 307 BGB</text>
-                  </g>
-                </g>
+    <!-- verdict -->
+    <rect x="312" y="38" width="174" height="264" rx="4" class="pn"/>
+    <circle cx="338" cy="70" r="18" fill="none" stroke="#222c39" stroke-width="4"/>
+    <circle cx="338" cy="70" r="18" fill="none" stroke="#f85149" stroke-width="4" stroke-dasharray="81.4 113.1" stroke-linecap="round" transform="rotate(-90 338 70)"/>
+    <text x="338" y="74" class="t b lg mid">72</text>
+    <text x="364" y="62" class="m xs cap">RISIKO</text>
+    <text x="364" y="76" class="bad b md">HOCH · 72/100</text>
+    <text x="364" y="87" class="m xs">3 Befunde · 1 Konflikt</text>
+    <line x1="320" y1="100" x2="478" y2="100" class="grid"/>
 
-                <!-- Footer of Left Pane: Char count + Action Button -->
-                <!-- Button Absolute Center in root SVG: X = 18 + 10 + 100 + 52 = 180, Y = 32 + 230 + 2 + 13 = 277 -->
-                <g transform="translate(10, 230)">
-                  <text x="4" y="19" font-family="var(--font-mono)" font-size="7px" fill="#8b949e">655 Zeichen</text>
-                  
-                  <!-- JETZT PRÜFEN BUTTON -->
-                  <g class="clause-btn-active">
-                    <rect x="100" y="2" width="104" height="26" rx="4" fill="var(--signal)" stroke="#fff" stroke-width="0.8"/>
-                    <text x="152" y="18" font-family="var(--font-mono)" font-size="8px" font-weight="800" fill="#141310" text-anchor="middle">Jetzt Pr&uuml;fen &rarr;</text>
-                  </g>
-                </g>
-              </g>
+    <rect class="pulse" x="320" y="110" width="158" height="68" rx="3" fill="#1a1417" stroke="#f85149"/>
+    <text x="328" y="123" class="bad b sm">Z3 → UNSAT</text>
+    <text x="470" y="123" class="m xs end">12 ms</text>
+    <text x="328" y="135" class="t xs">Kern { § 4.2, § 6.1 }</text>
+    <text x="328" y="147" class="t xs">P(kündigen,30T) ∧ F(kündigen,t&lt;24M)</text>
+    <text x="328" y="158" class="bad xs">⊢ ⊥ · Klauseln widersprechen sich</text>
+    <text x="328" y="170" class="m xs">§ 305c II: gegen den Verwender</text>
 
-              <!-- RIGHT PANE: Results / BGB Risk Report (X: 258 to 482, Width: 224, Height: 275) -->
-              <g transform="translate(258, 32)" class="clause-results-feed">
-                <rect width="224" height="272" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1.2"/>
+    <rect x="320" y="188" width="158" height="18" rx="2" fill="#161e29"/>
+    <rect x="324" y="192" width="30" height="10" rx="1.5" fill="#f85149"/>
+    <text x="339" y="199.5" class="t b xs mid">HOCH</text>
+    <text x="360" y="200" class="t xs">§ 309 Nr. 9 · Laufzeit</text>
+    <rect x="320" y="210" width="158" height="18" rx="2" fill="#161e29"/>
+    <rect x="324" y="214" width="30" height="10" rx="1.5" fill="#f85149"/>
+    <text x="339" y="221.5" class="t b xs mid">HOCH</text>
+    <text x="360" y="222" class="t xs">§ 309 Nr. 7b · Haftung</text>
+    <rect x="320" y="232" width="158" height="18" rx="2" fill="#161e29"/>
+    <rect x="324" y="236" width="30" height="10" rx="1.5" fill="#d29922"/>
+    <text x="339" y="243.5" class="t b xs mid">MITTEL</text>
+    <text x="360" y="244" class="t xs">§ 307 · Preisklausel</text>
 
-                <!-- Circular Risk Gauge Header -->
-                <g transform="translate(14, 16)">
-                  <circle cx="22" cy="22" r="18" fill="none" stroke="#21262d" stroke-width="4"/>
-                  <circle cx="22" cy="22" r="18" fill="none" stroke="#f85149" stroke-width="4" stroke-dasharray="81 113" stroke-linecap="round" transform="rotate(-90 22 22)"/>
-                  <text x="22" y="26" font-family="var(--font-mono)" font-size="11px" font-weight="800" fill="#f0f6fc" text-anchor="middle">72</text>
-                  
-                  <text x="52" y="14" font-family="var(--font-mono)" font-size="7px" fill="#8b949e" letter-spacing="0.08em">RISIKO-BEWERTUNG</text>
-                  <text x="52" y="27" font-family="var(--font-display)" font-size="11px" font-weight="800" fill="#f85149">HOCH (72/100)</text>
-                  <text x="52" y="38" font-family="var(--font-sans)" font-size="6.5px" fill="#c9d1d9">2 unwirksame AGB-Fallen nach BGB!</text>
-                </g>
-
-                <line x1="12" y1="68" x2="212" y2="68" stroke="#21262d" stroke-width="1"/>
-                <text x="14" y="79" font-family="var(--font-mono)" font-size="6.5px" fill="#8b949e">[ JSON ] &middot; [ PDF-Befund exportieren ]</text>
-
-                <!-- Findings Card 1: Laufzeit -->
-                <g transform="translate(10, 88)">
-                  <rect width="204" height="78" rx="3" fill="#21262d" stroke="rgba(248,81,73,0.3)" stroke-width="1"/>
-                  <rect x="8" y="8" width="30" height="12" rx="2" fill="#f85149"/>
-                  <text x="23" y="17" font-family="var(--font-mono)" font-size="6px" font-weight="700" fill="#fff" text-anchor="middle">HOCH</text>
-                  <text x="44" y="17" font-family="var(--font-mono)" font-size="6.5px" fill="#8b949e">BGB &sect; 309 Nr. 9</text>
-                  <text x="8" y="31" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#f0f6fc">Automatische Verl&auml;ngerung (24 Mo)</text>
-                  <text x="8" y="42" font-family="var(--font-sans)" font-size="6px" fill="#c9d1d9">Verst&ouml;&szlig;t gegen AGB-Recht. Gesetzliche</text>
-                  <text x="8" y="52" font-family="var(--font-sans)" font-size="6px" fill="#c9d1d9">H&ouml;chstfrist nach Mindestlaufzeit: max. 1 Monat.</text>
-                  <rect x="8" y="58" width="188" height="14" rx="2" fill="rgba(63,185,80,0.15)"/>
-                  <text x="12" y="68" font-family="var(--font-mono)" font-size="6px" font-weight="700" fill="#3fb950">&check; Gegenentwurf: Monatliche K&uuml;ndigung</text>
-                </g>
-
-                <!-- Findings Card 2: Haftung -->
-                <g transform="translate(10, 174)">
-                  <rect width="204" height="78" rx="3" fill="#21262d" stroke="rgba(248,81,73,0.3)" stroke-width="1"/>
-                  <rect x="8" y="8" width="30" height="12" rx="2" fill="#f85149"/>
-                  <text x="23" y="17" font-family="var(--font-mono)" font-size="6px" font-weight="700" fill="#fff" text-anchor="middle">HOCH</text>
-                  <text x="44" y="17" font-family="var(--font-mono)" font-size="6.5px" fill="#8b949e">BGB &sect; 309 Nr. 7</text>
-                  <text x="8" y="31" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#f0f6fc">Unwirksamer Haftungsausschluss</text>
-                  <text x="8" y="42" font-family="var(--font-sans)" font-size="6px" fill="#c9d1d9">Ausschluss f&uuml;r grobe Fahrl&auml;ssigkeit und</text>
-                  <text x="8" y="52" font-family="var(--font-sans)" font-size="6px" fill="#c9d1d9">K&ouml;rpersch&auml;den in AGB absolut unzul&auml;ssig.</text>
-                  <rect x="8" y="58" width="188" height="14" rx="2" fill="rgba(63,185,80,0.15)"/>
-                  <text x="12" y="68" font-family="var(--font-mono)" font-size="6px" font-weight="700" fill="#3fb950">&check; Gegenentwurf: Gesetzliche Haftung</text>
-                </g>
-              </g>
-
-              <!-- Animated Mouse Cursor Pointer (Target: exact center X: 180, Y: 277) -->
-              <g class="clause-mouse" pointer-events="none">
-                <path d="M 0 0 L 0 16 L 4 13 L 7 20 L 9.5 19 L 6.5 12 L 12 12 Z" fill="#fff" stroke="#141310" stroke-width="1.2"/>
-              </g>
-            </svg>
-            <div class="m-foot">Deontische Modallogik &middot; BGB &sect;&sect; 305-310 AGB-Pr&uuml;fung &middot; SMT-Z3 Solver &middot; 100% Client-Side</div>
-          </div>
+    <rect x="320" y="262" width="74" height="18" rx="2" fill="none" stroke="#2a3544"/>
+    <text x="357" y="274" class="m xs mid">JSON-Export</text>
+    <rect x="404" y="262" width="74" height="18" rx="2" fill="none" stroke="#2a3544"/>
+    <text x="441" y="274" class="m xs mid">PDF-Befund</text>
+    <text x="320" y="294" class="d xs">lokal · kein LLM · kein Upload</text>
+  </svg>
+  <div class="m-foot">Deontische Modallogik &middot; BGB &sect;&sect; 305&ndash;310 AGB-Pr&uuml;fung &middot; SMT-Z3 Solver &middot; 100% Client-Side</div>
+</div>
 <div class="docket">
             <h4>Figures</h4>
             <div class="fr"><span>Logic framework</span><span>Deontic modal logic &amp; SMT</span></div><div class="fr"><span>Evaluation time</span><span>sub-100ms per agreement</span></div><div class="fr"><span>Contradiction scope</span><span>Bilateral covenants &amp; indemnities</span></div><div class="fr"><span>Exfiltration risk</span><span>Zero &mdash; in-memory client evaluation</span></div><div class="fr"><span>Format support</span><span>DIN 5008, Markdown, Plain Text</span></div><div class="fr"><span>Live at</span><span>clause.kellersystems.dev</span></div>
@@ -552,113 +544,94 @@
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">04</span>
                                         <div class="measured">
-            <div class="m-head"><b>Ambient Thermal Arbitrage</b><span>EPEX-Strompreis-Arbitrage // Gebäude als Virtuelle Batterie</span></div>
-            <svg class="tech-schematic" viewBox="0 0 500 320" role="img" aria-label="Ambient Thermal Arbitrage 24-hour simulation chart showing EPEX spot price arbitrage against building thermal mass core temperature">
-              <rect width="500" height="320" fill="#080c12"/>
+  <div class="m-head"><b>Ambient Thermal Arbitrage</b><span>Geb&auml;ude als virtuelle Batterie // EPEX Day-Ahead</span></div>
+  <svg class="tech-schematic ts" viewBox="0 0 500 320" role="img" aria-label="24-hour simulation. The building pre-cools from 10 to 15 h during negative day-ahead prices, lets indoor temperature drift within the plus or minus 0.5 K comfort band, and draws zero heat-pump power from 17 to 21 h during the evening peak, saving 41.8 percent.">
+    <rect class="bg" width="500" height="320"/>
 
-              <!-- Tier 1: Top KPI Cards (Explains what the system achieves in 3 seconds) -->
-              <g transform="translate(15, 14)">
-                <!-- KPI 1: Solar Dip -->
-                <rect x="0" y="0" width="150" height="26" rx="3" fill="#0d1824" stroke="rgba(0,180,240,0.4)" stroke-width="1"/>
-                <text x="10" y="11" font-family="var(--font-mono)" font-size="5.8px" fill="#70a1ff">12:00 SOLARDIP &middot; NEGATIVE PREISE</text>
-                <text x="10" y="21" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#00d2d3">-38 &euro;/MWh &middot; Geld f&uuml;rs Laden</text>
+    <!-- KPIs -->
+    <rect x="15" y="8" width="150" height="26" rx="3" fill="#0d1a22" stroke="rgba(57,197,207,.4)"/>
+    <text x="23" y="18" class="cy xs cap">12:00 · SOLAR-SENKE</text>
+    <text x="23" y="29" class="t b md">−38 €/MWh · laden</text>
+    <rect x="175" y="8" width="150" height="26" rx="3" fill="#1f1215" stroke="rgba(248,81,73,.4)"/>
+    <text x="183" y="18" class="bad xs cap">18:00 · ABENDSPITZE</text>
+    <text x="183" y="29" class="t b md">+115 €/MWh · 0 kW</text>
+    <rect x="335" y="8" width="150" height="26" rx="3" fill="#1d1910" stroke="rgba(255,176,0,.45)"/>
+    <text x="343" y="18" class="sig xs cap">NETTO-ERSPARNIS</text>
+    <text x="343" y="29" class="t b md">−41,8 % · 0 Zyklen</text>
 
-                <!-- KPI 2: Evening Peak -->
-                <rect x="160" y="0" width="150" height="26" rx="3" fill="#1f1115" stroke="rgba(255,71,87,0.4)" stroke-width="1"/>
-                <text x="170" y="11" font-family="var(--font-mono)" font-size="5.8px" fill="#ff6b81">18:00 ABENDSPITZE &middot; LASTABWURF</text>
-                <text x="170" y="21" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#ff4757">+115 &euro;/MWh &middot; 0 kW Strombezug</text>
+    <!-- phase windows -->
+    <rect x="224.2" y="54" width="89.5" height="208" fill="rgba(57,197,207,.05)"/>
+    <rect x="349.6" y="54" width="71.6" height="208" fill="rgba(248,81,73,.05)"/>
+    <rect x="224.2" y="40" width="89.5" height="12" rx="2" fill="rgba(57,197,207,.16)" stroke="rgba(57,197,207,.5)"/>
+    <text x="269" y="48.5" class="cy b xs mid">VORKÜHLEN · 10–15 h</text>
+    <rect x="349.6" y="40" width="71.6" height="12" rx="2" fill="rgba(248,81,73,.16)" stroke="rgba(248,81,73,.5)"/>
+    <text x="385.4" y="48.5" class="bad b xs mid">COASTEN · 17–21 h</text>
 
-                <!-- KPI 3: Net Arbitrage Gain -->
-                <rect x="320" y="0" width="150" height="26" rx="3" fill="#1b1c14" stroke="rgba(255,176,0,0.5)" stroke-width="1"/>
-                <text x="330" y="11" font-family="var(--font-mono)" font-size="5.8px" fill="var(--signal)">NETTO-ERSPARNIS / ARBITRAGE</text>
-                <text x="330" y="21" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal)">+41,8% &middot; 0 &euro; Akkukosten</text>
-              </g>
+    <!-- price panel -->
+    <g class="grid">
+      <line x1="45" y1="56" x2="475" y2="56"/><line x1="45" y1="86" x2="475" y2="86"/>
+      <line x1="45" y1="146" x2="475" y2="146"/>
+    </g>
+    <line x1="45" y1="116" x2="475" y2="116" stroke="#34404f" stroke-dasharray="3 3"/>
+    <text x="40" y="58" class="m xs end">120</text>
+    <text x="40" y="88" class="m xs end">60</text>
+    <text x="40" y="118" class="m xs end">0</text>
+    <text x="40" y="148" class="m xs end">−60</text>
+    <text x="50" y="66" class="d xs cap">EPEX DAY-AHEAD · €/MWh</text>
+    <path d="M242.1 116 V122 H260 V135 H277.9 V131.5 H295.8 V119 H313.75 V116 Z" fill="rgba(57,197,207,.28)"/>
+    <path d="M45 75 H62.9 V77 H80.8 V78.5 H98.75 V79 H116.7 V78 H134.6 V74 H152.5 V68 H170.4 V62 H188.3 V64 H206.25 V85 H224.2 V107 H242.1 V122 H260 V135 H277.9 V131.5 H295.8 V119 H313.75 V102 H331.7 V84 H349.6 V67 H367.5 V58.5 H385.4 V55.5 H403.3 V62 H421.25 V68 H439.2 V72 H457.1 V74 H475" fill="none" stroke="var(--signal,#ffb000)" stroke-width="1.6" stroke-linejoin="round"/>
 
-              <!-- Chart Subtitle & Legend -->
-              <g transform="translate(15, 48)">
-                <line x1="30" y1="5" x2="50" y2="5" stroke="#ffb000" stroke-width="2.5"/>
-                <text x="56" y="8" font-family="var(--font-mono)" font-size="6.5px" fill="#ffb000">EPEX Spotpreis [&euro;/MWh]</text>
+    <!-- temperature panel -->
+    <rect x="45" y="172" width="430" height="24" fill="rgba(255,255,255,.035)"/>
+    <line x1="45" y1="172" x2="475" y2="172" stroke="#2a3544" stroke-dasharray="3 3"/>
+    <line x1="45" y1="196" x2="475" y2="196" stroke="#2a3544" stroke-dasharray="3 3"/>
+    <line x1="45" y1="184" x2="475" y2="184" class="grid"/>
+    <text x="40" y="174.5" class="m xs end">22,5</text>
+    <text x="40" y="186.5" class="m xs end">22,0</text>
+    <text x="40" y="198.5" class="m xs end">21,5</text>
+    <text x="50" y="167" class="d xs cap">RAUMTEMPERATUR °C · KOMFORT ±0,5 K</text>
+    <path d="M45 184 H224.2 C250 184 280 193 313.75 193.6 L349.6 192.5 C375 188 400 177 421.25 174.4 C440 173 455 183 475 184" fill="none" stroke="#e6edf3" stroke-width="1.6"/>
 
-                <line x1="180" y1="5" x2="200" y2="5" stroke="#f1f2f6" stroke-width="2"/>
-                <text x="206" y="8" font-family="var(--font-mono)" font-size="6.5px" fill="#f1f2f6">K&auml;ltespeicher / Kerntemperatur [&deg;C]</text>
-              </g>
+    <!-- heat pump power -->
+    <text x="50" y="229" class="d xs cap">WÄRMEPUMPE · kW</text>
+    <g fill="#3a4656">
+      <rect x="47" y="246" width="14" height="16"/><rect x="64.9" y="247" width="14" height="15"/>
+      <rect x="82.8" y="247" width="14" height="15"/><rect x="100.75" y="247" width="14" height="15"/>
+      <rect x="118.7" y="246" width="14" height="16"/><rect x="136.6" y="245" width="14" height="17"/>
+      <rect x="154.5" y="243" width="14" height="19"/><rect x="172.4" y="241" width="14" height="21"/>
+      <rect x="190.3" y="242" width="14" height="20"/><rect x="208.25" y="244" width="14" height="18"/>
+      <rect x="315.75" y="240" width="14" height="22"/><rect x="333.7" y="242" width="14" height="20"/>
+      <rect x="423.25" y="238" width="14" height="24"/><rect x="441.2" y="242" width="14" height="20"/>
+      <rect x="459.1" y="245" width="14" height="17"/>
+    </g>
+    <g fill="rgba(57,197,207,.75)">
+      <rect x="226.2" y="224" width="14" height="38"/><rect x="244.1" y="224" width="14" height="38"/>
+      <rect x="262" y="224" width="14" height="38"/><rect x="279.9" y="224" width="14" height="38"/>
+      <rect x="297.8" y="224" width="14" height="38"/>
+    </g>
+    <text x="385.4" y="256" class="bad b xs mid">0 kW</text>
+    <line x1="45" y1="262" x2="475" y2="262" stroke="#2a3544"/>
 
-              <!-- Y-Axis Gridlines & Labels (X: 45 to 475 = 430px) -->
-              <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
-                <line x1="45" y1="70" x2="475" y2="70"/>
-                <line x1="45" y1="105" x2="475" y2="105"/>
-                <line x1="45" y1="140" x2="475" y2="140" stroke-dasharray="4 4"/>
-                <line x1="45" y1="175" x2="475" y2="175"/>
-              </g>
-              <text x="38" y="73" font-family="var(--font-mono)" font-size="7px" fill="#8395a7" text-anchor="end">+120 &euro;</text>
-              <text x="38" y="108" font-family="var(--font-mono)" font-size="7px" fill="#8395a7" text-anchor="end">+60 &euro;</text>
-              <text x="38" y="143" font-family="var(--font-mono)" font-size="7px" fill="#8395a7" text-anchor="end">0 &euro;</text>
-              <text x="38" y="178" font-family="var(--font-mono)" font-size="7px" fill="#8395a7" text-anchor="end">-60 &euro;</text>
+    <!-- time axis -->
+    <text x="45" y="274" class="m xs mid">00:00</text>
+    <text x="116.7" y="274" class="m xs mid">04:00</text>
+    <text x="188.3" y="274" class="m xs mid">08:00</text>
+    <text x="260" y="274" class="m xs mid">12:00</text>
+    <text x="331.7" y="274" class="m xs mid">16:00</text>
+    <text x="403.3" y="274" class="m xs mid">20:00</text>
+    <text x="475" y="274" class="m xs mid">24:00</text>
 
-              <!-- SHADED WINDOW 1: Solar Dip / Charge Window (X: 200 to 280 = 80px) -->
-              <rect x="200" y="65" width="80" height="135" fill="rgba(0,180,240,0.12)" stroke="rgba(0,180,240,0.35)" stroke-width="1"/>
-              <text x="240" y="77" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="#00d2d3" text-anchor="middle">PHASE 1: CHARGE</text>
-              <text x="240" y="87" font-family="var(--font-mono)" font-size="5.8px" fill="#70a1ff" text-anchor="middle">Vork&uuml;hlen &middot; 100% Last</text>
-              <text x="240" y="97" font-family="var(--font-mono)" font-size="5.8px" font-weight="700" fill="#00d2d3" text-anchor="middle">Geld f&uuml;r Verbrauch!</text>
+    <g class="am-sweep"><line x1="45" y1="54" x2="45" y2="262" stroke="rgba(255,255,255,.5)" stroke-width="1"/></g>
 
-              <!-- SHADED WINDOW 2: Evening Peak / Load Shed Window (X: 300 to 380 = 80px) -->
-              <rect x="300" y="65" width="80" height="135" fill="rgba(255,71,87,0.12)" stroke="rgba(255,71,87,0.35)" stroke-width="1"/>
-              <text x="340" y="77" font-family="var(--font-mono)" font-size="6.5px" font-weight="700" fill="#ff4757" text-anchor="middle">PHASE 2: COAST</text>
-              <text x="340" y="87" font-family="var(--font-mono)" font-size="5.8px" fill="#ff6b81" text-anchor="middle">Lastabwurf &middot; 0 kW Draw</text>
-              <text x="340" y="97" font-family="var(--font-mono)" font-size="5.8px" font-weight="700" fill="#ff4757" text-anchor="middle">K&auml;ltereserve h&auml;lt Temperatur</text>
-
-              <!-- ORANGE EPEX SPOT CURVE -->
-              <path d="M 45 118 L 95 112 L 140 106 L 175 88 L 195 98 L 215 150 L 240 172 L 260 166 L 280 144 L 300 80 L 325 68 L 350 74 L 380 94 L 420 114 L 475 124" fill="none" stroke="#ffb000" stroke-width="2.5" stroke-linecap="round"/>
-
-              <!-- WHITE KERNTEMPERATUR CURVE -->
-              <path d="M 45 148 L 195 148 L 220 176 L 250 178 L 280 175 L 310 142 L 340 134 L 380 142 L 420 148 L 475 148" fill="none" stroke="#f1f2f6" stroke-width="2" stroke-linecap="round"/>
-
-              <!-- X-Axis Timeline Markers (45 to 475 = 430px) -->
-              <g stroke="rgba(255,255,255,0.18)" stroke-width="1">
-                <line x1="45" y1="200" x2="475" y2="200"/>
-                <line x1="45" y1="200" x2="45" y2="205"/>
-                <line x1="117" y1="200" x2="117" y2="205"/>
-                <line x1="188" y1="200" x2="188" y2="205"/>
-                <line x1="260" y1="200" x2="260" y2="205"/>
-                <line x1="332" y1="200" x2="332" y2="205"/>
-                <line x1="403" y1="200" x2="403" y2="205"/>
-                <line x1="475" y1="200" x2="475" y2="205"/>
-              </g>
-              <text x="45" y="215" font-family="var(--font-mono)" font-size="7.5px" fill="#747d8c" text-anchor="middle">00:00</text>
-              <text x="117" y="215" font-family="var(--font-mono)" font-size="7.5px" fill="#747d8c" text-anchor="middle">04:00</text>
-              <text x="188" y="215" font-family="var(--font-mono)" font-size="7.5px" fill="#747d8c" text-anchor="middle">08:00</text>
-              <text x="260" y="215" font-family="var(--font-mono)" font-size="7.5px" fill="#747d8c" text-anchor="middle">12:00</text>
-              <text x="332" y="215" font-family="var(--font-mono)" font-size="7.5px" fill="#747d8c" text-anchor="middle">16:00</text>
-              <text x="403" y="215" font-family="var(--font-mono)" font-size="7.5px" fill="#747d8c" text-anchor="middle">20:00</text>
-              <text x="475" y="215" font-family="var(--font-mono)" font-size="7.5px" fill="#747d8c" text-anchor="middle">24:00</text>
-
-              <!-- Operating Status Mode Bands (Bottom Bar) -->
-              <g transform="translate(45, 230)">
-                <rect x="0" y="0" width="155" height="34" rx="3" fill="#131922" stroke="#222f3e" stroke-width="1"/>
-                <text x="77" y="15" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#a4b0be" text-anchor="middle">NORMALBETRIEB (HALTEN)</text>
-                <text x="77" y="26" font-family="var(--font-mono)" font-size="6px" fill="#718096" text-anchor="middle">Grundlast &middot; Thermische Tr&auml;gheit</text>
-
-                <rect x="155" y="0" width="95" height="34" rx="3" fill="rgba(0,180,240,0.18)" stroke="#00a8ff" stroke-width="1.2"/>
-                <text x="202" y="14" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#00d2d3" text-anchor="middle">VORK&Uuml;HLEN</text>
-                <text x="202" y="25" font-family="var(--font-mono)" font-size="6.2px" font-weight="700" fill="#f5f6fa" text-anchor="middle">CHARGE (-38 &euro;)</text>
-
-                <rect x="250" y="0" width="105" height="34" rx="3" fill="rgba(255,71,87,0.18)" stroke="#ff4757" stroke-width="1.2"/>
-                <text x="302" y="14" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#ff6b81" text-anchor="middle">LASTABWURF</text>
-                <text x="302" y="25" font-family="var(--font-mono)" font-size="6.2px" font-weight="700" fill="#f5f6fa" text-anchor="middle">COASTEN (0 kW)</text>
-
-                <rect x="355" y="0" width="75" height="34" rx="3" fill="#131922" stroke="#222f3e" stroke-width="1"/>
-                <text x="392" y="15" font-family="var(--font-mono)" font-size="7px" font-weight="700" fill="#a4b0be" text-anchor="middle">HALTEN</text>
-                <text x="392" y="26" font-family="var(--font-mono)" font-size="6px" fill="#718096" text-anchor="middle">Normalbetrieb</text>
-              </g>
-
-              <!-- Animated Sweep Line -->
-              <g class="ambient-time-line">
-                <line x1="50" y1="65" x2="50" y2="200" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
-                <circle cx="50" cy="130" r="3.5" fill="#ffb000"/>
-              </g>
-            </svg>
-            <div class="m-foot">Sensible W&auml;rmekapazit&auml;t C_th &middot; 48h Rolling MPC &middot; EPEX Spot Day-Ahead API &middot; 0% Zyklendegradation</div>
-          </div>
+    <!-- summary -->
+    <rect x="15" y="286" width="470" height="20" rx="3" fill="#111821" stroke="#222c39"/>
+    <text x="25" y="299" class="m xs">Referenz 41,20 €/Tag</text>
+    <text x="150" y="299" class="t xs">optimiert 23,98 €/Tag</text>
+    <text x="280" y="299" class="ok b xs">Komfortverletzung 0 h</text>
+    <text x="475" y="299" class="sig b xs end">−41,8 %</text>
+  </svg>
+  <div class="m-foot">Sensible W&auml;rmekapazit&auml;t C<sub>th</sub> &middot; 48h Rolling MPC &middot; EPEX Spot Day-Ahead &middot; 0% Zyklendegradation</div>
+</div>
 <div class="docket">
             <h4>Figures</h4>
             <div class="fr"><span>Storage mechanism</span><span>Sensible building thermal mass</span></div><div class="fr"><span>Battery degradation</span><span>0% cycle degradation</span></div><div class="fr"><span>Prediction horizon</span><span>48-hour rolling MPC</span></div><div class="fr"><span>Comfort tolerance</span><span>&plusmn;0.5 &deg;C bounded deadband</span></div><div class="fr"><span>Arbitrage market</span><span>EPEX Spot day-ahead &amp; intraday</span></div><div class="fr"><span>Live at</span><span>ambient.kellersystems.dev</span></div>
@@ -686,95 +659,113 @@
         <div class="chapter-art">
           <span class="chapter-num" aria-hidden="true">05</span>
                                         <div class="measured">
-            <div class="m-head"><b>HoloForge</b><span>Volumetrischer 3D-Druck &middot; Digital Twin</span></div>
-            <svg class="tech-schematic" viewBox="0 0 500 320" role="img" aria-label="HoloForge digital twin volumetric 3D printing simulation under 15 seconds without layers or supports">
-              <rect width="500" height="320" fill="#070a0e"/>
+  <div class="m-head"><b>HoloForge</b><span>Volumetrischer 3D-Druck (CAL) &middot; Digital Twin</span></div>
+  <svg class="tech-schematic ts" viewBox="0 0 500 320" role="img" aria-label="Computed axial lithography: a 405 nm projector shines computed patterns through a rotating resin vial, curing a whole dental crown at once. Beside it, the projection sinogram over 0 to 360 degrees and the dose histogram, with part and background voxels separated by the gel threshold. IoU 96.7 percent, overcure under 0.02 percent, no supports.">
+    <defs>
+      <linearGradient id="hfBeam" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0" stop-color="#a371f7" stop-opacity=".42"/>
+        <stop offset="1" stop-color="#a371f7" stop-opacity=".06"/>
+      </linearGradient>
+      <linearGradient id="hfCrown" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0" stop-color="#ffd98a"/>
+        <stop offset=".55" stop-color="#ffb000"/>
+        <stop offset="1" stop-color="#b87400"/>
+      </linearGradient>
+      <clipPath id="hfSino"><rect x="274" y="58" width="200" height="62"/></clipPath>
+    </defs>
+    <rect class="bg" width="500" height="320"/>
+    <text x="16" y="22" class="t b sm cap">HOLOFORGE · CAL DIGITAL TWIN</text>
+    <text x="484" y="22" class="sig b xs end">VOLLTEIL 11,4 s · KEINE SCHICHTEN</text>
+    <line x1="16" y1="30" x2="484" y2="30" class="grid"/>
 
-              <!-- Header Bar -->
-              <text x="20" y="20" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#8395a7" letter-spacing="0.06em">HOLOFORGE &middot; DIGITAL TWIN SIMULATION</text>
-              <text x="480" y="20" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="var(--signal)" text-anchor="end">VOXEL-SYNTHESE // 15s CURE</text>
+    <!-- side view -->
+    <rect x="14" y="38" width="236" height="240" rx="4" class="pn"/>
+    <text x="24" y="52" class="m xs cap">SEITENANSICHT</text>
+    <path d="M116 66 A44 9 0 1 1 204 66" fill="none" stroke="#7d8b9c" stroke-width="1"/>
+    <polygon points="201,62 208,63 204,70" fill="#7d8b9c"/>
+    <text x="160" y="51" class="m xs mid">Ω 30 °/s</text>
 
-              <!-- LEFT VIEWPORT: Rotary Resin Vat (X: 20 to 240, Width: 220) -->
-              <g transform="translate(20, 34)">
-                <rect width="220" height="240" rx="4" fill="#0d1117" stroke="#21262d" stroke-width="1.2"/>
-                <text x="110" y="18" font-family="var(--font-mono)" font-size="7.5px" fill="#8b949e" text-anchor="middle">ROTARY RESIN VAT (BOROSILICATE)</text>
+    <rect x="24" y="120" width="34" height="52" rx="2" class="pn2"/>
+    <rect x="52" y="128" width="6" height="36" fill="#a371f7" opacity=".6"/>
+    <text x="41" y="184" class="m xs mid">DMD</text>
+    <text x="41" y="193" class="vi xs mid">405 nm</text>
+    <ellipse cx="72" cy="146" rx="3.5" ry="26" fill="rgba(163,113,247,.15)" stroke="#a371f7" stroke-width=".8"/>
 
-                <circle cx="110" cy="120" r="82" fill="none" stroke="#30363d" stroke-width="2"/>
-                <circle cx="110" cy="120" r="72" fill="rgba(88,166,255,0.04)" stroke="rgba(88,166,255,0.2)" stroke-dasharray="4 3"/>
-                <text x="110" y="52" font-family="var(--font-mono)" font-size="6.5px" fill="#388bfd" text-anchor="middle">O2-INHIBITION (12 &mu;m DEAD-ZONE)</text>
+    <rect x="76" y="120" width="164" height="52" fill="url(#hfBeam)"/>
+    <g stroke="#c9a7ff" stroke-width="1.2">
+      <line x1="76" y1="124" x2="238" y2="124" opacity=".25"/>
+      <line x1="76" y1="131" x2="238" y2="131" opacity=".6"/>
+      <line x1="76" y1="138" x2="238" y2="138" opacity=".9"/>
+      <line x1="76" y1="145" x2="238" y2="145" opacity=".5"/>
+      <line x1="76" y1="152" x2="238" y2="152" opacity=".85"/>
+      <line x1="76" y1="159" x2="238" y2="159" opacity=".65"/>
+      <line x1="76" y1="166" x2="238" y2="166" opacity=".3"/>
+    </g>
+    <rect x="240" y="116" width="4" height="60" fill="#2a3544"/>
 
-                <!-- Rotary Projection Laser Vectors (405nm Violet Rays) -->
-                <line x1="28" y1="120" x2="88" y2="120" stroke="#a371f7" stroke-width="2.2"/>
-                <line x1="192" y1="65" x2="132" y2="105" stroke="#a371f7" stroke-width="2.2"/>
-                <line x1="192" y1="175" x2="132" y2="135" stroke="#a371f7" stroke-width="2.2"/>
+    <rect x="121" y="84" width="78" height="138" fill="rgba(255,176,0,.07)"/>
+    <ellipse cx="160" cy="84" rx="39" ry="6" fill="rgba(255,176,0,.10)" stroke="rgba(255,176,0,.35)" stroke-width=".6"/>
+    <g class="hf-spin"><line x1="132" y1="88" x2="132" y2="220" stroke="rgba(255,255,255,.12)" stroke-width="3"/></g>
+    <rect x="120" y="74" width="80" height="148" fill="rgba(255,255,255,.02)" stroke="#4b5a6d"/>
+    <ellipse cx="160" cy="74" rx="40" ry="7" fill="none" stroke="#4b5a6d"/>
+    <path d="M120 222 A40 7 0 0 0 200 222" fill="none" stroke="#4b5a6d"/>
 
-                <!-- Rotating Interference Pattern -->
-                <g class="chapter-spin">
-                  <circle cx="110" cy="120" r="54" fill="none" stroke="rgba(163,113,247,0.3)" stroke-dasharray="5 4"/>
-                  <circle cx="110" cy="120" r="36" fill="none" stroke="rgba(255,176,0,0.35)" stroke-dasharray="4 3"/>
-                </g>
+    <g class="hf-cure">
+      <path d="M140 166 C137 156 136 144 139 137 C141 131 144 128 148 128 C152 128 155 133 160 134 C165 133 168 127 173 127 C178 127 181 132 182 138 C184 146 183 157 180 166 C172 169 148 169 140 166 Z" fill="url(#hfCrown)" stroke="#ffe2a6" stroke-width=".8"/>
+      <path d="M146 141 C152 147 168 147 175 140" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="1"/>
+    </g>
+    <line x1="182" y1="140" x2="208" y2="104" stroke="#7d8b9c" stroke-width=".6"/>
+    <text x="210" y="101" class="m xs">Gelfront</text>
 
-                <!-- Solidifying 3D Part -->
-                <g class="holoforge-part">
-                  <polygon points="110,96 117,107 129,102 127,115 140,120 127,125 129,138 117,133 110,144 103,133 91,138 93,125 80,120 93,115 91,102 103,107" fill="var(--signal)" stroke="#fff" stroke-width="1.5"/>
-                  <circle cx="110" cy="120" r="8" fill="#141310"/>
-                  <circle cx="110" cy="120" r="3.5" fill="var(--signal)"/>
-                </g>
+    <rect x="114" y="229" width="92" height="6" rx="1" fill="#2a3544"/>
+    <text x="160" y="248" class="m xs mid">Drehtisch · Vial Ø 25 mm</text>
+    <text x="24" y="268" class="d xs">ein Belichtungszyklus, keine Schichten</text>
 
-                <text x="110" y="218" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#f0f6fc" text-anchor="middle">&Omega; = 1,2 RPM &middot; VOLLTEIL IN 11,4s</text>
-              </g>
+    <!-- sinogram -->
+    <rect x="262" y="38" width="224" height="240" rx="4" class="pn"/>
+    <text x="272" y="52" class="m xs cap">SINOGRAMM · s × θ</text>
+    <text x="476" y="52" class="d xs end">Projektionen</text>
+    <rect x="274" y="58" width="200" height="62" fill="#07090d" stroke="#222c39"/>
+    <g clip-path="url(#hfSino)" fill="none" stroke="#a371f7" stroke-linejoin="round" stroke-linecap="round">
+      <line x1="274" y1="89" x2="474" y2="89" stroke-width="10" opacity=".18"/>
+      <polyline stroke-width="5" opacity=".55" points="274,89 290.7,77 307.3,68.2 324,65 340.7,68.2 357.3,77 374,89 390.7,101 407.3,109.8 424,113 440.7,109.8 457.3,101 474,89"/>
+      <polyline stroke-width="3.5" opacity=".75" points="274,76.9 290.7,82 307.3,89 324,96 340.7,101.1 357.3,103 374,101.1 390.7,96 407.3,89 424,82 440.7,76.9 457.3,75 474,76.9"/>
+      <polyline stroke-width="2.5" opacity=".9" stroke="#c9a7ff" points="274,95.9 290.7,97 307.3,95.9 324,93 340.7,89 357.3,85 374,82.1 390.7,81 407.3,82.1 424,85 440.7,89 457.3,93 474,95.9"/>
+      <g class="hf-sweep"><line x1="274" y1="58" x2="274" y2="120" stroke="#ffffff" stroke-width="1" opacity=".7"/></g>
+    </g>
+    <text x="274" y="129" class="d xs">0°</text>
+    <text x="374" y="129" class="d xs mid">180°</text>
+    <text x="474" y="129" class="d xs end">360°</text>
 
-              <!-- RIGHT PANEL: Live Photochemical & Tomographic Telemetry (X: 260 to 480, Width: 220) -->
-              <g transform="translate(260, 34)">
-                <rect width="220" height="240" rx="4" fill="#0d1117" stroke="#21262d" stroke-width="1.2"/>
+    <!-- dose histogram -->
+    <text x="272" y="146" class="m xs cap">DOSISVERTEILUNG</text>
+    <text x="476" y="146" class="d xs end">Voxel</text>
+    <rect x="380" y="152" width="12" height="54" fill="rgba(63,185,80,.12)"/>
+    <path d="M274 206 C292 206 298 158 316 158 C336 158 348 206 380 206 Z" fill="rgba(125,139,156,.35)" stroke="#7d8b9c" stroke-width=".8"/>
+    <path d="M392 206 C408 206 418 164 432 164 C446 164 456 206 472 206 Z" fill="rgba(255,176,0,.35)" stroke="var(--signal,#ffb000)" stroke-width=".8"/>
+    <line x1="386" y1="150" x2="386" y2="206" stroke="#e6edf3" stroke-width=".8" stroke-dasharray="2 2"/>
+    <text x="390" y="160" class="t xs">D<tspan font-size="4.5" dy="1.5">gel</tspan></text>
+    <line x1="274" y1="206" x2="474" y2="206" stroke="#2a3544"/>
+    <text x="316" y="215" class="d xs mid">außerhalb</text>
+    <text x="386" y="215" class="ok xs mid">Fenster</text>
+    <text x="432" y="215" class="d xs mid">Bauteil</text>
 
-                <!-- Progress Header -->
-                <text x="16" y="20" font-family="var(--font-mono)" font-size="7.5px" fill="#8b949e">CURE ACCURACY / IoU</text>
-                <text x="204" y="20" font-family="var(--font-mono)" font-size="9px" font-weight="800" fill="#3fb950" text-anchor="end">96.7%</text>
+    <rect x="274" y="224" width="64" height="40" rx="2" fill="#161e29"/>
+    <text x="282" y="236" class="m xs">IoU</text>
+    <text x="282" y="256" class="ok b lg">96,7 %</text>
+    <rect x="342" y="224" width="64" height="40" rx="2" fill="#161e29"/>
+    <text x="350" y="236" class="m xs">Überhärtung</text>
+    <text x="350" y="256" class="t b lg">&lt;0,02 %</text>
+    <rect x="410" y="224" width="64" height="40" rx="2" fill="#161e29"/>
+    <text x="418" y="236" class="m xs">Stützen</text>
+    <text x="418" y="256" class="sig b lg">0</text>
 
-                <!-- Progress Bar -->
-                <rect x="16" y="28" width="188" height="10" rx="3" fill="#21262d"/>
-                <rect x="16" y="28" width="181" height="10" rx="3" fill="#238636"/>
-
-                <!-- Item 1: Radical Polymerisation -->
-                <g transform="translate(16, 52)">
-                  <text x="0" y="10" font-family="var(--font-mono)" font-size="7px" fill="#8b949e">RADIKAL-AKKUMULATION [R&bull;]</text>
-                  <text x="0" y="22" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#f0f6fc">28,4 mJ/cm&sup2; (&ge; Schwellendosis)</text>
-                  <text x="0" y="32" font-family="var(--font-sans)" font-size="6.5px" fill="#3fb950">&check; Gelierung vollst&auml;ndig erreicht</text>
-                  <line x1="0" y1="38" x2="188" y2="38" stroke="#21262d" stroke-width="1"/>
-                </g>
-
-                <!-- Item 2: Overcure -->
-                <g transform="translate(16, 98)">
-                  <text x="0" y="10" font-family="var(--font-mono)" font-size="7px" fill="#8b949e">&Uuml;BERH&Auml;RTUNG (OVERCURE)</text>
-                  <text x="0" y="22" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#f0f6fc">&lt; 0,02% Volumenabweichung</text>
-                  <text x="0" y="32" font-family="var(--font-sans)" font-size="6.5px" fill="#8b949e">Pr&auml;zise Begrenzung durch O2-Inhibition</text>
-                  <line x1="0" y1="38" x2="188" y2="38" stroke="#21262d" stroke-width="1"/>
-                </g>
-
-                <!-- Item 3: Aberration Conjugate Mask -->
-                <g transform="translate(16, 144)">
-                  <text x="0" y="10" font-family="var(--font-mono)" font-size="7px" fill="#8b949e">SLM-ABERRATIONSMASKE</text>
-                  <text x="0" y="22" font-family="var(--font-mono)" font-size="8px" font-weight="700" fill="#f0f6fc">Zylinder-Astigmatismus kompensiert</text>
-                  <text x="0" y="32" font-family="var(--font-sans)" font-size="6.5px" fill="#8b949e">Kein Immersions-Indexmatching n&ouml;tig</text>
-                  <line x1="0" y1="38" x2="188" y2="38" stroke="#21262d" stroke-width="1"/>
-                </g>
-
-                <!-- Item 4: Support Structures -->
-                <g transform="translate(16, 190)">
-                  <rect width="188" height="34" rx="3" fill="rgba(35,134,54,0.15)" stroke="#238636" stroke-width="1"/>
-                  <text x="94" y="14" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="#3fb950" text-anchor="middle">ST&Uuml;TZSTRUKTUREN: 0 (KEINE)</text>
-                  <text x="94" y="26" font-family="var(--font-sans)" font-size="6.5px" fill="#f0f6fc" text-anchor="middle">Kein Nachbearbeiten &middot; Glatte Oberfl&auml;chen</text>
-                </g>
-              </g>
-
-              <!-- Global Status Pill -->
-              <rect x="20" y="286" width="460" height="22" rx="3" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-              <text x="32" y="300" font-family="var(--font-mono)" font-size="7.5px" fill="#8b949e">STATUS: DIGITALER ZWILLING SIMULIERT</text>
-              <text x="468" y="300" font-family="var(--font-mono)" font-size="7.5px" font-weight="700" fill="var(--signal)" text-anchor="end">HARDWARE N&Ouml;TIG: KEINE &middot; REIN PYTHON</text>
-            </svg>
-            <div class="m-foot">Tomografische Radon-Transformation &middot; Wellenoptik &middot; Photochemisches Radikalmodell &middot; Zero Supports</div>
-          </div>
+    <rect x="14" y="286" width="472" height="20" rx="3" fill="#111821" stroke="#222c39"/>
+    <text x="24" y="299" class="m xs">STATUS · DIGITALER ZWILLING · KEINE HARDWARE · REINES PYTHON</text>
+    <text x="476" y="299" class="sig b xs end">405 nm · Ω 30 °/s</text>
+  </svg>
+  <div class="m-foot">Computed Axial Lithography &middot; Radon-Transformation &middot; Wellenoptik &middot; Photochemisches Radikalmodell &middot; Zero Supports</div>
+</div>
 <div class="docket">
             <h4>Figures</h4>
             <div class="fr"><span>Files</span><span>113</span></div><div class="fr"><span>Python</span><span>4,842 lines</span></div><div class="fr"><span>Whole part cured</span><span>under 15 s</span></div><div class="fr"><span>Cure accuracy</span><span>94.6&#8211;96.7% IoU</span></div><div class="fr"><span>Overcure</span><span>under 0.02%</span></div><div class="fr"><span>Hardware needed</span><span>none</span></div>
@@ -1054,7 +1045,7 @@
 
 <div class="chapterlabel" id="chapterLabel" aria-hidden="true"><b>01</b> <span>Global Ghost Net</span></div>
 
-<script src="data.js?v=5.0"></script>
-<script src="script.js?v=5.0"></script>
+<script src="data.js?v=6.0"></script>
+<script src="script.js?v=6.0"></script>
 </body>
 </html>

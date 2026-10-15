@@ -450,62 +450,62 @@ html[data-motion="off"] .chapter-pulse {
   animation: none !important;
 }
 
-/* --- Flagship Showcase Interactive Simulations --- */
-@keyframes ks-vanta-packet {
-  0% { transform: translateY(0); opacity: 0; }
-  15% { opacity: 1; }
-  85% { opacity: 1; }
-  100% { transform: translateY(72px); opacity: 0; }
-}
-@keyframes ks-baulens-scan {
-  0%, 100% { transform: translateY(0); opacity: 0.85; }
-  50% { transform: translateY(50px); opacity: 0.25; }
-}
-@keyframes ks-clause-cursor {
-  0%, 12% { transform: translate(75px, 115px); }
-  30%, 46% { transform: translate(180px, 277px); }
-  49% { transform: translate(180px, 277px) scale(0.9); }
-  55%, 85% { transform: translate(180px, 277px); }
-  95%, 100% { transform: translate(75px, 115px); }
-}
-@keyframes ks-clause-btn {
-  0%, 47% { transform: scale(1); }
-  49% { transform: scale(0.93); filter: brightness(1.35) drop-shadow(0 0 6px var(--signal)); }
-  53%, 100% { transform: scale(1); }
-}
-@keyframes ks-clause-findings {
-  0%, 48% { opacity: 0.2; filter: blur(1.5px); }
-  53%, 100% { opacity: 1; filter: none; }
-}
-@keyframes ks-ambient-sweep {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(420px); }
-}
-@keyframes ks-holoforge-solidify {
-  0% { opacity: 0.2; transform: scale(0.94); }
-  45%, 85% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0.2; transform: scale(0.94); }
-}
+/* ===== Technical plates (.ts) ===== */
+.ts{display:block;width:100%;height:auto;font-family:var(--font-mono),ui-monospace,SFMono-Regular,Menlo,monospace;font-size:7px}
+.ts text{font-family:inherit}
+.ts .bg{fill:#0b0f14}
+.ts .pn{fill:#111821;stroke:#222c39;stroke-width:1}
+.ts .pn2{fill:#161e29;stroke:#2a3544;stroke-width:1}
+.ts .pn-bad{fill:#1c1416;stroke:#7a2e2e;stroke-width:1}
+.ts .pn-sig{fill:#1d1910;stroke:var(--signal,#ffb000);stroke-width:1.2}
+.ts .t{fill:#e6edf3}
+.ts .m{fill:#7d8b9c}
+.ts .d{fill:#56636f}
+.ts .b{font-weight:600}
+.ts .xs{font-size:6px}
+.ts .sm{font-size:6.6px}
+.ts .md{font-size:7.5px}
+.ts .lg{font-size:10px}
+.ts .cap{letter-spacing:.08em}
+.ts .end{text-anchor:end}
+.ts .mid{text-anchor:middle}
+.ts .ok{fill:#3fb950}
+.ts .bad{fill:#f85149}
+.ts .warn{fill:#d29922}
+.ts .sig{fill:var(--signal,#ffb000)}
+.ts .cy{fill:#39c5cf}
+.ts .vi{fill:#a371f7}
+.ts .w{fill:none;stroke:#3a4758;stroke-width:1.2}
+.ts .w-bad{fill:none;stroke:#f85149;stroke-width:1.2;stroke-dasharray:3 2}
+.ts .w-sig{fill:none;stroke:var(--signal,#ffb000);stroke-width:1.3;stroke-dasharray:4 3}
+.ts .grid{stroke:#1c2531;stroke-width:1;fill:none}
+.ts .pk{opacity:0;fill:var(--signal,#ffb000)}
 
-html.motion-on .vanta-pkt-1 { animation: ks-vanta-packet 2.2s infinite ease-in; }
-html.motion-on .vanta-pkt-2 { animation: ks-vanta-packet 2.8s infinite 0.6s ease-in; }
-html.motion-on .vanta-pkt-3 { animation: ks-vanta-packet 3.2s infinite 1.1s ease-in; }
-html.motion-on .baulens-scanner { animation: ks-baulens-scan 3.5s ease-in-out infinite; }
-html.motion-on .clause-mouse { animation: ks-clause-cursor 6.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite; }
-html.motion-on .clause-btn-active { transform-origin: 152px 15px; animation: ks-clause-btn 6.5s ease-in-out infinite; }
-html.motion-on .clause-results-feed { animation: ks-clause-findings 6.5s ease-in-out infinite; }
-html.motion-on .ambient-time-line { animation: ks-ambient-sweep 12s linear infinite; }
-html.motion-on .holoforge-part { transform-origin: 110px 120px; animation: ks-holoforge-solidify 8s ease-in-out infinite; }
+@media (prefers-reduced-motion:no-preference){
+  .ts .pk0{animation:ts-pk0 3.6s linear infinite}
+  .ts .pk1{animation:ts-pk1 3.6s linear .6s infinite}
+  .ts .pk2{animation:ts-pk2 4.4s linear 1.1s infinite}
+  .ts .blink{animation:ts-blink 1.2s ease-in-out infinite}
+  .ts .pulse{animation:ts-blink 2.4s ease-in-out infinite}
+  .ts .cl-scan{animation:ts-scan 4.8s linear infinite}
+  .ts .am-sweep{animation:ts-sweep 12s linear infinite}
+  .ts .hf-cure{animation:ts-cure 6s ease-in infinite}
+  .ts .hf-spin{animation:ts-spin 2s linear infinite}
+  .ts .hf-sweep{animation:ts-sino 6s linear infinite}
+}
+@keyframes ts-pk0{0%{transform:translate(168px,136px);opacity:0}2%{opacity:1}4.1%{transform:translate(182px,136px)}20.3%{transform:translate(182px,80px)}81.4%{transform:translate(392px,80px)}97.7%{transform:translate(392px,136px)}99%{opacity:1}100%{transform:translate(400px,136px);opacity:0}}
+@keyframes ts-pk1{0%{transform:translate(168px,160px);opacity:0;fill:var(--signal,#ffb000)}2%{opacity:1}47%{fill:var(--signal,#ffb000)}52%{fill:#f85149}97%{opacity:1}100%{transform:translate(400px,160px);opacity:0;fill:#f85149}}
+@keyframes ts-pk2{0%{transform:translate(168px,184px);opacity:0}2%{opacity:1}3.2%{transform:translate(182px,184px)}16.2%{transform:translate(182px,240px)}18.1%{transform:translate(190px,240px)}28.2%{transform:translate(190px,284px)}63.4%{transform:translate(342px,284px)}73.6%{transform:translate(342px,240px)}85.2%{transform:translate(392px,240px)}98.1%{transform:translate(392px,184px)}99%{opacity:1}100%{transform:translate(400px,184px);opacity:0}}
+@keyframes ts-blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes ts-scan{0%{transform:translateY(0);opacity:0}6%{opacity:1}94%{opacity:1}100%{transform:translateY(180px);opacity:0}}
+@keyframes ts-sweep{from{transform:translateX(0)}to{transform:translateX(430px)}}
+@keyframes ts-cure{0%{opacity:.12}75%{opacity:1}92%{opacity:1}100%{opacity:.12}}
+@keyframes ts-spin{0%{transform:translateX(0);opacity:0}20%{opacity:1}80%{opacity:1}100%{transform:translateX(56px);opacity:0}}
+@keyframes ts-sino{from{transform:translateX(0)}to{transform:translateX(200px)}}
 
-html[data-motion="off"] .vanta-pkt-1,
-html[data-motion="off"] .vanta-pkt-2,
-html[data-motion="off"] .vanta-pkt-3,
-html[data-motion="off"] .baulens-scanner,
-html[data-motion="off"] .clause-mouse,
-html[data-motion="off"] .clause-btn-active,
-html[data-motion="off"] .clause-results-feed,
-html[data-motion="off"] .ambient-time-line,
-html[data-motion="off"] .holoforge-part {
+html.motion-off .ts *,
+html[data-motion="off"] .ts *,
+html:not(.motion-on) .ts * {
   animation: none !important;
 }
 
