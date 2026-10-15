@@ -58,7 +58,7 @@ Every system indexed here features dedicated domain routing, reproducible builds
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Vantablack** | Cryptography & ZK | Post-quantum decentralized WAN mesh network with erasure-sharded onion routing | `Rust` `Tokio` `ML-KEM-768` | [vantablack.kellersystems.dev](https://vantablack.kellersystems.dev) | [Vantablack](https://github.com/KELLERBABG/Vantablack) |
 | **BauLens** | Compliance & Civil | Deterministic German and EU building code compliance validation engine | `JavaScript` `TypeScript` `IFC` | [lens.kellersystems.dev](https://lens.kellersystems.dev) | [BauLens](https://github.com/KELLERBABG/BauLens) |
-| **ClauseLens** | LegalTech & SMT | Automated contract clause contradiction and risk scoring engine | `JavaScript` `Deontic Logic` | [clause.kellersystems.dev](https://clause.kellersystems.dev) | [ClauseLens](https://github.com/KELLERBABG/ClauseLens) |
+| **ClauseLens** | LegalTech & SMT | Automated contract clause contradiction and risk scoring engine | `JavaScript` `Deontic Logic` | [clause.kellersystems.dev](https://clause.kellersystems.dev) | [LexiClear](https://github.com/KELLERBABG/LexiClear) |
 | **Ambient Thermal Arbitrage** | Thermodynamics & Energy | Ambient Thermal Arbitrage and virtual battery energy management system | `Rust` `Thermodynamics` `MPC` | [ambient.kellersystems.dev](https://ambient.kellersystems.dev) | [Ambient-Thermal-Arbitrage](https://github.com/KELLERBABG/Ambient-Thermal-Arbitrage) |
 | **HoloForge** | Volumetric 3D Printing | Holographic tomographic volumetric 3D printing suite (Tomo-H-VAM) | `Python` `Wave Optics` | [github.com/KELLERBABG/HoloForge](https://github.com/KELLERBABG/HoloForge) | [HoloForge](https://github.com/KELLERBABG/HoloForge) |
 
@@ -114,7 +114,7 @@ Every system indexed here features dedicated domain routing, reproducible builds
 | System | Description | Language | Live Deployment | Source |
 | :--- | :--- | :--- | :--- | :--- |
 | **BauLens** | Deterministic German and EU building code compliance validation engine | `JavaScript` | [lens.kellersystems.dev](https://lens.kellersystems.dev) | [GitHub &rarr;](https://github.com/KELLERBABG/BauLens) |
-| **ClauseLens** | Automated contract clause contradiction and risk scoring engine | `JavaScript` | [clause.kellersystems.dev](https://clause.kellersystems.dev) | [GitHub &rarr;](https://github.com/KELLERBABG/ClauseLens) |
+| **ClauseLens** | Automated contract clause contradiction and risk scoring engine | `JavaScript` | [clause.kellersystems.dev](https://clause.kellersystems.dev) | [GitHub &rarr;](https://github.com/KELLERBABG/LexiClear) |
 | **AmtFlow** | Assistent für deutsche Behördenbriefe mit OCR, Fristberechnung & DIN 5008 | `JavaScript` | [amt.kellersystems.dev](https://amt.kellersystems.dev) | [GitHub &rarr;](https://github.com/KELLERBABG/AmtFlow) |
 | **Aureal Watermark** | Audio watermarking for anti-theft, AI provenance, and EU AI Act credentials | `HTML` | [aureal.kellersystems.dev](https://aureal.kellersystems.dev) | [GitHub &rarr;](https://github.com/KELLERBABG/Aureal-Watermark) |
 | **MuonScope Tomography** | Cosmic-ray muon scattering tomography digital twin & 3D inversion engine | `Python` | [muon.kellersystems.dev](https://muon.kellersystems.dev) | [GitHub &rarr;](https://github.com/KELLERBABG/MuonScope-Tomography) |

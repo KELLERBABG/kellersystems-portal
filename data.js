@@ -204,7 +204,7 @@ const REPOSITORIES = [
         "raw_name":  "ClauseLens",
         "description":  "Automated contract clause contradiction and risk scoring engine",
         "url":  "https://clause.kellersystems.dev",
-        "github_url":  "https://github.com/KELLERBABG/ClauseLens",
+        "github_url":  "https://github.com/KELLERBABG/LexiClear",
         "language":  "JavaScript",
         "category":  "General",
         "updated":  "2026-09-06T17:23:42Z"
