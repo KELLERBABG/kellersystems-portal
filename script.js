@@ -68,8 +68,8 @@
         tilesHtml += '<a class="tile tile-meta-card" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">' +
           '<span class="tile-mark" aria-hidden="true">&uarr;</span>' +
           '<h3>Open Verification</h3>' +
-          '<p class="tile-desc">Deterministic by default. Clone, build, run local test suites and verify benchmarks on GitHub.</p>' +
-          '<span class="tilemeta">Open Source &middot; GitHub</span>' +
+          '<p class="tile-desc">Some systems are source-available to encourage verification and improvements, specifically for Vantablack, AmtFlow, QEL and others.</p>' +
+          '<span class="tilemeta">Source-Available &middot; GitHub</span>' +
           '</a>';
       }
     }
