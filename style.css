@@ -803,3 +803,52 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;overflow-x:hidden}
   font-size: 0.8125rem;
   line-height: 1.65;
 }
+
+
+/* --- About section ------------------------------------------------------ */
+.about-sec { background: var(--paper); padding-block: clamp(52px, 6vw, 100px); border-bottom: 2px solid var(--ink); }
+.about-sec .shelfhead .tag { margin-bottom: 0.6rem; }
+.about-grid {
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+  margin-top: clamp(22px, 3vw, 36px);
+}
+@media (min-width: 900px) {
+  .about-grid { grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.85fr); }
+}
+.about-prose p {
+  font-size: clamp(1rem, 1.12vw, 1.1rem);
+  line-height: 1.68;
+  color: var(--ink-2);
+  margin-bottom: 1.1rem;
+  max-width: 62ch;
+}
+.about-prose p:last-child { margin-bottom: 0; }
+.about-prose strong, .about-prose em { color: var(--ink); }
+.about-dossier {
+  background: var(--plate);
+  border: 2px solid var(--ink);
+  box-shadow: var(--shadow);
+  padding: 1.15rem 1.35rem;
+}
+.about-dossier h3 {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.about-dossier h3::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--signal);
+}
