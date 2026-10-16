@@ -44,7 +44,7 @@
       })
       .sort(function (a, b) { return a.name.localeCompare(b.name, 'en'); });
     var tilesHtml = rest.map(function (r) {
-      var isFocus = (r.name === 'TerraFlux');
+      var isFocus = (r.name === 'AeroResonance');
       var badge = isFocus
         ? '<span class="tile-focus-badge">' +
             '<svg class="pulse-dot-green" width="10" height="10" viewBox="0 0 10 10" style="display:inline-block;vertical-align:middle;margin-right:5px;flex-shrink:0;" aria-hidden="true">' +
@@ -57,7 +57,7 @@
                 '<animate attributeName="opacity" values="0.8;0;0.8" dur="1.8s" repeatCount="indefinite"/>' +
               '</circle>' +
             '</svg>' +
-            'Next Up' +
+            'In Progress' +
           '</span>'
         : '';
       var extraClass = isFocus ? ' tile-focus' : '';
