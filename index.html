@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=9.0">
+<link rel="stylesheet" href="style.css?v=9.1">
 <style>
 /* Embedded critical styling to guarantee instant render regardless of CDN cache */
 .tile { position: relative; }
@@ -97,7 +97,7 @@
   color: #fff;
   text-decoration: none;
 }
-/* CTA Styling */
+/* CTA Architectural Styling */
 #contact, .cta {
   scroll-margin-top: var(--header, 60px);
   background: var(--ink, #141310);
@@ -115,13 +115,23 @@
 }
 .cta::before { top: 0; }
 .cta::after { bottom: 0; }
+.cta-wrap {
+  display: grid;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .cta-wrap {
+    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+  }
+}
 .tag-onink {
   color: var(--signal, #ffb000) !important;
   font-family: var(--font-mono, monospace);
   font-size: 0.6875rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.9rem;
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -136,83 +146,35 @@
   font-family: var(--font-display, sans-serif);
   font-weight: 900;
   text-transform: uppercase;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 0.95;
+  font-size: clamp(2.2rem, 5.2vw, 3.8rem);
+  line-height: 0.96;
   letter-spacing: -0.038em;
   color: var(--paper, #f6f1e6);
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.2rem;
 }
-.cta-lead {
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
-  line-height: 1.68;
+.cta-p {
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.7;
   color: rgba(246, 241, 230, 0.82);
-  max-width: 62ch;
-  margin-bottom: clamp(32px, 4vw, 48px);
+  max-width: 58ch;
+  margin-bottom: 2rem;
 }
-.cta-grid {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-@media (min-width: 820px) {
-  .cta-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-.cta-card {
-  background: #1c1a16;
-  border: 1.5px solid rgba(246, 241, 230, 0.18);
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.4);
-  padding: 1.75rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
-}
-.cta-card:hover {
-  border-color: var(--signal, #ffb000);
-  transform: translateY(-2px);
-  box-shadow: 6px 6px 0 var(--signal, #ffb000);
-}
-.cta-card-num {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--signal, #ffb000);
-  margin-bottom: 0.9rem;
-  display: block;
-}
-.cta-card h3 {
-  font-family: var(--font-display, sans-serif);
-  font-weight: 800;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: -0.015em;
-  color: var(--paper, #f6f1e6);
-  margin-bottom: 0.75rem;
-}
-.cta-card p {
-  font-size: 0.875rem;
-  line-height: 1.62;
-  color: rgba(246, 241, 230, 0.75);
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-}
-.cta-card-links {
+.cta-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: auto;
+  gap: 0.75rem;
+  align-items: center;
 }
 .btn-onink {
   background: transparent;
   color: var(--paper, #f6f1e6);
-  border: 1px solid rgba(246, 241, 230, 0.4);
+  border: 1.5px solid rgba(246, 241, 230, 0.35);
   font-family: var(--font-mono, monospace);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.45rem 0.85rem;
+  padding: 0.6rem 1.1rem;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -223,24 +185,60 @@
   color: var(--ink, #141310);
   border-color: var(--signal, #ffb000);
 }
-.cta-gh-btn {
-  border-color: rgba(246, 241, 230, 0.3) !important;
-  color: rgba(246, 241, 230, 0.85) !important;
+.cta-dossier {
+  background: #1c1a16;
+  border: 2px solid rgba(246, 241, 230, 0.2);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.45);
+  padding: 1.4rem 1.6rem;
 }
-.cta-gh-btn:hover {
-  border-color: var(--paper, #f6f1e6) !important;
-  color: var(--paper, #f6f1e6) !important;
-  background: rgba(246, 241, 230, 0.1) !important;
+.cta-dossier-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid rgba(246, 241, 230, 0.2);
 }
-.cta-foot-note {
-  margin-top: clamp(36px, 4.5vw, 54px);
-  padding-top: 1.35rem;
-  border-top: 1px solid rgba(246, 241, 230, 0.15);
+.cta-dossier-title {
   font-family: var(--font-mono, monospace);
   font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper, #f6f1e6);
+  font-weight: 700;
+}
+.cta-dossier-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.625rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(246, 241, 230, 0.52);
+  padding: 0.15rem 0.5rem;
+  background: var(--signal, #ffb000);
+  color: var(--ink, #141310);
+  font-weight: 700;
+}
+.cta-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(246, 241, 230, 0.1);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: var(--paper, #f6f1e6);
+}
+.cta-row:last-child {
+  border-bottom: 0;
+}
+.cta-row span:first-child {
+  color: rgba(246, 241, 230, 0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+}
+.cta-row span:last-child {
+  text-align: right;
+  color: rgba(246, 241, 230, 0.92);
 }
 </style>
 <script>document.documentElement.classList.add('js');</script>
@@ -1336,44 +1334,45 @@
 
   <!-- =========================== Engagement & Contact =========================== -->
   <section class="cta" id="contact">
-    <div class="wrap">
-      <p class="tag tag-onink"><i aria-hidden="true"></i>Direct Engagement &amp; Inquiries</p>
-      <h2>Work with Keller Systems.</h2>
-      <p class="cta-lead">Independent systems research meets enterprise reliability. Whether you are looking to test a commercial engine, consult on deterministic industrial systems, or review research specifications.</p>
-      
-      <div class="cta-grid">
-        <article class="cta-card">
-          <span class="cta-card-num">01</span>
-          <h3>Commercial Pilots</h3>
-          <p>Trialling BauLens, ClauseLens, or Aureal Watermark in your workflow. We run high-touch pilots with direct founder support and air-gapped deployment options.</p>
-          <div class="cta-card-links">
-            <a class="btn btn-primary btn-sm" href="mailto:info@kellersystems.dev?subject=Pilot%20Inquiry%20-%20Keller%20Systems">Request Pilot Access &rarr;</a>
-          </div>
-        </article>
-
-        <article class="cta-card">
-          <span class="cta-card-num">02</span>
-          <h3>Systems Advisory</h3>
-          <p>Industrial IT integration, deterministic software architectures, low-level Rust/Python automation, and high-assurance reliability for manufacturing pipelines.</p>
-          <div class="cta-card-links">
-            <a class="btn btn-onink btn-sm" href="mailto:info@kellersystems.dev?subject=Consulting%20Inquiry%20-%20Keller%20Systems">Consulting Inquiries &rarr;</a>
-          </div>
-        </article>
-
-        <article class="cta-card">
-          <span class="cta-card-num">03</span>
-          <h3>Research &amp; Contact</h3>
-          <p>Questions regarding formal benchmarks, reproducible builds, or open collaboration on source-available systems. Direct inbox &mdash; no automated ticketing.</p>
-          <div class="cta-card-links">
-            <a class="btn btn-onink btn-sm" href="mailto:info@kellersystems.dev">info@kellersystems.dev &rarr;</a>
-            <a class="btn btn-quiet btn-sm cta-gh-btn" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">GitHub &#8599;</a>
-          </div>
-        </article>
+    <div class="wrap cta-wrap">
+      <div class="cta-main">
+        <p class="tag tag-onink"><i aria-hidden="true"></i>Independent R&amp;D &middot; Direct Contact</p>
+        <h2>Let&rsquo;s build something deterministic.</h2>
+        <p class="cta-p">
+          Whether you want to trial commercial engines like BauLens and ClauseLens, consult on high-assurance industrial architectures, or inspect research code &mdash; there is no ticketing queue. Direct founder communication.
+        </p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="mailto:info@kellersystems.dev?subject=Inquiry%20-%20Keller%20Systems">info@kellersystems.dev &rarr;</a>
+          <a class="btn btn-onink" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">github.com/KELLERBABG &#8599;</a>
+          <a class="btn btn-onink" href="#top">&uarr; Back to top</a>
+        </div>
       </div>
-
-      <div class="cta-foot-note">
-        <span>Response time: typically within 24&ndash;48 hours &middot; Location: Germany (CET) &middot; Direct communication</span>
-      </div>
+      <aside class="cta-dossier" aria-label="Direct Inquiries">
+        <div class="cta-dossier-head">
+          <span class="cta-dossier-title">Direct Inquiries</span>
+          <span class="cta-dossier-badge">Active</span>
+        </div>
+        <div class="cta-row">
+          <span>Pilots</span>
+          <span>BauLens &middot; ClauseLens &middot; Aureal</span>
+        </div>
+        <div class="cta-row">
+          <span>Advisory</span>
+          <span>Industrial Systems &middot; Real-time IT</span>
+        </div>
+        <div class="cta-row">
+          <span>Stack</span>
+          <span>Rust &middot; Python &middot; TypeScript</span>
+        </div>
+        <div class="cta-row">
+          <span>Response</span>
+          <span>Within 24&ndash;48h &middot; Direct</span>
+        </div>
+        <div class="cta-row">
+          <span>Location</span>
+          <span>Germany &middot; CET</span>
+        </div>
+      </aside>
     </div>
   </section>
 </main>
@@ -1398,7 +1397,7 @@
 
 <div class="chapterlabel" id="chapterLabel" aria-hidden="true"><b>01</b> <span>Global Ghost Net</span></div>
 
-<script src="data.js?v=9.0"></script>
-<script src="script.js?v=9.0"></script>
+<script src="data.js?v=9.1"></script>
+<script src="script.js?v=9.1"></script>
 </body>
 </html>
