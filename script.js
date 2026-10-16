@@ -46,7 +46,19 @@
     var tilesHtml = rest.map(function (r) {
       var isFocus = (r.name === 'TerraFlux');
       var badge = isFocus
-        ? '<span class="tile-focus-badge"><span class="pulse-dot-green"></span> Next Up</span>'
+        ? '<span class="tile-focus-badge">' +
+            '<svg class="pulse-dot-green" width="10" height="10" viewBox="0 0 10 10" style="display:inline-block;vertical-align:middle;margin-right:5px;flex-shrink:0;" aria-hidden="true">' +
+              '<circle cx="5" cy="5" r="3.5" fill="#2ea44f">' +
+                '<animate attributeName="r" values="3.2;4.2;3.2" dur="1.8s" repeatCount="indefinite"/>' +
+                '<animate attributeName="opacity" values="1;0.7;1" dur="1.8s" repeatCount="indefinite"/>' +
+              '</circle>' +
+              '<circle cx="5" cy="5" r="4.5" fill="none" stroke="#2ea44f" stroke-width="1.2" opacity="0.8">' +
+                '<animate attributeName="r" values="4;8.5;4" dur="1.8s" repeatCount="indefinite"/>' +
+                '<animate attributeName="opacity" values="0.8;0;0.8" dur="1.8s" repeatCount="indefinite"/>' +
+              '</circle>' +
+            '</svg>' +
+            'Next Up' +
+          '</span>'
         : '';
       var extraClass = isFocus ? ' tile-focus' : '';
       return '<a class="tile' + extraClass + '" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">' +

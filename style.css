@@ -284,6 +284,7 @@ svg { display: block; max-width: 100%; }
   display: flex; flex-direction: column; gap: 0.5rem; text-decoration: none;
   border-right: 2px solid var(--ink);
   border-bottom: 2px solid var(--ink);
+  position: relative;
   transition: background-color 0.16s, color 0.16s;
 }
 .tile:hover { background: var(--ink); color: var(--onink); }
