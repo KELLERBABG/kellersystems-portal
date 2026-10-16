@@ -71,26 +71,6 @@
         '</a>';
     }).join('');
 
-    var remainder = rest.length % 4;
-    if (remainder !== 0) {
-      var needed = 4 - remainder;
-      if (needed >= 1) {
-        tilesHtml += '<a class="tile tile-meta-card" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">' +
-          '<span class="tile-mark" aria-hidden="true">&sect;</span>' +
-          '<h3>Keller Systems Registry</h3>' +
-          '<p class="tile-desc">Formal specifications, reproducible builds, and source code across the entire 35-system fleet.</p>' +
-          '<span class="tilemeta">Full Archive &middot; 35 Systems</span>' +
-          '</a>';
-      }
-      if (needed >= 2) {
-        tilesHtml += '<a class="tile tile-meta-card" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">' +
-          '<span class="tile-mark" aria-hidden="true">&uarr;</span>' +
-          '<h3>Open Verification</h3>' +
-          '<p class="tile-desc">Some systems are source-available to encourage verification and improvements, specifically for Vantablack, AmtFlow, QEL and others.</p>' +
-          '<span class="tilemeta">Source-Available &middot; GitHub</span>' +
-          '</a>';
-      }
-    }
     host.innerHTML = tilesHtml;
   }
   function renderTotal() {
