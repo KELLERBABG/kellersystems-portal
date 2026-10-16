@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=8.5">
+<link rel="stylesheet" href="style.css?v=8.6">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body><!-- noscript-fallback --><noscript><style>html *{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}[data-a],[data-b],.d,.o,.fade,.draw,.chapter,.step,.panel,.hlab{opacity:1!important}</style></noscript>
@@ -35,7 +35,6 @@
       <a href="#shelf">All systems</a>
       <a href="#principles">How we work</a>
       <a href="#about">About</a>
-      <a href="#roadmap">Roadmap</a>
       <a href="#contact">Contact</a>
       <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="false" title="Turn the scroll motion on or off">Motion: off</button>
       <a class="btn btn-primary btn-sm" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">Source &#8599;</a>
@@ -138,7 +137,7 @@
           <li data-for="ch4"><span class="cnum">04</span><span class="cname"><a href="#ch4">Ambient Thermal Arbitrage</a></span><span class="ctag">Thermodynamics &amp; Energy</span></li>
           <li data-for="ch5"><span class="cnum">05</span><span class="cname"><a href="#ch5">HoloForge</a></span><span class="ctag">Volumetric 3D printing</span></li>
         </ol>
-        <p class="contents-intro">The five systems below, in the order they were finished.</p>
+        <p class="contents-intro">Five completed core engines (final stress-testing, bug hardening &amp; deployment underway).</p>
       </div>
     </div>
   </section>
@@ -818,8 +817,17 @@
   <section class="shelf" id="shelf">
     <div class="wrap">
       <div class="shelfhead">
-        <h2>The rest of the shelf</h2>
-        <p>Kernels, protocols, solvers and instruments. Each one lives on its own subdomain with its source in the open.</p>
+        <div class="shelf-focus-callout">
+          <div class="focus-pill">
+            <span class="pulse-dot-green"></span>
+            <span>Sprint Focus &middot; 1 Project at a time</span>
+          </div>
+          <p class="focus-callout-desc">
+            The 5 highlighted systems are completed engines (final stress-testing, bug hardening &amp; deployment). Development proceeds strictly one system at a time &mdash; <strong>next active target: <a href="#terraflux" class="focus-link">TerraFlux &darr;</a></strong>
+          </p>
+        </div>
+        <h2>The rest of the fleet</h2>
+        <p>Kernels, protocols, solvers, and instruments across 35 independent systems. Some systems are source-available to encourage verification and community improvements.</p>
       </div>
       <div class="grid" id="moreGrid">
         <a class="tile" href="https://abos.kellersystems.dev" target="_blank" rel="noopener noreferrer">
@@ -978,7 +986,8 @@
           <p class="tile-desc">Symbolic execution engine for EVM bytecode vulnerability detection and SMT verification</p>
           <span class="tilemeta">Cryptography &amp; ZK &middot; Rust</span>
         </a>
-        <a class="tile" href="https://terra.kellersystems.dev" target="_blank" rel="noopener noreferrer">
+        <a class="tile tile-focus" id="terraflux" href="https://terra.kellersystems.dev" target="_blank" rel="noopener noreferrer">
+          <span class="tile-focus-badge"><span class="pulse-dot-green"></span> Next Up</span>
           <span class="tile-mark" aria-hidden="true">T</span>
           <h3>TerraFlux</h3>
           <p class="tile-desc">Precision autonomous soil moisture micro-irrigation controller</p>
@@ -1072,89 +1081,6 @@
     </div>
   </section>
 
-  <!-- ============================ Roadmap / Radar ============================= -->
-  <section class="roadmap-sec" id="roadmap">
-    <div class="wrap">
-      <div class="shelfhead">
-        <p class="tag"><i aria-hidden="true"></i>Current Focus &amp; In The Oven</p>
-        <h2>Active Radar &amp; Roadmap</h2>
-      </div>
-      <p class="roadmap-lead">
-        A live look at what is actively running, being hardened in testing, or scheduled for upcoming pilot openings.
-      </p>
-
-      <div class="roadmap-grid">
-        <article class="roadmap-card">
-          <div class="roadmap-head">
-            <span class="radar-pulse"></span>
-            <span class="radar-track">Track 01 &middot; Architecture</span>
-            <span class="radar-badge badge-active">Active Pilot</span>
-          </div>
-          <h3>BauLens</h3>
-          <p class="roadmap-desc">Deterministic building-code engine for Germany, Austria, and Switzerland. Validating municipal Satzungen and IFC4 BIM geometric collision pipelines.</p>
-          <div class="roadmap-meta">
-            <span><strong>Status:</strong> Ready for testing</span>
-            <span><strong>Upcoming:</strong> XBau 2.3 XML generation</span>
-          </div>
-          <div class="roadmap-action">
-            <a href="https://lens.kellersystems.dev" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Launch Studio &rarr;</a>
-          </div>
-        </article>
-
-        <article class="roadmap-card">
-          <div class="roadmap-head">
-            <span class="radar-pulse"></span>
-            <span class="radar-track">Track 02 &middot; LegalTech SMT</span>
-            <span class="radar-badge badge-beta">Closed Beta</span>
-          </div>
-          <h3>ClauseLens</h3>
-          <p class="roadmap-desc">Deontic logic &amp; SMT solver for automated contract contradiction detection. Expanding B2B master service agreement and liability cross-reference rule sets.</p>
-          <div class="roadmap-meta">
-            <span><strong>Status:</strong> In pilot evaluation</span>
-            <span><strong>Upcoming:</strong> Custom corporate term catalogs</span>
-          </div>
-          <div class="roadmap-action">
-            <a href="https://clause.kellersystems.dev" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Launch Studio &rarr;</a>
-          </div>
-        </article>
-
-        <article class="roadmap-card">
-          <div class="roadmap-head">
-            <span class="radar-pulse pulse-dim"></span>
-            <span class="radar-track">Track 03 &middot; Audio DSP</span>
-            <span class="radar-badge badge-bench">Benchmarking</span>
-          </div>
-          <h3>Aureal Watermark</h3>
-          <p class="roadmap-desc">Forensic acoustic watermarking engine for AI audio attribution and leak detection. Stress-testing psychoacoustic transparent filters across heavy lossy codecs.</p>
-          <div class="roadmap-meta">
-            <span><strong>Status:</strong> Core engine v0.3 stable</span>
-            <span><strong>Upcoming:</strong> C2PA metadata bridge</span>
-          </div>
-          <div class="roadmap-action">
-            <a href="https://aureal.kellersystems.dev" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Explore Engine &rarr;</a>
-          </div>
-        </article>
-
-        <article class="roadmap-card">
-          <div class="roadmap-head">
-            <span class="radar-pulse pulse-dim"></span>
-            <span class="radar-track">Track 04 &middot; PQC Mesh</span>
-            <span class="radar-badge badge-research">Open Research</span>
-          </div>
-          <h3>Vantablack WAN</h3>
-          <p class="roadmap-desc">High-assurance post-quantum information dispersal networking. Formal verification of ML-KEM / Dilithium cryptographic handshakes under satellite dropouts.</p>
-          <div class="roadmap-meta">
-            <span><strong>Status:</strong> Source-available on GitHub</span>
-            <span><strong>Upcoming:</strong> Multi-region testnet benchmarks</span>
-          </div>
-          <div class="roadmap-action">
-            <a href="https://github.com/KELLERBABG/Vantablack" target="_blank" rel="noopener noreferrer" class="btn btn-sm">View Repository &rarr;</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- =========================== Engagement & Contact =========================== -->
   <section class="cta" id="contact">
     <div class="wrap">
@@ -1208,7 +1134,7 @@
     <div class="footlinks">
       <a class="btn btn-quiet btn-sm" href="#work">Work</a>
       <a class="btn btn-quiet btn-sm" href="#shelf">All systems</a>
-      <a class="btn btn-quiet btn-sm" href="#roadmap">Roadmap</a>
+      <a class="btn btn-quiet btn-sm" href="#about">About</a>
       <a class="btn btn-quiet btn-sm" href="#contact">Contact</a>
       <a class="btn btn-quiet btn-sm" href="/impressum/">Impressum</a>
       <a class="btn btn-quiet btn-sm" href="/privacy/">Datenschutz</a>
@@ -1219,7 +1145,7 @@
 
 <div class="chapterlabel" id="chapterLabel" aria-hidden="true"><b>01</b> <span>Global Ghost Net</span></div>
 
-<script src="data.js?v=8.5"></script>
-<script src="script.js?v=8.5"></script>
+<script src="data.js?v=8.6"></script>
+<script src="script.js?v=8.6"></script>
 </body>
 </html>

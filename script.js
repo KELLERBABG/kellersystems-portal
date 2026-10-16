@@ -44,7 +44,13 @@
       })
       .sort(function (a, b) { return a.name.localeCompare(b.name, 'en'); });
     var tilesHtml = rest.map(function (r) {
-      return '<a class="tile" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">' +
+      var isFocus = (r.name === 'TerraFlux');
+      var badge = isFocus
+        ? '<span class="tile-focus-badge"><span class="pulse-dot-green"></span> Next Up</span>'
+        : '';
+      var extraClass = isFocus ? ' tile-focus' : '';
+      return '<a class="tile' + extraClass + '" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">' +
+        badge +
         '<span class="tile-mark" aria-hidden="true">' + esc(initial(r.name)) + '</span>' +
         '<h3>' + esc(r.name) + '</h3>' +
         (r.description ? '<p class="tile-desc">' + esc(r.description) + '</p>' : '') +
