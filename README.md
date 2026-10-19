@@ -21,7 +21,7 @@
 
 **Keller Systems** is an independent systems engineering and research portal focused on deterministic computation, cryptographic sovereignty, high-assurance embedded runtimes, and novel physical instrumentation.
 
-Every system indexed here features dedicated domain routing. Some systems are source-available to encourage verification and improvements (specifically Vantablack, AmtFlow, QEL and others), alongside dedicated commercial runtimes.
+Every system indexed here features dedicated domain routing. Selected systems are open source or source-available to encourage verification and community improvements, alongside dedicated commercial runtimes.
 
 ---
 
