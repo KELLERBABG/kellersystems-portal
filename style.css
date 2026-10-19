@@ -1,3 +1,5 @@
+@import url('/assets/fonts/fonts.css');
+
 /* ==========================================================================
    KELLER SYSTEMS — SCROLL STORY
    Playbook: design-atlas `product-launch`. The rules taken from it:
@@ -1126,6 +1128,299 @@ html { scroll-padding-top: var(--header); }
 .cta-row span:last-child {
   text-align: right;
   color: rgba(246, 241, 230, 0.92);
+}
+
+/* ==========================================================================
+   DIRECT CHAT & RAPID CONTACT MODAL (§ 5 Abs. 1 Nr. 2 DDG)
+   ========================================================================== */
+
+.chat-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ea44f;
+  box-shadow: 0 0 0 2px rgba(46, 164, 79, 0.25);
+  animation: chatPulse 2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+@keyframes chatPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.legal-chat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.45rem 0.9rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+  vertical-align: middle;
+  margin-top: 0.35rem;
+  margin-bottom: 0.25rem;
+}
+.legal-chat-btn:hover {
+  background: var(--signal);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.legal-chat-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.keller-chat-floating-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--plate);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 0.55rem 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 99990;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+}
+.keller-chat-floating-btn:hover {
+  background: var(--signal);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.keller-chat-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 19, 16, 0.65);
+  backdrop-filter: blur(2px);
+  z-index: 99998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.keller-chat-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.keller-chat-dialog {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: min(440px, calc(100vw - 32px));
+  max-height: min(640px, calc(100vh - 48px));
+  background: var(--plate);
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(20px) scale(0.96);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.22s var(--ease), opacity 0.2s ease;
+  font-family: var(--font-sans);
+  color: var(--ink);
+}
+.keller-chat-dialog.is-open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.keller-chat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.keller-chat-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.keller-chat-title {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--paper);
+}
+.keller-chat-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: rgba(246, 241, 230, 0.7);
+  display: block;
+}
+.keller-chat-close {
+  background: transparent;
+  border: 1px solid rgba(246, 241, 230, 0.3);
+  color: var(--paper);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.keller-chat-close:hover {
+  background: var(--signal);
+  color: var(--ink);
+  border-color: var(--signal);
+}
+
+.keller-chat-body {
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex-grow: 1;
+  background: var(--plate);
+}
+
+.keller-chat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  padding: 0.3rem 0.6rem;
+  align-self: center;
+  text-align: center;
+}
+
+.keller-chat-bubble {
+  padding: 0.75rem 0.9rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border: 1.5px solid var(--ink);
+  max-width: 90%;
+}
+.keller-chat-bubble.is-agent {
+  background: var(--paper);
+  align-self: flex-start;
+  box-shadow: 3px 3px 0 var(--hair);
+}
+.keller-chat-bubble.is-user {
+  background: #fffae8;
+  align-self: flex-end;
+  border-color: var(--signal-ink);
+  box-shadow: 3px 3px 0 var(--signal);
+}
+.keller-chat-bubble.is-system {
+  background: #eef7ee;
+  border-color: #2ea44f;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  align-self: stretch;
+  max-width: 100%;
+}
+
+.keller-chat-form {
+  padding: 0.85rem 1rem 1rem;
+  border-top: 1.5px solid var(--hair);
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.keller-chat-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.keller-chat-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+.keller-chat-input,
+.keller-chat-textarea {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  background: var(--plate);
+  border: 1.5px solid var(--ink);
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--ink);
+  outline: none;
+  box-sizing: border-box;
+}
+.keller-chat-input:focus,
+.keller-chat-textarea:focus {
+  border-color: var(--signal-ink);
+  box-shadow: 0 0 0 2px var(--signal);
+}
+.keller-chat-textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+.keller-chat-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+}
+.keller-chat-send {
+  background: var(--ink);
+  color: var(--paper);
+  border: 1.5px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--signal);
+  transition: transform 0.12s ease, background-color 0.12s ease;
+}
+.keller-chat-send:hover {
+  background: var(--signal);
+  color: var(--ink);
+  border-color: var(--ink);
+  transform: translate(-1px, -1px);
+}
+.keller-chat-privacy-hint {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--muted);
+  line-height: 1.35;
 }
 
 
