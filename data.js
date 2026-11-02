@@ -22,6 +22,7 @@ const REPOSITORIES = [
         "raw_name": "Vantablack",
         "description": "Post-quantum decentralized WAN mesh network with erasure-sharded onion routing",
         "url": "https://vantablack.kellersystems.dev",
+        "github_url": "https://github.com/KELLERBABG/Vantablack",
         "language": "Rust",
         "category": "Crypto",
         "updated": "2026-10-05T00:00:00Z"
@@ -30,7 +31,8 @@ const REPOSITORIES = [
         "name": "Quantum Entanglement Link",
         "raw_name": "QEL",
         "description": "Quantum communication network simulation stack: density-matrix states and noise, QKD and error-correcting codes, and fidelity-constrained repeater routing over a mesh topology",
-        "url": "https://qel.kellersystems.dev",
+        "url": "https://github.com/KELLERBABG/QEL",
+        "github_url": "https://github.com/KELLERBABG/QEL",
         "language": "Python",
         "category": "Crypto",
         "updated": "2026-10-05T00:00:00Z"
