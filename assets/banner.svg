@@ -1,88 +1,81 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
-  <title>Keller Systems &#8212; engineering registry</title>
+  <title>Keller Systems — Engineering &amp; R&amp;D</title>
 
-  <!--
-    Palette tokens. The light rendering is the primary one; the dark block
-    below inverts the same tokens so the banner sits correctly on a dark
-    GitHub theme instead of glowing as a bright plate.
-  -->
   <style>
-    .mono    { font-family: 'Geist Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace; }
-    .display { font-family: Archivo, 'Archivo Black', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; }
-
-    .ground    { fill: #f2f0eb; }
-    .block     { fill: #0c0c0d; }
-    .plate     { fill: #ffffff; }
-    .fg        { fill: #0c0c0d; }
-    .fg-stroke { stroke: #0c0c0d; }
-    .fg-muted  { fill: #62626a; }
-    .on-block  { fill: #f2f0eb; }
-    .on-block-stroke { stroke: #f2f0eb; }
-    .rule      { stroke: #0c0c0d; }
-    .rule-soft { stroke: #0c0c0d; stroke-opacity: 0.14; }
-    .gridline  { stroke: #0c0c0d; stroke-opacity: 0.055; }
-
-    @media (prefers-color-scheme: dark) {
-      .ground    { fill: #0c0c0d; }
-      .block     { fill: #f2f0eb; }
-      .plate     { fill: #15151a; }
-      .fg        { fill: #f2f0eb; }
-      .fg-stroke { stroke: #f2f0eb; }
-      .fg-muted  { fill: #9a9aa2; }
-      .on-block  { fill: #0c0c0d; }
-      .on-block-stroke { stroke: #0c0c0d; }
-      .rule      { stroke: #f2f0eb; }
-      .rule-soft { stroke: #f2f0eb; stroke-opacity: 0.22; }
-      .gridline  { stroke: #f2f0eb; stroke-opacity: 0.07; }
+    .display {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 700;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', 'Geist Mono', Consolas, 'Courier New', monospace;
+      font-weight: 600;
     }
   </style>
 
   <defs>
-    <pattern id="ksGrid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path class="gridline" d="M60 0H0V60" fill="none" stroke-width="1"/>
+    <!-- Background Grid -->
+    <pattern id="bannerGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
     </pattern>
+
+    <!-- Radial Emerald Ambient Glow -->
+    <radialGradient id="ambientGlow" cx="18%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.14"/>
+      <stop offset="60%" stop-color="#10b981" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#06070a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Logo Emerald Gradients -->
+    <linearGradient id="markGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <linearGradient id="badgeBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <!-- Soft Drop Shadow for Badge -->
+    <filter id="badgeShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#10b981" flood-opacity="0.22"/>
+    </filter>
   </defs>
 
-  <!-- paper ground + blueprint grid -->
-  <rect class="ground" width="1200" height="400"/>
-  <rect width="1200" height="400" fill="url(#ksGrid)"/>
+  <!-- Deep Obsidian Canvas -->
+  <rect width="1200" height="400" fill="#07080d"/>
 
-  <!-- registry plate: hard offset shadow, 2px rule, ink header bar -->
-  <rect class="block" x="878" y="88" width="250" height="170"/>
-  <rect class="plate rule" x="870" y="80" width="250" height="170" stroke-width="2"/>
-  <rect class="block" x="870" y="80" width="250" height="34"/>
-  <rect fill="#ff4a17" x="884" y="93" width="9" height="9"/>
-  <text class="mono on-block" x="902" y="103" font-size="12" letter-spacing="1.7">REGISTRY</text>
-  <text class="mono fg-muted" x="1104" y="103" font-size="12" letter-spacing="1.7" text-anchor="end">KS-01</text>
-  <line class="rule-soft" x1="886" y1="159" x2="1104" y2="159" stroke-width="1"/>
-  <line class="rule-soft" x1="886" y1="204" x2="1104" y2="204" stroke-width="1"/>
-  <text class="mono fg" x="886" y="142" font-size="12.5" letter-spacing="1.1">CRYPTOGRAPHY &amp; DSP</text>
-  <text class="mono fg" x="886" y="187" font-size="12.5" letter-spacing="1.1">AEROSPACE &amp; HARDWARE</text>
-  <text class="mono fg" x="886" y="232" font-size="12.5" letter-spacing="1.1">DEEP SENSING</text>
+  <!-- Subtle Blueprint Grid -->
+  <rect width="1200" height="400" fill="url(#bannerGrid)"/>
 
-  <!-- eyebrow tag -->
-  <rect class="plate rule" x="72" y="64" width="290" height="34" stroke-width="2"/>
-  <rect fill="#ff4a17" x="88" y="76" width="10" height="10"/>
-  <text class="mono fg" x="110" y="86" font-size="12.5" letter-spacing="1.7">ENGINEERING SYSTEMS &amp; R&amp;D</text>
+  <!-- Ambient Glow Behind Logo -->
+  <rect width="1200" height="400" fill="url(#ambientGlow)"/>
 
-  <!-- mark: ink field, signal inner frame, squared K -->
-  <rect class="block" x="72" y="124" width="132" height="132"/>
-  <rect fill="none" stroke="#ff4a17" stroke-width="4" x="82" y="134" width="112" height="112"/>
-  <g transform="translate(82,134) scale(0.875)" fill="none" stroke-width="12" stroke-linecap="square">
-    <path class="on-block-stroke" d="M40 30V98M40 64L88 30M40 64L88 98"/>
+  <!-- Smooth & Simple Centered Content Lockup -->
+  <g transform="translate(140, 130)">
+    
+    <!-- Modular Monolith Badge -->
+    <g filter="url(#badgeShadow)">
+      <rect width="140" height="140" rx="32" fill="#0b0d14"/>
+      <rect x="1.5" y="1.5" width="137" height="137" rx="30.5" fill="none" stroke="url(#badgeBorder)" stroke-width="2"/>
+      
+      <!-- Mark Geometry -->
+      <g transform="translate(20, 20) scale(1.0)">
+        <rect x="18" y="14" width="18" height="72" rx="3.5" fill="url(#markGrad)"/>
+        <path d="M46 50 L72 16 H90 L60 54 Z" fill="#34d399"/>
+        <path d="M60 46 L90 84 H72 L46 50 Z" fill="#059669"/>
+      </g>
+    </g>
+
+    <!-- Typography: Project Top & Brand Bottom -->
+    <!-- Primary Product / Entity -->
+    <text class="display" x="180" y="74" font-size="64" letter-spacing="-1.5" fill="#ffffff">Keller<tspan fill="#10b981">Systems</tspan></text>
+    
+    <!-- Secondary Brand Endorsement -->
+    <text class="mono" x="184" y="114" font-size="16" letter-spacing="4.8" fill="#7d859b">KELLER SYSTEMS &#8226; KELLERSYSTEMS.DEV</text>
+
   </g>
 
-  <!-- wordmark + technical subtitle -->
-  <text class="display fg fg-stroke" x="232" y="196" font-size="52" letter-spacing="-1"
-        stroke-width="1.8" paint-order="stroke">KELLER SYSTEMS</text>
-  <text class="mono fg-muted" x="234" y="232" font-size="15" letter-spacing="2.6">PORTAL &amp; REGISTRY &#183; KELLERSYSTEMS.DEV</text>
-
-  <!-- signature move: tilted ink ticker band -->
-  <g transform="rotate(-1.4 600 330)">
-    <rect class="block" x="-60" y="298" width="1320" height="64"/>
-    <text class="mono on-block" x="36" y="338" font-size="16" letter-spacing="2.4">POST-QUANTUM MESH<tspan fill="#ff4a17">&#160;&#160;///&#160;&#160;</tspan>MUON TOMOGRAPHY<tspan fill="#ff4a17">&#160;&#160;///&#160;&#160;</tspan>REAL-TIME KERNELS<tspan fill="#ff4a17">&#160;&#160;///&#160;&#160;</tspan>ZERO-KNOWLEDGE PROOFS<tspan fill="#ff4a17">&#160;&#160;///&#160;&#160;</tspan>FORMAL VERIFICATION</text>
-  </g>
-
-  <!-- frame last, so it rules over the band edges -->
-  <rect class="rule" x="1.5" y="1.5" width="1197" height="397" fill="none" stroke-width="3"/>
+  <!-- Clean Subtle Exterior Perimeter Rule -->
+  <rect x="1" y="1" width="1198" height="398" rx="0" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5"/>
 </svg>
