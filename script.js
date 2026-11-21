@@ -271,7 +271,40 @@
     if (on) { frame(); } else { resetRail(); }
   }
 
-  /* --- 4. Progress-rail ticks ------------------------------------------- */
+  /* --- 4. Theme toggle (Light <-> Dusty Mauve Dark) -------------------- */
+  var themeBtn = document.getElementById('themeToggle');
+  var themeMeta = document.getElementById('themeColorMeta');
+
+  function setTheme(dark, persist) {
+    if (dark) {
+      root.setAttribute('data-theme', 'dark');
+    } else {
+      root.removeAttribute('data-theme');
+    }
+    if (themeBtn) {
+      themeBtn.setAttribute('aria-pressed', String(dark));
+      themeBtn.textContent = dark ? 'Theme: dark' : 'Theme: light';
+    }
+    if (themeMeta) {
+      themeMeta.setAttribute('content', dark ? '#332632' : '#f6f1e6');
+    }
+    if (persist) {
+      try { localStorage.setItem('ks-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    }
+  }
+
+  (function initTheme() {
+    var saved = null;
+    try { saved = localStorage.getItem('ks-theme'); } catch (e) {}
+    setTheme(saved === 'dark', false);
+    if (themeBtn) {
+      themeBtn.addEventListener('click', function () {
+        setTheme(root.getAttribute('data-theme') !== 'dark', true);
+      });
+    }
+  })();
+
+  /* --- 5. Progress-rail ticks ------------------------------------------- */
   var ticksEl = document.getElementById('progressTicks');
   var markers = ['ch1', 'ch2', 'ch3', 'ch4', 'ch5', 'shelf'].map(function (id) {
     return { id: id, el: document.getElementById(id) };
