@@ -271,15 +271,17 @@ svg { display: block; max-width: 100%; }
   background-color: var(--paper);
   border-bottom: 2px solid var(--ink);
 }
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
+.hero::before {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image: repeating-linear-gradient(-45deg, rgba(20, 19, 16, 0.11) 0 1px, transparent 1px 18px);
+  -webkit-mask-image: radial-gradient(ellipse 75% 95% at 80% 50%, #000 15%, transparent 82%);
+  mask-image: radial-gradient(ellipse 75% 95% at 80% 50%, #000 15%, transparent 82%);
 }
-.hero-inner { position: relative; z-index: 1; display: grid; gap: clamp(26px, 4vw, 60px); align-items: center; width: 100%; }
+[data-theme="dark"] .hero::before {
+  background-image: repeating-linear-gradient(-45deg, rgba(247, 239, 243, 0.11) 0 1px, transparent 1px 18px);
+}
+.hero-inner { position: relative; z-index: 2; display: grid; gap: clamp(26px, 4vw, 60px); align-items: center; width: 100%; }
 @media (min-width: 1000px) { .hero-inner { grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.92fr); } }
 
 .tag {
