@@ -8,93 +8,9 @@
 <meta name="theme-color" content="#f6f1e6">
 <meta name="description" content="Independent research and systems engineering: post-quantum mesh routing, cosmic-ray tomography, deterministic flight control, zero-knowledge identity and passive water harvesting.">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=9.5">
+<link rel="stylesheet" href="style.css?v=11.1">
 <style>
 /* Embedded critical styling to guarantee instant render regardless of CDN cache */
-.tile { position: relative; }
-.tile.tile-focus {
-  position: relative;
-  border-color: #2ea44f !important;
-  background: #fbfdf9 !important;
-  box-shadow: inset 0 0 0 1px #2ea44f;
-}
-.tile.tile-focus:hover {
-  background: var(--ink) !important;
-  color: var(--onink) !important;
-  border-color: #3fb950 !important;
-  box-shadow: inset 0 0 0 1px #3fb950;
-}
-.tile-focus-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.625rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #1a7f37;
-  font-weight: 700;
-  background: rgba(46, 164, 79, 0.12);
-  border: 1px solid rgba(46, 164, 79, 0.4);
-  padding: 3px 8px;
-  border-radius: 2px;
-  z-index: 2;
-}
-.tile.tile-focus:hover .tile-focus-badge {
-  color: #3fb950;
-  background: rgba(46, 164, 79, 0.25);
-  border-color: rgba(46, 164, 79, 0.6);
-}
-.shelf-focus-callout {
-  background: #f7faf5;
-  border: 1.5px solid #2ea44f;
-  border-left: 5px solid #2ea44f;
-  padding: 1.15rem 1.4rem;
-  margin-bottom: 2.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-@media (min-width: 820px) {
-  .shelf-focus-callout {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-  }
-}
-.focus-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #1a7f37;
-  white-space: nowrap;
-}
-.focus-callout-desc {
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--ink-2);
-  margin: 0;
-}
-.focus-link {
-  color: #1a7f37;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.focus-link:hover {
-  background: #2ea44f;
-  color: #fff;
-  text-decoration: none;
-}
 /* CTA Architectural Styling */
 #contact, .cta {
   scroll-margin-top: var(--header, 60px);
@@ -259,9 +175,9 @@
       <span class="brandname">Keller Systems<em>Independent R&amp;D</em></span>
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="#work">Work</a>
-      <a href="#shelf">All systems</a>
-      <a href="#principles">How we work</a>
+      <a href="#work">Selected work</a>
+      <a href="#shelf">Systems index</a>
+      <a href="#principles">Principles</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
       <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="false" title="Turn the scroll motion on or off">Motion: off</button>
@@ -272,30 +188,27 @@
 
 <main id="top">
 
-  <!-- ==================== Hero: the pinned sheet ==================== -->
-  <div class="sheet">
-    <section class="hero">
-      <div class="wrap hero-inner">
-        <div>
-          <p class="tag"><i aria-hidden="true"></i>Engineering systems &amp; R&amp;D</p>
-          <h1 class="h-lines">
-            <span class="h-line">Machines that</span>
-            <span class="h-line">have to be</span>
-            <span class="h-line"><em>right.</em></span>
-          </h1>
-          <p class="lead">
-            Five systems: a post-quantum WAN mesh, a deterministic building-code solver, an
-            SMT contract risk engine, a thermodynamic virtual battery, and a volumetric 3D printer.
-            Independent research where the timing has to be provable and the maths has to hold.
-          </p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#work">See the work</a>
-            <a class="skipwork" href="#shelf">Skip to all systems &#8595;</a>
-          </div>
+  <!-- ==================== Hero ==================== -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <h1 class="h-lines">
+          <span class="h-line">Software built</span>
+          <span class="h-line">to actually</span>
+          <span class="h-line"><em>hold up.</em></span>
+        </h1>
+        <p class="lead">
+          Tools for building codes, contracts, energy, and audio &mdash; plus open-source
+          networking and verification code. Built solo, mostly in Rust, Python, and TypeScript.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#work">Selected work &darr;</a>
+          <a class="skipwork" href="#shelf">Browse full index &#8595;</a>
         </div>
+      </div>
 
         <div>
-          <div class="objectplate drift">
+          <div class="objectplate">
             <svg class="artlines" viewBox="0 0 320 240" aria-hidden="true">
               <!-- Coordinate Reticle & Precision Baseline -->
               <line x1="20" y1="120" x2="300" y2="120" stroke="var(--ink)" stroke-width="0.8" opacity="0.25"/>
@@ -330,9 +243,6 @@
                 <ellipse cx="160" cy="120" rx="72" ry="28" fill="none" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 3" transform="rotate(60 160 120)"/>
               </g>
 
-              <!-- Harmonic Lissajous Lemniscate Wave -->
-              <path class="ln draw" pathLength="1" d="M 115 120 C 115 82, 205 158, 205 120 C 205 82, 115 158, 115 120 Z"/>
-              
               <!-- Inner Core Resonance Focus -->
               <circle cx="160" cy="120" r="32" fill="none" stroke="var(--ink)" stroke-width="1.2" opacity="0.6"/>
               <circle cx="160" cy="120" r="18" fill="none" stroke="var(--signal)" stroke-width="1.5" stroke-dasharray="4 2"/>
@@ -348,24 +258,23 @@
               <text x="306" y="228" font-family="var(--font-mono)" font-size="7px" fill="var(--ink)" opacity="0.6" text-anchor="end">PRECISION: 10&minus;12 s</text>
             </svg>
           </div>
-          <p class="caption"><span>Plate 01 &middot; <b>resonance manifold</b></span><span>kellersystems.dev</span></p>
-        </div>
+        <p class="caption"><span>Plate 01 &middot; <b>resonance manifold</b></span><span>kellersystems.dev</span></p>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- ================== Contents: what is coming ================== -->
+  <!-- ================== Contents: selected work ================== -->
   <section class="contents" aria-label="Contents">
     <div class="contents-pin">
       <div class="wrap">
         <ol class="contents-list" id="contentsList">
-          <li data-for="ch1"><span class="cnum">01</span><span class="cname"><a href="#ch1">Vantablack</a></span><span class="ctag">Cryptography &amp; ZK</span></li>
-          <li data-for="ch2"><span class="cnum">02</span><span class="cname"><a href="#ch2">BauLens</a></span><span class="ctag">Geometric rule check</span></li>
-          <li data-for="ch3"><span class="cnum">03</span><span class="cname"><a href="#ch3">ClauseLens</a></span><span class="ctag">Deontic Logic &amp; SMT</span></li>
-          <li data-for="ch4"><span class="cnum">04</span><span class="cname"><a href="#ch4">Ambient Thermal Arbitrage</a></span><span class="ctag">Thermodynamics &amp; Energy</span></li>
-          <li data-for="ch5"><span class="cnum">05</span><span class="cname"><a href="#ch5">HoloForge</a></span><span class="ctag">Volumetric 3D printing</span></li>
+          <li data-for="ch1"><span class="cnum">01</span><span class="cname"><a href="#ch1">Vantablack</a></span><span class="ctag"><span>Cryptography &amp; ZK</span><span class="ctier">OS</span></span></li>
+          <li data-for="ch2"><span class="cnum">02</span><span class="cname"><a href="#ch2">BauLens</a></span><span class="ctag"><span>Geometric rule check</span><span class="ctier ctier-comm">COMM</span></span></li>
+          <li data-for="ch3"><span class="cnum">03</span><span class="cname"><a href="#ch3">ClauseLens</a></span><span class="ctag"><span>Deontic Logic &amp; SMT</span><span class="ctier ctier-comm">COMM</span></span></li>
+          <li data-for="ch4"><span class="cnum">04</span><span class="cname"><a href="#ch4">Ambient Thermal Arbitrage</a></span><span class="ctag"><span>Thermodynamics &amp; Energy</span><span class="ctier ctier-comm">COMM</span></span></li>
+          <li data-for="ch5"><span class="cnum">05</span><span class="cname"><a href="#ch5">HoloForge</a></span><span class="ctag"><span>Volumetric 3D printing</span><span class="ctier ctier-comm">COMM</span></span></li>
         </ol>
-        <p class="contents-intro">Five completed core engines (final stress-testing, bug hardening &amp; deployment underway).</p>
+        <p class="contents-intro">Five highlighted systems &mdash; four commercial platforms and one open-source flagship.</p>
       </div>
     </div>
   </section>
@@ -496,7 +405,7 @@
           </div>
         </div>
         <div class="chapter-body">
-          <div class="meta"><span class="chip">Cryptography &amp; privacy</span><span class="chip">Rust</span><span class="chip">Tokio async</span></div>
+          <div class="meta"><span class="chip">OS &middot; Open Source</span><span class="chip">Cryptography &amp; privacy</span><span class="chip">Rust</span><span class="chip">Tokio async</span></div>
           <h2 id="t01">Vantablack</h2>
           <p class="lede">Every message leaves by three roads at once, and no machine on any of them holds the whole thing.</p>
           <div class="blk"><h4>The problem</h4><p>A VPN provider sees every site you visit, keeps logs, and can be ordered to hand them over. Separately, traffic recorded today can be decrypted later if quantum computers get strong enough.</p></div>
@@ -618,7 +527,7 @@
           </div>
         </div>
         <div class="chapter-body">
-          <div class="meta"><span class="chip">Compliance verification</span><span class="chip">JavaScript / TS</span><span class="chip">DIN &amp; Eurocode</span></div>
+          <div class="meta"><span class="chip">COMM &middot; Commercial</span><span class="chip">Compliance verification</span><span class="chip">JavaScript / TS</span><span class="chip">DIN &amp; Eurocode</span></div>
           <h2 id="t02">BauLens</h2>
           <p class="lede">Deterministic German and EU building code compliance validation engine, checking architectural parameters before ground is broken.</p>
           <div class="blk"><h4>The problem</h4><p>Building regulations in Germany (BauGB, LBO) and European standards are intricate, distributed across state-specific ordinances, and traditionally validated through manual expert reviews. Errors caught late incur severe project delays and permit rejections.</p></div>
@@ -766,7 +675,7 @@
           </div>
         </div>
         <div class="chapter-body">
-          <div class="meta"><span class="chip">LegalTech &amp; SMT</span><span class="chip">JavaScript</span><span class="chip">Formal semantics</span></div>
+          <div class="meta"><span class="chip">COMM &middot; Commercial</span><span class="chip">LegalTech &amp; SMT</span><span class="chip">JavaScript</span><span class="chip">Formal semantics</span></div>
           <h2 id="t03">ClauseLens</h2>
           <p class="lede">Automated contract clause contradiction and risk scoring engine grounded in formal logic.</p>
           <div class="blk"><h4>The problem</h4><p>Commercial agreements hide conflicting indemnities, ambiguous termination rights, and contradictory governing law clauses across hundreds of pages of schedules and amendments.</p></div>
@@ -881,7 +790,7 @@
           </div>
         </div>
         <div class="chapter-body">
-          <div class="meta"><span class="chip">Thermodynamics &amp; Energy</span><span class="chip">Rust</span><span class="chip">Virtual battery</span></div>
+          <div class="meta"><span class="chip">COMM &middot; Commercial</span><span class="chip">Thermodynamics &amp; Energy</span><span class="chip">Rust</span><span class="chip">Virtual battery</span></div>
           <h2 id="t04">Ambient Thermal Arbitrage</h2>
           <p class="lede">Virtual battery energy management system that turns building thermal mass into high-efficiency distributed grid storage.</p>
           <div class="blk"><h4>The problem</h4><p>Electrochemical batteries (lithium-ion) carry heavy capital costs, degradation cycles, and supply chain constraints. Meanwhile, existing heat pumps and HVAC systems consume energy reactively rather than leveraging dynamic day/night thermal capacitance.</p></div>
@@ -1026,7 +935,7 @@
           </div>
         </div>
         <div class="chapter-body">
-          <div class="meta"><span class="chip">Volumetric 3D printing</span><span class="chip">Python</span><span class="chip">wave optics</span></div>
+          <div class="meta"><span class="chip">COMM &middot; Commercial</span><span class="chip">Volumetric 3D printing</span><span class="chip">Python</span><span class="chip">wave optics</span></div>
           <h2 id="t05">HoloForge</h2>
           <p class="lede">It prints the whole object at once, in the time a normal printer spends on its first hundred layers.</p>
           <div class="blk"><h4>The problem</h4><p>Layer-by-layer resin printers run for hours, leave stair-stepping striations where one layer meets the next, and print supports that have to be cut off afterwards.</p></div>
@@ -1039,227 +948,92 @@
         </div>
       </div>
     </section>
+
+    <div class="more-comm-bridge">
+      <div class="wrap">
+        <span>Also in Commercial: <strong>Aureal Watermark</strong> and <strong>TerraFlux</strong>.</span>
+        <a href="#shelf">See all 5 tiers in the index &darr;</a>
+      </div>
+    </div>
   </div>
 
-  <!-- ============================ Shelf ============================ -->
+  <!-- ============================ Shelf: Systems Index ============================ -->
   <section class="shelf" id="shelf">
     <div class="wrap">
       <div class="shelfhead">
-        <div class="shelf-focus-callout">
-          <div class="focus-pill">
-            <svg class="pulse-dot-green" width="10" height="10" viewBox="0 0 10 10" style="display:inline-block;vertical-align:middle;margin-right:5px;flex-shrink:0;" aria-hidden="true">
-              <circle cx="5" cy="5" r="3.5" fill="#2ea44f">
-                <animate attributeName="r" values="3.2;4.2;3.2" dur="1.8s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="1;0.7;1" dur="1.8s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="5" cy="5" r="4.5" fill="none" stroke="#2ea44f" stroke-width="1.2" opacity="0.8">
-                <animate attributeName="r" values="4;8.5;4" dur="1.8s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.8;0;0.8" dur="1.8s" repeatCount="indefinite"/>
-              </circle>
-            </svg>
-            <span>Sprint Focus &middot; 1 Project at a time</span>
-          </div>
-          <p class="focus-callout-desc">
-            The 5 highlighted systems are completed engines (final stress-testing, bug hardening &amp; deployment). Development proceeds strictly one system at a time. <strong>active target: <a href="https://resonance.kellersystems.dev" target="_blank" rel="noopener noreferrer" class="focus-link">AeroResonance &#8599;</a></strong>
-          </p>
-        </div>
-        <h2>The rest of the fleet</h2>
-        <p>Kernels, protocols, solvers, and instruments across 35 independent systems. Some systems are source-available to encourage verification and community improvements.</p>
+        <h2>Systems index</h2>
+        <p>All 35 systems, ordered by track &mdash; commercial platforms, open-source codebases, active prototypes, research proofs, and archived work.</p>
       </div>
-      <div class="grid" id="moreGrid">
-        <a class="tile" href="https://abos.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">A</span>
-          <h3>ABOS</h3>
-          <p class="tile-desc">Atmospheric Broadcast OS: an SDR and radio-level fallback for internet access, carried by Vantablack as an opt-in submodule</p>
-          <span class="tilemeta">Real-time / OS &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://aero.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">A</span>
-          <h3>AeroDose</h3>
-          <p class="tile-desc">Occupational wildfire PM2.5 shift dose and compliance ledger</p>
-          <span class="tilemeta">Real-time / OS &middot; Rust</span>
-        </a>
-        <a class="tile tile-focus" id="aeroresonance" href="https://resonance.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-focus-badge">
-            <svg class="pulse-dot-green" width="10" height="10" viewBox="0 0 10 10" style="display:inline-block;vertical-align:middle;margin-right:5px;flex-shrink:0;" aria-hidden="true">
-              <circle cx="5" cy="5" r="3.5" fill="#2ea44f">
-                <animate attributeName="r" values="3.2;4.2;3.2" dur="1.8s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="1;0.7;1" dur="1.8s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="5" cy="5" r="4.5" fill="none" stroke="#2ea44f" stroke-width="1.2" opacity="0.8">
-                <animate attributeName="r" values="4;8.5;4" dur="1.8s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.8;0;0.8" dur="1.8s" repeatCount="indefinite"/>
-              </circle>
-            </svg>
-            In Progress
-          </span>
-          <span class="tile-mark" aria-hidden="true">A</span>
-          <h3>AeroResonance</h3>
-          <p class="tile-desc">Atmospheric electromagnetic and acoustic resonance energy harvester</p>
-          <span class="tilemeta">Systems &amp; Rust &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://supply.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">A</span>
-          <h3>Algorithmic Supply Chain Arbitrage</h3>
-          <p class="tile-desc">Algorithmic Supply Chain Arbitrage and multi-modal freight routing engine</p>
-          <span class="tilemeta">Systems &amp; Rust &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://amt.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">A</span>
-          <h3>AmtFlow</h3>
-          <p class="tile-desc">Kostenloser, lokaler Assistent fuer deutsche Behoerdenbriefe mit OCR-Texterkennung, Fristberechnung, 20 Sprachen und DIN 5008 Antwortschreiben.</p>
-          <span class="tilemeta">Applied systems &middot; JavaScript</span>
-        </a>
-        <a class="tile" href="https://aquamof.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">A</span>
-          <h3>AquaMOF</h3>
-          <p class="tile-desc">Passive atmospheric water harvester using MOF-303 isotherm thermodynamics</p>
-          <span class="tilemeta">Systems &amp; Rust &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://aureal.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">A</span>
-          <h3>Aureal Watermark</h3>
-          <p class="tile-desc">Audio watermarking for anti-theft and AI detection</p>
-          <span class="tilemeta">Applied systems &middot; HTML</span>
-        </a>
-        <a class="tile" href="https://pod.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">A</span>
-          <h3>AutoPoD</h3>
-          <p class="tile-desc">Autonomous Proof-of-Damage layer with cryptographic incident audit</p>
-          <span class="tilemeta">Systems &amp; Rust &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://city.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">C</span>
-          <h3>CityOS</h3>
-          <p class="tile-desc">Decentralized civic infrastructure and urban resource routing engine</p>
-          <span class="tilemeta">Real-time / OS &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://credit.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">D</span>
-          <h3>Decentralized Sovereign Credit Mesh</h3>
-          <p class="tile-desc">Decentralized Sovereign Credit Mesh using zero-knowledge proofs and web-of-trust vouching</p>
-          <span class="tilemeta">Cryptography &amp; ZK &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://dps.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">D</span>
-          <h3>Differential Privacy Synthesizer</h3>
-          <p class="tile-desc">Differential Privacy Synthesizer with bounded epsilon privacy leak budgets</p>
-          <span class="tilemeta">Cryptography &amp; ZK &middot; Python</span>
-        </a>
-        <a class="tile" href="https://patent.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">F</span>
-          <h3>FluidIP</h3>
-          <p class="tile-desc">Decoupled Fluid IP routing protocol and packet mesh</p>
-          <span class="tilemeta">Systems &amp; Rust &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://veritas.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">F</span>
-          <h3>Formal Verification</h3>
-          <p class="tile-desc">High-assurance engineering codebase and research implementation.</p>
-          <span class="tilemeta">Systems &amp; Rust &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://fhe.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">H</span>
-          <h3>Homomorphic Database</h3>
-          <p class="tile-desc">Homomorphic Encrypted Database (FHE-DB): Relational queries on ciphertext</p>
-          <span class="tilemeta">Cryptography &amp; ZK &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://kernel.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">K</span>
-          <h3>KELLER-OS</h3>
-          <p class="tile-desc">High-assurance engineering codebase and research implementation.</p>
-          <span class="tilemeta">Real-time / OS &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://muon.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">M</span>
-          <h3>MuonScope Tomography</h3>
-          <p class="tile-desc">MuonScope™: Cosmic-Ray Muon Scattering Tomography Digital Twin, 3D Inversion Engine &amp; Silicon FPGA Architecture</p>
-          <span class="tilemeta">Applied systems &middot; Python</span>
-        </a>
-        <a class="tile" href="https://bio.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">M</span>
-          <h3>MycoSwarm</h3>
-          <p class="tile-desc">Mycelium biological network computation and bio-routing simulator</p>
-          <span class="tilemeta">Real-time / OS &middot; TypeScript</span>
-        </a>
-        <a class="tile" href="https://kinematics.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">O</span>
-          <h3>OP-Roboter</h3>
-          <p class="tile-desc">Robotic surgical teleoperation and real-time kinematic safety kernel</p>
-          <span class="tilemeta">Real-time / OS &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://pulse.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">P</span>
-          <h3>PacePulse</h3>
-          <p class="tile-desc">Zero-latency medical telemetry and cardiac rhythm monitoring platform</p>
-          <span class="tilemeta">Applied systems &middot; Python</span>
-        </a>
-        <a class="tile" href="https://plane.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">P</span>
-          <h3>PlaneOS</h3>
-          <p class="tile-desc">Avionics real-time operating system and flight envelope safety supervisor</p>
-          <span class="tilemeta">Real-time / OS &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://pem.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">P</span>
-          <h3>Planetary Entropy Mining</h3>
-          <p class="tile-desc">Certificates grounded in a measured window of physical noise, with a zero-knowledge proof of honest capture that hides the node&#39;s location</p>
-          <span class="tilemeta">Cryptography &amp; ZK &middot; Python</span>
-        </a>
-        <a class="tile" href="https://github.com/KELLERBABG/QEL" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">Q</span>
-          <h3>Quantum Entanglement Link</h3>
-          <p class="tile-desc">Quantum communication network simulation stack: density-matrix states and noise, QKD and error-correcting codes, and fidelity-constrained repeater routing over a mesh topology</p>
-          <span class="tilemeta">Cryptography &amp; ZK &middot; Python</span>
-        </a>
-        <a class="tile" href="https://smart-matter.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">S</span>
-          <h3>Smart Matter</h3>
-          <p class="tile-desc">High-assurance engineering codebase and research implementation.</p>
-          <span class="tilemeta">Systems &amp; Rust &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://enclave.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">S</span>
-          <h3>SMPC Dark Pool</h3>
-          <p class="tile-desc">Secure Multi-Party Computation Dark Pool with differential privacy guarantees</p>
-          <span class="tilemeta">Cryptography &amp; ZK &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://citadel.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">S</span>
-          <h3>SybilGuard</h3>
-          <p class="tile-desc">Zero-knowledge Sybil-resistant Proof-of-Personhood biometric protocol</p>
-          <span class="tilemeta">Cryptography &amp; ZK &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://axiom.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">S</span>
-          <h3>SymEx EVM</h3>
-          <p class="tile-desc">Symbolic execution engine for EVM bytecode vulnerability detection and SMT verification</p>
-          <span class="tilemeta">Cryptography &amp; ZK &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://terra.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">T</span>
-          <h3>TerraFlux</h3>
-          <p class="tile-desc">Precision autonomous soil moisture micro-irrigation controller</p>
-          <span class="tilemeta">Applied systems &middot; Python</span>
-        </a>
-        <a class="tile" href="https://trade.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">T</span>
-          <h3>TradeShield</h3>
-          <p class="tile-desc">Zero-fraud DEX wash-trading detector and volume integrity ledger</p>
-          <span class="tilemeta">Cryptography &amp; ZK &middot; TypeScript</span>
-        </a>
-        <a class="tile" href="https://transit.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">T</span>
-          <h3>TransitOS</h3>
-          <p class="tile-desc">Autonomous public transit fleet scheduling and demand-responsive routing kernel</p>
-          <span class="tilemeta">Real-time / OS &middot; Rust</span>
-        </a>
-        <a class="tile" href="https://zkg.kellersystems.dev" target="_blank" rel="noopener noreferrer">
-          <span class="tile-mark" aria-hidden="true">Z</span>
-          <h3>Zero Knowledge Genome</h3>
-          <p class="tile-desc">Zero-Knowledge Genome: Private biological sequence matching and genomic proofs</p>
-          <span class="tilemeta">Cryptography &amp; ZK &middot; Rust</span>
-        </a>
+
+      <div id="indexLive" class="sr-only" aria-live="polite"></div>
+
+      <div class="index-bar">
+        <div class="tier-tabs" id="tierTabs" role="group" aria-label="Filter systems by tier">
+          <button type="button" class="tier-tab" data-tier="ALL" aria-pressed="true">All <span class="tab-n">35</span></button>
+          <button type="button" class="tier-tab" data-tier="COMM" aria-pressed="false">COMM <span class="tab-n">06</span></button>
+          <button type="button" class="tier-tab" data-tier="OS" aria-pressed="false">OS <span class="tab-n">11</span></button>
+          <button type="button" class="tier-tab" data-tier="PoC" aria-pressed="false">PoC <span class="tab-n">02</span></button>
+          <button type="button" class="tier-tab" data-tier="PoK" aria-pressed="false">PoK <span class="tab-n">06</span></button>
+          <button type="button" class="tier-tab" data-tier="ARCHIVE" aria-pressed="false">ARCHIVE <span class="tab-n">10</span></button>
+        </div>
+        <label for="indexSearch" class="sr-only">Filter systems</label>
+        <input id="indexSearch" type="search" class="index-search" placeholder="Filter by name, stack, domain..." />
+      </div>
+
+      <div id="indexEmpty" class="index-empty" hidden>
+        No matching systems.
+        <button type="button" id="indexReset" class="index-reset">Reset</button>
+      </div>
+
+      <div id="tierRegistry">
+        <div class="tier-band" id="tier-comm">
+          <div class="tier-head tier-head-comm">
+            <div class="tier-title-group">
+              <span class="tier-code tier-code-comm">COMM</span>
+              <h3 class="tier-name">Commercial</h3>
+              <span class="tier-sub">Platforms built for commercial use and pilots</span>
+            </div>
+            <span class="tier-count">06</span>
+          </div>
+          <div class="idx-grid idx-grid-3">
+            <article class="idx-card idx-card-comm">
+              <div class="idx-card-top"><span class="idx-head-mark" aria-hidden="true">B</span></div>
+              <h3 class="idx-title"><a href="https://lens.kellersystems.dev" target="_blank" rel="noopener noreferrer">BauLens</a></h3>
+              <p class="idx-desc">Checks a building plan against German, Austrian, and Swiss building codes before construction starts.</p>
+              <div class="idx-foot"><span>Building Codes &middot; JavaScript</span><span class="idx-link" aria-hidden="true">&#8599;</span></div>
+            </article>
+            <article class="idx-card idx-card-comm">
+              <div class="idx-card-top"><span class="idx-head-mark" aria-hidden="true">C</span></div>
+              <h3 class="idx-title"><a href="https://clause.kellersystems.dev" target="_blank" rel="noopener noreferrer">ClauseLens</a></h3>
+              <p class="idx-desc">Scans contracts offline for auto-renewal traps, one-sided liability clauses, and contradictions, then suggests cleaner wording.</p>
+              <div class="idx-foot"><span>Contracts &middot; JavaScript</span><span class="idx-link" aria-hidden="true">&#8599;</span></div>
+            </article>
+            <article class="idx-card idx-card-comm">
+              <div class="idx-card-top"><span class="idx-head-mark" aria-hidden="true">A</span></div>
+              <h3 class="idx-title"><a href="https://ambient.kellersystems.dev" target="_blank" rel="noopener noreferrer">Ambient Thermal Arbitrage</a></h3>
+              <p class="idx-desc">Uses the heating and cooling inertia of industrial buildings as a virtual battery to shift power use to cheaper hours.</p>
+              <div class="idx-foot"><span>Energy &middot; Rust</span><span class="idx-link" aria-hidden="true">&#8599;</span></div>
+            </article>
+            <article class="idx-card idx-card-comm">
+              <div class="idx-card-top"><span class="idx-head-mark" aria-hidden="true">H</span></div>
+              <h3 class="idx-title"><a href="https://holoforge.kellersystems.dev" target="_blank" rel="noopener noreferrer">HoloForge</a></h3>
+              <p class="idx-desc">Projects light from multiple angles into resin to cure a whole 3D-printed part at once, with a full laptop optical simulator.</p>
+              <div class="idx-foot"><span>3D Printing &middot; Python</span><span class="idx-link" aria-hidden="true">&#8599;</span></div>
+            </article>
+            <article class="idx-card idx-card-comm">
+              <div class="idx-card-top"><span class="idx-head-mark" aria-hidden="true">A</span></div>
+              <h3 class="idx-title"><a href="https://aureal.kellersystems.dev" target="_blank" rel="noopener noreferrer">Aureal Watermark</a></h3>
+              <p class="idx-desc">Hides a subtle 32-bit ID inside audio tracks so you can trace ownership or recover provenance after edits and compression.</p>
+              <div class="idx-foot"><span>Audio DSP &middot; HTML</span><span class="idx-link" aria-hidden="true">&#8599;</span></div>
+            </article>
+            <article class="idx-card idx-card-comm">
+              <div class="idx-card-top"><span class="idx-head-mark" aria-hidden="true">T</span></div>
+              <h3 class="idx-title"><a href="https://terra.kellersystems.dev" target="_blank" rel="noopener noreferrer">TerraFlux</a></h3>
+              <p class="idx-desc">Combines cheap soil moisture probes with weather forecasts and sends farmers one daily Telegram note on when and how long to irrigate.</p>
+              <div class="idx-foot"><span>Irrigation &middot; Python</span><span class="idx-link" aria-hidden="true">&#8599;</span></div>
+            </article>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1282,8 +1056,8 @@
           <p>The kernel, the protocol layers and the domain surface are held to one engineering standard.</p>
         </article>
         <article class="principle">
-          <b>Open research &amp; verification</b>
-          <p>Selected systems are made open source or source-available to encourage independent verification and community improvements, alongside dedicated live runtimes.</p>
+          <b>Clear boundaries</b>
+          <p>Commercial platforms, open-source infrastructure, active prototypes, and research studies are separated openly so nobody has to guess what is production-ready.</p>
         </article>
       </div>
     </div>
@@ -1367,11 +1141,11 @@
   <div class="wrap footrow">
     <div>
       <p class="footword">Keller Systems</p>
-      <p class="footmeta">Independent R&amp;D &middot; kellersystems.dev &middot; <span id="totalLine">systems published</span></p>
+      <p class="footmeta">Independent R&amp;D &middot; kellersystems.dev</p>
     </div>
     <div class="footlinks">
-      <a class="btn btn-quiet btn-sm" href="#work">Work</a>
-      <a class="btn btn-quiet btn-sm" href="#shelf">All systems</a>
+      <a class="btn btn-quiet btn-sm" href="#work">Selected work</a>
+      <a class="btn btn-quiet btn-sm" href="#shelf">Systems index</a>
       <a class="btn btn-quiet btn-sm" href="#about">About</a>
       <a class="btn btn-quiet btn-sm" href="#contact">Contact</a>
       <a class="btn btn-quiet btn-sm" href="/impressum/">Impressum</a>
@@ -1381,10 +1155,10 @@
   </div>
 </footer>
 
-<div class="chapterlabel" id="chapterLabel" aria-hidden="true"><b>01</b> <span>Global Ghost Net</span></div>
+<div class="chapterlabel" id="chapterLabel" aria-hidden="true"><b>01</b> <span>Vantablack</span></div>
 
-<script src="data.js?v=9.6"></script>
-<script src="script.js?v=9.6"></script>
+<script src="data.js?v=11.0"></script>
+<script src="script.js?v=11.1"></script>
 <script src="/assets/chat.js" defer></script>
 </body>
 </html>

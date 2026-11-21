@@ -18,8 +18,8 @@
 
   var DATA = (typeof REPOSITORIES !== 'undefined' && Array.isArray(REPOSITORIES))
     ? REPOSITORIES.slice() : [];
-  var FEATURED = ['Vantablack', 'BauLens', 'ClauseLens', 'Ambient Thermal Arbitrage', 'HoloForge'];
-  var DOMAIN_LABEL = { Crypto: 'Cryptography & ZK', OS: 'Real-time / OS', Rust: 'Systems & Rust', General: 'Applied systems' };
+  var TIER_LIST = (typeof TIERS !== 'undefined' && Array.isArray(TIERS))
+    ? TIERS.slice() : [];
 
   function esc(v) {
     return String(v == null ? '' : v)
@@ -30,64 +30,200 @@
     var m = String(name || '').match(/[A-Za-z0-9]/);
     return m ? m[0].toUpperCase() : '?';
   }
+  function pad2(n) { return n < 10 ? '0' + n : String(n); }
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
 
-  /* --- 1. Shelf + the single total, from the registry ------------------- */
-  function renderShelf() {
-    var host = document.getElementById('moreGrid');
-    if (!host || !DATA.length) return;
-    var rest = DATA
-      .filter(function (r) {
-        return FEATURED.indexOf(r.name) === -1 &&
-               FEATURED.indexOf(r.raw_name) === -1 &&
-               r.name !== 'LexiClear';
-      })
-      .sort(function (a, b) { return a.name.localeCompare(b.name, 'en'); });
-    var tilesHtml = rest.map(function (r) {
-      var isFocus = (r.name === 'AeroResonance');
-      var badge = isFocus
-        ? '<span class="tile-focus-badge">' +
-            '<svg class="pulse-dot-green" width="10" height="10" viewBox="0 0 10 10" style="display:inline-block;vertical-align:middle;margin-right:5px;flex-shrink:0;" aria-hidden="true">' +
-              '<circle cx="5" cy="5" r="3.5" fill="#2ea44f">' +
-                '<animate attributeName="r" values="3.2;4.2;3.2" dur="1.8s" repeatCount="indefinite"/>' +
-                '<animate attributeName="opacity" values="1;0.7;1" dur="1.8s" repeatCount="indefinite"/>' +
-              '</circle>' +
-              '<circle cx="5" cy="5" r="4.5" fill="none" stroke="#2ea44f" stroke-width="1.2" opacity="0.8">' +
-                '<animate attributeName="r" values="4;8.5;4" dur="1.8s" repeatCount="indefinite"/>' +
-                '<animate attributeName="opacity" values="0.8;0;0.8" dur="1.8s" repeatCount="indefinite"/>' +
-              '</circle>' +
-            '</svg>' +
-            'In Progress' +
-          '</span>'
-        : '';
-      var extraClass = isFocus ? ' tile-focus' : '';
-      return '<a class="tile' + extraClass + '" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">' +
-        badge +
-        '<span class="tile-mark" aria-hidden="true">' + esc(initial(r.name)) + '</span>' +
-        '<h3>' + esc(r.name) + '</h3>' +
-        (r.description ? '<p class="tile-desc">' + esc(r.description) + '</p>' : '') +
-        '<span class="tilemeta">' + esc(DOMAIN_LABEL[r.category] || r.category || '') +
-          ' &middot; ' + esc(r.language || '') + '</span>' +
-        '</a>';
+  /* --- 1. Tiered Systems Index + footer count, from the registry -------- */
+  var activeTier = 'ALL';
+  var searchQuery = '';
+
+  function matchesSearch(item, q) {
+    if (!q) return true;
+    var hay = [item.name, item.raw_name, item.tier, item.domain, item.language, item.description]
+      .join(' ').toLowerCase();
+    return hay.indexOf(q) !== -1;
+  }
+
+  function renderCard(item, tierId) {
+    var isComm = tierId === 'COMM';
+    var isPoC = tierId === 'PoC';
+    var isOS = tierId === 'OS';
+    var cls = 'idx-card' + (isComm ? ' idx-card-comm' : '') + (isPoC ? ' idx-card-poc' : '');
+
+    var footerLinks = isOS && item.github_url
+      ? '<div class="idx-actions">' +
+          '<a class="idx-link" href="' + esc(item.url) + '" target="_blank" rel="noopener noreferrer">Live &#8599;</a>' +
+          '<a class="idx-link idx-link-accent" href="' + esc(item.github_url) + '" target="_blank" rel="noopener noreferrer">Source &#8599;</a>' +
+        '</div>'
+      : '<span class="idx-link" aria-hidden="true">&#8599;</span>';
+
+    return '<article class="' + cls + '">' +
+      '<div class="idx-card-top">' +
+        '<span class="idx-head-mark" aria-hidden="true">' + esc(initial(item.name)) + '</span>' +
+      '</div>' +
+      '<h3 class="idx-title">' +
+        '<a href="' + esc(item.url) + '" target="_blank" rel="noopener noreferrer">' + esc(item.name) + '</a>' +
+      '</h3>' +
+      (item.description ? '<p class="idx-desc">' + esc(item.description) + '</p>' : '') +
+      '<div class="idx-foot">' +
+        '<span>' + esc(item.domain || '') + ' &middot; ' + esc(item.language || '') + '</span>' +
+        footerLinks +
+      '</div>' +
+    '</article>';
+  }
+
+  function renderArchiveBand(tier, items, autoOpen) {
+    var rows = items.map(function (item) {
+      return '<a class="archive-row" href="' + esc(item.url) + '" target="_blank" rel="noopener noreferrer">' +
+        '<span class="ar-name">' + esc(item.name) + '</span>' +
+        '<span class="ar-desc">' + esc(item.description || '') + '</span>' +
+        '<span class="ar-meta">' + esc(item.language || '') + '</span>' +
+        '<span class="ar-meta" aria-hidden="true">&#8599;</span>' +
+      '</a>';
     }).join('');
 
-    host.innerHTML = tilesHtml;
-  }
-  function renderTotal() {
-    var el = document.getElementById('totalLine');
-    if (el && DATA.length) el.textContent = DATA.length + ' systems published to date';
+    return '<div class="tier-band" id="tier-archive">' +
+      '<details class="archive-box"' + (autoOpen ? ' open' : '') + '>' +
+        '<summary>' +
+          '<div class="tier-title-group">' +
+            '<span class="tier-code">ARCHIVE</span>' +
+            '<h3 class="tier-name" style="font-size:1.05rem;">' + esc(tier.label) + '</h3>' +
+            '<span class="tier-sub">' + esc(tier.sub) + '</span>' +
+          '</div>' +
+          '<span class="archive-toggle">' + pad2(items.length) + ' systems &middot; Toggle</span>' +
+        '</summary>' +
+        '<div class="archive-rows">' + rows + '</div>' +
+      '</details>' +
+    '</div>';
   }
 
-  /* --- 2. Scrub layer --------------------------------------------------- */
-  var heroInner = document.querySelector('.hero-inner');
-  var heroDraws = Array.prototype.slice.call(document.querySelectorAll('.sheet .draw'));
+  function updateTabCounts() {
+    var tabsEl = document.getElementById('tierTabs');
+    if (!tabsEl || !DATA.length) return;
+    var counts = { ALL: DATA.length };
+    DATA.forEach(function (item) {
+      counts[item.tier] = (counts[item.tier] || 0) + 1;
+    });
+    var buttons = tabsEl.querySelectorAll('[data-tier]');
+    for (var i = 0; i < buttons.length; i++) {
+      var id = buttons[i].getAttribute('data-tier');
+      var badge = buttons[i].querySelector('.tab-n');
+      if (badge && typeof counts[id] === 'number') {
+        badge.textContent = id === 'ALL' ? String(counts[id]) : pad2(counts[id]);
+      }
+    }
+  }
+
+  function renderIndex(skipRemeasure) {
+    var host = document.getElementById('tierRegistry');
+    if (!host || !DATA.length || !TIER_LIST.length) return;
+    var q = searchQuery.trim().toLowerCase();
+    var emptyEl = document.getElementById('indexEmpty');
+    var html = [];
+    var shown = 0;
+
+    TIER_LIST.forEach(function (tier) {
+      if (activeTier !== 'ALL' && activeTier !== tier.id) return;
+      var items = DATA.filter(function (r) {
+        return r.tier === tier.id && matchesSearch(r, q);
+      });
+      if (!items.length) return;
+      shown += items.length;
+
+      if (tier.id === 'ARCHIVE') {
+        var openArchive = activeTier === 'ARCHIVE' || Boolean(q) || window.location.hash.toLowerCase() === '#tier-archive';
+        html.push(renderArchiveBand(tier, items, openArchive));
+        return;
+      }
+
+      var gridCls = tier.id === 'PoC' ? 'idx-grid idx-grid-2' : 'idx-grid idx-grid-3';
+      var headCls = tier.id === 'COMM' ? 'tier-head tier-head-comm' : 'tier-head';
+      var codeCls = tier.id === 'COMM'
+        ? 'tier-code tier-code-comm'
+        : (tier.id === 'OS' ? 'tier-code tier-code-os' : 'tier-code');
+
+      html.push(
+        '<div class="tier-band" id="tier-' + esc(tier.id.toLowerCase()) + '">' +
+          '<div class="' + headCls + '">' +
+            '<div class="tier-title-group">' +
+              '<span class="' + codeCls + '">' + esc(tier.id) + '</span>' +
+              '<h3 class="tier-name">' + esc(tier.label) + '</h3>' +
+              '<span class="tier-sub">' + esc(tier.sub) + '</span>' +
+            '</div>' +
+            '<span class="tier-count">' + pad2(items.length) + '</span>' +
+          '</div>' +
+          '<div class="' + gridCls + '">' +
+            items.map(function (it) { return renderCard(it, tier.id); }).join('') +
+          '</div>' +
+        '</div>'
+      );
+    });
+
+    host.innerHTML = html.join('');
+    if (emptyEl) emptyEl.hidden = shown > 0;
+
+    var archiveDetails = host.querySelector('.archive-box');
+    if (archiveDetails) {
+      archiveDetails.addEventListener('toggle', remeasure);
+    }
+    if (!skipRemeasure) remeasure();
+  }
+
+  function initIndexControls() {
+    var tabsEl = document.getElementById('tierTabs');
+    var searchEl = document.getElementById('indexSearch');
+    var resetEl = document.getElementById('indexReset');
+    var liveEl = document.getElementById('indexLive');
+
+    function setActiveTab(tierId) {
+      activeTier = tierId;
+      if (tabsEl) {
+        var btns = tabsEl.querySelectorAll('[data-tier]');
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].setAttribute('aria-pressed', String(btns[i].getAttribute('data-tier') === tierId));
+        }
+      }
+      renderIndex();
+      if (liveEl) liveEl.textContent = 'Showing ' + (tierId === 'ALL' ? 'all' : tierId) + ' systems';
+    }
+
+    if (tabsEl) {
+      tabsEl.addEventListener('click', function (e) {
+        var btn = e.target.closest ? e.target.closest('[data-tier]') : null;
+        if (!btn) return;
+        setActiveTab(btn.getAttribute('data-tier'));
+      });
+    }
+
+    if (searchEl) {
+      searchEl.addEventListener('input', function () {
+        searchQuery = searchEl.value;
+        renderIndex();
+      });
+    }
+
+    if (resetEl) {
+      resetEl.addEventListener('click', function () {
+        searchQuery = '';
+        if (searchEl) searchEl.value = '';
+        setActiveTab('ALL');
+      });
+    }
+
+    window.addEventListener('hashchange', function () {
+      if (window.location.hash.toLowerCase() === '#tier-archive') {
+        var details = document.querySelector('#tier-archive .archive-box');
+        if (details && !details.open) {
+          details.open = true;
+          remeasure();
+        }
+      }
+    });
+  }
+
+  /* --- 2. Reading progress rail ----------------------------------------- */
   var railFill = document.querySelector('.progress-fill');
-  var scrubbed = Array.prototype.slice.call(document.querySelectorAll('.draw, .drift'))
-    .filter(function (el) { return !el.closest('.sheet'); });
-  var cache = [];
 
-  /* Layout position, deliberately not getBoundingClientRect: a transform must
-     never feed back into the progress value that produced it. */
   function docTop(el) {
     var t = 0;
     var node = el;
@@ -95,57 +231,10 @@
     return t;
   }
 
-  /* SVG elements have no offsetTop/offsetHeight, so a scrubbed <path> is
-     measured through its nearest HTML ancestor (the plate it is drawn in). */
-  function hostOf(el) {
-    var node = el;
-    while (node && typeof node.offsetTop !== 'number') { node = node.parentNode; }
-    return node || el;
-  }
-
-  function measure() {
-    cache = scrubbed.map(function (el) {
-      var host = hostOf(el);
-      return {
-        el: el,
-        kind: el.classList.contains('draw') ? 'draw' : 'drift',
-        top: docTop(host),
-        h: host.offsetHeight || 1
-      };
-    });
-    frame();
-  }
-
   function frame() {
     if (!root.classList.contains('motion-on')) return;
     var vh = window.innerHeight;
     var y = window.scrollY;
-
-    /* The pinned sheet eases over one full viewport of scroll, and only to
-       half opacity: dimming harder or faster turns the hero copy grey while
-       it is still the thing being read. The values published are finished
-       ones — no calc() in the stylesheet — because stroke-dashoffset would
-       not resolve a calc() here. */
-    var hp = clamp(y / (vh || 1));
-    if (heroInner) {
-      heroInner.style.setProperty('--hero-op', (1 - hp * 0.5).toFixed(3));
-      heroInner.style.setProperty('--hero-scale', (1 - hp * 0.03).toFixed(4));
-    }
-    for (var h = 0; h < heroDraws.length; h++) {
-      heroDraws[h].style.setProperty('--dash', (1 - clamp((hp - 0.06) / 0.7)).toFixed(4));
-    }
-
-    /* everything below: 0 when the element's top reaches the viewport bottom,
-       1 when its bottom reaches the viewport top */
-    for (var i = 0; i < cache.length; i++) {
-      var t = cache[i];
-      var p = clamp((y + vh - t.top) / (vh + t.h));
-      if (t.kind === 'draw') {
-        t.el.style.setProperty('--dash', (1 - clamp((p - 0.12) / 0.6)).toFixed(4));
-      } else {
-        t.el.style.setProperty('--drift-y', ((p - 0.5) * 4.4).toFixed(3) + '%');
-      }
-    }
 
     if (railFill) {
       var max = root.scrollHeight - vh;
@@ -155,17 +244,7 @@
     updateTicks();
   }
 
-  function resetScrub() {
-    /* `scrubbed` holds elements; `cache` holds the measurement records. */
-    scrubbed.forEach(function (el) {
-      el.style.removeProperty('--dash');
-      el.style.removeProperty('--drift-y');
-    });
-    heroDraws.forEach(function (el) { el.style.removeProperty('--dash'); });
-    if (heroInner) {
-      heroInner.style.removeProperty('--hero-op');
-      heroInner.style.removeProperty('--hero-scale');
-    }
+  function resetRail() {
     if (railFill) railFill.style.removeProperty('--rail');
   }
 
@@ -183,13 +262,13 @@
     if (note) {
       note.textContent = on
         ? (reduce
-            ? 'scroll story on, overriding your system motion setting'
-            : 'scroll-driven, following your system motion setting')
+            ? 'motion on, overriding your system motion setting'
+            : 'motion on, following your system motion setting')
         : (reduce
-            ? 'your system asks for reduced motion \u2014 switch Motion on for the full story'
+            ? 'your system asks for reduced motion'
             : 'motion is off');
     }
-    if (on) { measure(); } else { resetScrub(); }
+    if (on) { frame(); } else { resetRail(); }
   }
 
   /* --- 4. Progress-rail ticks ------------------------------------------- */
@@ -261,14 +340,15 @@
      about and safe. Native scrolling is never intercepted. */
   window.addEventListener('scroll', frame, { passive: true });
 
-  function remeasure() { layoutTicks(); measure(); }
+  function remeasure() { layoutTicks(); frame(); }
   window.addEventListener('resize', remeasure);
   window.addEventListener('load', remeasure);
   if (document.fonts && document.fonts.ready) { document.fonts.ready.then(remeasure); }
 
   /* --- boot ------------------------------------------------------------- */
-  renderShelf();
-  renderTotal();
+  updateTabCounts();
+  renderIndex(true);
+  initIndexControls();
   layoutTicks();
   initSpy();
   setMotion(!reduce);
