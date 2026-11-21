@@ -249,29 +249,13 @@
   }
 
   /* --- 3. Motion gate --------------------------------------------------- */
-  var toggle = document.getElementById('motionToggle');
-  var note = document.getElementById('motionNote');
-
   function setMotion(on) {
     root.classList.toggle('motion-on', on);
     root.setAttribute('data-motion', on ? 'on' : 'off');
-    if (toggle) {
-      toggle.setAttribute('aria-pressed', String(on));
-      toggle.textContent = on ? 'Motion: on' : 'Motion: off';
-    }
-    if (note) {
-      note.textContent = on
-        ? (reduce
-            ? 'motion on, overriding your system motion setting'
-            : 'motion on, following your system motion setting')
-        : (reduce
-            ? 'your system asks for reduced motion'
-            : 'motion is off');
-    }
     if (on) { frame(); } else { resetRail(); }
   }
 
-  /* --- 4. Theme toggle (Light <-> Dusty Mauve Dark) -------------------- */
+  /* --- 4. Theme toggle (Light <-> Dusty Mauve Dark, circular reveal) ---- */
   var themeBtn = document.getElementById('themeToggle');
   var themeMeta = document.getElementById('themeColorMeta');
 
@@ -293,14 +277,48 @@
     }
   }
 
+  function toggleThemeAnimated() {
+    var nextDark = root.getAttribute('data-theme') !== 'dark';
+    if (reduce || typeof document.startViewTransition !== 'function' || !themeBtn) {
+      setTheme(nextDark, true);
+      return;
+    }
+
+    var rect = themeBtn.getBoundingClientRect();
+    var x = rect.left + rect.width / 2;
+    var y = rect.top + rect.height / 2;
+    var endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    var transition = document.startViewTransition(function () {
+      setTheme(nextDark, true);
+    });
+
+    transition.ready.then(function () {
+      root.animate(
+        {
+          clipPath: [
+            'circle(0px at ' + x + 'px ' + y + 'px)',
+            'circle(' + endRadius + 'px at ' + x + 'px ' + y + 'px)'
+          ]
+        },
+        {
+          duration: 460,
+          easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
+          pseudoElement: '::view-transition-new(root)'
+        }
+      );
+    });
+  }
+
   (function initTheme() {
     var saved = null;
     try { saved = localStorage.getItem('ks-theme'); } catch (e) {}
     setTheme(saved === 'dark', false);
     if (themeBtn) {
-      themeBtn.addEventListener('click', function () {
-        setTheme(root.getAttribute('data-theme') !== 'dark', true);
-      });
+      themeBtn.addEventListener('click', toggleThemeAnimated);
     }
   })();
 
@@ -385,9 +403,4 @@
   layoutTicks();
   initSpy();
   setMotion(!reduce);
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      setMotion(!root.classList.contains('motion-on'));
-    });
-  }
 })();

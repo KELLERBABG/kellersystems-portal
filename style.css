@@ -134,11 +134,15 @@
   background: #2e212c !important;
   border-color: var(--hair) !important;
 }
-[data-theme="dark"] .motion-toggle:hover {
-  background: var(--signal);
-  color: #261a24;
-  border-color: var(--signal);
+
+/* Circular theme reveal via View Transitions API */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
 
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; padding: 0; }
@@ -917,20 +921,6 @@ html:not(.motion-on) .ts * {
   .prim { grid-template-columns: 1fr; gap: 0.2rem; }
   .contents-pin { padding-block: clamp(28px, 6vw, 44px); }
 }
-
-/* --- Motion switch, in the header on the live site ---------------------- */
-.motion-toggle {
-  display: inline-flex; align-items: center; justify-content: center;
-  height: 32px; padding: 0 0.72rem;
-  font-family: var(--font-mono); font-size: 0.6875rem; text-transform: uppercase;
-  letter-spacing: 0.08em; line-height: 1; background: var(--plate); color: var(--ink-2);
-  border: 1.5px solid var(--ink); cursor: pointer; white-space: nowrap;
-  transition: background-color 0.16s, color 0.16s;
-}
-.motion-toggle:hover { background: var(--ink); color: var(--paper); }
-.motion-toggle[aria-pressed="true"] { background: var(--ink); color: var(--signal); border-color: var(--ink); }
-[data-theme="dark"] .motion-toggle[aria-pressed="true"] { background: var(--deep); color: var(--signal); border-color: var(--hair); }
-@media (max-width: 1000px) { .motion-toggle { display: none; } }
 
 /* ---- Chapter anatomy: lede, then the five labelled blocks ------------- */
 .chapter-grid { align-items: start; }
