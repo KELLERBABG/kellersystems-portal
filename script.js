@@ -315,14 +315,14 @@
         {
           clipPath: [
             makePaintPolygon(x, y, 0, 0, 0, phase),
-            makePaintPolygon(x, y, endRadius * 0.16, 0.22, 0.28, phase),
-            makePaintPolygon(x, y, endRadius * 0.56, 0.18, 0.34, phase + 0.35),
-            makePaintPolygon(x, y, endRadius * 1.35, 0.06, 0.08, phase + 0.5)
+            makePaintPolygon(x, y, endRadius * 0.14, 0.26, 0.34, phase),
+            makePaintPolygon(x, y, endRadius * 0.54, 0.22, 0.42, phase + 0.4),
+            makePaintPolygon(x, y, endRadius * 1.4, 0.06, 0.08, phase + 0.55)
           ]
         },
         {
-          duration: 680,
-          easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
+          duration: 1150,
+          easing: 'cubic-bezier(0.32, 0.08, 0.24, 1)',
           pseudoElement: '::view-transition-new(root)'
         }
       );
