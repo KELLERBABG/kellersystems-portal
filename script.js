@@ -283,7 +283,7 @@
     }
     if (themeBtn) {
       themeBtn.setAttribute('aria-pressed', String(dark));
-      themeBtn.textContent = dark ? 'Theme: dark' : 'Theme: light';
+      themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dusty mauve dark mode');
     }
     if (themeMeta) {
       themeMeta.setAttribute('content', dark ? '#332632' : '#f6f1e6');

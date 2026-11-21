@@ -195,13 +195,54 @@ svg { display: block; max-width: 100%; }
 .brandmark::before { display: none; }
 .brandname { font-family: var(--font-display); font-weight: 800; font-size: 0.9375rem; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; }
 .brandname em { display: block; font-family: var(--font-mono); font-style: normal; font-weight: 400; font-size: 0.625rem; letter-spacing: 0.14em; color: var(--muted); }
-.nav { display: flex; align-items: center; gap: 1.25rem; }
-.nav a {
+.nav { display: flex; align-items: center; gap: 1.15rem; }
+.nav-links { display: flex; align-items: center; gap: 1.25rem; }
+.nav-links a {
   font-family: var(--font-mono); font-size: 0.6875rem; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--ink-2); text-decoration: none;
-  padding-bottom: 3px; border-bottom: 2px solid transparent; white-space: nowrap;
+  letter-spacing: 0.08em; color: var(--ink-2); text-decoration: none;
+  padding-block: 4px; border-bottom: 2px solid transparent; white-space: nowrap;
+  transition: color 0.14s var(--ease), border-color 0.14s var(--ease);
 }
-.nav a:hover { color: var(--ink); border-bottom-color: var(--signal); }
+.nav-links a:hover { color: var(--ink); border-bottom-color: var(--signal); }
+
+.nav-actions {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding-left: 1.1rem; border-left: 1px solid var(--hair);
+}
+
+.theme-switch {
+  display: inline-grid; grid-template-columns: 30px 30px; height: 32px;
+  border: 1.5px solid var(--ink); background: var(--plate); padding: 0;
+  cursor: pointer; overflow: hidden; flex: none;
+}
+.ts-opt {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 100%; color: var(--muted);
+  transition: background-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+.ts-sun { border-right: 1px solid var(--hair); }
+.theme-switch[aria-pressed="false"] .ts-sun {
+  background: var(--ink); color: var(--signal);
+}
+.theme-switch[aria-pressed="true"] .ts-moon {
+  background: var(--signal); color: #261a24;
+}
+.theme-switch:hover .ts-opt { color: var(--ink); }
+.theme-switch[aria-pressed="false"]:hover .ts-sun { color: var(--signal); }
+.theme-switch[aria-pressed="true"]:hover .ts-moon { color: #261a24; }
+
+.nav-source {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;
+  height: 32px; padding: 0 0.8rem;
+  font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em; line-height: 1;
+  background: var(--signal); color: #141310; border: 1.5px solid var(--ink);
+  text-decoration: none; white-space: nowrap;
+  transition: transform 0.14s var(--ease), box-shadow 0.14s var(--ease);
+}
+.nav-source:hover { transform: translate(-1.5px, -1.5px); box-shadow: 3px 3px 0 var(--ink); }
+[data-theme="dark"] .nav-source { color: #261a24; border-color: var(--signal); }
+[data-theme="dark"] .nav-source:hover { box-shadow: 3px 3px 0 #1f161e; }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5em;
@@ -865,8 +906,9 @@ html:not(.motion-on) .ts * {
 }
 
 /* --- Small screens: re-author the sequence rather than letterbox it ----- */
-@media (max-width: 900px) {
-  .nav a:not(.btn) { display: none; }
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .nav-actions { padding-left: 0; border-left: none; }
   .brandname em { display: none; }
   .progress { width: 4px; }
   .chapterlabel { left: 4px; }
@@ -878,13 +920,16 @@ html:not(.motion-on) .ts * {
 
 /* --- Motion switch, in the header on the live site ---------------------- */
 .motion-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 32px; padding: 0 0.72rem;
   font-family: var(--font-mono); font-size: 0.6875rem; text-transform: uppercase;
-  letter-spacing: 0.1em; background: transparent; color: var(--ink-2);
-  border: 1px solid var(--ink); padding: 0.5em 0.7em; cursor: pointer;
+  letter-spacing: 0.08em; line-height: 1; background: var(--plate); color: var(--ink-2);
+  border: 1.5px solid var(--ink); cursor: pointer; white-space: nowrap;
   transition: background-color 0.16s, color 0.16s;
 }
 .motion-toggle:hover { background: var(--ink); color: var(--paper); }
-.motion-toggle[aria-pressed="true"] { background: var(--signal); color: var(--ink); border-color: var(--ink); }
+.motion-toggle[aria-pressed="true"] { background: var(--ink); color: var(--signal); border-color: var(--ink); }
+[data-theme="dark"] .motion-toggle[aria-pressed="true"] { background: var(--deep); color: var(--signal); border-color: var(--hair); }
 @media (max-width: 1000px) { .motion-toggle { display: none; } }
 
 /* ---- Chapter anatomy: lede, then the five labelled blocks ------------- */

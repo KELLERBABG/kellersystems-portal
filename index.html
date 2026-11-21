@@ -9,7 +9,7 @@
 <meta name="description" content="Independent research and systems engineering: post-quantum mesh routing, cosmic-ray tomography, deterministic flight control, zero-knowledge identity and passive water harvesting.">
 <script>try{if(localStorage.getItem('ks-theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');var m=document.getElementById('themeColorMeta');if(m)m.content='#332632';}}catch(e){}</script>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=12.0">
+<link rel="stylesheet" href="style.css?v=13.0">
 <style>
 /* Embedded critical styling to guarantee instant render regardless of CDN cache */
 /* CTA Architectural Styling */
@@ -176,14 +176,30 @@
       <span class="brandname">Keller Systems<em>Independent R&amp;D</em></span>
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="#work">Selected work</a>
-      <a href="#shelf">Systems index</a>
-      <a href="#principles">Principles</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <button class="motion-toggle" id="themeToggle" type="button" aria-pressed="false" title="Switch between light and dusty mauve dark mode">Theme: light</button>
-      <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="false" title="Turn the scroll motion on or off">Motion: off</button>
-      <a class="btn btn-primary btn-sm" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">Source &#8599;</a>
+      <div class="nav-links">
+        <a href="#work">Selected work</a>
+        <a href="#shelf">Systems index</a>
+        <a href="#principles">Principles</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-switch" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch color theme" title="Switch between Light and Dusty Mauve Dark mode">
+          <span class="ts-opt ts-sun" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+          </span>
+          <span class="ts-opt ts-moon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+          </span>
+        </button>
+        <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="false" title="Turn the scroll motion on or off">Motion: off</button>
+        <a class="nav-source" href="https://github.com/KELLERBABG" target="_blank" rel="noopener noreferrer">Source &#8599;</a>
+      </div>
     </nav>
   </div>
 </header>
@@ -1159,8 +1175,8 @@
 
 <div class="chapterlabel" id="chapterLabel" aria-hidden="true"><b>01</b> <span>Vantablack</span></div>
 
-<script src="data.js?v=12.0"></script>
-<script src="script.js?v=12.0"></script>
+<script src="data.js?v=13.0"></script>
+<script src="script.js?v=13.0"></script>
 <script src="/assets/chat.js" defer></script>
 </body>
 </html>
