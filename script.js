@@ -277,6 +277,19 @@
     }
   }
 
+  function makePaintPolygon(cx, cy, baseR, wobbleAmp, dripAmp, phase) {
+    var pts = [];
+    var count = 24;
+    for (var i = 0; i < count; i++) {
+      var a = (i / count) * Math.PI * 2;
+      var lobe = Math.sin(a * 3 + phase) * 0.6 + Math.cos(a * 5 - phase * 0.7) * 0.4;
+      var gravity = Math.sin(a) > 0 ? Math.pow(Math.sin(a), 2) * dripAmp : 0;
+      var r = Math.max(0, baseR * (1 + lobe * wobbleAmp + gravity));
+      pts.push((cx + Math.cos(a) * r).toFixed(1) + 'px ' + (cy + Math.sin(a) * r).toFixed(1) + 'px');
+    }
+    return 'polygon(' + pts.join(', ') + ')';
+  }
+
   function toggleThemeAnimated() {
     var nextDark = root.getAttribute('data-theme') !== 'dark';
     if (reduce || typeof document.startViewTransition !== 'function' || !themeBtn) {
@@ -291,6 +304,7 @@
       Math.max(x, window.innerWidth - x),
       Math.max(y, window.innerHeight - y)
     );
+    var phase = nextDark ? 0.4 : 2.1;
 
     var transition = document.startViewTransition(function () {
       setTheme(nextDark, true);
@@ -300,12 +314,14 @@
       root.animate(
         {
           clipPath: [
-            'circle(0px at ' + x + 'px ' + y + 'px)',
-            'circle(' + endRadius + 'px at ' + x + 'px ' + y + 'px)'
+            makePaintPolygon(x, y, 0, 0, 0, phase),
+            makePaintPolygon(x, y, endRadius * 0.16, 0.22, 0.28, phase),
+            makePaintPolygon(x, y, endRadius * 0.56, 0.18, 0.34, phase + 0.35),
+            makePaintPolygon(x, y, endRadius * 1.35, 0.06, 0.08, phase + 0.5)
           ]
         },
         {
-          duration: 460,
+          duration: 680,
           easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
           pseudoElement: '::view-transition-new(root)'
         }
