@@ -9,7 +9,7 @@
 <meta name="description" content="Independent research and systems engineering: post-quantum mesh routing, cosmic-ray tomography, deterministic flight control, zero-knowledge identity and passive water harvesting.">
 <script>try{if(localStorage.getItem('ks-theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');var m=document.getElementById('themeColorMeta');if(m)m.content='#332632';}}catch(e){}</script>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=15.2">
+<link rel="stylesheet" href="style.css?v=15.3">
 <style>
 /* Embedded critical styling to guarantee instant render regardless of CDN cache */
 /* CTA Architectural Styling */
@@ -415,22 +415,12 @@
   </svg>
   <div class="m-foot">7-node L2 carrier mesh (simulated) &middot; Reed&ndash;Solomon RS(2,1) &middot; Hybrid ML-KEM-768 / X25519 &middot; per-shard HKDF + Poly1305 &middot; &le;55&nbsp;ms failover</div>
 </div>
-<div class="spec-strip">
-            <div class="spec-cell"><span>Crypto</span><strong>ML-KEM-768 / X25519</strong></div>
-            <div class="spec-cell"><span>Sharding</span><strong>Reed-Solomon RS(2,1)</strong></div>
-            <div class="spec-cell"><span>Runtime</span><strong>Rust / Tokio</strong></div>
-          </div>
         </div>
         <div class="chapter-body">
           <h2 id="t01">Vantablack</h2>
-          <p class="lede">Every message leaves by three roads at once, and no machine on any of them holds the whole thing.</p>
-          <div class="blk"><h4>The problem</h4><p>A VPN provider sees every site you visit, keeps logs, and can be ordered to hand them over. Separately, traffic recorded today can be decrypted later if quantum computers get strong enough.</p></div>
-          <div class="blk"><h4>How it works</h4><p>Vantablack connects your machine to other machines and uses them to carry your traffic. Each message is encrypted with hybrid ML-KEM-768 and X25519, split into three Reed&#8211;Solomon shards, and sent along divergent routes. A shard that arrives modified fails its own authentication tag and is discarded before reassembly.</p></div>
-          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>No provider.</b> There is nobody holding your traffic to log it.</li><li><b>Post-quantum encryption.</b> ML-KEM-768 with X25519, so a recording made today has to be broken against a cipher built for later.</li><li><b>Tamper detection.</b> Every shard carries its own HKDF-derived key and Poly1305 tag.</li><li><b>Packet-loss tolerance.</b> Any two of the three shards rebuild the message.</li></ul></div>
-          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span>Install the Windows installer, or build with <code>cargo</code></span></div><div class="step"><span class="sn">2</span><span>Point it at a peer, or let it discover one over Cloudflare</span></div><div class="step"><span class="sn">3</span><span>Route traffic through the mesh SOCKS5 proxy</span></div></div>
-            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>One binary. You run a node.</div></div>
-          <div class="blk limits"><h4>Limits</h4><p>Running it means running a node. There is no support and no company responsible for your uptime. The seven-node Level 2 carrier mesh is a simulation, and the physical-anchor modules ship disabled by default.</p></div>
-          <div class="chapter-links"><a class="btn btn-sm" href="https://vantablack.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/Vantablack" target="_blank" rel="noopener noreferrer">Source</a></div>
+          <p class="lede">Splits encrypted traffic into three shards across separate paths with post-quantum crypto so no single relay sees the whole message.</p>
+          <p class="chapter-summary">Hybrid ML-KEM-768 + X25519 encryption with per-shard Poly1305 authentication and Reed&ndash;Solomon RS(2,1) reconstruction, built in Rust over Tokio async. Self-hosted node software; the 7-node L2 carrier mesh ships as a simulation.</p>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://vantablack.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system &#8599;</a><a class="btn btn-quiet btn-sm" href="https://github.com/KELLERBABG/Vantablack" target="_blank" rel="noopener noreferrer">Source &#8599;</a></div>
         </div>
       </div>
     </section>
@@ -534,24 +524,14 @@
     <rect x="290" y="270" width="188" height="20" rx="2" fill="rgba(57,197,207,.08)" stroke="rgba(57,197,207,.4)"/>
     <text x="384" y="283" class="cy b xs mid">1 MANGEL · 3 OK · REPRODUZIERBAR</text>
   </svg>
-  <div class="m-foot">IFC4 / BIM &middot; &sect; 6 BauO NRW Abstandsfl&auml;chen &middot; DIN 18040 &middot; BauGB &sect;34 &middot; 100% on-device</div>
+  <div class="m-foot">IFC4 / BIM &middot; &sect; 6 BauO NRW Abstandsfl&auml;chen &middot; DIN 18040 &middot; BauGB &sect;34</div>
 </div>
-<div class="spec-strip">
-            <div class="spec-cell"><span>Modules</span><strong>42 DIN / LBO</strong></div>
-            <div class="spec-cell"><span>Speed</span><strong>Sub-50 ms / floor</strong></div>
-            <div class="spec-cell"><span>Privacy</span><strong>100% on-device</strong></div>
-          </div>
         </div>
         <div class="chapter-body">
           <h2 id="t02">BauLens</h2>
-          <p class="lede">Deterministic German and EU building code compliance validation engine, checking architectural parameters before ground is broken.</p>
-          <div class="blk"><h4>The problem</h4><p>Building regulations in Germany (BauGB, LBO) and European standards are intricate, distributed across state-specific ordinances, and traditionally validated through manual expert reviews. Errors caught late incur severe project delays and permit rejections.</p></div>
-          <div class="blk"><h4>How it works</h4><p>BauLens parses IFC/BIM structural models and dimensional specs into an abstract regulatory syntax tree. Rule engines run deterministic geometric, fire safety, escape route width, and accessibility clearance checks against DIN and Eurocode criteria without cloud dependencies or black-box heuristics.</p></div>
-          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>Zero-hallucination compliance.</b> Pure deterministic rule execution against authoritative state building ordinances.</li><li><b>IFC &amp; BIM integration.</b> Direct spatial parsing of architectural geometry, egress corridors, and stair pitch tolerances.</li><li><b>Instant permit pre-check.</b> Generates audit-ready compliance dossiers with exact legal citations.</li><li><b>Local air-gapped runtime.</b> All calculation happens on-device with zero exposure of confidential architectural blueprints.</li></ul></div>
-          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span>Launch the web studio or connect via API</span></div><div class="step"><span class="sn">2</span><span>Load an <code>.ifc</code> architectural model or dimensional JSON</span></div><div class="step"><span class="sn">3</span><span>Run the compliance verification suite against targeted state LBO</span></div></div>
-            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>Pure rules engine. No hardware.</div></div>
-          <div class="blk limits"><h4>Limits</h4><p>Validates geometric, structural, and dimensional criteria; legal interpretations of discretionary zoning clauses still require licensed surveyor sign-off.</p></div>
-          <div class="chapter-links"><a class="btn btn-sm" href="https://lens.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open Studio</a><a class="btn btn-quiet btn-sm" href="https://lens.kellersystems.dev/pricing/" target="_blank" rel="noopener noreferrer">Pricing &amp; Docs</a></div>
+          <p class="lede">Checks a building plan against German, Austrian, and Swiss building codes before construction starts.</p>
+          <p class="chapter-summary">Parses IFC/BIM geometry and runs deterministic checks across 42 MBO, Landesbauordnung, OIB, and IVHB rule modules with exact legal citations. Discretionary zoning exceptions still require a licensed surveyor.</p>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://lens.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open Studio &#8599;</a><a class="btn btn-quiet btn-sm" href="https://lens.kellersystems.dev/pricing/" target="_blank" rel="noopener noreferrer">Pricing &amp; Docs &#8599;</a></div>
         </div>
       </div>
     </section>
@@ -681,24 +661,14 @@
     <text x="441" y="274" class="m xs mid">PDF-Befund</text>
     <text x="320" y="294" class="d xs">lokal · kein LLM · kein Upload</text>
   </svg>
-  <div class="m-foot">Deontische Modallogik &middot; BGB &sect;&sect; 305&ndash;310 AGB-Pr&uuml;fung &middot; SMT-Z3 Solver &middot; 100% Client-Side</div>
+  <div class="m-foot">Deontische Modallogik &middot; BGB &sect;&sect; 305&ndash;310 AGB-Pr&uuml;fung &middot; SMT-Z3 Solver</div>
 </div>
-<div class="spec-strip">
-            <div class="spec-cell"><span>Engine</span><strong>Deontic &amp; SMT</strong></div>
-            <div class="spec-cell"><span>Speed</span><strong>Sub-100 ms</strong></div>
-            <div class="spec-cell"><span>Privacy</span><strong>Local in-memory</strong></div>
-          </div>
         </div>
         <div class="chapter-body">
           <h2 id="t03">ClauseLens</h2>
-          <p class="lede">Automated contract clause contradiction and risk scoring engine grounded in formal logic.</p>
-          <div class="blk"><h4>The problem</h4><p>Commercial agreements hide conflicting indemnities, ambiguous termination rights, and contradictory governing law clauses across hundreds of pages of schedules and amendments.</p></div>
-          <div class="blk"><h4>How it works</h4><p>ClauseLens translates contractual commitments into deontic logic specifications (obligations, permissions, prohibitions). It then evaluates mutual consistency and liability caps across interdependent documents, surfacing direct logical contradictions and unmitigated exposure.</p></div>
-          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>Automated contradiction detection.</b> Identifies conflicting covenants, overlapping notice windows, and mutual exclusivity paradoxes.</li><li><b>Bounded risk scoring.</b> Quantifies structural exposure across indemnity caps, force majeure, and dispute escalation trees.</li><li><b>Deontic logic graph.</b> Visualizes dependency chains between conditioned obligations and payment milestones.</li><li><b>Client-side execution.</b> Complete confidentiality. Documents are analyzed locally in-memory without third-party LLM transmission.</li></ul></div>
-          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span>Load web studio or ingest contract draft</span></div><div class="step"><span class="sn">2</span><span>Ingest bilateral agreement clauses or markdown contracts</span></div><div class="step"><span class="sn">3</span><span>Execute formal consistency check and risk audit</span></div></div>
-            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>Formal logic consistency. Client-side verified.</div></div>
-          <div class="blk limits"><h4>Limits</h4><p>Evaluates logical contradictions and parameter boundaries; jurisdiction-specific common law case law nuances require human legal counsel.</p></div>
-          <div class="chapter-links"><a class="btn btn-sm" href="https://clause.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open Studio</a><a class="btn btn-quiet btn-sm" href="https://clause.kellersystems.dev/pricing.html" target="_blank" rel="noopener noreferrer">Pricing &amp; Docs</a></div>
+          <p class="lede">Scans contracts offline for auto-renewal traps, one-sided liability clauses, and contradictions, then suggests cleaner wording.</p>
+          <p class="chapter-summary">Translates obligations, permissions, and prohibitions into deontic logic evaluated by an SMT solver to surface conflicting clauses across schedules and BGB &sect;&sect; 305&ndash;310 issues without uploading documents.</p>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://clause.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open Studio &#8599;</a><a class="btn btn-quiet btn-sm" href="https://clause.kellersystems.dev/pricing.html" target="_blank" rel="noopener noreferrer">Pricing &amp; Docs &#8599;</a></div>
         </div>
       </div>
     </section>
@@ -795,24 +765,14 @@
     <text x="280" y="299" class="ok b xs">Komfortverletzung 0 h</text>
     <text x="475" y="299" class="sig b xs end">−41,8 %</text>
   </svg>
-  <div class="m-foot">Sensible W&auml;rmekapazit&auml;t C<sub>th</sub> &middot; 48h Rolling MPC &middot; EPEX Spot Day-Ahead &middot; 0% Zyklendegradation</div>
+  <div class="m-foot">Sensible W&auml;rmekapazit&auml;t C<sub>th</sub> &middot; 48h Rolling MPC &middot; EPEX Spot Day-Ahead</div>
 </div>
-<div class="spec-strip">
-            <div class="spec-cell"><span>Horizon</span><strong>48h rolling MPC</strong></div>
-            <div class="spec-cell"><span>Comfort</span><strong>&plusmn;0.5 &deg;C band</strong></div>
-            <div class="spec-cell"><span>Market</span><strong>EPEX Spot</strong></div>
-          </div>
         </div>
         <div class="chapter-body">
           <h2 id="t04">Ambient Thermal Arbitrage</h2>
-          <p class="lede">Virtual battery energy management system that turns building thermal mass into high-efficiency distributed grid storage.</p>
-          <div class="blk"><h4>The problem</h4><p>Electrochemical batteries (lithium-ion) carry heavy capital costs, degradation cycles, and supply chain constraints. Meanwhile, existing heat pumps and HVAC systems consume energy reactively rather than leveraging dynamic day/night thermal capacitance.</p></div>
-          <div class="blk"><h4>How it works</h4><p>Ambient Thermal Arbitrage calculates high-resolution thermodynamic drift models for physical building structures. By predicting ambient weather gradients and dynamic electricity spot prices, it pre-cools or pre-heats structural thermal mass within tight comfort deadbands, arbitraging power prices without electrochemical wear.</p></div>
-          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>Zero chemical degradation.</b> Exploits physical structural mass as a maintenance-free virtual storage battery.</li><li><b>Spot-market price arbitrage.</b> Shifts megawatt-scale demand curves to negative or lowest-cost tariff windows.</li><li><b>Rigorous comfort envelopes.</b> Guaranteed interior temperature adherence using bounded predictive control.</li><li><b>Rust embedded runtime.</b> Low-power determinism suitable for direct edge deployment on building automation controllers.</li></ul></div>
-          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span><code>cargo test</code> to verify the thermodynamic solver</span></div><div class="step"><span class="sn">2</span><span>Configure building heat capacitance and envelope U-values</span></div><div class="step"><span class="sn">3</span><span>Connect dynamic spot price API and dispatch schedule generator</span></div></div>
-            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>Thermodynamic mass control. Pure software and sensorics.</div></div>
-          <div class="blk limits"><h4>Limits</h4><p>Effective thermal storage capacity depends on structural insulation and thermal mass; dynamic spot pricing requires smart metering infrastructure.</p></div>
-          <div class="chapter-links"><a class="btn btn-sm" href="https://ambient.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a></div>
+          <p class="lede">Uses the heating and cooling inertia of industrial buildings as a virtual battery to shift power use to cheaper hours.</p>
+          <p class="chapter-summary">Predicts weather and EPEX Spot prices over a 48-hour MPC horizon to pre-heat or pre-cool structural thermal mass within tight comfort bounds, written in Rust for edge controllers.</p>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://ambient.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system &#8599;</a></div>
         </div>
       </div>
     </section>
@@ -939,24 +899,14 @@
     <text x="24" y="299" class="m xs">STATUS · DIGITALER ZWILLING · KEINE HARDWARE · REINES PYTHON</text>
     <text x="476" y="299" class="sig b xs end">405 nm · Ω 30 °/s</text>
   </svg>
-  <div class="m-foot">Computed Axial Lithography &middot; Radon-Transformation &middot; Wellenoptik &middot; Photochemisches Radikalmodell &middot; Zero Supports</div>
+  <div class="m-foot">Computed Axial Lithography &middot; Radon-Transformation &middot; Wellenoptik &middot; Zero Supports</div>
 </div>
-<div class="spec-strip">
-            <div class="spec-cell"><span>Cure time</span><strong>Under 15 s</strong></div>
-            <div class="spec-cell"><span>Accuracy</span><strong>94.6&#8211;96.7% IoU</strong></div>
-            <div class="spec-cell"><span>Hardware</span><strong>None (simulator)</strong></div>
-          </div>
         </div>
         <div class="chapter-body">
           <h2 id="t05">HoloForge</h2>
-          <p class="lede">It prints the whole object at once, in the time a normal printer spends on its first hundred layers.</p>
-          <div class="blk"><h4>The problem</h4><p>Layer-by-layer resin printers run for hours, leave stair-stepping striations where one layer meets the next, and print supports that have to be cut off afterwards.</p></div>
-          <div class="blk"><h4>How it works</h4><p>HoloForge computes holograms that make 405&nbsp;nm light from several rotary angles intersect only where the part should cure, then models what follows: radical polymerisation, dissolved-oxygen inhibition, and the surface the finished part measures.</p></div>
-          <div class="blk"><h4>What it gives you</h4><ul class="gives"><li><b>Under fifteen seconds per part,</b> with no support structures to remove.</li><li><b>Cure accuracy of 94.6&#8211;96.7% IoU</b> in simulation, with under 0.02% overcure.</li><li><b>Parametric generators</b> for dental crowns, microfluidic chips and aspheric lenses, plus arbitrary .stl voxelisation.</li><li><b>A vat aberration conjugate mask</b> that cancels cylindrical vial astigmatism on the SLM, without an index-matching bath.</li></ul></div>
-          <div class="blk"><h4>Setup</h4><div class="steps"><div class="step"><span class="sn">1</span><span><code>py -m pip install -e .</code></span></div><div class="step"><span class="sn">2</span><span>Load an <code>.stl</code> and synthesise the holograms</span></div><div class="step"><span class="sn">3</span><span>Run a simulated rotary print against the digital twin</span></div></div>
-            <div class="diff"><span class="dots"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>Python only. No hardware.</div></div>
-          <div class="blk limits"><h4>Limits</h4><p>A simulated print is not a physical print. The optical and photochemical models are physical; the machine is emulated, and real output depends on your laser, your resin and your vat.</p></div>
-          <div class="chapter-links"><a class="btn btn-sm" href="https://holoforge.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system</a></div>
+          <p class="lede">Projects light from multiple angles into resin to cure a whole 3D-printed part at once, with a full laptop optical simulator.</p>
+          <p class="chapter-summary">Synthesizes rotary 405&nbsp;nm holograms and models radical polymerisation and oxygen inhibition in Python &mdash; no physical hardware required to run `.stl` print simulations.</p>
+          <div class="chapter-links"><a class="btn btn-sm" href="https://holoforge.kellersystems.dev" target="_blank" rel="noopener noreferrer">Open system &#8599;</a></div>
         </div>
       </div>
     </section>
