@@ -9,7 +9,7 @@
 <meta name="description" content="Independent research and systems engineering: post-quantum mesh routing, cosmic-ray tomography, deterministic flight control, zero-knowledge identity and passive water harvesting.">
 <script>try{if(localStorage.getItem('ks-theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');var m=document.getElementById('themeColorMeta');if(m)m.content='#332632';}}catch(e){}</script>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="style.css?v=15.1">
+<link rel="stylesheet" href="style.css?v=15.2">
 <style>
 /* Embedded critical styling to guarantee instant render regardless of CDN cache */
 /* CTA Architectural Styling */
@@ -415,14 +415,13 @@
   </svg>
   <div class="m-foot">7-node L2 carrier mesh (simulated) &middot; Reed&ndash;Solomon RS(2,1) &middot; Hybrid ML-KEM-768 / X25519 &middot; per-shard HKDF + Poly1305 &middot; &le;55&nbsp;ms failover</div>
 </div>
-<div class="docket">
-            <h4>Figures</h4>
-            <div class="fr"><span>Source files</span><span>74 in src/</span></div><div class="fr"><span>Test files</span><span>32</span></div><div class="fr"><span>Runtime</span><span>Tokio async</span></div><div class="fr"><span>Crypto</span><span>ML-KEM-768 / X25519</span></div><div class="fr"><span>Sharding</span><span>Reed-Solomon RS(2,1)</span></div><div class="fr"><span>Live at</span><span>vantablack.kellersystems.dev</span></div>
-            <div class="fr"><span>Lines of code</span><span>Rust 69,197 &middot; Python 4,362 &middot; Notebook 420</span></div>
+<div class="spec-strip">
+            <div class="spec-cell"><span>Crypto</span><strong>ML-KEM-768 / X25519</strong></div>
+            <div class="spec-cell"><span>Sharding</span><strong>Reed-Solomon RS(2,1)</strong></div>
+            <div class="spec-cell"><span>Runtime</span><strong>Rust / Tokio</strong></div>
           </div>
         </div>
         <div class="chapter-body">
-          <div class="meta"><span class="chip">Cryptography &amp; privacy</span><span class="chip">Rust</span><span class="chip">Tokio async</span></div>
           <h2 id="t01">Vantablack</h2>
           <p class="lede">Every message leaves by three roads at once, and no machine on any of them holds the whole thing.</p>
           <div class="blk"><h4>The problem</h4><p>A VPN provider sees every site you visit, keeps logs, and can be ordered to hand them over. Separately, traffic recorded today can be decrypted later if quantum computers get strong enough.</p></div>
@@ -537,14 +536,13 @@
   </svg>
   <div class="m-foot">IFC4 / BIM &middot; &sect; 6 BauO NRW Abstandsfl&auml;chen &middot; DIN 18040 &middot; BauGB &sect;34 &middot; 100% on-device</div>
 </div>
-<div class="docket">
-            <h4>Figures</h4>
-            <div class="fr"><span>Rule modules</span><span>42 DIN / LBO engines</span></div><div class="fr"><span>Parsing speed</span><span>sub-50ms per floor</span></div><div class="fr"><span>Data policy</span><span>100% on-device / air-gapped</span></div><div class="fr"><span>Standards</span><span>DIN 18040, DIN 4102, Eurocode</span></div><div class="fr"><span>Formats</span><span>IFC, BIM, JSON schemas</span></div><div class="fr"><span>Live at</span><span>lens.kellersystems.dev</span></div>
-            <div class="fr"><span>Tech stack</span><span>JavaScript &middot; TypeScript &middot; WebAssembly</span></div>
+<div class="spec-strip">
+            <div class="spec-cell"><span>Modules</span><strong>42 DIN / LBO</strong></div>
+            <div class="spec-cell"><span>Speed</span><strong>Sub-50 ms / floor</strong></div>
+            <div class="spec-cell"><span>Privacy</span><strong>100% on-device</strong></div>
           </div>
         </div>
         <div class="chapter-body">
-          <div class="meta"><span class="chip">Compliance verification</span><span class="chip">JavaScript / TS</span><span class="chip">DIN &amp; Eurocode</span></div>
           <h2 id="t02">BauLens</h2>
           <p class="lede">Deterministic German and EU building code compliance validation engine, checking architectural parameters before ground is broken.</p>
           <div class="blk"><h4>The problem</h4><p>Building regulations in Germany (BauGB, LBO) and European standards are intricate, distributed across state-specific ordinances, and traditionally validated through manual expert reviews. Errors caught late incur severe project delays and permit rejections.</p></div>
@@ -685,14 +683,13 @@
   </svg>
   <div class="m-foot">Deontische Modallogik &middot; BGB &sect;&sect; 305&ndash;310 AGB-Pr&uuml;fung &middot; SMT-Z3 Solver &middot; 100% Client-Side</div>
 </div>
-<div class="docket">
-            <h4>Figures</h4>
-            <div class="fr"><span>Logic framework</span><span>Deontic modal logic &amp; SMT</span></div><div class="fr"><span>Evaluation time</span><span>sub-100ms per agreement</span></div><div class="fr"><span>Contradiction scope</span><span>Bilateral covenants &amp; indemnities</span></div><div class="fr"><span>Exfiltration risk</span><span>Zero (in-memory client evaluation)</span></div><div class="fr"><span>Format support</span><span>DIN 5008, Markdown, Plain Text</span></div><div class="fr"><span>Live at</span><span>clause.kellersystems.dev</span></div>
-            <div class="fr"><span>Lines of code</span><span>JavaScript &middot; TypeScript</span></div>
+<div class="spec-strip">
+            <div class="spec-cell"><span>Engine</span><strong>Deontic &amp; SMT</strong></div>
+            <div class="spec-cell"><span>Speed</span><strong>Sub-100 ms</strong></div>
+            <div class="spec-cell"><span>Privacy</span><strong>Local in-memory</strong></div>
           </div>
         </div>
         <div class="chapter-body">
-          <div class="meta"><span class="chip">LegalTech &amp; SMT</span><span class="chip">JavaScript</span><span class="chip">Formal semantics</span></div>
           <h2 id="t03">ClauseLens</h2>
           <p class="lede">Automated contract clause contradiction and risk scoring engine grounded in formal logic.</p>
           <div class="blk"><h4>The problem</h4><p>Commercial agreements hide conflicting indemnities, ambiguous termination rights, and contradictory governing law clauses across hundreds of pages of schedules and amendments.</p></div>
@@ -800,14 +797,13 @@
   </svg>
   <div class="m-foot">Sensible W&auml;rmekapazit&auml;t C<sub>th</sub> &middot; 48h Rolling MPC &middot; EPEX Spot Day-Ahead &middot; 0% Zyklendegradation</div>
 </div>
-<div class="docket">
-            <h4>Figures</h4>
-            <div class="fr"><span>Storage mechanism</span><span>Sensible building thermal mass</span></div><div class="fr"><span>Battery degradation</span><span>0% cycle degradation</span></div><div class="fr"><span>Prediction horizon</span><span>48-hour rolling MPC</span></div><div class="fr"><span>Comfort tolerance</span><span>&plusmn;0.5 &deg;C bounded deadband</span></div><div class="fr"><span>Arbitrage market</span><span>EPEX Spot day-ahead &amp; intraday</span></div><div class="fr"><span>Live at</span><span>ambient.kellersystems.dev</span></div>
-            <div class="fr"><span>Lines of code</span><span>Rust 3,840</span></div>
+<div class="spec-strip">
+            <div class="spec-cell"><span>Horizon</span><strong>48h rolling MPC</strong></div>
+            <div class="spec-cell"><span>Comfort</span><strong>&plusmn;0.5 &deg;C band</strong></div>
+            <div class="spec-cell"><span>Market</span><strong>EPEX Spot</strong></div>
           </div>
         </div>
         <div class="chapter-body">
-          <div class="meta"><span class="chip">Thermodynamics &amp; Energy</span><span class="chip">Rust</span><span class="chip">Virtual battery</span></div>
           <h2 id="t04">Ambient Thermal Arbitrage</h2>
           <p class="lede">Virtual battery energy management system that turns building thermal mass into high-efficiency distributed grid storage.</p>
           <div class="blk"><h4>The problem</h4><p>Electrochemical batteries (lithium-ion) carry heavy capital costs, degradation cycles, and supply chain constraints. Meanwhile, existing heat pumps and HVAC systems consume energy reactively rather than leveraging dynamic day/night thermal capacitance.</p></div>
@@ -945,14 +941,13 @@
   </svg>
   <div class="m-foot">Computed Axial Lithography &middot; Radon-Transformation &middot; Wellenoptik &middot; Photochemisches Radikalmodell &middot; Zero Supports</div>
 </div>
-<div class="docket">
-            <h4>Figures</h4>
-            <div class="fr"><span>Files</span><span>113</span></div><div class="fr"><span>Python</span><span>4,842 lines</span></div><div class="fr"><span>Whole part cured</span><span>under 15 s</span></div><div class="fr"><span>Cure accuracy</span><span>94.6&#8211;96.7% IoU</span></div><div class="fr"><span>Overcure</span><span>under 0.02%</span></div><div class="fr"><span>Hardware needed</span><span>none</span></div>
-            <div class="fr"><span>Lines of code</span><span>Python 4,842</span></div>
+<div class="spec-strip">
+            <div class="spec-cell"><span>Cure time</span><strong>Under 15 s</strong></div>
+            <div class="spec-cell"><span>Accuracy</span><strong>94.6&#8211;96.7% IoU</strong></div>
+            <div class="spec-cell"><span>Hardware</span><strong>None (simulator)</strong></div>
           </div>
         </div>
         <div class="chapter-body">
-          <div class="meta"><span class="chip">Volumetric 3D printing</span><span class="chip">Python</span><span class="chip">wave optics</span></div>
           <h2 id="t05">HoloForge</h2>
           <p class="lede">It prints the whole object at once, in the time a normal printer spends on its first hundred layers.</p>
           <div class="blk"><h4>The problem</h4><p>Layer-by-layer resin printers run for hours, leave stair-stepping striations where one layer meets the next, and print supports that have to be cut off afterwards.</p></div>
