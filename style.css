@@ -349,9 +349,7 @@ svg { display: block; max-width: 100%; }
 .cnum { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.14em; color: var(--signal); }
 .cname { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.15rem, 2.5vw, 1.85rem); line-height: 1.08; letter-spacing: -0.028em; }
 .contents-list li:hover .cname a { color: var(--signal); }
-.ctag { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; display: inline-flex; align-items: center; gap: 0.65rem; }
-.ctier { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; padding: 0.12em 0.45em; border: 1px solid rgba(246, 241, 230, 0.35); color: var(--onink); opacity: 1; }
-.ctier-comm { border-color: var(--signal); color: var(--signal); }
+.ctag { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
 .contents-list li.is-on .cnum { color: var(--signal); }
 .contents-list a { text-decoration: none; transition: color 0.15s var(--ease); }
 .contents-intro { margin-top: 1.35rem; font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.62; }
